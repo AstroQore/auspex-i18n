@@ -150,6 +150,76 @@
 			<string>%lld agents attached</string>
 		</dict>
 	</dict>
+	<key>now.stage.collapsedA11y</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Office, folded: %1$#@working@, %2$#@needsYou@</string>
+		<key>working</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%1$lld session working</string>
+			<key>other</key>
+			<string>%1$lld sessions working</string>
+		</dict>
+		<key>needsYou</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%2$lld needs you</string>
+			<key>other</key>
+			<string>%2$lld need you</string>
+		</dict>
+	</dict>
+	<key>now.stage.collapsedSummary</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Office · %#@working@ ▸</string>
+		<key>working</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld working</string>
+			<key>other</key>
+			<string>%lld working</string>
+		</dict>
+	</dict>
+	<key>now.stage.collapsedSummaryNeedsYou</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Office · %1$#@working@ · %2$#@needsYou@ ▸</string>
+		<key>working</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%1$lld working</string>
+			<key>other</key>
+			<string>%1$lld working</string>
+		</dict>
+		<key>needsYou</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%2$lld needs you</string>
+			<key>other</key>
+			<string>%2$lld need you</string>
+		</dict>
+	</dict>
 	<key>projects.fold.finishedElsewhere</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>

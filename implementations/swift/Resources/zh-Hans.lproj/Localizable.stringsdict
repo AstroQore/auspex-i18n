@@ -132,6 +132,66 @@
 			<string>已连接 %lld 个 agent</string>
 		</dict>
 	</dict>
+	<key>now.stage.collapsedA11y</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>办公室（已收起）：%1$#@working@，%2$#@needsYou@</string>
+		<key>working</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%1$lld 个会话在工作</string>
+		</dict>
+		<key>needsYou</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%2$lld 个需要你</string>
+		</dict>
+	</dict>
+	<key>now.stage.collapsedSummary</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>办公室 · %#@working@ ▸</string>
+		<key>working</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld 人在干活</string>
+		</dict>
+	</dict>
+	<key>now.stage.collapsedSummaryNeedsYou</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>办公室 · %1$#@working@ · %2$#@needsYou@ ▸</string>
+		<key>working</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%1$lld 人在干活</string>
+		</dict>
+		<key>needsYou</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%2$lld 人需要你</string>
+		</dict>
+	</dict>
 	<key>projects.fold.finishedElsewhere</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>

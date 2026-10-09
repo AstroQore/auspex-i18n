@@ -1488,6 +1488,9 @@
 /* Tooltip and VoiceOver label of the chevron that closes Now's office stage. */
 "now.stage.collapse" = "收起办公室";
 
+/* Tooltip and VoiceOver hint of the folded office strip on Now; clicking the strip opens the stage again. Counterpart of now.stage.collapse. */
+"now.stage.expand" = "展开办公室";
+
 /* Hint chip over Now's office stage. */
 "now.stage.hint" = "点按人物即可打开会话 · 悬停可查看其正在做什么";
 

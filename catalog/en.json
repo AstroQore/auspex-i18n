@@ -2296,6 +2296,33 @@
       "value": "Hide the office",
       "comment": "Tooltip and VoiceOver label of the chevron that closes Now's office stage."
     },
+    "now.stage.collapsedA11y": {
+      "value": "Office, folded: {working, plural, one {# session working} other {# sessions working}}, {needsYou, plural, one {# needs you} other {# need you}}",
+      "comment": "VoiceOver label of the one-line strip Now's office stage folds into. {working} is Now's Working count, {needsYou} its Needs you count; both are read out even when zero.",
+      "placeholders": {
+        "working": "int",
+        "needsYou": "int"
+      }
+    },
+    "now.stage.collapsedSummary": {
+      "value": "Office · {working, plural, one {# working} other {# working}} ▸",
+      "comment": "Now: the one-line strip the office stage folds into after a while without input, or when its chevron is clicked. {working} is Now's Working count. Shown while nobody needs the person; now.stage.collapsedSummaryNeedsYou is the same line with that count. The ▸ says a click opens the office again.",
+      "placeholders": {
+        "working": "int"
+      }
+    },
+    "now.stage.collapsedSummaryNeedsYou": {
+      "value": "Office · {working, plural, one {# working} other {# working}} · {needsYou, plural, one {# needs you} other {# need you}} ▸",
+      "comment": "Now: as now.stage.collapsedSummary, while at least one session needs the person. {needsYou} is Now's Needs you count and is never zero here.",
+      "placeholders": {
+        "working": "int",
+        "needsYou": "int"
+      }
+    },
+    "now.stage.expand": {
+      "value": "Show the office",
+      "comment": "Tooltip and VoiceOver hint of the folded office strip on Now; clicking the strip opens the stage again. Counterpart of now.stage.collapse."
+    },
     "now.stage.hint": {
       "value": "Click a person to open the session · hover for what they are doing",
       "comment": "Hint chip over Now's office stage."

@@ -1488,6 +1488,9 @@
 /* Tooltip and VoiceOver label of the chevron that closes Now's office stage. */
 "now.stage.collapse" = "Hide the office";
 
+/* Tooltip and VoiceOver hint of the folded office strip on Now; clicking the strip opens the stage again. Counterpart of now.stage.collapse. */
+"now.stage.expand" = "Show the office";
+
 /* Hint chip over Now's office stage. */
 "now.stage.hint" = "Click a person to open the session · hover for what they are doing";
 

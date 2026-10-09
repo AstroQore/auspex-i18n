@@ -3400,6 +3400,36 @@ public enum L10n {
             /// en: "Hide the office"
             public static var collapse: String { L10nSupport.string("now.stage.collapse") }
 
+            /// VoiceOver label of the one-line strip Now's office stage folds into. {working} is Now's Working count, {needsYou} its Needs you count; both are read out even when zero.
+            ///
+            /// Key: `now.stage.collapsedA11y`
+            /// en: "Office, folded: {working, plural, one {# session working} other {# sessions working}}, {needsYou, plural, one {# needs you} other {# need you}}"
+            public static func collapsedA11y(working: Int, needsYou: Int) -> String {
+                L10nSupport.localizedFormat("now.stage.collapsedA11y", working, needsYou)
+            }
+
+            /// Now: the one-line strip the office stage folds into after a while without input, or when its chevron is clicked. {working} is Now's Working count. Shown while nobody needs the person; now.stage.collapsedSummaryNeedsYou is the same line with that count. The ▸ says a click opens the office again.
+            ///
+            /// Key: `now.stage.collapsedSummary`
+            /// en: "Office · {working, plural, one {# working} other {# working}} ▸"
+            public static func collapsedSummary(working: Int) -> String {
+                L10nSupport.localizedFormat("now.stage.collapsedSummary", working)
+            }
+
+            /// Now: as now.stage.collapsedSummary, while at least one session needs the person. {needsYou} is Now's Needs you count and is never zero here.
+            ///
+            /// Key: `now.stage.collapsedSummaryNeedsYou`
+            /// en: "Office · {working, plural, one {# working} other {# working}} · {needsYou, plural, one {# needs you} other {# need you}} ▸"
+            public static func collapsedSummaryNeedsYou(working: Int, needsYou: Int) -> String {
+                L10nSupport.localizedFormat("now.stage.collapsedSummaryNeedsYou", working, needsYou)
+            }
+
+            /// Tooltip and VoiceOver hint of the folded office strip on Now; clicking the strip opens the stage again. Counterpart of now.stage.collapse.
+            ///
+            /// Key: `now.stage.expand`
+            /// en: "Show the office"
+            public static var expand: String { L10nSupport.string("now.stage.expand") }
+
             /// Hint chip over Now's office stage.
             ///
             /// Key: `now.stage.hint`
@@ -7762,6 +7792,10 @@ enum L10nCatalogFacts {
         "now.openArrow",
         "now.search",
         "now.stage.collapse",
+        "now.stage.collapsedA11y",
+        "now.stage.collapsedSummary",
+        "now.stage.collapsedSummaryNeedsYou",
+        "now.stage.expand",
         "now.stage.hint",
         "now.stage.listsOnly",
         "now.stage.officeAndLists",
@@ -8365,6 +8399,9 @@ enum L10nCatalogFacts {
         "delivery.changedFilesCapped",
         "harnesses.config.servers",
         "mcp.status.agentsAttached",
+        "now.stage.collapsedA11y",
+        "now.stage.collapsedSummary",
+        "now.stage.collapsedSummaryNeedsYou",
         "projects.fold.finishedElsewhere",
         "projects.tasksOpen",
         "search.matches",
@@ -8886,6 +8923,10 @@ enum L10nCatalogFacts {
         "now.openArrow": 0,
         "now.search": 0,
         "now.stage.collapse": 0,
+        "now.stage.collapsedA11y": 2,
+        "now.stage.collapsedSummary": 1,
+        "now.stage.collapsedSummaryNeedsYou": 2,
+        "now.stage.expand": 0,
         "now.stage.hint": 0,
         "now.stage.listsOnly": 0,
         "now.stage.officeAndLists": 0,

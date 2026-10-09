@@ -139,6 +139,32 @@ struct LocalizationTests {
         }
     }
 
+    /// Two plurals in one sentence: each `%n$#@name@` variable has to pick
+    /// its own branch from its own argument, whichever count is the one.
+    @Test func twoPluralsInOneSentence() {
+        withOverride("en") {
+            #expect(
+                L10n.Now.Stage.collapsedSummaryNeedsYou(working: 1, needsYou: 2)
+                    == "Office · 1 working · 2 need you ▸"
+            )
+            #expect(
+                L10n.Now.Stage.collapsedSummaryNeedsYou(working: 3, needsYou: 1)
+                    == "Office · 3 working · 1 needs you ▸"
+            )
+            #expect(
+                L10n.Now.Stage.collapsedA11y(working: 1, needsYou: 0)
+                    == "Office, folded: 1 session working, 0 need you"
+            )
+        }
+        withOverride("zh-Hans") {
+            #expect(
+                L10n.Now.Stage.collapsedSummaryNeedsYou(working: 3, needsYou: 1)
+                    == "办公室 · 3 人在干活 · 1 人需要你 ▸"
+            )
+            #expect(L10n.Now.Stage.collapsedSummary(working: 1) == "办公室 · 1 人在干活 ▸")
+        }
+    }
+
     // MARK: - Override
 
     @Test func overrideChangesTheResolvedString() {

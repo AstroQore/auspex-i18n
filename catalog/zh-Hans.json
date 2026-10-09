@@ -1514,6 +1514,18 @@
     "now.stage.collapse": {
       "value": "收起办公室"
     },
+    "now.stage.collapsedA11y": {
+      "value": "办公室（已收起）：{working, plural, other {# 个会话在工作}}，{needsYou, plural, other {# 个需要你}}"
+    },
+    "now.stage.collapsedSummary": {
+      "value": "办公室 · {working, plural, other {# 人在干活}} ▸"
+    },
+    "now.stage.collapsedSummaryNeedsYou": {
+      "value": "办公室 · {working, plural, other {# 人在干活}} · {needsYou, plural, other {# 人需要你}} ▸"
+    },
+    "now.stage.expand": {
+      "value": "展开办公室"
+    },
     "now.stage.hint": {
       "value": "点按人物即可打开会话 · 悬停可查看其正在做什么"
     },
