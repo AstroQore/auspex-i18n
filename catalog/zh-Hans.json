@@ -39,7 +39,7 @@
       "value": "检查更新…"
     },
     "app.menu.closeFlight": {
-      "value": "关闭航迹"
+      "value": "关闭 Flight"
     },
     "app.menu.closeTask": {
       "value": "关闭任务"
@@ -51,7 +51,7 @@
       "value": "全部标为已查看"
     },
     "app.menu.openFlight": {
-      "value": "打开航迹"
+      "value": "打开 Flight"
     },
     "app.menu.openTask": {
       "value": "打开任务"
@@ -894,7 +894,7 @@
       "value": "正在构建执行图…"
     },
     "flight.buildingGraphDetail": {
-      "value": "航迹正在整理此会话中观察到的 agent 和工具事件。"
+      "value": "Flight 正在整理此会话中观察到的 agent 和工具事件。"
     },
     "flight.cached": {
       "value": "缓存"
@@ -1026,7 +1026,7 @@
       "value": "播放头"
     },
     "flight.playheadA11y": {
-      "value": "航迹事件播放头"
+      "value": "Flight 事件播放头"
     },
     "flight.pre": {
       "value": "前置"
@@ -1089,13 +1089,13 @@
       "value": "任务"
     },
     "flight.scopeHelp": {
-      "value": "单个会话的航迹，或整个任务的航迹 — 任务上的所有会话按发生顺序汇成一张瀑布图"
+      "value": "单个会话的 Flight，或整个任务的 Flight — 任务上的所有会话按发生顺序汇成一张瀑布图"
     },
     "flight.selectNodeHint": {
       "value": "点按图中的节点即可在这里固定其详情。「跟随」会平滑移动到当前活动；平移或缩放即进入「手动」。"
     },
     "flight.selectSessionDetail": {
-      "value": "航迹就是把一个会话完全展开。选择一张卡片即可查看它的各轮。"
+      "value": "Flight 就是把一个会话完全展开。选择一张卡片即可查看它的各轮。"
     },
     "flight.selectedAgent": {
       "value": "所选 agent"
@@ -1533,7 +1533,7 @@
       "value": "视图：{mode}"
     },
     "now.viewMenu.help": {
-      "value": "视图：此刻、卡片账本、鸟舍、鸟群、你的栖枝，或单个会话的航迹"
+      "value": "视图：Now、卡片 Ledger、Aviary、Flock、你的 Perch，或单个会话的 Flight"
     },
     "now.viewMenu.title": {
       "value": "视图"
@@ -1707,7 +1707,7 @@
       "value": "画板"
     },
     "perch.history.building": {
-      "value": "正在构建这个栖枝时刻…"
+      "value": "正在构建这个 Perch 时刻…"
     },
     "perch.history.buildingDetail": {
       "value": "播放头所在时刻的画板状态会显示在这里。历史只读。"
@@ -1806,7 +1806,7 @@
       "value": "只合并位置、成员覆盖和规则树。任务、依赖、agent、画板名称和视角都不会变。"
     },
     "perch.mergeTitle": {
-      "value": "合并栖枝分支"
+      "value": "合并 Perch 分支"
     },
     "perch.minimapHelp": {
       "value": "整块画板。点按或拖移以移动视角。"
@@ -1824,7 +1824,7 @@
       "value": "这块画板从手动模式开始。创建后可在「画板规则」中添加嵌套规则。"
     },
     "perch.newBoardTitle": {
-      "value": "新建栖枝画板"
+      "value": "新建 Perch 画板"
     },
     "perch.noActivity": {
       "value": "没有观察到活动"
@@ -1845,7 +1845,7 @@
       "value": "播放历史"
     },
     "perch.playhead": {
-      "value": "栖枝历史播放头"
+      "value": "Perch 历史播放头"
     },
     "perch.playheadValue": {
       "value": "第 {index} 个事件，共 {count} 个"
@@ -2301,7 +2301,7 @@
       "value": "始终使用浅色，不论 Mac 如何设置。"
     },
     "settings.appearance.noRelaunch": {
-      "value": "无需重新启动。窗口、菜单栏面板、办公室和鸟群都会就地重绘。"
+      "value": "无需重新启动。窗口、菜单栏面板、办公室和 Flock 都会就地重绘。"
     },
     "settings.appearance.systemDetail": {
       "value": "跟随 Mac 的外观设置，包括定时切换。"
@@ -2415,7 +2415,7 @@
       "value": "每个 harness 穿哪个角色形象，以及角色包从哪里来。"
     },
     "settings.pane.crew": {
-      "value": "鸟群"
+      "value": "Flock"
     },
     "settings.pane.crewSubtitle": {
       "value": "头像墙多久动一次。"
@@ -2868,7 +2868,7 @@
       "value": "批准"
     },
     "taskDetail.backHelp": {
-      "value": "返回账本 — 也可按 Esc 键"
+      "value": "返回 Ledger — 也可按 Esc 键"
     },
     "taskDetail.claimedBy": {
       "value": "认领者"
@@ -2904,10 +2904,10 @@
       "value": "打开 {id}"
     },
     "taskDetail.openFlight": {
-      "value": "打开航迹"
+      "value": "打开 Flight"
     },
     "taskDetail.openSessionFlight": {
-      "value": "打开此会话的航迹"
+      "value": "打开此会话的 Flight"
     },
     "taskDetail.previousReview": {
       "value": "上一个审阅"
@@ -3204,16 +3204,16 @@
       "value": "此视图中没有内容。"
     },
     "trace.onThePerch": {
-      "value": "在栖枝上"
+      "value": "在 Perch 上"
     },
     "trace.openTrajectory": {
-      "value": "打开航迹"
+      "value": "打开 Flight"
     },
     "trace.openTrajectoryHelp": {
       "value": "以瀑布图打开此会话的完整历史（⌘T）"
     },
     "trace.perchNote": {
-      "value": "双击卡片即可打开它的航迹。恢复会话仍需通过上方的显式操作。"
+      "value": "双击卡片即可打开它的 Flight。恢复会话仍需通过上方的显式操作。"
     },
     "trace.pinnedIn": {
       "value": "固定在「{board}」"
@@ -3270,22 +3270,22 @@
       "value": "第 {number} 轮"
     },
     "viewMode.board": {
-      "value": "账本"
+      "value": "Ledger"
     },
     "viewMode.crew": {
-      "value": "鸟群"
+      "value": "Flock"
     },
     "viewMode.now": {
-      "value": "此刻"
+      "value": "Now"
     },
     "viewMode.perch": {
-      "value": "栖枝"
+      "value": "Perch"
     },
     "viewMode.scene": {
-      "value": "鸟舍"
+      "value": "Aviary"
     },
     "viewMode.trajectory": {
-      "value": "航迹"
+      "value": "Flight"
     }
   }
 }

@@ -92,6 +92,36 @@
       "term": "MCP",
       "kind": "protocol",
       "note": "Model Context Protocol. Stays in Latin script in every language."
+    },
+    {
+      "term": "Now",
+      "kind": "view",
+      "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
+    },
+    {
+      "term": "Ledger",
+      "kind": "view",
+      "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
+    },
+    {
+      "term": "Aviary",
+      "kind": "view",
+      "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
+    },
+    {
+      "term": "Flock",
+      "kind": "view",
+      "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
+    },
+    {
+      "term": "Perch",
+      "kind": "view",
+      "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
+    },
+    {
+      "term": "Flight",
+      "kind": "view",
+      "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     }
   ]
 }
