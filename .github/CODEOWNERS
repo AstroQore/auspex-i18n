@@ -1,0 +1,4 @@
+# The catalogue is the contract Auspex depends on.
+/catalog/    @AstroQore
+/schema/     @AstroQore
+/scripts/    @AstroQore

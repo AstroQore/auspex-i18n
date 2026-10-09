@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Something wrong in Auspex itself
+    url: https://github.com/AstroQore/auspex/issues
+    about: This repository holds strings only. Behaviour, layout and truncation bugs in the app belong there — a string that is right here but wrong on screen is an app bug.

@@ -1,0 +1,15 @@
+{
+  "$schema": "../schema/catalog.schema.json",
+  "locale": "zh-Hans",
+  "keys": {
+    "common.cancel": {
+      "value": "取消"
+    },
+    "settings.language.system": {
+      "value": "跟随系统"
+    },
+    "settings.language.title": {
+      "value": "语言"
+    }
+  }
+}

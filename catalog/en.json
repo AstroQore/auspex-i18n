@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema/catalog.schema.json",
+  "locale": "en",
+  "keys": {
+    "common.cancel": {
+      "value": "Cancel",
+      "comment": "Button that abandons an action in progress."
+    },
+    "settings.language.system": {
+      "value": "System",
+      "comment": "Settings → General → Language: follow the macOS language. The other two options are each language's own name and are not translated. distinct-from: flight.role.system"
+    },
+    "settings.language.title": {
+      "value": "Language",
+      "comment": "Settings → General: heading of the interface-language picker."
+    }
+  }
+}

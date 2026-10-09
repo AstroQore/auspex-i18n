@@ -1,0 +1,21 @@
+{
+  "name": "@astroqore/auspex-i18n",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Auspex's localization catalog: one source of user-facing strings for the macOS app.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AstroQore/auspex-i18n.git"
+  },
+  "scripts": {
+    "validate": "python3 scripts/validate.py",
+    "generate": "python3 scripts/generate.py"
+  },
+  "keywords": [
+    "auspex",
+    "i18n",
+    "localization",
+    "icu"
+  ]
+}

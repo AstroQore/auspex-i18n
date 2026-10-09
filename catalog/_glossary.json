@@ -1,0 +1,97 @@
+{
+  "$schema": "../schema/glossary.schema.json",
+  "neverTranslate": [
+    {
+      "term": "Auspex",
+      "kind": "product",
+      "note": "This app. Never translated, never transliterated."
+    },
+    {
+      "term": "Claude Code",
+      "kind": "harness"
+    },
+    {
+      "term": "Claude Cowork",
+      "kind": "harness"
+    },
+    {
+      "term": "Codex",
+      "kind": "harness"
+    },
+    {
+      "term": "ChatGPT Work",
+      "kind": "harness"
+    },
+    {
+      "term": "Cursor",
+      "kind": "harness"
+    },
+    {
+      "term": "Gemini CLI",
+      "kind": "harness"
+    },
+    {
+      "term": "AntiGravity",
+      "kind": "harness",
+      "note": "The kit's display name, with the capital G."
+    },
+    {
+      "term": "Grok Build",
+      "kind": "harness"
+    },
+    {
+      "term": "Grok Bot",
+      "kind": "harness"
+    },
+    {
+      "term": "Claude",
+      "kind": "product"
+    },
+    {
+      "term": "ChatGPT",
+      "kind": "product"
+    },
+    {
+      "term": "Gemini",
+      "kind": "product"
+    },
+    {
+      "term": "Grok",
+      "kind": "product"
+    },
+    {
+      "term": "Anthropic",
+      "kind": "company"
+    },
+    {
+      "term": "OpenAI",
+      "kind": "company"
+    },
+    {
+      "term": "Google",
+      "kind": "company"
+    },
+    {
+      "term": "xAI",
+      "kind": "company"
+    },
+    {
+      "term": "macOS",
+      "kind": "product"
+    },
+    {
+      "term": "Sparkle",
+      "kind": "product",
+      "note": "The update framework Auspex ships with."
+    },
+    {
+      "term": "GitHub",
+      "kind": "brand"
+    },
+    {
+      "term": "MCP",
+      "kind": "protocol",
+      "note": "Model Context Protocol. Stays in Latin script in every language."
+    }
+  ]
+}
