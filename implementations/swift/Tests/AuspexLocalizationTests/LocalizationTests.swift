@@ -96,14 +96,61 @@ struct LocalizationTests {
         }
     }
 
+    // MARK: - Plurals
+
+    @Test func pluralsFormatForOneAndForMany() {
+        withOverride("en") {
+            #expect(L10n.Board.Window.hours(count: 1) == "1 hour")
+            #expect(L10n.Board.Window.hours(count: 6) == "6 hours")
+            #expect(L10n.Trace.earlierRows(count: 1) == "1 earlier row")
+            #expect(L10n.Trace.earlierRows(count: 40) == "40 earlier rows")
+        }
+        withOverride("zh-Hans") {
+            // Simplified Chinese has only `other`; both counts take it.
+            #expect(L10n.Board.Window.hours(count: 1) == "1 小时")
+            #expect(L10n.Board.Window.hours(count: 6) == "6 小时")
+        }
+    }
+
+    @Test func everyPluralKeyResolvesThroughTheStringsdict() {
+        #expect(!L10nCatalogFacts.pluralKeys.isEmpty)
+        for key in L10nCatalogFacts.pluralKeys {
+            for locale in L10nCatalogFacts.locales {
+                withOverride(locale) {
+                    let template = L10nSupport.string(key)
+                    #expect(
+                        template.contains("%#@") || template.contains("$#@"),
+                        "\(locale): \(key) did not come from Localizable.stringsdict (got \(template))"
+                    )
+                }
+            }
+        }
+    }
+
+    /// A plural whose branches carry a second value: the positional
+    /// specifier inside the `.stringsdict` branch has to reach it.
+    @Test func aSecondValueInsideAPluralBranch() {
+        withOverride("en") {
+            #expect(L10n.Settings.Ignore.rulesOn(count: 1, active: 0) == "1 rule, 0 of them on.")
+            #expect(L10n.Settings.Ignore.rulesOn(count: 3, active: 1) == "3 rules, 1 of them on.")
+        }
+        withOverride("zh-Hans") {
+            #expect(L10n.Settings.Ignore.rulesOn(count: 3, active: 1) == "3 条规则，其中 1 条已开启。")
+        }
+    }
+
     // MARK: - Override
 
     @Test func overrideChangesTheResolvedString() {
         withOverride("en") {
             #expect(L10n.Common.cancel == "Cancel")
+            #expect(L10n.ViewMode.now == "Now")
+            #expect(L10n.Now.status(time: "17:31", live: 14, working: 7) == "17:31 · 14 live · 7 working")
         }
         withOverride("zh-Hans") {
             #expect(L10n.Common.cancel == "取消")
+            #expect(L10n.ViewMode.now == "此刻")
+            #expect(L10n.Now.status(time: "17:31", live: 14, working: 7) == "17:31 · 14 个活跃 · 7 个工作中")
         }
     }
 
@@ -130,6 +177,19 @@ struct LocalizationTests {
         withOverride("zh-Hans-CN") { #expect(L10n.Common.cancel == "取消") }
         withOverride("zh") { #expect(L10n.Common.cancel == "取消") }
         withOverride("en-US") { #expect(L10n.Common.cancel == "Cancel") }
+    }
+
+    /// Named parameters reach the right position, including when the
+    /// translation reorders them.
+    @Test func namedParametersReachTheRightPosition() {
+        withOverride("zh-Hans") {
+            #expect(
+                L10n.Board.Window.olderHidden(count: 3, window: "12 小时")
+                    == "已隐藏 3 个早于 12 小时的会话"
+            )
+            #expect(L10n.Now.Watch.longTool(tool: "Bash", minutes: 5) == "Bash 已运行超过 5 分钟")
+            #expect(L10n.Now.Watch.contextPressure(percent: 90) == "上下文已用超过 90%")
+        }
     }
 
     // MARK: - Helpers

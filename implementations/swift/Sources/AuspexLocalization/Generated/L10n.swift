@@ -10,16 +10,5304 @@ import Foundation
 /// at any point in a session, and a `static let` would cache the string
 /// it resolved the first time anybody touched it.
 public enum L10n {
+    public enum Agents {
+        /// Settings → Agents row button.
+        ///
+        /// Key: `agents.install`
+        /// en: "Install"
+        public static var install: String { L10nSupport.string("agents.install") }
+
+        /// Settings → Agents row state.
+        ///
+        /// Key: `agents.installed`
+        /// en: "installed"
+        public static var installed: String { L10nSupport.string("agents.installed") }
+
+        /// Settings → Agents.
+        ///
+        /// Key: `agents.notServing`
+        /// en: "Auspex is not serving its MCP server in this process."
+        public static var notServing: String { L10nSupport.string("agents.notServing") }
+
+        /// Settings → Agents footnote. Backtick spans are literal text.
+        ///
+        /// Key: `agents.note`
+        /// en: "Auspex writes into a harness's own files only from here, only in a region it owns — a block marked `>>> auspex >>>`, one `auspex` entry in a JSON config, hook entries that run the Auspex binary, or the exclusive auspex-coordination skill directory. The skill carries an ownership marker, version and content hash; Auspex refuses to replace or remove it after any outside edit. Updates are backed up to ~/.auspex/backups/."
+        public static var note: String { L10nSupport.string("agents.note") }
+
+        /// Settings → Agents toggle.
+        ///
+        /// Key: `agents.notifyDone`
+        /// en: "Notify when an agent reports finishing"
+        public static var notifyDone: String { L10nSupport.string("agents.notifyDone") }
+
+        /// Settings → Agents toggle note.
+        ///
+        /// Key: `agents.notifyDoneNote`
+        /// en: "A session that is blocked on you always raises one. It will not get unstuck on its own."
+        public static var notifyDoneNote: String { L10nSupport.string("agents.notifyDoneNote") }
+
+        /// Settings → Agents button.
+        ///
+        /// Key: `agents.openSetup`
+        /// en: "Open setup…"
+        public static var openSetup: String { L10nSupport.string("agents.openSetup") }
+
+        /// Settings → Agents row button.
+        ///
+        /// Key: `agents.replace`
+        /// en: "Replace"
+        public static var replace: String { L10nSupport.string("agents.replace") }
+
+        /// Settings → Agents.
+        ///
+        /// Key: `agents.serving`
+        /// en: "Auspex is serving its MCP server on {path}."
+        public static func serving(path: String) -> String {
+            L10nSupport.format("agents.serving", path)
+        }
+
+        /// Settings → Agents row button. distinct-from: settings.pane.updates
+        ///
+        /// Key: `agents.update`
+        /// en: "Update"
+        public static var update: String { L10nSupport.string("agents.update") }
+    }
+
+    public enum App {
+        public enum Menu {
+            /// View menu: opens the Catch-up panel.
+            ///
+            /// Key: `app.menu.catchUp`
+            /// en: "Catch Up…"
+            public static var catchUp: String { L10nSupport.string("app.menu.catchUp") }
+
+            /// App menu and menu-bar panel command.
+            ///
+            /// Key: `app.menu.checkForUpdates`
+            /// en: "Check for Updates…"
+            public static var checkForUpdates: String { L10nSupport.string("app.menu.checkForUpdates") }
+
+            /// View menu: leaves the Flight view.
+            ///
+            /// Key: `app.menu.closeFlight`
+            /// en: "Close Flight"
+            public static var closeFlight: String { L10nSupport.string("app.menu.closeFlight") }
+
+            /// View menu: closes the selected task that is in review.
+            ///
+            /// Key: `app.menu.closeTask`
+            /// en: "Close Task"
+            public static var closeTask: String { L10nSupport.string("app.menu.closeTask") }
+
+            /// View menu: opens the command palette (⌘K).
+            ///
+            /// Key: `app.menu.goToTask`
+            /// en: "Go to Task…"
+            public static var goToTask: String { L10nSupport.string("app.menu.goToTask") }
+
+            /// View menu command (⇧⌘K) and the VoiceOver label of the header's clear-everything button.
+            ///
+            /// Key: `app.menu.markAllSeen`
+            /// en: "Mark All as Seen"
+            public static var markAllSeen: String { L10nSupport.string("app.menu.markAllSeen") }
+
+            /// View menu: opens the Flight view on the selected session. "Flight" is viewMode.trajectory.
+            ///
+            /// Key: `app.menu.openFlight`
+            /// en: "Open Flight"
+            public static var openFlight: String { L10nSupport.string("app.menu.openFlight") }
+
+            /// View menu: opens the selected task.
+            ///
+            /// Key: `app.menu.openTask`
+            /// en: "Open Task"
+            public static var openTask: String { L10nSupport.string("app.menu.openTask") }
+
+            /// View menu: opens the next task waiting for review.
+            ///
+            /// Key: `app.menu.reviewNext`
+            /// en: "Review Next"
+            public static var reviewNext: String { L10nSupport.string("app.menu.reviewNext") }
+        }
+    }
+
+    public enum Attention {
+        /// Tooltip on the banner's dismiss button when somebody is needed.
+        ///
+        /// Key: `attention.dismissNeedsYou`
+        /// en: "Dismiss — the card goes quiet and stops being counted"
+        public static var dismissNeedsYou: String { L10nSupport.string("attention.dismissNeedsYou") }
+
+        /// Tooltip on the banner's dismiss button on a report.
+        ///
+        /// Key: `attention.dismissRead`
+        /// en: "Dismiss — you have read it"
+        public static var dismissRead: String { L10nSupport.string("attention.dismissRead") }
+
+        /// The word in front of an agent's report on a card's banner — "Done: the tailer now handles partial lines". distinct-from: common.done
+        ///
+        /// Key: `attention.done`
+        /// en: "Done"
+        public static var done: String { L10nSupport.string("attention.done") }
+
+        /// Punctuation after attention.done on a banner; keeps the trailing space in English.
+        ///
+        /// Key: `attention.headline`
+        /// en: "{headline}: "
+        public static func headline(headline: String) -> String {
+            L10nSupport.format("attention.headline", headline)
+        }
+
+        /// Banner on a card when the harness is stopped on a permission prompt for {tool}.
+        ///
+        /// Key: `attention.waitingPermission`
+        /// en: "Waiting for permission: {tool}"
+        public static func waitingPermission(tool: String) -> String {
+            L10nSupport.format("attention.waitingPermission", tool)
+        }
+
+        public enum A11y {
+            /// VoiceOver: a card's banner when an agent reported finishing.
+            ///
+            /// Key: `attention.a11y.finished`
+            /// en: "finished — {summary}"
+            public static func finished(summary: String) -> String {
+                L10nSupport.format("attention.a11y.finished", summary)
+            }
+
+            /// VoiceOver: a card's banner when somebody is needed. {reason} is the sentence on the banner.
+            ///
+            /// Key: `attention.a11y.needsYou`
+            /// en: "needs you — {reason}"
+            public static func needsYou(reason: String) -> String {
+                L10nSupport.format("attention.a11y.needsYou", reason)
+            }
+
+            /// VoiceOver: as attention.a11y.needsYou, when the agent itself raised it.
+            ///
+            /// Key: `attention.a11y.needsYouAgent`
+            /// en: "needs you — {reason}, the agent says so"
+            public static func needsYouAgent(reason: String) -> String {
+                L10nSupport.format("attention.a11y.needsYouAgent", reason)
+            }
+        }
+    }
+
+    public enum Aviary {
+        /// Aviary empty state title.
+        ///
+        /// Key: `aviary.empty`
+        /// en: "The office is empty"
+        public static var empty: String { L10nSupport.string("aviary.empty") }
+
+        /// Aviary empty state detail.
+        ///
+        /// Key: `aviary.emptyDetail`
+        /// en: "A desk appears for every session Auspex can see."
+        public static var emptyDetail: String { L10nSupport.string("aviary.emptyDetail") }
+
+        /// Tooltip on the Aviary minimap.
+        ///
+        /// Key: `aviary.minimapHelp`
+        /// en: "The whole office. Click to go there."
+        public static var minimapHelp: String { L10nSupport.string("aviary.minimapHelp") }
+
+        /// Aviary: nameplate of the floor for sessions that belong to no project.
+        ///
+        /// Key: `aviary.noProject`
+        /// en: "No project"
+        public static var noProject: String { L10nSupport.string("aviary.noProject") }
+
+        /// Aviary: tooltip on the older-sessions nameplate. distinct-from: board.ended.olderHelp
+        ///
+        /// Key: `aviary.olderHelp`
+        /// en: "Older sessions are in the store, not on the map. Widen to draw them."
+        public static var olderHelp: String { L10nSupport.string("aviary.olderHelp") }
+
+        /// Tooltip on the zoom readout.
+        ///
+        /// Key: `aviary.zoom`
+        /// en: "Zoom"
+        public static var zoom: String { L10nSupport.string("aviary.zoom") }
+
+        public enum Floor {
+            /// Aviary: a project floor's tally of sessions waiting on a person.
+            ///
+            /// Key: `aviary.floor.blocked`
+            /// en: "{count} blocked"
+            public static func blocked(count: Int) -> String {
+                L10nSupport.format("aviary.floor.blocked", count)
+            }
+
+            /// Aviary: a project floor's tally of delegating sessions.
+            ///
+            /// Key: `aviary.floor.delegating`
+            /// en: "{count} delegating"
+            public static func delegating(count: Int) -> String {
+                L10nSupport.format("aviary.floor.delegating", count)
+            }
+        }
+
+        public enum Legend {
+            /// Aviary legend tooltip.
+            ///
+            /// Key: `aviary.legend.delegatingHelp`
+            /// en: "Waiting on the sub-agents it spawned, around a table."
+            public static var delegatingHelp: String { L10nSupport.string("aviary.legend.delegatingHelp") }
+
+            /// Aviary legend tooltip.
+            ///
+            /// Key: `aviary.legend.thinkingHelp`
+            /// en: "Reasoning, with no tool open."
+            public static var thinkingHelp: String { L10nSupport.string("aviary.legend.thinkingHelp") }
+
+            /// Aviary legend tooltip.
+            ///
+            /// Key: `aviary.legend.toolHelp`
+            /// en: "A tool call is running."
+            public static var toolHelp: String { L10nSupport.string("aviary.legend.toolHelp") }
+
+            /// Aviary legend tooltip.
+            ///
+            /// Key: `aviary.legend.writingHelp`
+            /// en: "The working tree is being changed."
+            public static var writingHelp: String { L10nSupport.string("aviary.legend.writingHelp") }
+        }
+
+        public enum Room {
+            /// Aviary: nameplate of an empty meeting room. Lower-case. distinct-from: board.bucket.idle
+            ///
+            /// Key: `aviary.room.free`
+            /// en: "free"
+            public static var free: String { L10nSupport.string("aviary.room.free") }
+
+            /// Aviary: nameplate of a project's office. distinct-from: board.section.live
+            ///
+            /// Key: `aviary.room.live`
+            /// en: "{count} live"
+            public static func live(count: Int) -> String {
+                L10nSupport.format("aviary.room.live", count)
+            }
+
+            /// Aviary: nameplate of a meeting room in use.
+            ///
+            /// Key: `aviary.room.meeting`
+            /// en: "{count} meeting"
+            public static func meeting(count: Int) -> String {
+                L10nSupport.format("aviary.room.meeting", count)
+            }
+
+            /// Aviary: nameplate of a suite's meeting room. distinct-from: settings.scene.meetingRooms
+            ///
+            /// Key: `aviary.room.meetingRoom`
+            /// en: "Meeting room"
+            public static var meetingRoom: String { L10nSupport.string("aviary.room.meetingRoom") }
+
+            /// Aviary: nameplate of a break room.
+            ///
+            /// Key: `aviary.room.resting`
+            /// en: "{count} resting"
+            public static func resting(count: Int) -> String {
+                L10nSupport.format("aviary.room.resting", count)
+            }
+
+            /// Aviary: nameplate of a full break room.
+            ///
+            /// Key: `aviary.room.restingMore`
+            /// en: "{count} resting · +{more} more"
+            public static func restingMore(count: Int, more: Int) -> String {
+                L10nSupport.format("aviary.room.restingMore", count, more)
+            }
+        }
+    }
+
+    public enum Board {
+        /// Tooltip on the header's clear-everything button.
+        ///
+        /// Key: `board.markAllSeenHelp`
+        /// en: "Mark all as seen — clear every card that is asking or reporting. A session that is still blocked will say so again."
+        public static var markAllSeenHelp: String { L10nSupport.string("board.markAllSeenHelp") }
+
+        /// Placeholder in the search field outside Now. distinct-from: now.search
+        ///
+        /// Key: `board.search`
+        /// en: "Search sessions"
+        public static var search: String { L10nSupport.string("board.search") }
+
+        /// Tooltip on the header's search field.
+        ///
+        /// Key: `board.searchHelp`
+        /// en: "Search every transcript"
+        public static var searchHelp: String { L10nSupport.string("board.searchHelp") }
+
+        /// Grouping menu toggle: every task card lists the sessions inside it.
+        ///
+        /// Key: `board.showSubagents`
+        /// en: "Show subagents"
+        public static var showSubagents: String { L10nSupport.string("board.showSubagents") }
+
+        public enum Bucket {
+            /// Summary chip after the number, and the menu-bar row's state when a session is over. Lower-case.
+            ///
+            /// Key: `board.bucket.ended`
+            /// en: "ended"
+            public static var ended: String { L10nSupport.string("board.bucket.ended") }
+
+            /// Summary chip, after the number. Lower-case. distinct-from: now.idle
+            ///
+            /// Key: `board.bucket.idle`
+            /// en: "idle"
+            public static var idle: String { L10nSupport.string("board.bucket.idle") }
+
+            /// Summary chip, after the number: "1 in review" — work an agent finished and asked to be checked.
+            ///
+            /// Key: `board.bucket.inReview`
+            /// en: "in review"
+            public static var inReview: String { L10nSupport.string("board.bucket.inReview") }
+
+            /// Summary chip, after the number: "2 needs you". Lower-case. distinct-from: now.needsYou
+            ///
+            /// Key: `board.bucket.needsYou`
+            /// en: "needs you"
+            public static var needsYou: String { L10nSupport.string("board.bucket.needsYou") }
+
+            /// Summary chip, after the number. Lower-case. distinct-from: now.working
+            ///
+            /// Key: `board.bucket.working`
+            /// en: "working"
+            public static var working: String { L10nSupport.string("board.bucket.working") }
+        }
+
+        public enum Chip {
+            /// Tooltip on a selected summary chip: clicking clears the filter.
+            ///
+            /// Key: `board.chip.showAll`
+            /// en: "Show every session again"
+            public static var showAll: String { L10nSupport.string("board.chip.showAll") }
+
+            /// Tooltip on a summary chip. {bucket} is one of board.bucket.*.
+            ///
+            /// Key: `board.chip.showOnly`
+            /// en: "Show only the {bucket} sessions"
+            public static func showOnly(bucket: String) -> String {
+                L10nSupport.format("board.chip.showOnly", bucket)
+            }
+        }
+
+        public enum Empty {
+            /// Empty board: status of a harness whose adapter has not shipped.
+            ///
+            /// Key: `board.empty.adapterPending`
+            /// en: "Adapter pending"
+            public static var adapterPending: String { L10nSupport.string("board.empty.adapterPending") }
+
+            /// Empty board headline when sessions existed but are all over.
+            ///
+            /// Key: `board.empty.allEnded`
+            /// en: "Every session has ended."
+            public static var allEnded: String { L10nSupport.string("board.empty.allEnded") }
+
+            /// Empty board: label over the command that starts the demo.
+            ///
+            /// Key: `board.empty.demoHint`
+            /// en: "See the board with fabricated sessions"
+            public static var demoHint: String { L10nSupport.string("board.empty.demoHint") }
+
+            /// Empty board: under the demo command.
+            ///
+            /// Key: `board.empty.demoNote`
+            /// en: "The demo runs entirely in memory. It reads no harness store and writes nothing to disk."
+            public static var demoNote: String { L10nSupport.string("board.empty.demoNote") }
+
+            /// Empty board: label over notices the ingest pipeline raised.
+            ///
+            /// Key: `board.empty.fromPipeline`
+            /// en: "From the ingest pipeline"
+            public static var fromPipeline: String { L10nSupport.string("board.empty.fromPipeline") }
+
+            /// Empty board explanation when no adapter is installed.
+            ///
+            /// Key: `board.empty.noAdapter`
+            /// en: "Auspex reads each harness's own session store and rebuilds what every agent is doing. No adapter has shipped yet, so nothing is being tailed — the board stays empty rather than guessing."
+            public static var noAdapter: String { L10nSupport.string("board.empty.noAdapter") }
+
+            /// Empty board headline when no session has been seen.
+            ///
+            /// Key: `board.empty.noAgent`
+            /// en: "No agent is running."
+            public static var noAgent: String { L10nSupport.string("board.empty.noAgent") }
+
+            /// Empty board: column header — where each harness keeps its sessions.
+            ///
+            /// Key: `board.empty.sessionStore`
+            /// en: "Session store"
+            public static var sessionStore: String { L10nSupport.string("board.empty.sessionStore") }
+
+            /// Empty board explanation.
+            ///
+            /// Key: `board.empty.tailing`
+            /// en: "Auspex is tailing the stores below. Start an agent in any of them and its card appears here within a second."
+            public static var tailing: String { L10nSupport.string("board.empty.tailing") }
+
+            /// Empty board: status of a harness store that is being read.
+            ///
+            /// Key: `board.empty.tailingStatus`
+            /// en: "Tailing"
+            public static var tailingStatus: String { L10nSupport.string("board.empty.tailingStatus") }
+
+            /// Empty board: small label over the list of harness stores being watched.
+            ///
+            /// Key: `board.empty.watching`
+            /// en: "Watching"
+            public static var watching: String { L10nSupport.string("board.empty.watching") }
+        }
+
+        public enum Ended {
+            /// Ledger: tooltip on the Ended section's expand button.
+            ///
+            /// Key: `board.ended.collapsedHelp`
+            /// en: "Finished work is collapsed so the board's cost tracks what is running"
+            public static var collapsedHelp: String { L10nSupport.string("board.ended.collapsedHelp") }
+
+            /// Ledger: tooltip on the hint under the Ended section.
+            ///
+            /// Key: `board.ended.olderHelp`
+            /// en: "Older sessions are in the store, not on the board. Widen to draw them."
+            public static var olderHelp: String { L10nSupport.string("board.ended.olderHelp") }
+
+            /// Ledger: button that expands the Ended section.
+            ///
+            /// Key: `board.ended.showAll`
+            /// en: "Show all {count}"
+            public static func showAll(count: Int) -> String {
+                L10nSupport.format("board.ended.showAll", count)
+            }
+
+            /// Ledger: button that collapses the Ended section back.
+            ///
+            /// Key: `board.ended.showRecent`
+            /// en: "Show the most recent {count}"
+            public static func showRecent(count: Int) -> String {
+                L10nSupport.format("board.ended.showRecent", count)
+            }
+
+            /// Ledger: heading of the collapsed section of finished work. distinct-from: board.bucket.ended — a heading, capitalised.
+            ///
+            /// Key: `board.ended.title`
+            /// en: "Ended"
+            public static var title: String { L10nSupport.string("board.ended.title") }
+        }
+
+        public enum Focus {
+            /// Breadcrumb at the top of the board when it is bound to one project; clicking it shows every project.
+            ///
+            /// Key: `board.focus.allProjects`
+            /// en: "All projects"
+            public static var allProjects: String { L10nSupport.string("board.focus.allProjects") }
+
+            /// Tooltip on the All projects breadcrumb.
+            ///
+            /// Key: `board.focus.allProjectsHelp`
+            /// en: "Show every project on the board again — or press Escape"
+            public static var allProjectsHelp: String { L10nSupport.string("board.focus.allProjectsHelp") }
+
+            /// Tooltip on the Esc key cap at the right of the project breadcrumb.
+            ///
+            /// Key: `board.focus.escapeHelp`
+            /// en: "Escape shows every project again"
+            public static var escapeHelp: String { L10nSupport.string("board.focus.escapeHelp") }
+        }
+
+        public enum Group {
+            /// Ledger: the one section when the board is not grouped.
+            ///
+            /// Key: `board.group.allSessions`
+            /// en: "All sessions"
+            public static var allSessions: String { L10nSupport.string("board.group.allSessions") }
+
+            /// Ledger: the one section of task cards when the board is not grouped.
+            ///
+            /// Key: `board.group.allTasks`
+            /// en: "All tasks"
+            public static var allTasks: String { L10nSupport.string("board.group.allTasks") }
+
+            /// Ledger tree grouping: a section's subtitle, how many sessions sit under its root.
+            ///
+            /// Key: `board.group.below`
+            /// en: "{count} below"
+            public static func below(count: Int) -> String {
+                L10nSupport.format("board.group.below", count)
+            }
+
+            /// Header grouping menu's label, followed by the axis — "By Project".
+            ///
+            /// Key: `board.group.by`
+            /// en: "By"
+            public static var by: String { L10nSupport.string("board.group.by") }
+
+            /// Tooltip on the header's grouping menu.
+            ///
+            /// Key: `board.group.help`
+            /// en: "Divide the board into sections, and choose whether every card lists the sessions inside it"
+            public static var help: String { L10nSupport.string("board.group.help") }
+
+            /// Grouping menu: no sections.
+            ///
+            /// Key: `board.group.none`
+            /// en: "None"
+            public static var `none`: String { L10nSupport.string("board.group.none") }
+
+            /// Ledger tree grouping: the section of sessions with no delegation tree.
+            ///
+            /// Key: `board.group.standalone`
+            /// en: "Not delegating"
+            public static var standalone: String { L10nSupport.string("board.group.standalone") }
+
+            /// Picker inside the header's grouping menu.
+            ///
+            /// Key: `board.group.title`
+            /// en: "Group by"
+            public static var title: String { L10nSupport.string("board.group.title") }
+
+            /// Grouping menu: one section per delegation tree.
+            ///
+            /// Key: `board.group.tree`
+            /// en: "Tree"
+            public static var tree: String { L10nSupport.string("board.group.tree") }
+
+            /// Sidebar: a checkout that recorded no branch, task or directory.
+            ///
+            /// Key: `board.group.unknownCheckout`
+            /// en: "Unknown checkout"
+            public static var unknownCheckout: String { L10nSupport.string("board.group.unknownCheckout") }
+        }
+
+        public enum Header {
+            /// Header button that opens the Catch-up panel; {count} is how many items are waiting in it.
+            ///
+            /// Key: `board.header.catchUp`
+            /// en: "Catch up {count}"
+            public static func catchUp(count: Int) -> String {
+                L10nSupport.format("board.header.catchUp", count)
+            }
+
+            /// Tooltip on the header's Catch up button.
+            ///
+            /// Key: `board.header.catchUpHelp`
+            /// en: "Review material changes, human work, and amber watch signals"
+            public static var catchUpHelp: String { L10nSupport.string("board.header.catchUpHelp") }
+
+            /// Line beside the Harnesses page's heading.
+            ///
+            /// Key: `board.header.harnessesSubtitle`
+            /// en: "{count} harnesses · what Auspex can see on this Mac, and how"
+            public static func harnessesSubtitle(count: Int) -> String {
+                L10nSupport.format("board.header.harnessesSubtitle", count)
+            }
+
+            /// Header button that opens the next task waiting for review; {count} is how many are waiting.
+            ///
+            /// Key: `board.header.review`
+            /// en: "Review {count}"
+            public static func review(count: Int) -> String {
+                L10nSupport.format("board.header.review", count)
+            }
+
+            /// Tooltip on the header's Review button.
+            ///
+            /// Key: `board.header.reviewHelp`
+            /// en: "Review next — open the first task waiting for your judgement"
+            public static var reviewHelp: String { L10nSupport.string("board.header.reviewHelp") }
+        }
+
+        public enum Ignored {
+            /// Header toggle that reveals sessions hidden by ignore rules.
+            ///
+            /// Key: `board.ignored.count`
+            /// en: "{count} ignored"
+            public static func count(count: Int) -> String {
+                L10nSupport.format("board.ignored.count", count)
+            }
+
+            /// Tooltip on the ignored toggle while it is on. {note} is ignore.stillRecorded, a full sentence.
+            ///
+            /// Key: `board.ignored.hideHelp`
+            /// en: "Hide the ignored sessions again. {note}"
+            public static func hideHelp(note: String) -> String {
+                L10nSupport.format("board.ignored.hideHelp", note)
+            }
+
+            /// Tooltip on the ignored toggle while it is off. {note} is ignore.stillRecorded, a full sentence.
+            ///
+            /// Key: `board.ignored.showHelp`
+            /// en: "Show the {count} sessions your rules hide, dimmed. {note}"
+            public static func showHelp(count: Int, note: String) -> String {
+                L10nSupport.format("board.ignored.showHelp", count, note)
+            }
+        }
+
+        public enum Section {
+            /// Ledger: badge on a section header counting live sessions in it.
+            ///
+            /// Key: `board.section.live`
+            /// en: "{count} live"
+            public static func live(count: Int) -> String {
+                L10nSupport.format("board.section.live", count)
+            }
+        }
+
+        public enum Window {
+            /// How far back the board reaches, in the window menu.
+            ///
+            /// Key: `board.window.days`
+            /// en: "{count, plural, one {# day} other {# days}}"
+            public static func days(count: Int) -> String {
+                L10nSupport.localizedFormat("board.window.days", count)
+            }
+
+            /// The window menu's compact label, e.g. "7 d".
+            ///
+            /// Key: `board.window.daysShort`
+            /// en: "{count} d"
+            public static func daysShort(count: Int) -> String {
+                L10nSupport.format("board.window.daysShort", count)
+            }
+
+            /// Tooltip on the window menu.
+            ///
+            /// Key: `board.window.help`
+            /// en: "How far back the board and the map reach. Older sessions stay in the store."
+            public static var help: String { L10nSupport.string("board.window.help") }
+
+            /// Tooltip on the window menu when sessions are hidden. {hint} is board.window.olderHidden.
+            ///
+            /// Key: `board.window.hiddenHelp`
+            /// en: "{hint}. Widen to see them."
+            public static func hiddenHelp(hint: String) -> String {
+                L10nSupport.format("board.window.hiddenHelp", hint)
+            }
+
+            /// How far back the board reaches, in the window menu.
+            ///
+            /// Key: `board.window.hours`
+            /// en: "{count, plural, one {# hour} other {# hours}}"
+            public static func hours(count: Int) -> String {
+                L10nSupport.localizedFormat("board.window.hours", count)
+            }
+
+            /// The window menu's compact label, e.g. "12 h".
+            ///
+            /// Key: `board.window.hoursShort`
+            /// en: "{count} h"
+            public static func hoursShort(count: Int) -> String {
+                L10nSupport.format("board.window.hoursShort", count)
+            }
+
+            /// Note at the bottom of the window menu.
+            ///
+            /// Key: `board.window.menuNote`
+            /// en: "Everything stays in the store — this is how much is drawn."
+            public static var menuNote: String { L10nSupport.string("board.window.menuNote") }
+
+            /// Section title and picker label in the window menu; the options follow (1 hour, 6 hours…).
+            ///
+            /// Key: `board.window.menuTitle`
+            /// en: "Show sessions active in the last"
+            public static var menuTitle: String { L10nSupport.string("board.window.menuTitle") }
+
+            /// Hint shown when the time window leaves sessions out. {window} is a compact span such as "12 h".
+            ///
+            /// Key: `board.window.olderHidden`
+            /// en: "{count} older than {window}, hidden"
+            public static func olderHidden(count: Int, window: String) -> String {
+                L10nSupport.format("board.window.olderHidden", count, window)
+            }
+        }
+    }
+
+    public enum CatchUp {
+        /// Catch-up panel empty state title.
+        ///
+        /// Key: `catchUp.caughtUp`
+        /// en: "Caught up"
+        public static var caughtUp: String { L10nSupport.string("catchUp.caughtUp") }
+
+        /// Catch-up panel empty state detail.
+        ///
+        /// Key: `catchUp.caughtUpDetail`
+        /// en: "No material changes or watch signals are waiting."
+        public static var caughtUpDetail: String { L10nSupport.string("catchUp.caughtUpDetail") }
+
+        /// Catch-up panel button that moves the "since" cursor to now.
+        ///
+        /// Key: `catchUp.markCaughtUp`
+        /// en: "Mark caught up"
+        public static var markCaughtUp: String { L10nSupport.string("catchUp.markCaughtUp") }
+
+        /// Catch-up panel section.
+        ///
+        /// Key: `catchUp.otherChanges`
+        /// en: "Other changes"
+        public static var otherChanges: String { L10nSupport.string("catchUp.otherChanges") }
+
+        /// Catch-up row: how many sessions work on the task (shown only when more than one).
+        ///
+        /// Key: `catchUp.sessions`
+        /// en: "{count} sessions"
+        public static func sessions(count: Int) -> String {
+            L10nSupport.format("catchUp.sessions", count)
+        }
+
+        /// Catch-up panel subtitle. {time} is a relative time such as "2 hours ago" or "2小时前".
+        ///
+        /// Key: `catchUp.since`
+        /// en: "Changes since {time}"
+        public static func since(time: String) -> String {
+            L10nSupport.format("catchUp.since", time)
+        }
+
+        /// Title of the Catch-up panel, which lists what changed while the person was away. distinct-from: app.menu.catchUp
+        ///
+        /// Key: `catchUp.title`
+        /// en: "Catch up"
+        public static var title: String { L10nSupport.string("catchUp.title") }
+
+        /// Catch-up panel section: risks Auspex observed or inferred.
+        ///
+        /// Key: `catchUp.watchSignals`
+        /// en: "Watch signals"
+        public static var watchSignals: String { L10nSupport.string("catchUp.watchSignals") }
+
+        /// Catch-up panel: note under the Watch signals heading.
+        ///
+        /// Key: `catchUp.watchSignalsNote`
+        /// en: "Observed or inferred risks worth a glance. They are not requests from an agent and never raise a notification by themselves."
+        public static var watchSignalsNote: String { L10nSupport.string("catchUp.watchSignalsNote") }
+
+        /// Catch-up panel section: work waiting on the person.
+        ///
+        /// Key: `catchUp.yourQueue`
+        /// en: "Your queue"
+        public static var yourQueue: String { L10nSupport.string("catchUp.yourQueue") }
+
+        public enum Change {
+            /// Catch-up row eyebrow (upper-cased).
+            ///
+            /// Key: `catchUp.change.changed`
+            /// en: "Changed"
+            public static var changed: String { L10nSupport.string("catchUp.change.changed") }
+
+            /// Catch-up row eyebrow (upper-cased).
+            ///
+            /// Key: `catchUp.change.completed`
+            /// en: "Completed"
+            public static var completed: String { L10nSupport.string("catchUp.change.completed") }
+
+            /// Catch-up row eyebrow (upper-cased).
+            ///
+            /// Key: `catchUp.change.started`
+            /// en: "Started"
+            public static var started: String { L10nSupport.string("catchUp.change.started") }
+        }
+
+        public enum Confidence {
+            /// A watch signal's confidence.
+            ///
+            /// Key: `catchUp.confidence.high`
+            /// en: "high"
+            public static var high: String { L10nSupport.string("catchUp.confidence.high") }
+
+            /// A watch signal's confidence.
+            ///
+            /// Key: `catchUp.confidence.medium`
+            /// en: "medium"
+            public static var medium: String { L10nSupport.string("catchUp.confidence.medium") }
+        }
+
+        public enum Line {
+            /// Catch-up row: short mono label before the task's goal line. Lower-case, ≤ 6 characters in English.
+            ///
+            /// Key: `catchUp.line.goal`
+            /// en: "goal"
+            public static var goal: String { L10nSupport.string("catchUp.line.goal") }
+
+            /// Catch-up row: label before the latest outcome.
+            ///
+            /// Key: `catchUp.line.latest`
+            /// en: "latest"
+            public static var latest: String { L10nSupport.string("catchUp.line.latest") }
+
+            /// Catch-up row: label before the next action.
+            ///
+            /// Key: `catchUp.line.next`
+            /// en: "next"
+            public static var next: String { L10nSupport.string("catchUp.line.next") }
+
+            /// Catch-up row: label before what is happening now.
+            ///
+            /// Key: `catchUp.line.now`
+            /// en: "now"
+            public static var now: String { L10nSupport.string("catchUp.line.now") }
+
+            /// Catch-up row: label before the risk line.
+            ///
+            /// Key: `catchUp.line.risk`
+            /// en: "risk"
+            public static var risk: String { L10nSupport.string("catchUp.line.risk") }
+        }
+
+        public enum Phase {
+            /// Catch-up row: the task's phase. Lower-case.
+            ///
+            /// Key: `catchUp.phase.blocked`
+            /// en: "blocked"
+            public static var blocked: String { L10nSupport.string("catchUp.phase.blocked") }
+
+            /// Catch-up row: the task's phase. Lower-case. distinct-from: attention.done
+            ///
+            /// Key: `catchUp.phase.done`
+            /// en: "done"
+            public static var done: String { L10nSupport.string("catchUp.phase.done") }
+
+            /// Catch-up row: the task's phase. Lower-case.
+            ///
+            /// Key: `catchUp.phase.notStarted`
+            /// en: "not started"
+            public static var notStarted: String { L10nSupport.string("catchUp.phase.notStarted") }
+
+            /// Catch-up row: the task's phase. Lower-case. distinct-from: catchUp.reason.review
+            ///
+            /// Key: `catchUp.phase.review`
+            /// en: "review"
+            public static var review: String { L10nSupport.string("catchUp.phase.review") }
+        }
+
+        public enum Reason {
+            /// Catch-up row eyebrow and watch-signal title: a task is still claimed by a session that ended.
+            ///
+            /// Key: `catchUp.reason.orphanedClaim`
+            /// en: "Orphaned claim"
+            public static var orphanedClaim: String { L10nSupport.string("catchUp.reason.orphanedClaim") }
+
+            /// Catch-up row eyebrow (upper-cased): a task is waiting for the person's review.
+            ///
+            /// Key: `catchUp.reason.review`
+            /// en: "Review"
+            public static var review: String { L10nSupport.string("catchUp.reason.review") }
+
+            /// Catch-up row eyebrow (upper-cased): another session asked to take over a claimed task.
+            ///
+            /// Key: `catchUp.reason.takeover`
+            /// en: "Takeover approval"
+            public static var takeover: String { L10nSupport.string("catchUp.reason.takeover") }
+        }
+
+        public enum Signal {
+            /// Watch-signal row footnote. {confidence} is catchUp.confidence.*.
+            ///
+            /// Key: `catchUp.signal.confidence`
+            /// en: "{confidence} confidence · not an attention request"
+            public static func confidence(confidence: String) -> String {
+                L10nSupport.format("catchUp.signal.confidence", confidence)
+            }
+
+            /// Watch-signal title.
+            ///
+            /// Key: `catchUp.signal.contextPressure`
+            /// en: "Context pressure"
+            public static var contextPressure: String { L10nSupport.string("catchUp.signal.contextPressure") }
+
+            /// Watch-signal title.
+            ///
+            /// Key: `catchUp.signal.longTool`
+            /// en: "Long-running tool"
+            public static var longTool: String { L10nSupport.string("catchUp.signal.longTool") }
+
+            /// Watch-signal title.
+            ///
+            /// Key: `catchUp.signal.sharedBranch`
+            /// en: "Shared branch"
+            public static var sharedBranch: String { L10nSupport.string("catchUp.signal.sharedBranch") }
+
+            /// Watch-signal title.
+            ///
+            /// Key: `catchUp.signal.sharedDirectory`
+            /// en: "Shared working directory"
+            public static var sharedDirectory: String { L10nSupport.string("catchUp.signal.sharedDirectory") }
+
+            /// Watch-signal title.
+            ///
+            /// Key: `catchUp.signal.staleSession`
+            /// en: "Stale session"
+            public static var staleSession: String { L10nSupport.string("catchUp.signal.staleSession") }
+        }
+
+        public enum Source {
+            /// Catch-up row: where a line came from — Auspex worked it out.
+            ///
+            /// Key: `catchUp.source.derived`
+            /// en: "derived"
+            public static var derived: String { L10nSupport.string("catchUp.source.derived") }
+
+            /// Catch-up row: where a line came from — Auspex saw it happen.
+            ///
+            /// Key: `catchUp.source.observed`
+            /// en: "observed"
+            public static var observed: String { L10nSupport.string("catchUp.source.observed") }
+
+            /// Catch-up row: where a line came from — the agent said so itself.
+            ///
+            /// Key: `catchUp.source.reported`
+            /// en: "reported"
+            public static var reported: String { L10nSupport.string("catchUp.source.reported") }
+
+            /// Catch-up row: where a line came from — the task record.
+            ///
+            /// Key: `catchUp.source.task`
+            /// en: "task"
+            public static var task: String { L10nSupport.string("catchUp.source.task") }
+        }
+    }
+
+    public enum Characters {
+        /// Built-in figures card.
+        ///
+        /// Key: `characters.accentNote`
+        /// en: "Composed from each harness's own accent — the figure above is the shape, not the colour."
+        public static var accentNote: String { L10nSupport.string("characters.accentNote") }
+
+        /// Package card pose summary.
+        ///
+        /// Key: `characters.allPoses`
+        /// en: "All 8 poses drawn."
+        public static var allPoses: String { L10nSupport.string("characters.allPoses") }
+
+        /// Built-in figures card.
+        ///
+        /// Key: `characters.allPosesAlways`
+        /// en: "All 8 poses, always."
+        public static var allPosesAlways: String { L10nSupport.string("characters.allPosesAlways") }
+
+        /// Character row subtitle. {name} is what Automatic resolves to.
+        ///
+        /// Key: `characters.automatic`
+        /// en: "Automatic · {name}"
+        public static func automatic(name: String) -> String {
+            L10nSupport.format("characters.automatic", name)
+        }
+
+        /// Character picker option.
+        ///
+        /// Key: `characters.automaticRecommended`
+        /// en: "Automatic (recommended)"
+        public static var automaticRecommended: String { L10nSupport.string("characters.automaticRecommended") }
+
+        /// The procedural character figures, as a choice and a card title.
+        ///
+        /// Key: `characters.builtIn`
+        /// en: "Auspex built-in"
+        public static var builtIn: String { L10nSupport.string("characters.builtIn") }
+
+        /// Built-in figures card: in place of a package id.
+        ///
+        /// Key: `characters.builtInCode`
+        /// en: "Built-in · drawn in code"
+        public static var builtInCode: String { L10nSupport.string("characters.builtInCode") }
+
+        /// Character row subtitle when a package is chosen.
+        ///
+        /// Key: `characters.chosen`
+        /// en: "Chosen"
+        public static var chosen: String { L10nSupport.string("characters.chosen") }
+
+        /// Settings → Characters section note.
+        ///
+        /// Key: `characters.defaultDetail`
+        /// en: "Automatic uses whichever package names the harness, and the built-in figures while none does."
+        public static var defaultDetail: String { L10nSupport.string("characters.defaultDetail") }
+
+        /// Settings → Characters section title.
+        ///
+        /// Key: `characters.defaultPerHarness`
+        /// en: "Default per harness"
+        public static var defaultPerHarness: String { L10nSupport.string("characters.defaultPerHarness") }
+
+        /// Character row subtitle for the built-in figures.
+        ///
+        /// Key: `characters.drawnInCode`
+        /// en: "{name} · drawn in code"
+        public static func drawnInCode(name: String) -> String {
+            L10nSupport.format("characters.drawnInCode", name)
+        }
+
+        /// Settings → Characters note.
+        ///
+        /// Key: `characters.folderNote`
+        /// en: "Auspex only ever reads this folder. A package here replaces a built-in one with the same id."
+        public static var folderNote: String { L10nSupport.string("characters.folderNote") }
+
+        /// VoiceOver: the pose the built-in preview shows. distinct-from: board.bucket.idle
+        ///
+        /// Key: `characters.idle`
+        /// en: "idle"
+        public static var idle: String { L10nSupport.string("characters.idle") }
+
+        /// Settings → Characters section title. distinct-from: agents.installed
+        ///
+        /// Key: `characters.installed`
+        /// en: "Installed"
+        public static var installed: String { L10nSupport.string("characters.installed") }
+
+        /// Settings → Characters introduction. character.json is a file name.
+        ///
+        /// Key: `characters.intro`
+        /// en: "Every agent in the office is drawn either from a character package — a folder with a character.json and one frame strip per pose — or from Auspex's own figures, which are composed in code from the harness's accent. Drop a package into the characters folder and it appears here without a relaunch. The built-in figures are always installed, never miss a pose, and can be chosen for a harness exactly the way a package can."
+        public static var intro: String { L10nSupport.string("characters.intro") }
+
+        /// Character preview placeholder.
+        ///
+        /// Key: `characters.noArt`
+        /// en: "No art"
+        public static var noArt: String { L10nSupport.string("characters.noArt") }
+
+        /// Settings → Characters empty state title.
+        ///
+        /// Key: `characters.noPackages`
+        /// en: "No packages yet."
+        public static var noPackages: String { L10nSupport.string("characters.noPackages") }
+
+        /// Settings → Characters empty state detail.
+        ///
+        /// Key: `characters.noPackagesDetail`
+        /// en: "A package is a folder holding character.json and one frame strip per pose. Any pose you have not drawn falls back to the figures above."
+        public static var noPackagesDetail: String { L10nSupport.string("characters.noPackagesDetail") }
+
+        /// Package card pose summary.
+        ///
+        /// Key: `characters.noPoses`
+        /// en: "No poses drawn yet."
+        public static var noPoses: String { L10nSupport.string("characters.noPoses") }
+
+        /// Character row subtitle when the chosen package is gone.
+        ///
+        /// Key: `characters.notInstalled`
+        /// en: "{id} is not installed · using {name}"
+        public static func notInstalled(id: String, name: String) -> String {
+            L10nSupport.format("characters.notInstalled", id, name)
+        }
+
+        /// Settings → Characters button.
+        ///
+        /// Key: `characters.openFolder`
+        /// en: "Open characters folder"
+        public static var openFolder: String { L10nSupport.string("characters.openFolder") }
+
+        /// VoiceOver label of a character preview. {pose} is a pose identifier or characters.noArt.
+        ///
+        /// Key: `characters.previewLabel`
+        /// en: "{name}, {pose}"
+        public static func previewLabel(name: String, pose: String) -> String {
+            L10nSupport.format("characters.previewLabel", name, pose)
+        }
+
+        /// Settings → Characters button.
+        ///
+        /// Key: `characters.reload`
+        /// en: "Reload"
+        public static var reload: String { L10nSupport.string("characters.reload") }
+
+        /// Settings → Characters error.
+        ///
+        /// Key: `characters.saveError`
+        /// en: "Your choice is in effect but could not be saved: {error}"
+        public static func saveError(error: String) -> String {
+            L10nSupport.format("characters.saveError", error)
+        }
+
+        /// Package card pose summary. {missing} lists pose identifiers.
+        ///
+        /// Key: `characters.somePoses`
+        /// en: "{drawn} of 8 poses drawn. Built-in for: {missing}."
+        public static func somePoses(drawn: Int, missing: String) -> String {
+            L10nSupport.format("characters.somePoses", drawn, missing)
+        }
+
+        /// Settings → Characters label over the folder path.
+        ///
+        /// Key: `characters.whereTheyLive`
+        /// en: "Where they live"
+        public static var whereTheyLive: String { L10nSupport.string("characters.whereTheyLive") }
+
+        public enum Headline {
+            /// Settings → Characters headline.
+            ///
+            /// Key: `characters.headline.mine`
+            /// en: "{count, plural, one {# package, {mine} of them yours.} other {# packages, {mine} of them yours.}}"
+            public static func mine(count: Int, mine: Int) -> String {
+                L10nSupport.localizedFormat("characters.headline.mine", count, mine)
+            }
+
+            /// Settings → Characters headline.
+            ///
+            /// Key: `characters.headline.none`
+            /// en: "The built-in figures, and no packages yet."
+            public static var `none`: String { L10nSupport.string("characters.headline.none") }
+
+            /// Settings → Characters headline.
+            ///
+            /// Key: `characters.headline.shipped`
+            /// en: "{count, plural, one {# package, all shipped with Auspex.} other {# packages, all shipped with Auspex.}}"
+            public static func shipped(count: Int) -> String {
+                L10nSupport.localizedFormat("characters.headline.shipped", count)
+            }
+        }
+
+        public enum Kind {
+            /// Character package chip: the figure is a person.
+            ///
+            /// Key: `characters.kind.person`
+            /// en: "Person"
+            public static var person: String { L10nSupport.string("characters.kind.person") }
+
+            /// Character package chip: the figure is a pet.
+            ///
+            /// Key: `characters.kind.pet`
+            /// en: "Pet"
+            public static var pet: String { L10nSupport.string("characters.kind.pet") }
+        }
+
+        public enum Source {
+            /// Character package chip: shipped inside Auspex.
+            ///
+            /// Key: `characters.source.builtIn`
+            /// en: "Built-in"
+            public static var builtIn: String { L10nSupport.string("characters.source.builtIn") }
+
+            /// Character package chip: from ~/.auspex/characters. distinct-from: flight.role.user
+            ///
+            /// Key: `characters.source.user`
+            /// en: "User"
+            public static var user: String { L10nSupport.string("characters.source.user") }
+        }
+    }
+
+    public enum Colour {
+        /// A project colour.
+        ///
+        /// Key: `colour.amber`
+        /// en: "Amber"
+        public static var amber: String { L10nSupport.string("colour.amber") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.blue`
+        /// en: "Blue"
+        public static var blue: String { L10nSupport.string("colour.blue") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.coral`
+        /// en: "Coral"
+        public static var coral: String { L10nSupport.string("colour.coral") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.green`
+        /// en: "Green"
+        public static var green: String { L10nSupport.string("colour.green") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.lime`
+        /// en: "Lime"
+        public static var lime: String { L10nSupport.string("colour.lime") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.magenta`
+        /// en: "Magenta"
+        public static var magenta: String { L10nSupport.string("colour.magenta") }
+
+        /// Project colour menu: no colour. distinct-from: board.group.none
+        ///
+        /// Key: `colour.none`
+        /// en: "None"
+        public static var `none`: String { L10nSupport.string("colour.none") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.sky`
+        /// en: "Sky"
+        public static var sky: String { L10nSupport.string("colour.sky") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.teal`
+        /// en: "Teal"
+        public static var teal: String { L10nSupport.string("colour.teal") }
+
+        /// A project colour.
+        ///
+        /// Key: `colour.violet`
+        /// en: "Violet"
+        public static var violet: String { L10nSupport.string("colour.violet") }
+    }
+
     public enum Common {
+        /// Button that adds the selection.
+        ///
+        /// Key: `common.add`
+        /// en: "Add"
+        public static var add: String { L10nSupport.string("common.add") }
+
+        /// Option meaning no limit: every session, every item.
+        ///
+        /// Key: `common.all`
+        /// en: "All"
+        public static var all: String { L10nSupport.string("common.all") }
+
         /// Button that abandons an action in progress.
         ///
         /// Key: `common.cancel`
         /// en: "Cancel"
         public static var cancel: String { L10nSupport.string("common.cancel") }
+
+        /// Button that empties a search field or resets filters.
+        ///
+        /// Key: `common.clear`
+        /// en: "Clear"
+        public static var clear: String { L10nSupport.string("common.clear") }
+
+        /// Button or menu item that closes something — here, a task in review.
+        ///
+        /// Key: `common.close`
+        /// en: "Close"
+        public static var close: String { L10nSupport.string("common.close") }
+
+        /// The noun "context", as in an agent's context window. Column header (shown upper-cased) and section label.
+        ///
+        /// Key: `common.context`
+        /// en: "Context"
+        public static var context: String { L10nSupport.string("common.context") }
+
+        /// Button that copies the adjacent text.
+        ///
+        /// Key: `common.copy`
+        /// en: "Copy"
+        public static var copy: String { L10nSupport.string("common.copy") }
+
+        /// Button that creates the thing a sheet describes.
+        ///
+        /// Key: `common.create`
+        /// en: "Create"
+        public static var create: String { L10nSupport.string("common.create") }
+
+        /// Button that performs a deletion the person has confirmed.
+        ///
+        /// Key: `common.delete`
+        /// en: "Delete"
+        public static var delete: String { L10nSupport.string("common.delete") }
+
+        /// Button that closes a sheet or panel. distinct-from: catchUp.phase.done
+        ///
+        /// Key: `common.done`
+        /// en: "Done"
+        public static var done: String { L10nSupport.string("common.done") }
+
+        /// The noun "harness": an AI coding agent CLI or app Auspex observes (Claude Code, Codex…). Kept in English in Chinese, as in AstroQore's other apps.
+        ///
+        /// Key: `common.harness`
+        /// en: "Harness"
+        public static var harness: String { L10nSupport.string("common.harness") }
+
+        /// Button or label that opens the item it sits on.
+        ///
+        /// Key: `common.open`
+        /// en: "Open"
+        public static var `open`: String { L10nSupport.string("common.open") }
+
+        /// The noun "project": a grouping axis, a column header (shown upper-cased), a field label.
+        ///
+        /// Key: `common.project`
+        /// en: "Project"
+        public static var project: String { L10nSupport.string("common.project") }
+
+        /// Button that removes an item from a list or board (not a deletion).
+        ///
+        /// Key: `common.remove`
+        /// en: "Remove"
+        public static var remove: String { L10nSupport.string("common.remove") }
+
+        /// The pseudo-project for work in a scratch folder, or filed before Auspex knew its project.
+        ///
+        /// Key: `common.scratch`
+        /// en: "Scratch"
+        public static var scratch: String { L10nSupport.string("common.scratch") }
+
+        /// The noun "status": a column header, a property label, a picker label.
+        ///
+        /// Key: `common.status`
+        /// en: "Status"
+        public static var status: String { L10nSupport.string("common.status") }
+    }
+
+    public enum Context {
+        /// Trace header: small label on the context chip that opens the popover. Lower-case. distinct-from: common.context
+        ///
+        /// Key: `context.chip`
+        /// en: "context"
+        public static var chip: String { L10nSupport.string("context.chip") }
+
+        /// Context gauge when the window size reported was not believable. {used} is a token count such as 850.1k.
+        ///
+        /// Key: `context.unknownWindow`
+        /// en: "{used} · window ?"
+        public static func unknownWindow(used: String) -> String {
+            L10nSupport.format("context.unknownWindow", used)
+        }
+
+        /// Context popover heading over the composition bar.
+        ///
+        /// Key: `context.whatsInIt`
+        /// en: "What is in it"
+        public static var whatsInIt: String { L10nSupport.string("context.whatsInIt") }
+
+        /// Context popover heading (upper-cased style).
+        ///
+        /// Key: `context.window`
+        /// en: "Context window"
+        public static var window: String { L10nSupport.string("context.window") }
+
+        public enum Estimate {
+            /// Context popover caption under the composition bar.
+            ///
+            /// Key: `context.estimate.derived`
+            /// en: "Estimate, from the {count} messages Auspex indexed — Claude Code's own /context is exact."
+            public static func derived(count: Int) -> String {
+                L10nSupport.format("context.estimate.derived", count)
+            }
+
+            /// Joins two sentences of the context popover caption (Chinese takes no space).
+            ///
+            /// Key: `context.estimate.join`
+            /// en: "{first} {second}"
+            public static func join(first: String, second: String) -> String {
+                L10nSupport.format("context.estimate.join", first, second)
+            }
+
+            /// Context popover caption, added sentence.
+            ///
+            /// Key: `context.estimate.overEstimated`
+            /// en: "Four characters to the token over-counted here; the bands were scaled to fit."
+            public static var overEstimated: String { L10nSupport.string("context.estimate.overEstimated") }
+
+            /// Context popover caption under the composition bar.
+            ///
+            /// Key: `context.estimate.recorded`
+            /// en: "Estimate, from the {count} messages Auspex indexed. The harness records the fill but does not itemise it."
+            public static func recorded(count: Int) -> String {
+                L10nSupport.format("context.estimate.recorded", count)
+            }
+
+            /// Context popover caption, added sentence.
+            ///
+            /// Key: `context.estimate.sinceCompaction`
+            /// en: "Counted from the last compaction."
+            public static var sinceCompaction: String { L10nSupport.string("context.estimate.sinceCompaction") }
+
+            /// Context popover caption, added sentence.
+            ///
+            /// Key: `context.estimate.truncated`
+            /// en: "Older messages were not read, so the measured bands are a floor."
+            public static var truncated: String { L10nSupport.string("context.estimate.truncated") }
+
+            /// Context popover caption, added sentence. Quote context.slice.everythingElse.
+            ///
+            /// Key: `context.estimate.unattributed`
+            /// en: "Little of this session's text is indexed here, so most of the window falls into “everything else” rather than being attributed."
+            public static var unattributed: String { L10nSupport.string("context.estimate.unattributed") }
+        }
+
+        public enum Fill {
+            /// Context popover caption.
+            ///
+            /// Key: `context.fill.derived`
+            /// en: "Fill read from the transcript. Window size looked up from the model — the harness does not record it."
+            public static var derived: String { L10nSupport.string("context.fill.derived") }
+
+            /// Context popover caption. distinct-from: context.help.recorded
+            ///
+            /// Key: `context.fill.recorded`
+            /// en: "Fill and window size both recorded by the harness."
+            public static var recorded: String { L10nSupport.string("context.fill.recorded") }
+
+            /// Context popover caption when the window size is not believable. {reason} is a full sentence (context.help.notOnRecord or .overflow).
+            ///
+            /// Key: `context.fill.unknownSuffix`
+            /// en: "{reason} The fill below is what the transcript recorded."
+            public static func unknownSuffix(reason: String) -> String {
+                L10nSupport.format("context.fill.unknownSuffix", reason)
+            }
+        }
+
+        public enum Help {
+            /// Context gauge tooltip line. {tokens} is a token count such as 120k.
+            ///
+            /// Key: `context.help.cached`
+            /// en: "{tokens} of it served from cache"
+            public static func cached(tokens: String) -> String {
+                L10nSupport.format("context.help.cached", tokens)
+            }
+
+            /// Context gauge tooltip: how many times the session's context was compacted.
+            ///
+            /// Key: `context.help.compacted`
+            /// en: "{count, plural, one {Compacted once already.} other {Compacted # times already.}}"
+            public static func compacted(count: Int) -> String {
+                L10nSupport.localizedFormat("context.help.compacted", count)
+            }
+
+            /// Context gauge tooltip: where the numbers came from.
+            ///
+            /// Key: `context.help.derived`
+            /// en: "Fill read from the transcript; window size looked up from the model."
+            public static var derived: String { L10nSupport.string("context.help.derived") }
+
+            /// Context gauge tooltip: why no percentage is shown.
+            ///
+            /// Key: `context.help.notOnRecord`
+            /// en: "The model's window is not on record; the fill is derived."
+            public static var notOnRecord: String { L10nSupport.string("context.help.notOnRecord") }
+
+            /// Context gauge tooltip: why no percentage is shown.
+            ///
+            /// Key: `context.help.overflow`
+            /// en: "The harness reported a fill larger than the window it also reported."
+            public static var overflow: String { L10nSupport.string("context.help.overflow") }
+
+            /// Context gauge tooltip: where the numbers came from.
+            ///
+            /// Key: `context.help.recorded`
+            /// en: "Fill and window both recorded by the harness."
+            public static var recorded: String { L10nSupport.string("context.help.recorded") }
+        }
+
+        public enum Ledger {
+            /// Context popover ledger key.
+            ///
+            /// Key: `context.ledger.cached`
+            /// en: "cached"
+            public static var cached: String { L10nSupport.string("context.ledger.cached") }
+
+            /// Context popover ledger key.
+            ///
+            /// Key: `context.ledger.compactions`
+            /// en: "compactions"
+            public static var compactions: String { L10nSupport.string("context.ledger.compactions") }
+
+            /// Context popover ledger value when the reported window is smaller than the fill.
+            ///
+            /// Key: `context.ledger.notBelievable`
+            /// en: "{value} · not believable"
+            public static func notBelievable(value: String) -> String {
+                L10nSupport.format("context.ledger.notBelievable", value)
+            }
+
+            /// Context popover ledger value.
+            ///
+            /// Key: `context.ledger.notRecorded`
+            /// en: "not recorded"
+            public static var notRecorded: String { L10nSupport.string("context.ledger.notRecorded") }
+
+            /// Context popover ledger value.
+            ///
+            /// Key: `context.ledger.notReported`
+            /// en: "not reported"
+            public static var notReported: String { L10nSupport.string("context.ledger.notReported") }
+
+            /// Context popover ledger key.
+            ///
+            /// Key: `context.ledger.output`
+            /// en: "output, all turns"
+            public static var output: String { L10nSupport.string("context.ledger.output") }
+
+            /// Context popover ledger key.
+            ///
+            /// Key: `context.ledger.used`
+            /// en: "used"
+            public static var used: String { L10nSupport.string("context.ledger.used") }
+
+            /// Context popover ledger key.
+            ///
+            /// Key: `context.ledger.window`
+            /// en: "window"
+            public static var window: String { L10nSupport.string("context.ledger.window") }
+        }
+
+        public enum Slice {
+            /// Context composition band: system prompt, tool schemas, skills, memory.
+            ///
+            /// Key: `context.slice.everythingElse`
+            /// en: "Everything else"
+            public static var everythingElse: String { L10nSupport.string("context.slice.everythingElse") }
+
+            /// Context composition band: unused window. distinct-from: board.bucket.idle distinct-from: aviary.room.free
+            ///
+            /// Key: `context.slice.free`
+            /// en: "Free"
+            public static var free: String { L10nSupport.string("context.slice.free") }
+
+            /// Context composition band.
+            ///
+            /// Key: `context.slice.messages`
+            /// en: "Messages"
+            public static var messages: String { L10nSupport.string("context.slice.messages") }
+
+            /// Context composition band.
+            ///
+            /// Key: `context.slice.toolResults`
+            /// en: "Tool results"
+            public static var toolResults: String { L10nSupport.string("context.slice.toolResults") }
+        }
+    }
+
+    public enum Copy {
+        /// Tooltip on a copyable chip. {what} is one of copy.what.*; {value} is what will be copied.
+        ///
+        /// Key: `copy.clickToCopy`
+        /// en: "Click to copy {what} — {value}"
+        public static func clickToCopy(what: String, value: String) -> String {
+            L10nSupport.format("copy.clickToCopy", what, value)
+        }
+
+        /// Toast after copying something. {what} is one of copy.what.*, a noun phrase.
+        ///
+        /// Key: `copy.copied`
+        /// en: "Copied {what}"
+        public static func copied(what: String) -> String {
+            L10nSupport.format("copy.copied", what)
+        }
+
+        /// VoiceOver label of a copyable chip. {what} is one of copy.what.*.
+        ///
+        /// Key: `copy.copyWhat`
+        /// en: "Copy {what}"
+        public static func copyWhat(what: String) -> String {
+            L10nSupport.format("copy.copyWhat", what)
+        }
+
+        public enum What {
+            /// Noun phrase for copy.* — the prompt a session was given.
+            ///
+            /// Key: `copy.what.assignment`
+            /// en: "the assignment"
+            public static var assignment: String { L10nSupport.string("copy.what.assignment") }
+
+            /// Noun phrase for copy.*.
+            ///
+            /// Key: `copy.what.branch`
+            /// en: "the branch"
+            public static var branch: String { L10nSupport.string("copy.what.branch") }
+
+            /// Noun phrase for copy.* — a text summary of a task an agent can pick up.
+            ///
+            /// Key: `copy.what.handoffPacket`
+            /// en: "the handoff packet"
+            public static var handoffPacket: String { L10nSupport.string("copy.what.handoffPacket") }
+
+            /// Noun phrase for copy.* — the model id a session runs on.
+            ///
+            /// Key: `copy.what.model`
+            /// en: "the model"
+            public static var model: String { L10nSupport.string("copy.what.model") }
+
+            /// Noun phrase for copy.*.
+            ///
+            /// Key: `copy.what.pid`
+            /// en: "the pid"
+            public static var pid: String { L10nSupport.string("copy.what.pid") }
+
+            /// Noun phrase for copy.* — the shell command that resumes a session.
+            ///
+            /// Key: `copy.what.resumeCommand`
+            /// en: "the resume command"
+            public static var resumeCommand: String { L10nSupport.string("copy.what.resumeCommand") }
+
+            /// Noun phrase for copy.*.
+            ///
+            /// Key: `copy.what.sessionID`
+            /// en: "the session ID"
+            public static var sessionID: String { L10nSupport.string("copy.what.sessionID") }
+
+            /// Noun phrase for copy.* — a task's short id such as AUS-12.
+            ///
+            /// Key: `copy.what.taskHandle`
+            /// en: "the task's handle"
+            public static var taskHandle: String { L10nSupport.string("copy.what.taskHandle") }
+
+            /// Noun phrase for copy.*.
+            ///
+            /// Key: `copy.what.title`
+            /// en: "the title"
+            public static var title: String { L10nSupport.string("copy.what.title") }
+
+            /// Noun phrase for copy.*.
+            ///
+            /// Key: `copy.what.workingDirectory`
+            /// en: "the working directory"
+            public static var workingDirectory: String { L10nSupport.string("copy.what.workingDirectory") }
+
+            /// Noun phrase for copy.* — a prompt asking an agent to set up a worktree.
+            ///
+            /// Key: `copy.what.worktreeTask`
+            /// en: "the worktree task"
+            public static var worktreeTask: String { L10nSupport.string("copy.what.worktreeTask") }
+        }
+    }
+
+    public enum Crew {
+        /// Flock: label over the row of finished sessions, drawn small.
+        ///
+        /// Key: `crew.asleep`
+        /// en: "{count} asleep"
+        public static func asleep(count: Int) -> String {
+            L10nSupport.format("crew.asleep", count)
+        }
+
+        /// Flock: VoiceOver label of a finished session's small face.
+        ///
+        /// Key: `crew.finishedAccessibility`
+        /// en: "{harness}, finished"
+        public static func finishedAccessibility(harness: String) -> String {
+            L10nSupport.format("crew.finishedAccessibility", harness)
+        }
+
+        /// Flock: tooltip on a finished session's small face. {harness} is a harness name.
+        ///
+        /// Key: `crew.finishedHelp`
+        /// en: "{harness} — finished"
+        public static func finishedHelp(harness: String) -> String {
+            L10nSupport.format("crew.finishedHelp", harness)
+        }
+
+        /// Flock: VoiceOver label of the badge counting a session's descendants.
+        ///
+        /// Key: `crew.sessionsBelow`
+        /// en: "{count} sessions below this one"
+        public static func sessionsBelow(count: Int) -> String {
+            L10nSupport.format("crew.sessionsBelow", count)
+        }
+
+        /// Flock: VoiceOver label of a task's brood of small faces.
+        ///
+        /// Key: `crew.sessionsOnTask`
+        /// en: "{count} sessions on this task"
+        public static func sessionsOnTask(count: Int) -> String {
+            L10nSupport.format("crew.sessionsOnTask", count)
+        }
+
+        public enum Badge {
+            /// Flock: VoiceOver label of the tick corner badge. distinct-from: task.card.finished
+            ///
+            /// Key: `crew.badge.finished`
+            /// en: "finished"
+            public static var finished: String { L10nSupport.string("crew.badge.finished") }
+
+            /// Flock: VoiceOver label of the "!" corner badge.
+            ///
+            /// Key: `crew.badge.waitingForYou`
+            /// en: "waiting for you"
+            public static var waitingForYou: String { L10nSupport.string("crew.badge.waitingForYou") }
+        }
+
+        public enum End {
+            /// Flock: how a session finished, one word under its face.
+            ///
+            /// Key: `crew.end.exited`
+            /// en: "exited"
+            public static var exited: String { L10nSupport.string("crew.end.exited") }
+
+            /// Flock: how a session finished.
+            ///
+            /// Key: `crew.end.killed`
+            /// en: "killed"
+            public static var killed: String { L10nSupport.string("crew.end.killed") }
+
+            /// Flock: how a session finished — the process vanished without an exit record.
+            ///
+            /// Key: `crew.end.processGone`
+            /// en: "process gone"
+            public static var processGone: String { L10nSupport.string("crew.end.processGone") }
+
+            /// Flock: how a session finished — Auspex does not know why.
+            ///
+            /// Key: `crew.end.wentQuiet`
+            /// en: "went quiet"
+            public static var wentQuiet: String { L10nSupport.string("crew.end.wentQuiet") }
+        }
+    }
+
+    public enum Delivery {
+        /// Delivery: commits ahead of and behind the upstream, from local refs.
+        ///
+        /// Key: `delivery.aheadBehind`
+        /// en: "ahead {ahead} · behind {behind} · local refs only"
+        public static func aheadBehind(ahead: Int, behind: Int) -> String {
+            L10nSupport.format("delivery.aheadBehind", ahead, behind)
+        }
+
+        /// Delivery property label. distinct-from: perch.merge.branch
+        ///
+        /// Key: `delivery.branch`
+        /// en: "Branch"
+        public static var branch: String { L10nSupport.string("delivery.branch") }
+
+        /// Delivery property label. distinct-from: catchUp.change.changed
+        ///
+        /// Key: `delivery.changed`
+        /// en: "Changed"
+        public static var changed: String { L10nSupport.string("delivery.changed") }
+
+        /// Delivery: how many files changed.
+        ///
+        /// Key: `delivery.changedFiles`
+        /// en: "{count, plural, one {# file} other {# files}}"
+        public static func changedFiles(count: Int) -> String {
+            L10nSupport.localizedFormat("delivery.changedFiles", count)
+        }
+
+        /// Delivery: how many files changed, when the list was capped.
+        ///
+        /// Key: `delivery.changedFilesCapped`
+        /// en: "{count, plural, one {# file + shown with a cap} other {# files + shown with a cap}}"
+        public static func changedFilesCapped(count: Int) -> String {
+            L10nSupport.localizedFormat("delivery.changedFilesCapped", count)
+        }
+
+        /// Delivery footer. {time} is a relative time such as "3m ago".
+        ///
+        /// Key: `delivery.checked`
+        /// en: "checked {time} · no fetch"
+        public static func checked(time: String) -> String {
+            L10nSupport.format("delivery.checked", time)
+        }
+
+        /// Delivery property label.
+        ///
+        /// Key: `delivery.checkout`
+        /// en: "Checkout"
+        public static var checkout: String { L10nSupport.string("delivery.checkout") }
+
+        /// Handoff button.
+        ///
+        /// Key: `delivery.copyPacket`
+        /// en: "Copy packet"
+        public static var copyPacket: String { L10nSupport.string("delivery.copyPacket") }
+
+        /// Tooltip on Copy packet.
+        ///
+        /// Key: `delivery.copyPacketHelp`
+        /// en: "Copy the packet. Nothing is sent."
+        public static var copyPacketHelp: String { L10nSupport.string("delivery.copyPacketHelp") }
+
+        /// Review record bucket.
+        ///
+        /// Key: `delivery.decisions`
+        /// en: "Decisions"
+        public static var decisions: String { L10nSupport.string("delivery.decisions") }
+
+        /// Delivery property label.
+        ///
+        /// Key: `delivery.diffstat`
+        /// en: "Diffstat"
+        public static var diffstat: String { L10nSupport.string("delivery.diffstat") }
+
+        /// Review record bucket.
+        ///
+        /// Key: `delivery.evidence`
+        /// en: "Verification evidence"
+        public static var evidence: String { L10nSupport.string("delivery.evidence") }
+
+        /// Task page section title.
+        ///
+        /// Key: `delivery.handoff`
+        /// en: "Handoff"
+        public static var handoff: String { L10nSupport.string("delivery.handoff") }
+
+        /// Handoff section note.
+        ///
+        /// Key: `delivery.handoffNote`
+        /// en: "Goal, phase, current state, team, delivery, record, and resume hints. Nothing is sent."
+        public static var handoffNote: String { L10nSupport.string("delivery.handoffNote") }
+
+        /// Handoff section line.
+        ///
+        /// Key: `delivery.handoffTitle`
+        /// en: "Copy a bounded context packet"
+        public static var handoffTitle: String { L10nSupport.string("delivery.handoffTitle") }
+
+        /// Delivery property label.
+        ///
+        /// Key: `delivery.lastCommit`
+        /// en: "Last commit"
+        public static var lastCommit: String { L10nSupport.string("delivery.lastCommit") }
+
+        /// Delivery panel when no checkout is known.
+        ///
+        /// Key: `delivery.noCheckout`
+        /// en: "No local checkout was recorded for any session on this task."
+        public static var noCheckout: String { L10nSupport.string("delivery.noCheckout") }
+
+        /// Review record bucket when empty.
+        ///
+        /// Key: `delivery.noEvidence`
+        /// en: "No verification evidence has been recorded."
+        public static var noEvidence: String { L10nSupport.string("delivery.noEvidence") }
+
+        /// Review record bucket when empty.
+        ///
+        /// Key: `delivery.noRisks`
+        /// en: "No risk note has been recorded; that is not proof of no risk."
+        public static var noRisks: String { L10nSupport.string("delivery.noRisks") }
+
+        /// Delivery property label over a diagnostic sentence.
+        ///
+        /// Key: `delivery.observation`
+        /// en: "Observation"
+        public static var observation: String { L10nSupport.string("delivery.observation") }
+
+        /// Delivery panel tag: the facts come from reading the local repository.
+        ///
+        /// Key: `delivery.observedLocalGit`
+        /// en: "observed local Git"
+        public static var observedLocalGit: String { L10nSupport.string("delivery.observedLocalGit") }
+
+        /// Delivery panel while loading.
+        ///
+        /// Key: `delivery.reading`
+        /// en: "Reading the recorded checkout…"
+        public static var reading: String { L10nSupport.string("delivery.reading") }
+
+        /// Delivery panel button.
+        ///
+        /// Key: `delivery.refresh`
+        /// en: "Refresh"
+        public static var refresh: String { L10nSupport.string("delivery.refresh") }
+
+        /// Tooltip on Refresh.
+        ///
+        /// Key: `delivery.refreshHelp`
+        /// en: "Read this checkout again. No fetch or network request is made."
+        public static var refreshHelp: String { L10nSupport.string("delivery.refreshHelp") }
+
+        /// Task page section title.
+        ///
+        /// Key: `delivery.reviewRecord`
+        /// en: "Review record"
+        public static var reviewRecord: String { L10nSupport.string("delivery.reviewRecord") }
+
+        /// Review record bucket.
+        ///
+        /// Key: `delivery.risks`
+        /// en: "Risks"
+        public static var risks: String { L10nSupport.string("delivery.risks") }
+
+        /// Task page section title: what the task's checkout looks like now.
+        ///
+        /// Key: `delivery.title`
+        /// en: "Delivery"
+        public static var title: String { L10nSupport.string("delivery.title") }
+
+        /// Delivery property label.
+        ///
+        /// Key: `delivery.upstream`
+        /// en: "Upstream"
+        public static var upstream: String { L10nSupport.string("delivery.upstream") }
+
+        /// Tooltip on Copy packet while disabled.
+        ///
+        /// Key: `delivery.waitForCheck`
+        /// en: "Wait for the local delivery check to finish"
+        public static var waitForCheck: String { L10nSupport.string("delivery.waitForCheck") }
+
+        /// Delivery property label.
+        ///
+        /// Key: `delivery.workingTree`
+        /// en: "Working tree"
+        public static var workingTree: String { L10nSupport.string("delivery.workingTree") }
+
+        public enum Tree {
+            /// Working tree state.
+            ///
+            /// Key: `delivery.tree.clean`
+            /// en: "clean"
+            public static var clean: String { L10nSupport.string("delivery.tree.clean") }
+
+            /// Working tree state.
+            ///
+            /// Key: `delivery.tree.dirty`
+            /// en: "dirty"
+            public static var dirty: String { L10nSupport.string("delivery.tree.dirty") }
+
+            /// Working tree state.
+            ///
+            /// Key: `delivery.tree.unknown`
+            /// en: "unknown"
+            public static var unknown: String { L10nSupport.string("delivery.tree.unknown") }
+        }
+    }
+
+    public enum Flight {
+        /// Flight detail fact (upper-cased).
+        ///
+        /// Key: `flight.agents`
+        /// en: "Agents"
+        public static var agents: String { L10nSupport.string("flight.agents") }
+
+        /// Flight detail section (upper-cased).
+        ///
+        /// Key: `flight.agentsAtMoment`
+        /// en: "Agents at this moment"
+        public static var agentsAtMoment: String { L10nSupport.string("flight.agentsAtMoment") }
+
+        /// Flight inspector block title over the session's first prompt. distinct-from: ledger.asked
+        ///
+        /// Key: `flight.asked`
+        /// en: "Asked"
+        public static var asked: String { L10nSupport.string("flight.asked") }
+
+        /// Flight detail heading (upper-cased).
+        ///
+        /// Key: `flight.atPlayhead`
+        /// en: "At playhead"
+        public static var atPlayhead: String { L10nSupport.string("flight.atPlayhead") }
+
+        /// Tooltip on the back button.
+        ///
+        /// Key: `flight.backHelp`
+        /// en: "Back to the board (⌘T)"
+        public static var backHelp: String { L10nSupport.string("flight.backHelp") }
+
+        /// Flight inspector: a step before the first turn.
+        ///
+        /// Key: `flight.beforeTurn1`
+        /// en: "before turn 1"
+        public static var beforeTurn1: String { L10nSupport.string("flight.beforeTurn1") }
+
+        /// Flight toolbar: button back to the board.
+        ///
+        /// Key: `flight.board`
+        /// en: "Board"
+        public static var board: String { L10nSupport.string("flight.board") }
+
+        /// Flight graph while loading.
+        ///
+        /// Key: `flight.buildingGraph`
+        /// en: "Building the execution graph…"
+        public static var buildingGraph: String { L10nSupport.string("flight.buildingGraph") }
+
+        /// Flight graph while loading. "Flight" is viewMode.trajectory.
+        ///
+        /// Key: `flight.buildingGraphDetail`
+        /// en: "Flight is folding this session's observed agent and tool events."
+        public static var buildingGraphDetail: String { L10nSupport.string("flight.buildingGraphDetail") }
+
+        /// Flight inspector fact: cached tokens. distinct-from: context.ledger.cached
+        ///
+        /// Key: `flight.cached`
+        /// en: "Cached"
+        public static var cached: String { L10nSupport.string("flight.cached") }
+
+        /// Flight inspector fact.
+        ///
+        /// Key: `flight.callID`
+        /// en: "Call id"
+        public static var callID: String { L10nSupport.string("flight.callID") }
+
+        /// Tooltip on the camera picker. Quote flight.camera.*.
+        ///
+        /// Key: `flight.cameraHelp`
+        /// en: "Overview fits the graph; Follow glides to activity; pan or zoom enters Manual"
+        public static var cameraHelp: String { L10nSupport.string("flight.cameraHelp") }
+
+        /// Tooltip on the inspector's close button.
+        ///
+        /// Key: `flight.closeInspector`
+        /// en: "Close the inspector (Esc)"
+        public static var closeInspector: String { L10nSupport.string("flight.closeInspector") }
+
+        /// Flight: a step that failed.
+        ///
+        /// Key: `flight.failed`
+        /// en: "failed"
+        public static var failed: String { L10nSupport.string("flight.failed") }
+
+        /// Flight detail fact (upper-cased).
+        ///
+        /// Key: `flight.filesTouched`
+        /// en: "Files touched"
+        public static var filesTouched: String { L10nSupport.string("flight.filesTouched") }
+
+        /// Tooltip on the filter field.
+        ///
+        /// Key: `flight.filterHelp`
+        /// en: "Show only the steps whose text matches"
+        public static var filterHelp: String { L10nSupport.string("flight.filterHelp") }
+
+        /// Flight search field placeholder.
+        ///
+        /// Key: `flight.filterSteps`
+        /// en: "Filter steps"
+        public static var filterSteps: String { L10nSupport.string("flight.filterSteps") }
+
+        /// Flight header warning when the log was cut.
+        ///
+        /// Key: `flight.firstEvents`
+        /// en: "first {count} events"
+        public static func firstEvents(count: Int) -> String {
+            L10nSupport.format("flight.firstEvents", count)
+        }
+
+        /// Flight toolbar toggle label. distinct-from: flight.camera.follow
+        ///
+        /// Key: `flight.follow`
+        /// en: "Follow"
+        public static var follow: String { L10nSupport.string("flight.follow") }
+
+        /// VoiceOver label of the Follow toggle.
+        ///
+        /// Key: `flight.followAccessibility`
+        /// en: "Follow the newest step"
+        public static var followAccessibility: String { L10nSupport.string("flight.followAccessibility") }
+
+        /// Flight inspector fact.
+        ///
+        /// Key: `flight.generation`
+        /// en: "Generation"
+        public static var generation: String { L10nSupport.string("flight.generation") }
+
+        /// Flight inspector fact: input tokens.
+        ///
+        /// Key: `flight.in`
+        /// en: "In"
+        public static var `in`: String { L10nSupport.string("flight.in") }
+
+        /// Flight detail section (upper-cased): tool calls open at this moment.
+        ///
+        /// Key: `flight.inFlight`
+        /// en: "In flight"
+        public static var inFlight: String { L10nSupport.string("flight.inFlight") }
+
+        /// Flight inspector header when nothing is selected.
+        ///
+        /// Key: `flight.inspector`
+        /// en: "Inspector"
+        public static var inspector: String { L10nSupport.string("flight.inspector") }
+
+        /// Flight graph: keyboard hint. The letters o and f are the keys and stay as they are.
+        ///
+        /// Key: `flight.keyHint`
+        /// en: "o overview · f follow · pan/zoom = manual"
+        public static var keyHint: String { L10nSupport.string("flight.keyHint") }
+
+        /// Flight detail empty state title and (upper-cased) tag while following live. distinct-from: perch.live
+        ///
+        /// Key: `flight.live`
+        /// en: "Live"
+        public static var live: String { L10nSupport.string("flight.live") }
+
+        /// Flight detail in history mode.
+        ///
+        /// Key: `flight.liveAhead`
+        /// en: "Live is {count} events ahead"
+        public static func liveAhead(count: Int) -> String {
+            L10nSupport.format("flight.liveAhead", count)
+        }
+
+        /// Flight detail empty state detail.
+        ///
+        /// Key: `flight.liveDetail`
+        /// en: "Pause or scrub the event ruler to inspect a historical moment."
+        public static var liveDetail: String { L10nSupport.string("flight.liveDetail") }
+
+        /// Flight detail heading (upper-cased). distinct-from: flight.tab.moment
+        ///
+        /// Key: `flight.moment`
+        /// en: "Moment"
+        public static var moment: String { L10nSupport.string("flight.moment") }
+
+        /// Flight inspector: a step with no recorded end.
+        ///
+        /// Key: `flight.noEnd`
+        /// en: "no end recorded"
+        public static var noEnd: String { L10nSupport.string("flight.noEnd") }
+
+        /// Flight inspector raw tab when the step has no source.
+        ///
+        /// Key: `flight.noSource`
+        /// en: "Auspex recorded no source location for this event."
+        public static var noSource: String { L10nSupport.string("flight.noSource") }
+
+        /// Flight detail when nothing was open.
+        ///
+        /// Key: `flight.noToolOpen`
+        /// en: "No tool was open at this event."
+        public static var noToolOpen: String { L10nSupport.string("flight.noToolOpen") }
+
+        /// VoiceOver label of a graph node.
+        ///
+        /// Key: `flight.nodeA11y`
+        /// en: "{title}, {state}, {count} tools"
+        public static func nodeA11y(title: String, state: String, count: Int) -> String {
+            L10nSupport.format("flight.nodeA11y", title, state, count)
+        }
+
+        /// Flight detail when nothing is open.
+        ///
+        /// Key: `flight.nothingInFlight`
+        /// en: "Nothing is in flight at this moment."
+        public static var nothingInFlight: String { L10nSupport.string("flight.nothingInFlight") }
+
+        /// Flight list when the brush or filter hides everything.
+        ///
+        /// Key: `flight.nothingInRange`
+        /// en: "Nothing in this range."
+        public static var nothingInRange: String { L10nSupport.string("flight.nothingInRange") }
+
+        /// Flight inspector raw tab placeholder.
+        ///
+        /// Key: `flight.nothingRead`
+        /// en: "Nothing has been read yet."
+        public static var nothingRead: String { L10nSupport.string("flight.nothingRead") }
+
+        /// Flight inspector empty state title.
+        ///
+        /// Key: `flight.nothingSelected`
+        /// en: "Nothing selected"
+        public static var nothingSelected: String { L10nSupport.string("flight.nothingSelected") }
+
+        /// Flight inspector empty state detail.
+        ///
+        /// Key: `flight.nothingSelectedDetail`
+        /// en: "Click a row, or a bar on the timeline, to take a step apart."
+        public static var nothingSelectedDetail: String { L10nSupport.string("flight.nothingSelectedDetail") }
+
+        /// Flight inspector: a step that finished.
+        ///
+        /// Key: `flight.ok`
+        /// en: "ok"
+        public static var ok: String { L10nSupport.string("flight.ok") }
+
+        /// Flight inspector fact: output tokens.
+        ///
+        /// Key: `flight.out`
+        /// en: "Out"
+        public static var out: String { L10nSupport.string("flight.out") }
+
+        /// Flight row: output tokens of a step. {tokens} is compact, e.g. 3.2k.
+        ///
+        /// Key: `flight.outTokens`
+        /// en: "{tokens} out"
+        public static func outTokens(tokens: String) -> String {
+            L10nSupport.format("flight.outTokens", tokens)
+        }
+
+        /// Flight inspector fact.
+        ///
+        /// Key: `flight.outcome`
+        /// en: "Outcome"
+        public static var outcome: String { L10nSupport.string("flight.outcome") }
+
+        /// Flight inspector request timing when there is no request.
+        ///
+        /// Key: `flight.outsideRequest`
+        /// en: "This step happened outside a model request."
+        public static var outsideRequest: String { L10nSupport.string("flight.outsideRequest") }
+
+        /// VoiceOver label of the graph's play button while playing.
+        ///
+        /// Key: `flight.pauseGraph`
+        /// en: "Pause graph playback"
+        public static var pauseGraph: String { L10nSupport.string("flight.pauseGraph") }
+
+        /// Flight graph playback state.
+        ///
+        /// Key: `flight.paused`
+        /// en: "Paused"
+        public static var paused: String { L10nSupport.string("flight.paused") }
+
+        /// VoiceOver label of the graph's play button.
+        ///
+        /// Key: `flight.playGraph`
+        /// en: "Play graph history"
+        public static var playGraph: String { L10nSupport.string("flight.playGraph") }
+
+        /// Flight row tag (upper-cased) on the row under the playhead.
+        ///
+        /// Key: `flight.playhead`
+        /// en: "Playhead"
+        public static var playhead: String { L10nSupport.string("flight.playhead") }
+
+        /// VoiceOver label of the event scrubber.
+        ///
+        /// Key: `flight.playheadA11y`
+        /// en: "Flight event playhead"
+        public static var playheadA11y: String { L10nSupport.string("flight.playheadA11y") }
+
+        /// Flight row marker for steps before the first turn.
+        ///
+        /// Key: `flight.pre`
+        /// en: "Pre"
+        public static var pre: String { L10nSupport.string("flight.pre") }
+
+        /// Flight inspector block title and tab.
+        ///
+        /// Key: `flight.preview`
+        /// en: "Preview"
+        public static var preview: String { L10nSupport.string("flight.preview") }
+
+        /// Flight inspector note.
+        ///
+        /// Key: `flight.previewOnly`
+        /// en: "This harness recorded only a preview of this step; there is no full text in the log to show."
+        public static var previewOnly: String { L10nSupport.string("flight.previewOnly") }
+
+        /// Flight list while loading. distinct-from: trace.loading
+        ///
+        /// Key: `flight.readingLog`
+        /// en: "Reading the event log…"
+        public static var readingLog: String { L10nSupport.string("flight.readingLog") }
+
+        /// Flight inspector raw tab while loading.
+        ///
+        /// Key: `flight.readingRecord`
+        /// en: "Reading the record…"
+        public static var readingRecord: String { L10nSupport.string("flight.readingRecord") }
+
+        /// Flight detail while history loads.
+        ///
+        /// Key: `flight.rebuilding`
+        /// en: "Rebuilding this event…"
+        public static var rebuilding: String { L10nSupport.string("flight.rebuilding") }
+
+        /// Flight inspector fact: the file the step was read from.
+        ///
+        /// Key: `flight.record`
+        /// en: "Record"
+        public static var record: String { L10nSupport.string("flight.record") }
+
+        /// Flight inspector fact: which model request a step belongs to.
+        ///
+        /// Key: `flight.request`
+        /// en: "Request"
+        public static var request: String { L10nSupport.string("flight.request") }
+
+        /// Flight inspector block title.
+        ///
+        /// Key: `flight.requestTiming`
+        /// en: "Request timing"
+        public static var requestTiming: String { L10nSupport.string("flight.requestTiming") }
+
+        /// Tooltip on the scale picker.
+        ///
+        /// Key: `flight.scaleHelp`
+        /// en: "What the timeline's width measures"
+        public static var scaleHelp: String { L10nSupport.string("flight.scaleHelp") }
+
+        /// Tooltip on the session / task scope picker.
+        ///
+        /// Key: `flight.scopeHelp`
+        /// en: "One session's flight, or the whole task's — every session on it in one waterfall, in the order things happened"
+        public static var scopeHelp: String { L10nSupport.string("flight.scopeHelp") }
+
+        /// Flight detail hint when no agent is selected.
+        ///
+        /// Key: `flight.selectNodeHint`
+        /// en: "Click a graph node to pin its details here. Follow glides to current activity; pan or zoom enters Manual."
+        public static var selectNodeHint: String { L10nSupport.string("flight.selectNodeHint") }
+
+        /// Flight placeholder detail; the title is trace.selectSession.
+        ///
+        /// Key: `flight.selectSessionDetail`
+        /// en: "A flight is one session opened out. Pick a card to see its turns."
+        public static var selectSessionDetail: String { L10nSupport.string("flight.selectSessionDetail") }
+
+        /// Flight detail section (upper-cased).
+        ///
+        /// Key: `flight.selectedAgent`
+        /// en: "Selected agent"
+        public static var selectedAgent: String { L10nSupport.string("flight.selectedAgent") }
+
+        /// Flight list button that clears the brush and filter.
+        ///
+        /// Key: `flight.showWholeSession`
+        /// en: "Show the whole session"
+        public static var showWholeSession: String { L10nSupport.string("flight.showWholeSession") }
+
+        /// Flight header when a filter is on.
+        ///
+        /// Key: `flight.showing`
+        /// en: "showing {shown} of {total}"
+        public static func showing(shown: Int, total: Int) -> String {
+            L10nSupport.format("flight.showing", shown, total)
+        }
+
+        /// Flight inspector block title.
+        ///
+        /// Key: `flight.source`
+        /// en: "Source"
+        public static var source: String { L10nSupport.string("flight.source") }
+
+        /// Tooltip on Follow while off.
+        ///
+        /// Key: `flight.startFollowing`
+        /// en: "Scroll to the newest step as it arrives"
+        public static var startFollowing: String { L10nSupport.string("flight.startFollowing") }
+
+        /// Flight inspector fact. distinct-from: catchUp.change.started
+        ///
+        /// Key: `flight.started`
+        /// en: "Started"
+        public static var started: String { L10nSupport.string("flight.started") }
+
+        /// Flight inspector header.
+        ///
+        /// Key: `flight.step`
+        /// en: "Step {number}"
+        public static func step(number: Int) -> String {
+            L10nSupport.format("flight.step", number)
+        }
+
+        /// Tooltip on Follow while on.
+        ///
+        /// Key: `flight.stopFollowing`
+        /// en: "Stop scrolling to the newest step"
+        public static var stopFollowing: String { L10nSupport.string("flight.stopFollowing") }
+
+        /// Flight inspector fact.
+        ///
+        /// Key: `flight.throughput`
+        /// en: "Throughput"
+        public static var throughput: String { L10nSupport.string("flight.throughput") }
+
+        /// Flight inspector block title.
+        ///
+        /// Key: `flight.tokens`
+        /// en: "Tokens"
+        public static var tokens: String { L10nSupport.string("flight.tokens") }
+
+        /// Flight inspector: tokens per second. {rate} is a number with one decimal.
+        ///
+        /// Key: `flight.tokensPerSecond`
+        /// en: "{rate} tok/s"
+        public static func tokensPerSecond(rate: String) -> String {
+            L10nSupport.format("flight.tokensPerSecond", rate)
+        }
+
+        /// Flight inspector fact.
+        ///
+        /// Key: `flight.totalDuration`
+        /// en: "Total duration"
+        public static var totalDuration: String { L10nSupport.string("flight.totalDuration") }
+
+        /// Flight inspector fact: time to first token.
+        ///
+        /// Key: `flight.ttft`
+        /// en: "TTFT"
+        public static var ttft: String { L10nSupport.string("flight.ttft") }
+
+        /// Flight inspector fact label. distinct-from: flight.scale.turns
+        ///
+        /// Key: `flight.turn`
+        /// en: "Turn"
+        public static var turn: String { L10nSupport.string("flight.turn") }
+
+        /// Flight graph node: the agent's turn count. Lower-case.
+        ///
+        /// Key: `flight.turnCount`
+        /// en: "turn {count}"
+        public static func turnCount(count: Int) -> String {
+            L10nSupport.format("flight.turnCount", count)
+        }
+
+        public enum Camera {
+            /// Flight graph camera: follow the active node.
+            ///
+            /// Key: `flight.camera.follow`
+            /// en: "Follow"
+            public static var follow: String { L10nSupport.string("flight.camera.follow") }
+
+            /// Flight graph camera: stay where the person put it.
+            ///
+            /// Key: `flight.camera.manual`
+            /// en: "Manual"
+            public static var manual: String { L10nSupport.string("flight.camera.manual") }
+
+            /// Flight graph camera: frame the whole graph.
+            ///
+            /// Key: `flight.camera.overview`
+            /// en: "Overview"
+            public static var overview: String { L10nSupport.string("flight.camera.overview") }
+        }
+
+        public enum Lane {
+            /// Flight timeline lane: what went into the model. distinct-from: flight.in
+            ///
+            /// Key: `flight.lane.input`
+            /// en: "Input"
+            public static var input: String { L10nSupport.string("flight.lane.input") }
+
+            /// Flight timeline lane: what the model produced.
+            ///
+            /// Key: `flight.lane.model`
+            /// en: "Model"
+            public static var model: String { L10nSupport.string("flight.lane.model") }
+        }
+
+        public enum Presentation {
+            /// Flight: presentation picker — the agent graph.
+            ///
+            /// Key: `flight.presentation.graph`
+            /// en: "Graph"
+            public static var graph: String { L10nSupport.string("flight.presentation.graph") }
+
+            /// Flight: presentation picker — the waterfall of steps.
+            ///
+            /// Key: `flight.presentation.trace`
+            /// en: "Trace"
+            public static var trace: String { L10nSupport.string("flight.presentation.trace") }
+        }
+
+        public enum Role {
+            /// Flight: chip on a step the system wrote.
+            ///
+            /// Key: `flight.role.system`
+            /// en: "System"
+            public static var system: String { L10nSupport.string("flight.role.system") }
+
+            /// Flight: chip on a step the person wrote.
+            ///
+            /// Key: `flight.role.user`
+            /// en: "User"
+            public static var user: String { L10nSupport.string("flight.role.user") }
+        }
+
+        public enum Scale {
+            /// Flight timeline scale: every step the same width.
+            ///
+            /// Key: `flight.scale.calls`
+            /// en: "Calls"
+            public static var calls: String { L10nSupport.string("flight.scale.calls") }
+
+            /// Flight timeline scale: proportional to wall time.
+            ///
+            /// Key: `flight.scale.duration`
+            /// en: "Duration"
+            public static var duration: String { L10nSupport.string("flight.scale.duration") }
+
+            /// Flight timeline scale: one slot per stored event.
+            ///
+            /// Key: `flight.scale.events`
+            /// en: "Events"
+            public static var events: String { L10nSupport.string("flight.scale.events") }
+
+            /// Flight timeline scale: every turn the same width. distinct-from: meta.turns
+            ///
+            /// Key: `flight.scale.turns`
+            /// en: "Turns"
+            public static var turns: String { L10nSupport.string("flight.scale.turns") }
+        }
+
+        public enum Scope {
+            /// Flight scope picker: one session. distinct-from: taskDetail.sessions
+            ///
+            /// Key: `flight.scope.session`
+            /// en: "Session"
+            public static var session: String { L10nSupport.string("flight.scope.session") }
+
+            /// Flight scope picker: every session on the task. distinct-from: catchUp.source.task
+            ///
+            /// Key: `flight.scope.task`
+            /// en: "Task"
+            public static var task: String { L10nSupport.string("flight.scope.task") }
+        }
+
+        public enum Tab {
+            /// Flight detail tab: the reconstructed event.
+            ///
+            /// Key: `flight.tab.moment`
+            /// en: "Moment"
+            public static var moment: String { L10nSupport.string("flight.tab.moment") }
+
+            /// Flight inspector tab: the record as stored.
+            ///
+            /// Key: `flight.tab.raw`
+            /// en: "Raw"
+            public static var raw: String { L10nSupport.string("flight.tab.raw") }
+
+            /// Flight detail tab: the selected step's inspector.
+            ///
+            /// Key: `flight.tab.step`
+            /// en: "Step"
+            public static var step: String { L10nSupport.string("flight.tab.step") }
+
+            /// Flight inspector tab.
+            ///
+            /// Key: `flight.tab.summary`
+            /// en: "Summary"
+            public static var summary: String { L10nSupport.string("flight.tab.summary") }
+        }
+    }
+
+    public enum Harnesses {
+        /// Harnesses page: the harness is installed on this Mac.
+        ///
+        /// Key: `harnesses.detected`
+        /// en: "detected"
+        public static var detected: String { L10nSupport.string("harnesses.detected") }
+
+        /// Harnesses page footnote under the rack.
+        ///
+        /// Key: `harnesses.footnote`
+        /// en: "The rack is read-only: Auspex tails each store's own files and never writes into a harness directory on its own. The one exception is the setup above — registering MCP, installing the short note or versioned skill, and hooks. It happens only when you click. Config edits stay fenced; the skill has one hashed, Auspex-owned directory and modified content is never overwritten or removed."
+        public static var footnote: String { L10nSupport.string("harnesses.footnote") }
+
+        /// Tooltip on hooks off.
+        ///
+        /// Key: `harnesses.hooksHelp`
+        /// en: "Harness hooks push a lifecycle event the moment it happens instead of on the next file poll. They are opt-in and land in a later milestone; file tailing stays the baseline either way."
+        public static var hooksHelp: String { L10nSupport.string("harnesses.hooksHelp") }
+
+        /// Harnesses page: this harness's lifecycle hooks are not installed.
+        ///
+        /// Key: `harnesses.hooksOff`
+        /// en: "hooks off"
+        public static var hooksOff: String { L10nSupport.string("harnesses.hooksOff") }
+
+        /// Harnesses page: label beside a median duration.
+        ///
+        /// Key: `harnesses.median`
+        /// en: "median"
+        public static var median: String { L10nSupport.string("harnesses.median") }
+
+        /// Tooltip on the median duration.
+        ///
+        /// Key: `harnesses.medianHelp`
+        /// en: "Median time from claim to finish, over the tasks this harness closed"
+        public static var medianHelp: String { L10nSupport.string("harnesses.medianHelp") }
+
+        /// Harnesses page: tooltip on a harness row with no store.
+        ///
+        /// Key: `harnesses.noAdapter`
+        /// en: "No adapter watches a store for this harness."
+        public static var noAdapter: String { L10nSupport.string("harnesses.noAdapter") }
+
+        /// Harnesses page: the harness is not installed.
+        ///
+        /// Key: `harnesses.notInstalled`
+        /// en: "not installed"
+        public static var notInstalled: String { L10nSupport.string("harnesses.notInstalled") }
+
+        public enum Config {
+            /// Tooltip on the +N chip of MCP servers. {names} is a comma-separated list.
+            ///
+            /// Key: `harnesses.config.alsoConfigured`
+            /// en: "Also configured: {names}"
+            public static func alsoConfigured(names: String) -> String {
+                L10nSupport.format("harnesses.config.alsoConfigured", names)
+            }
+
+            /// Tooltip on the Auspex server chip.
+            ///
+            /// Key: `harnesses.config.canReach`
+            /// en: "This harness can reach the Auspex task board."
+            public static var canReach: String { L10nSupport.string("harnesses.config.canReach") }
+
+            /// Tooltip on the Auspex server chip when not registered. Quote harnesses.mcp.setUpAgents.
+            ///
+            /// Key: `harnesses.config.cannotReach`
+            /// en: "This harness cannot reach the Auspex task board. Register it from “Set up agents…” above."
+            public static var cannotReach: String { L10nSupport.string("harnesses.config.cannotReach") }
+
+            /// Tooltip on an MCP server chip.
+            ///
+            /// Key: `harnesses.config.global`
+            /// en: "Configured for every session"
+            public static var global: String { L10nSupport.string("harnesses.config.global") }
+
+            /// Harnesses page: what a harness's MCP config amounts to.
+            ///
+            /// Key: `harnesses.config.noFile`
+            /// en: "no config file"
+            public static var noFile: String { L10nSupport.string("harnesses.config.noFile") }
+
+            /// Harnesses page: Auspex's MCP server is not registered with this harness. {name} is the server's name, "auspex".
+            ///
+            /// Key: `harnesses.config.notRegistered`
+            /// en: "{name} — not registered"
+            public static func notRegistered(name: String) -> String {
+                L10nSupport.format("harnesses.config.notRegistered", name)
+            }
+
+            /// Tooltip on an MCP server chip scoped to a project.
+            ///
+            /// Key: `harnesses.config.scoped`
+            /// en: "Configured for one project directory"
+            public static var scoped: String { L10nSupport.string("harnesses.config.scoped") }
+
+            /// Harnesses page: how many MCP servers a harness's config registers.
+            ///
+            /// Key: `harnesses.config.servers`
+            /// en: "{count, plural, =0 {no servers} one {# server} other {# servers}}"
+            public static func servers(count: Int) -> String {
+                L10nSupport.localizedFormat("harnesses.config.servers", count)
+            }
+
+            /// Harnesses page: the MCP config exists but did not parse.
+            ///
+            /// Key: `harnesses.config.unreadable`
+            /// en: "could not be read"
+            public static var unreadable: String { L10nSupport.string("harnesses.config.unreadable") }
+        }
+
+        public enum Count {
+            /// Harnesses page: label under how many tasks this harness's sessions claimed.
+            ///
+            /// Key: `harnesses.count.claimed`
+            /// en: "claimed"
+            public static var claimed: String { L10nSupport.string("harnesses.count.claimed") }
+
+            /// Harnesses page: label under how many claimed tasks were closed. distinct-from: crew.badge.finished
+            ///
+            /// Key: `harnesses.count.finished`
+            /// en: "finished"
+            public static var finished: String { L10nSupport.string("harnesses.count.finished") }
+
+            /// Harnesses page: label under a count. Lower-case. distinct-from: board.bucket.idle
+            ///
+            /// Key: `harnesses.count.idle`
+            /// en: "idle"
+            public static var idle: String { L10nSupport.string("harnesses.count.idle") }
+
+            /// Harnesses page: label under a count of live sessions. Lower-case. distinct-from: menuBar.live distinct-from: flight.live
+            ///
+            /// Key: `harnesses.count.live`
+            /// en: "live"
+            public static var live: String { L10nSupport.string("harnesses.count.live") }
+
+            /// Harnesses page: label under a count.
+            ///
+            /// Key: `harnesses.count.total`
+            /// en: "total"
+            public static var total: String { L10nSupport.string("harnesses.count.total") }
+        }
+
+        public enum Empty {
+            /// Harnesses page empty state detail.
+            ///
+            /// Key: `harnesses.empty.detail`
+            /// en: "Auspex names a harness here as soon as an adapter watches a store for it."
+            public static var detail: String { L10nSupport.string("harnesses.empty.detail") }
+
+            /// Harnesses page empty state title.
+            ///
+            /// Key: `harnesses.empty.title`
+            /// en: "No harness to report on."
+            public static var title: String { L10nSupport.string("harnesses.empty.title") }
+        }
+
+        public enum Mcp {
+            /// Harnesses page MCP card when there is no server in this process (an offscreen render).
+            ///
+            /// Key: `harnesses.mcp.notRunning`
+            /// en: "Not running in this process."
+            public static var notRunning: String { L10nSupport.string("harnesses.mcp.notRunning") }
+
+            /// Harnesses page: button that opens the setup sheet.
+            ///
+            /// Key: `harnesses.mcp.setUpAgents`
+            /// en: "Set up agents…"
+            public static var setUpAgents: String { L10nSupport.string("harnesses.mcp.setUpAgents") }
+
+            /// Tooltip on Set up agents….
+            ///
+            /// Key: `harnesses.mcp.setUpAgentsHelp`
+            /// en: "Register Auspex with each harness, install the short protocol note, and add the optional coordination skill"
+            public static var setUpAgentsHelp: String { L10nSupport.string("harnesses.mcp.setUpAgentsHelp") }
+
+            /// Harnesses page: heading of the card about Auspex's own MCP server.
+            ///
+            /// Key: `harnesses.mcp.title`
+            /// en: "MCP server"
+            public static var title: String { L10nSupport.string("harnesses.mcp.title") }
+
+            /// Harnesses page: a connected MCP client whose process id is not known.
+            ///
+            /// Key: `harnesses.mcp.unattributedClient`
+            /// en: "an unattributed client"
+            public static var unattributedClient: String { L10nSupport.string("harnesses.mcp.unattributedClient") }
+        }
+
+        public enum Store {
+            /// Harnesses page: note on the ChatGPT Work row.
+            ///
+            /// Key: `harnesses.store.chatgptShared`
+            /// en: "shares ~/.codex/sessions; originator ChatGPT Work"
+            public static var chatgptShared: String { L10nSupport.string("harnesses.store.chatgptShared") }
+
+            /// Harnesses page: note on the Codex row, whose store ChatGPT Work also writes to.
+            ///
+            /// Key: `harnesses.store.codexShared`
+            /// en: "shares ~/.codex/sessions; every originator except ChatGPT Work"
+            public static var codexShared: String { L10nSupport.string("harnesses.store.codexShared") }
+        }
+    }
+
+    public enum Ignore {
+        /// Ignore sheet eyebrow and its confirm button.
+        ///
+        /// Key: `ignore.eyebrow`
+        /// en: "Ignore"
+        public static var eyebrow: String { L10nSupport.string("ignore.eyebrow") }
+
+        /// Ignore sheet picker label.
+        ///
+        /// Key: `ignore.matchOn`
+        /// en: "Match on"
+        public static var matchOn: String { L10nSupport.string("ignore.matchOn") }
+
+        /// Note under every ignore control.
+        ///
+        /// Key: `ignore.stillRecorded`
+        /// en: "Ignored sessions are still recorded and still searchable — they are only hidden from the board, the scene and the counts."
+        public static var stillRecorded: String { L10nSupport.string("ignore.stillRecorded") }
+
+        /// Ignore sheet title.
+        ///
+        /// Key: `ignore.title`
+        /// en: "Hide these sessions from the board"
+        public static var title: String { L10nSupport.string("ignore.title") }
+
+        public enum Explain {
+            /// Ignore rule explanation.
+            ///
+            /// Key: `ignore.explain.folder`
+            /// en: "Hides every session working in that folder or under it."
+            public static var folder: String { L10nSupport.string("ignore.explain.folder") }
+
+            /// Ignore rule explanation.
+            ///
+            /// Key: `ignore.explain.harness`
+            /// en: "Hides every session of one harness."
+            public static var harness: String { L10nSupport.string("ignore.explain.harness") }
+
+            /// Ignore rule explanation.
+            ///
+            /// Key: `ignore.explain.project`
+            /// en: "Hides a whole project, however its sessions were placed."
+            public static var project: String { L10nSupport.string("ignore.explain.project") }
+
+            /// Ignore rule explanation.
+            ///
+            /// Key: `ignore.explain.promptPrefix`
+            /// en: "Hides sessions whose first prompt starts with this."
+            public static var promptPrefix: String { L10nSupport.string("ignore.explain.promptPrefix") }
+
+            /// Ignore rule explanation.
+            ///
+            /// Key: `ignore.explain.scratchFolder`
+            /// en: "Keeps sessions in that folder on the board, under their harness's scratch, instead of making the folder a project."
+            public static var scratchFolder: String { L10nSupport.string("ignore.explain.scratchFolder") }
+
+            /// Ignore rule explanation.
+            ///
+            /// Key: `ignore.explain.titleContains`
+            /// en: "Hides sessions whose title contains this, ignoring case."
+            public static var titleContains: String { L10nSupport.string("ignore.explain.titleContains") }
+        }
+
+        public enum Menu {
+            /// Session or project context menu.
+            ///
+            /// Key: `ignore.menu.folder`
+            /// en: "Ignore this folder…"
+            public static var folder: String { L10nSupport.string("ignore.menu.folder") }
+
+            /// Session context menu. {harness} is a harness name.
+            ///
+            /// Key: `ignore.menu.harness`
+            /// en: "Ignore every {harness} session…"
+            public static func harness(harness: String) -> String {
+                L10nSupport.format("ignore.menu.harness", harness)
+            }
+
+            /// Session or project context menu.
+            ///
+            /// Key: `ignore.menu.project`
+            /// en: "Ignore project…"
+            public static var project: String { L10nSupport.string("ignore.menu.project") }
+
+            /// Session context menu.
+            ///
+            /// Key: `ignore.menu.prompt`
+            /// en: "Ignore prompts starting with…"
+            public static var prompt: String { L10nSupport.string("ignore.menu.prompt") }
+        }
+
+        public enum Placeholder {
+            /// Ignore rule field placeholder.
+            ///
+            /// Key: `ignore.placeholder.harness`
+            /// en: "A harness's name"
+            public static var harness: String { L10nSupport.string("ignore.placeholder.harness") }
+
+            /// Ignore rule field placeholder.
+            ///
+            /// Key: `ignore.placeholder.project`
+            /// en: "A project's name"
+            public static var project: String { L10nSupport.string("ignore.placeholder.project") }
+        }
+
+        public enum Tag {
+            /// Ignore rule kind: a folder and everything under it.
+            ///
+            /// Key: `ignore.tag.folder`
+            /// en: "Folder"
+            public static var folder: String { L10nSupport.string("ignore.tag.folder") }
+
+            /// Ignore rule kind.
+            ///
+            /// Key: `ignore.tag.promptPrefix`
+            /// en: "Prompt starts with"
+            public static var promptPrefix: String { L10nSupport.string("ignore.tag.promptPrefix") }
+
+            /// Ignore rule kind that keeps a folder's sessions under their harness's scratch instead of making it a project.
+            ///
+            /// Key: `ignore.tag.scratchFolder`
+            /// en: "Scratch folder"
+            public static var scratchFolder: String { L10nSupport.string("ignore.tag.scratchFolder") }
+
+            /// Ignore rule kind.
+            ///
+            /// Key: `ignore.tag.titleContains`
+            /// en: "Title contains"
+            public static var titleContains: String { L10nSupport.string("ignore.tag.titleContains") }
+        }
+    }
+
+    public enum Ledger {
+        /// Card ledger: short key before what the person asked the agent. Lower-case, one word.
+        ///
+        /// Key: `ledger.asked`
+        /// en: "asked"
+        public static var asked: String { L10nSupport.string("ledger.asked") }
+
+        /// Card ledger: short key before the agent's own account of what it is doing. distinct-from: now.column.doing
+        ///
+        /// Key: `ledger.doing`
+        /// en: "doing"
+        public static var doing: String { L10nSupport.string("ledger.doing") }
+
+        /// Card ledger: short key before the agent's latest reply.
+        ///
+        /// Key: `ledger.said`
+        /// en: "said"
+        public static var said: String { L10nSupport.string("ledger.said") }
+    }
+
+    public enum LoginItem {
+        /// Settings → General: after reconciling with macOS's Login Items.
+        ///
+        /// Key: `loginItem.disabledExternally`
+        /// en: "macOS has Launch at Login turned off. Auspex left it off."
+        public static var disabledExternally: String { L10nSupport.string("loginItem.disabledExternally") }
+
+        /// Settings → General: login item status.
+        ///
+        /// Key: `loginItem.enabled`
+        /// en: "Auspex will start quietly when you log in."
+        public static var enabled: String { L10nSupport.string("loginItem.enabled") }
+
+        /// Settings → General: after reconciling with macOS's Login Items.
+        ///
+        /// Key: `loginItem.keptAfterUpdate`
+        /// en: "Auspex was updated and macOS kept Launch at Login enabled."
+        public static var keptAfterUpdate: String { L10nSupport.string("loginItem.keptAfterUpdate") }
+
+        /// Settings → General: login item status.
+        ///
+        /// Key: `loginItem.notFound`
+        /// en: "Unavailable in this copy. Move the packaged Auspex.app to Applications and open it once."
+        public static var notFound: String { L10nSupport.string("loginItem.notFound") }
+
+        /// Settings → General: login item status.
+        ///
+        /// Key: `loginItem.notRegistered`
+        /// en: "Off in macOS. Auspex will not turn it back on unless you click this switch."
+        public static var notRegistered: String { L10nSupport.string("loginItem.notRegistered") }
+
+        /// Settings → General: login item status.
+        ///
+        /// Key: `loginItem.requiresApproval`
+        /// en: "Waiting for approval in System Settings → General → Login Items."
+        public static var requiresApproval: String { L10nSupport.string("loginItem.requiresApproval") }
+
+        /// Settings → General: login item status.
+        ///
+        /// Key: `loginItem.unknown`
+        /// en: "macOS returned an unknown Login Items state."
+        public static var unknown: String { L10nSupport.string("loginItem.unknown") }
+    }
+
+    public enum Mcp {
+        public enum Status {
+            /// Harnesses page MCP card: how many agents are connected.
+            ///
+            /// Key: `mcp.status.agentsAttached`
+            /// en: "{count, plural, one {# agent attached} other {# agents attached}}"
+            public static func agentsAttached(count: Int) -> String {
+                L10nSupport.localizedFormat("mcp.status.agentsAttached", count)
+            }
+
+            /// Harnesses page MCP card.
+            ///
+            /// Key: `mcp.status.conflict`
+            /// en: "Another copy of Auspex is serving the MCP socket."
+            public static var conflict: String { L10nSupport.string("mcp.status.conflict") }
+
+            /// Harnesses page MCP card in the demo.
+            ///
+            /// Key: `mcp.status.demo`
+            /// en: "This is a demo replay, so no MCP socket was bound."
+            public static var demo: String { L10nSupport.string("mcp.status.demo") }
+
+            /// Harnesses page MCP card. {socket} is a path; {clients} is mcp.status.agentsAttached.
+            ///
+            /// Key: `mcp.status.serving`
+            /// en: "Serving {socket} · {clients}"
+            public static func serving(socket: String, clients: String) -> String {
+                L10nSupport.format("mcp.status.serving", socket, clients)
+            }
+
+            /// Harnesses page MCP card.
+            ///
+            /// Key: `mcp.status.stopped`
+            /// en: "Not serving."
+            public static var stopped: String { L10nSupport.string("mcp.status.stopped") }
+
+            /// Stand-in for {socket} when the path is unknown.
+            ///
+            /// Key: `mcp.status.theSocket`
+            /// en: "the MCP socket"
+            public static var theSocket: String { L10nSupport.string("mcp.status.theSocket") }
+        }
+    }
+
+    public enum MenuBar {
+        /// Menu-bar panel, under the list, when it is cut short.
+        ///
+        /// Key: `menuBar.andMore`
+        /// en: "and {count} more"
+        public static func andMore(count: Int) -> String {
+            L10nSupport.format("menuBar.andMore", count)
+        }
+
+        /// Menu-bar panel, demo mode, before the first sessions arrive.
+        ///
+        /// Key: `menuBar.demoStarting`
+        /// en: "Demo starting…"
+        public static var demoStarting: String { L10nSupport.string("menuBar.demoStarting") }
+
+        /// Menu-bar panel header and VoiceOver label of the status item: agents that reported finishing.
+        ///
+        /// Key: `menuBar.done`
+        /// en: "{count} done"
+        public static func done(count: Int) -> String {
+            L10nSupport.format("menuBar.done", count)
+        }
+
+        /// VoiceOver label of the status item.
+        ///
+        /// Key: `menuBar.idle`
+        /// en: "{count} idle"
+        public static func idle(count: Int) -> String {
+            L10nSupport.format("menuBar.idle", count)
+        }
+
+        /// Menu-bar panel heading, followed by the count of live sessions. distinct-from: flight.live
+        ///
+        /// Key: `menuBar.live`
+        /// en: "Live"
+        public static var live: String { L10nSupport.string("menuBar.live") }
+
+        /// Menu-bar panel header and VoiceOver label of the status item.
+        ///
+        /// Key: `menuBar.needsYou`
+        /// en: "{count} needs you"
+        public static func needsYou(count: Int) -> String {
+            L10nSupport.format("menuBar.needsYou", count)
+        }
+
+        /// Menu-bar panel when nothing is live.
+        ///
+        /// Key: `menuBar.noLiveSessions`
+        /// en: "No live sessions"
+        public static var noLiveSessions: String { L10nSupport.string("menuBar.noLiveSessions") }
+
+        /// VoiceOver label of the status item when no session is live.
+        ///
+        /// Key: `menuBar.nothingRunning`
+        /// en: "nothing running"
+        public static var nothingRunning: String { L10nSupport.string("menuBar.nothingRunning") }
+
+        /// Menu-bar panel command that brings up the main window.
+        ///
+        /// Key: `menuBar.openAuspex`
+        /// en: "Open Auspex"
+        public static var openAuspex: String { L10nSupport.string("menuBar.openAuspex") }
+
+        /// Menu-bar panel command that quits Auspex.
+        ///
+        /// Key: `menuBar.quit`
+        /// en: "Quit"
+        public static var quit: String { L10nSupport.string("menuBar.quit") }
+
+        /// Menu-bar panel command that opens the Settings window. distinct-from: section.settings — a command, with the ellipsis macOS gives commands that open a window.
+        ///
+        /// Key: `menuBar.settings`
+        /// en: "Settings…"
+        public static var settings: String { L10nSupport.string("menuBar.settings") }
+
+        /// VoiceOver label of the status item.
+        ///
+        /// Key: `menuBar.working`
+        /// en: "{count} working"
+        public static func working(count: Int) -> String {
+            L10nSupport.format("menuBar.working", count)
+        }
+    }
+
+    public enum Meta {
+        /// Flight header: key before the elapsed time. distinct-from: session.elapsed.elapsed
+        ///
+        /// Key: `meta.elapsed`
+        /// en: "elapsed"
+        public static var elapsed: String { L10nSupport.string("meta.elapsed") }
+
+        /// Flight header: key before a count of failed steps. distinct-from: flight.failed
+        ///
+        /// Key: `meta.failed`
+        /// en: "failed"
+        public static var failed: String { L10nSupport.string("meta.failed") }
+
+        /// Task card: key before live/total sessions. distinct-from: harnesses.count.live distinct-from: flight.live
+        ///
+        /// Key: `meta.live`
+        /// en: "live"
+        public static var live: String { L10nSupport.string("meta.live") }
+
+        /// Flight header: key before a count of model requests.
+        ///
+        /// Key: `meta.requests`
+        /// en: "requests"
+        public static var requests: String { L10nSupport.string("meta.requests") }
+
+        /// Flight detail: key before a session id. distinct-from: palette.kind.session distinct-from: flight.scope.session
+        ///
+        /// Key: `meta.session`
+        /// en: "session"
+        public static var session: String { L10nSupport.string("meta.session") }
+
+        /// Flight header: key before a count of steps.
+        ///
+        /// Key: `meta.steps`
+        /// en: "steps"
+        public static var steps: String { L10nSupport.string("meta.steps") }
+
+        /// Short key before input / output token counts. distinct-from: flight.tokens
+        ///
+        /// Key: `meta.tokens`
+        /// en: "tokens"
+        public static var tokens: String { L10nSupport.string("meta.tokens") }
+
+        /// Short key before a count of tool calls.
+        ///
+        /// Key: `meta.tools`
+        /// en: "tools"
+        public static var tools: String { L10nSupport.string("meta.tools") }
+
+        /// Short key before a count of turns, in a card's or a trace header's metadata row.
+        ///
+        /// Key: `meta.turns`
+        /// en: "turns"
+        public static var turns: String { L10nSupport.string("meta.turns") }
+    }
+
+    public enum Notice {
+        /// VoiceOver label of a notice pill. {kind} is one of notice.*.
+        ///
+        /// Key: `notice.agentSays`
+        /// en: "the agent says: {kind}"
+        public static func agentSays(kind: String) -> String {
+            L10nSupport.format("notice.agentSays", kind)
+        }
+
+        /// Pill: an agent said it cannot go on. Lower-case. distinct-from: catchUp.phase.blocked
+        ///
+        /// Key: `notice.blocked`
+        /// en: "blocked"
+        public static var blocked: String { L10nSupport.string("notice.blocked") }
+
+        /// Tooltip on a notice's dismiss button.
+        ///
+        /// Key: `notice.dismissHelp`
+        /// en: "Dismiss — the agent stops asking and the card goes quiet"
+        public static var dismissHelp: String { L10nSupport.string("notice.dismissHelp") }
+
+        /// Pill: an agent said it finished. Lower-case. distinct-from: catchUp.phase.done distinct-from: attention.done
+        ///
+        /// Key: `notice.done`
+        /// en: "done"
+        public static var done: String { L10nSupport.string("notice.done") }
+
+        /// Pill: an agent said it needs an answer from the person. Lower-case.
+        ///
+        /// Key: `notice.needsInput`
+        /// en: "needs input"
+        public static var needsInput: String { L10nSupport.string("notice.needsInput") }
+
+        /// Pill: an agent said it needs the person to check something. Lower-case.
+        ///
+        /// Key: `notice.needsReview`
+        /// en: "needs review"
+        public static var needsReview: String { L10nSupport.string("notice.needsReview") }
+    }
+
+    public enum Notification {
+        /// macOS notification title.
+        ///
+        /// Key: `notification.blocked`
+        /// en: "{harness} is blocked"
+        public static func blocked(harness: String) -> String {
+            L10nSupport.format("notification.blocked", harness)
+        }
+
+        /// macOS notification title.
+        ///
+        /// Key: `notification.finished`
+        /// en: "{harness} finished"
+        public static func finished(harness: String) -> String {
+            L10nSupport.format("notification.finished", harness)
+        }
+
+        /// macOS notification action that opens the board on the session.
+        ///
+        /// Key: `notification.show`
+        /// en: "Show"
+        public static var show: String { L10nSupport.string("notification.show") }
+
+        /// macOS notification title when an agent asks for input.
+        ///
+        /// Key: `notification.waitingOnYou`
+        /// en: "{harness} is waiting on you"
+        public static func waitingOnYou(harness: String) -> String {
+            L10nSupport.format("notification.waitingOnYou", harness)
+        }
+
+        /// macOS notification title.
+        ///
+        /// Key: `notification.wantsReview`
+        /// en: "{harness} wants a review"
+        public static func wantsReview(harness: String) -> String {
+            L10nSupport.format("notification.wantsReview", harness)
+        }
+    }
+
+    public enum Now {
+        /// Now: shown in place of the lists when every list is empty.
+        ///
+        /// Key: `now.allClear`
+        /// en: "Nothing is running, and nothing is waiting on you."
+        public static var allClear: String { L10nSupport.string("now.allClear") }
+
+        /// Now and the office balloons: an agent marked its task blocked. Followed by the task's title.
+        ///
+        /// Key: `now.blockedTask`
+        /// en: "Task marked blocked"
+        public static var blockedTask: String { L10nSupport.string("now.blockedTask") }
+
+        /// Now: pill and (upper-cased) list heading for work an agent reported done that the person has not looked at yet.
+        ///
+        /// Key: `now.doneUnseen`
+        /// en: "Done, unseen"
+        public static var doneUnseen: String { L10nSupport.string("now.doneUnseen") }
+
+        /// Now: button that folds the Working list back.
+        ///
+        /// Key: `now.fewer`
+        /// en: "Fewer"
+        public static var fewer: String { L10nSupport.string("now.fewer") }
+
+        /// Now: legend entry for sessions that are open with nothing outstanding.
+        ///
+        /// Key: `now.idle`
+        /// en: "Idle"
+        public static var idle: String { L10nSupport.string("now.idle") }
+
+        /// Now: stopwatch on a stale session, e.g. "12m idle". {duration} is a compact stopwatch reading such as 12m or 1h04m. distinct-from: menuBar.idle — a duration, not a count; the word order differs in Chinese.
+        ///
+        /// Key: `now.idleFor`
+        /// en: "{duration} idle"
+        public static func idleFor(duration: String) -> String {
+            L10nSupport.format("now.idleFor", duration)
+        }
+
+        /// Now: the action on a Done, unseen row that clears it.
+        ///
+        /// Key: `now.markSeen`
+        /// en: "Mark seen"
+        public static var markSeen: String { L10nSupport.string("now.markSeen") }
+
+        /// Now: pill, legend entry and (upper-cased) list heading for sessions Auspex infers might need the person.
+        ///
+        /// Key: `now.mayNeedYou`
+        /// en: "May need you"
+        public static var mayNeedYou: String { L10nSupport.string("now.mayNeedYou") }
+
+        /// Now: button under the Working list that shows the rows folded away.
+        ///
+        /// Key: `now.more`
+        /// en: "{count} more →"
+        public static func more(count: Int) -> String {
+            L10nSupport.format("now.more", count)
+        }
+
+        /// Now: a header pill, a legend entry and (upper-cased) a list heading for sessions explicitly blocked on the person.
+        ///
+        /// Key: `now.needsYou`
+        /// en: "Needs you"
+        public static var needsYou: String { L10nSupport.string("now.needsYou") }
+
+        /// Now: the action at the end of a row that opens the session.
+        ///
+        /// Key: `now.openArrow`
+        /// en: "Open →"
+        public static var openArrow: String { L10nSupport.string("now.openArrow") }
+
+        /// Placeholder in Now's search field. distinct-from: board.search — Now's design spells it with an ellipsis.
+        ///
+        /// Key: `now.search`
+        /// en: "Search sessions…"
+        public static var search: String { L10nSupport.string("now.search") }
+
+        /// Now's header line beside the title: the clock (HH:mm) and two counts of sessions.
+        ///
+        /// Key: `now.status`
+        /// en: "{time} · {live} live · {working} working"
+        public static func status(time: String, live: Int, working: Int) -> String {
+            L10nSupport.format("now.status", time, live, working)
+        }
+
+        /// Now: the action at the end of a row whose blocked task has no session; opens the task.
+        ///
+        /// Key: `now.taskArrow`
+        /// en: "Task →"
+        public static var taskArrow: String { L10nSupport.string("now.taskArrow") }
+
+        /// Now and the office balloons: a session stopped on a question to the person.
+        ///
+        /// Key: `now.waitingAnswer`
+        /// en: "Waiting for an answer"
+        public static var waitingAnswer: String { L10nSupport.string("now.waitingAnswer") }
+
+        /// Now and the office balloons: a session stopped on a permission prompt. Followed by the tool call, e.g. Bash(gh pr merge).
+        ///
+        /// Key: `now.waitingPermission`
+        /// en: "Waiting for permission"
+        public static var waitingPermission: String { L10nSupport.string("now.waitingPermission") }
+
+        /// Now: legend entry and (upper-cased) list heading for sessions that are busy.
+        ///
+        /// Key: `now.working`
+        /// en: "Working"
+        public static var working: String { L10nSupport.string("now.working") }
+
+        public enum Column {
+            /// Now: column header (shown upper-cased) over what each working session is doing.
+            ///
+            /// Key: `now.column.doing`
+            /// en: "Doing"
+            public static var doing: String { L10nSupport.string("now.column.doing") }
+
+            /// Now: column header (shown upper-cased) over the turn's elapsed time and the folded sub-agent count.
+            ///
+            /// Key: `now.column.turn`
+            /// en: "Turn / sub-agents"
+            public static var turn: String { L10nSupport.string("now.column.turn") }
+        }
+
+        public enum Context {
+            /// Tooltip on the dash shown in place of a context bar.
+            ///
+            /// Key: `now.context.unrecorded`
+            /// en: "This harness does not record its context window."
+            public static var unrecorded: String { L10nSupport.string("now.context.unrecorded") }
+        }
+
+        public enum IdleFold {
+            /// Now: the fold for idle sessions while it is open.
+            ///
+            /// Key: `now.idleFold.hide`
+            /// en: "IDLE {count} · hide"
+            public static func hide(count: Int) -> String {
+                L10nSupport.format("now.idleFold.hide", count)
+            }
+
+            /// Now: the fold for idle sessions while it is closed. "IDLE" is a heading and upper-case in English.
+            ///
+            /// Key: `now.idleFold.show`
+            /// en: "IDLE {count} · show →"
+            public static func show(count: Int) -> String {
+                L10nSupport.format("now.idleFold.show", count)
+            }
+        }
+
+        public enum Note {
+            /// Now: note beside the May need you heading.
+            ///
+            /// Key: `now.note.mayNeedYou`
+            /// en: "inferred — watch signals"
+            public static var mayNeedYou: String { L10nSupport.string("now.note.mayNeedYou") }
+
+            /// Now: grey note beside the Needs you heading, after the count. Lower-case on purpose.
+            ///
+            /// Key: `now.note.needsYou`
+            /// en: "explicit signals only"
+            public static var needsYou: String { L10nSupport.string("now.note.needsYou") }
+
+            /// Now: note beside the Working heading.
+            ///
+            /// Key: `now.note.working`
+            /// en: "one row per root session, sub-agents folded"
+            public static var working: String { L10nSupport.string("now.note.working") }
+        }
+
+        public enum Stage {
+            /// Tooltip and VoiceOver label of the chevron that closes Now's office stage.
+            ///
+            /// Key: `now.stage.collapse`
+            /// en: "Hide the office"
+            public static var collapse: String { L10nSupport.string("now.stage.collapse") }
+
+            /// Hint chip over Now's office stage.
+            ///
+            /// Key: `now.stage.hint`
+            /// en: "Click a person to open the session · hover for what they are doing"
+            public static var hint: String { L10nSupport.string("now.stage.hint") }
+
+            /// Now's header: segment that hides the office stage.
+            ///
+            /// Key: `now.stage.listsOnly`
+            /// en: "Lists only"
+            public static var listsOnly: String { L10nSupport.string("now.stage.listsOnly") }
+
+            /// Now's header: segment that shows the office stage above the lists.
+            ///
+            /// Key: `now.stage.officeAndLists`
+            /// en: "Office + lists"
+            public static var officeAndLists: String { L10nSupport.string("now.stage.officeAndLists") }
+        }
+
+        public enum ViewMenu {
+            /// VoiceOver label of the view menu. {mode} is the current view's name.
+            ///
+            /// Key: `now.viewMenu.accessibility`
+            /// en: "View: {mode}"
+            public static func accessibility(mode: String) -> String {
+                L10nSupport.format("now.viewMenu.accessibility", mode)
+            }
+
+            /// Tooltip on the view menu. Names the six views; keep the view names consistent with the viewMode.* keys.
+            ///
+            /// Key: `now.viewMenu.help`
+            /// en: "View: Now, the Ledger of cards, the Aviary, the Flock, your Perch, or one session's Flight"
+            public static var help: String { L10nSupport.string("now.viewMenu.help") }
+
+            /// Now's header: the menu that switches between the six views.
+            ///
+            /// Key: `now.viewMenu.title`
+            /// en: "View"
+            public static var title: String { L10nSupport.string("now.viewMenu.title") }
+        }
+
+        public enum Watch {
+            /// Stand-in for {tool} in now.watch.longTool when the tool's name is not known.
+            ///
+            /// Key: `now.watch.aTool`
+            /// en: "a tool"
+            public static var aTool: String { L10nSupport.string("now.watch.aTool") }
+
+            /// Now: watch signal — the session's context window is nearly full.
+            ///
+            /// Key: `now.watch.contextPressure`
+            /// en: "context over {percent}% used"
+            public static func contextPressure(percent: Int) -> String {
+                L10nSupport.format("now.watch.contextPressure", percent)
+            }
+
+            /// Now: watch signal — one tool call has been running a long time. {tool} is a tool name such as Bash.
+            ///
+            /// Key: `now.watch.longTool`
+            /// en: "{tool} has run for over {minutes} min"
+            public static func longTool(tool: String, minutes: Int) -> String {
+                L10nSupport.format("now.watch.longTool", tool, minutes)
+            }
+
+            /// Now: watch signal — a task is still claimed by a session that is gone.
+            ///
+            /// Key: `now.watch.orphanedClaim`
+            /// en: "the session that claimed it has ended"
+            public static var orphanedClaim: String { L10nSupport.string("now.watch.orphanedClaim") }
+
+            /// Now: watch signal — another live session is on the same git branch.
+            ///
+            /// Key: `now.watch.sharedBranch`
+            /// en: "shares a branch"
+            public static var sharedBranch: String { L10nSupport.string("now.watch.sharedBranch") }
+
+            /// Now: watch signal — another live session works in the same directory.
+            ///
+            /// Key: `now.watch.sharedDirectory`
+            /// en: "shares a working directory"
+            public static var sharedDirectory: String { L10nSupport.string("now.watch.sharedDirectory") }
+
+            /// Now: watch signal — the process is alive but its transcript has not moved. Lower-case, a fragment.
+            ///
+            /// Key: `now.watch.staleSession`
+            /// en: "alive, but nothing new"
+            public static var staleSession: String { L10nSupport.string("now.watch.staleSession") }
+        }
+    }
+
+    public enum Palette {
+        /// Command palette row that closes a task in review. {title} is the task's title.
+        ///
+        /// Key: `palette.closeTask`
+        /// en: "Close {title}"
+        public static func closeTask(title: String) -> String {
+            L10nSupport.format("palette.closeTask", title)
+        }
+
+        /// Command palette: subtitle of the close row. {id} is the task's short handle.
+        ///
+        /// Key: `palette.closeTaskSubtitle`
+        /// en: "{id} · finished, waiting on you"
+        public static func closeTaskSubtitle(id: String) -> String {
+            L10nSupport.format("palette.closeTaskSubtitle", id)
+        }
+
+        /// Command palette command.
+        ///
+        /// Key: `palette.hideSubagents`
+        /// en: "Hide subagents"
+        public static var hideSubagents: String { L10nSupport.string("palette.hideSubagents") }
+
+        /// Command palette when the query finds nothing.
+        ///
+        /// Key: `palette.nothingMatched`
+        /// en: "Nothing matched."
+        public static var nothingMatched: String { L10nSupport.string("palette.nothingMatched") }
+
+        /// Command palette field placeholder.
+        ///
+        /// Key: `palette.placeholder`
+        /// en: "Go to a task, a project, a session — or do something"
+        public static var placeholder: String { L10nSupport.string("palette.placeholder") }
+
+        /// Command palette command: filter to tasks whose dependencies are closed.
+        ///
+        /// Key: `palette.readyOnly`
+        /// en: "Show only what is ready"
+        public static var readyOnly: String { L10nSupport.string("palette.readyOnly") }
+
+        /// Command palette: subtitle of the ready filter.
+        ///
+        /// Key: `palette.readyOnlySubtitle`
+        /// en: "Tasks whose dependencies are all closed"
+        public static var readyOnlySubtitle: String { L10nSupport.string("palette.readyOnlySubtitle") }
+
+        /// Command palette: subtitle of the show/hide subagents command.
+        ///
+        /// Key: `palette.subagentsSubtitle`
+        /// en: "List the sessions inside every task"
+        public static var subagentsSubtitle: String { L10nSupport.string("palette.subagentsSubtitle") }
+
+        /// Command palette command. {view} is a view name (viewMode.*).
+        ///
+        /// Key: `palette.switchTo`
+        /// en: "Switch to {view}"
+        public static func switchTo(view: String) -> String {
+            L10nSupport.format("palette.switchTo", view)
+        }
+
+        public enum Kind {
+            /// Command palette: tag before a close-task row. distinct-from: common.close
+            ///
+            /// Key: `palette.kind.close`
+            /// en: "close"
+            public static var close: String { L10nSupport.string("palette.kind.close") }
+
+            /// Command palette: tag before a filter command.
+            ///
+            /// Key: `palette.kind.filter`
+            /// en: "filter"
+            public static var filter: String { L10nSupport.string("palette.kind.filter") }
+
+            /// Command palette: tag before a project row. distinct-from: common.project
+            ///
+            /// Key: `palette.kind.project`
+            /// en: "project"
+            public static var project: String { L10nSupport.string("palette.kind.project") }
+
+            /// Command palette: tag before a session row. distinct-from: flight.scope.session
+            ///
+            /// Key: `palette.kind.session`
+            /// en: "session"
+            public static var session: String { L10nSupport.string("palette.kind.session") }
+
+            /// Command palette: small tag before a row. Lower-case, ≤ 7 characters. distinct-from: catchUp.source.task
+            ///
+            /// Key: `palette.kind.task`
+            /// en: "task"
+            public static var task: String { L10nSupport.string("palette.kind.task") }
+
+            /// Command palette: tag before a view command. distinct-from: now.viewMenu.title
+            ///
+            /// Key: `palette.kind.view`
+            /// en: "view"
+            public static var view: String { L10nSupport.string("palette.kind.view") }
+        }
+    }
+
+    public enum Perch {
+        /// Perch playback strip: events after the shown one.
+        ///
+        /// Key: `perch.ahead`
+        /// en: "{count} ahead"
+        public static func ahead(count: Int) -> String {
+            L10nSupport.format("perch.ahead", count)
+        }
+
+        /// Perch board menu label when no board is selected.
+        ///
+        /// Key: `perch.allBoards`
+        /// en: "All boards"
+        public static var allBoards: String { L10nSupport.string("perch.allBoards") }
+
+        /// Field placeholder for a board's name.
+        ///
+        /// Key: `perch.boardName`
+        /// en: "Board name"
+        public static var boardName: String { L10nSupport.string("perch.boardName") }
+
+        /// Perch toolbar button and sheet title: the rules that decide what a board shows.
+        ///
+        /// Key: `perch.boardRules`
+        /// en: "Board rules"
+        public static var boardRules: String { L10nSupport.string("perch.boardRules") }
+
+        /// Perch toolbar: how many cards are on the board.
+        ///
+        /// Key: `perch.cards`
+        /// en: "{count} cards"
+        public static func cards(count: Int) -> String {
+            L10nSupport.format("perch.cards", count)
+        }
+
+        /// Board rules sheet button that asks for confirmation.
+        ///
+        /// Key: `perch.deleteBoard`
+        /// en: "Delete board"
+        public static var deleteBoard: String { L10nSupport.string("perch.deleteBoard") }
+
+        /// Board rules sheet: inline confirmation.
+        ///
+        /// Key: `perch.deleteConfirm`
+        /// en: "Delete this board?"
+        public static var deleteConfirm: String { L10nSupport.string("perch.deleteConfirm") }
+
+        /// Perch card: VoiceOver label of the dependency handle.
+        ///
+        /// Key: `perch.dependencyHandle`
+        /// en: "Dependency handle"
+        public static var dependencyHandle: String { L10nSupport.string("perch.dependencyHandle") }
+
+        /// Perch card: tooltip on the dependency handle.
+        ///
+        /// Key: `perch.dependencyHandleHelp`
+        /// en: "Drag to another task to add a dependency"
+        public static var dependencyHandleHelp: String { L10nSupport.string("perch.dependencyHandleHelp") }
+
+        /// Perch canvas: label drawn on a dependency arrow.
+        ///
+        /// Key: `perch.depends`
+        /// en: "depends"
+        public static var depends: String { L10nSupport.string("perch.depends") }
+
+        /// Perch card context menu heading over the tasks it can depend on.
+        ///
+        /// Key: `perch.dependsOn`
+        /// en: "Depends on"
+        public static var dependsOn: String { L10nSupport.string("perch.dependsOn") }
+
+        /// Perch empty state title.
+        ///
+        /// Key: `perch.empty`
+        /// en: "This board is empty"
+        public static var empty: String { L10nSupport.string("perch.empty") }
+
+        /// Perch empty state detail on the built-in board.
+        ///
+        /// Key: `perch.emptyProtected`
+        /// en: "A card appears for every piece of work Auspex can see."
+        public static var emptyProtected: String { L10nSupport.string("perch.emptyProtected") }
+
+        /// Perch empty state detail on a board the person made.
+        ///
+        /// Key: `perch.emptyUser`
+        /// en: "Pin a task here, or add a rule that matches one."
+        public static var emptyUser: String { L10nSupport.string("perch.emptyUser") }
+
+        /// Perch playback strip: which event of the history is shown.
+        ///
+        /// Key: `perch.eventPosition`
+        /// en: "event {index} / {count}"
+        public static func eventPosition(index: Int, count: Int) -> String {
+            L10nSupport.format("perch.eventPosition", index, count)
+        }
+
+        /// Perch canvas control (⌘0).
+        ///
+        /// Key: `perch.fitAll`
+        /// en: "Fit all"
+        public static var fitAll: String { L10nSupport.string("perch.fitAll") }
+
+        /// Perch playback strip: following the live board.
+        ///
+        /// Key: `perch.following`
+        /// en: "following"
+        public static var following: String { L10nSupport.string("perch.following") }
+
+        /// Perch toolbar in history mode: makes a branch of the board at this point in time.
+        ///
+        /// Key: `perch.fork`
+        /// en: "Fork board here"
+        public static var fork: String { L10nSupport.string("perch.fork") }
+
+        /// Default name of a board forked from history.
+        ///
+        /// Key: `perch.forkName`
+        /// en: "{name} · event {index}"
+        public static func forkName(name: String, index: Int) -> String {
+            L10nSupport.format("perch.forkName", name, index)
+        }
+
+        /// Perch canvas: label on a project's frame, drawn in capitals in English. {title} is the project's name (upper-cased).
+        ///
+        /// Key: `perch.frameLabel`
+        /// en: "{title} · {count} LIVE"
+        public static func frameLabel(title: String, count: Int) -> String {
+            L10nSupport.format("perch.frameLabel", title, count)
+        }
+
+        /// Perch playback strip: the board is showing a moment in the past.
+        ///
+        /// Key: `perch.history`
+        /// en: "History"
+        public static var history: String { L10nSupport.string("perch.history") }
+
+        /// Perch playback strip while history loads.
+        ///
+        /// Key: `perch.indexing`
+        /// en: "indexing…"
+        public static var indexing: String { L10nSupport.string("perch.indexing") }
+
+        /// Perch playback strip button.
+        ///
+        /// Key: `perch.jumpToLive`
+        /// en: "Jump to Live"
+        public static var jumpToLive: String { L10nSupport.string("perch.jumpToLive") }
+
+        /// Perch playback strip: the board follows the present. distinct-from: menuBar.live distinct-from: harnesses.count.live
+        ///
+        /// Key: `perch.live`
+        /// en: "Live"
+        public static var live: String { L10nSupport.string("perch.live") }
+
+        /// VoiceOver label of the playback strip.
+        ///
+        /// Key: `perch.liveOverview`
+        /// en: "Live activity overview"
+        public static var liveOverview: String { L10nSupport.string("perch.liveOverview") }
+
+        /// Perch toolbar: merges a forked board back.
+        ///
+        /// Key: `perch.merge`
+        /// en: "Merge to parent"
+        public static var merge: String { L10nSupport.string("perch.merge") }
+
+        /// Merge sheet progress.
+        ///
+        /// Key: `perch.mergeComparing`
+        /// en: "Comparing the fork base, parent, and branch…"
+        public static var mergeComparing: String { L10nSupport.string("perch.mergeComparing") }
+
+        /// Merge sheet explanation.
+        ///
+        /// Key: `perch.mergeNote`
+        /// en: "Only positions, membership overrides, and the rule tree are merged. Tasks, dependencies, agents, board names, and cameras are untouched."
+        public static var mergeNote: String { L10nSupport.string("perch.mergeNote") }
+
+        /// Merge sheet title. "Perch" is viewMode.perch.
+        ///
+        /// Key: `perch.mergeTitle`
+        /// en: "Merge Perch branch"
+        public static var mergeTitle: String { L10nSupport.string("perch.mergeTitle") }
+
+        /// Tooltip on the Perch minimap.
+        ///
+        /// Key: `perch.minimapHelp`
+        /// en: "The whole board. Click or drag to move the camera."
+        public static var minimapHelp: String { L10nSupport.string("perch.minimapHelp") }
+
+        /// Board rules sheet: moves the board earlier in the list.
+        ///
+        /// Key: `perch.moveEarlier`
+        /// en: "Move earlier"
+        public static var moveEarlier: String { L10nSupport.string("perch.moveEarlier") }
+
+        /// Board rules sheet: moves the board later in the list.
+        ///
+        /// Key: `perch.moveLater`
+        /// en: "Move later"
+        public static var moveLater: String { L10nSupport.string("perch.moveLater") }
+
+        /// Perch board menu.
+        ///
+        /// Key: `perch.newBoard`
+        /// en: "New board…"
+        public static var newBoard: String { L10nSupport.string("perch.newBoard") }
+
+        /// New board sheet note. Quote perch.boardRules.
+        ///
+        /// Key: `perch.newBoardNote`
+        /// en: "This board starts manual. Add nested rules from Board rules after it is created."
+        public static var newBoardNote: String { L10nSupport.string("perch.newBoardNote") }
+
+        /// New board sheet title.
+        ///
+        /// Key: `perch.newBoardTitle`
+        /// en: "New Perch board"
+        public static var newBoardTitle: String { L10nSupport.string("perch.newBoardTitle") }
+
+        /// Perch card focus line when nothing is known.
+        ///
+        /// Key: `perch.noActivity`
+        /// en: "No observed activity"
+        public static var noActivity: String { L10nSupport.string("perch.noActivity") }
+
+        /// Perch history: VoiceOver label of the play button while playing.
+        ///
+        /// Key: `perch.pausePlayback`
+        /// en: "Pause playback"
+        public static var pausePlayback: String { L10nSupport.string("perch.pausePlayback") }
+
+        /// Perch toolbar: stops the board's rules adding or removing cards.
+        ///
+        /// Key: `perch.pauseRules`
+        /// en: "Pause rules"
+        public static var pauseRules: String { L10nSupport.string("perch.pauseRules") }
+
+        /// Perch toolbar: pins the selected task to this board.
+        ///
+        /// Key: `perch.pinSelected`
+        /// en: "Pin selected"
+        public static var pinSelected: String { L10nSupport.string("perch.pinSelected") }
+
+        /// Perch empty state while the board is loading.
+        ///
+        /// Key: `perch.placing`
+        /// en: "Placing the map…"
+        public static var placing: String { L10nSupport.string("perch.placing") }
+
+        /// Perch history: VoiceOver label of the play button.
+        ///
+        /// Key: `perch.playHistory`
+        /// en: "Play history"
+        public static var playHistory: String { L10nSupport.string("perch.playHistory") }
+
+        /// VoiceOver label of the history slider.
+        ///
+        /// Key: `perch.playhead`
+        /// en: "Perch history playhead"
+        public static var playhead: String { L10nSupport.string("perch.playhead") }
+
+        /// VoiceOver value of the history slider.
+        ///
+        /// Key: `perch.playheadValue`
+        /// en: "Event {index} of {count}"
+        public static func playheadValue(index: Int, count: Int) -> String {
+            L10nSupport.format("perch.playheadValue", index, count)
+        }
+
+        /// Perch card context menu for inferred work.
+        ///
+        /// Key: `perch.promoteFirst`
+        /// en: "Promote this task before adding dependencies"
+        public static var promoteFirst: String { L10nSupport.string("perch.promoteFirst") }
+
+        /// Perch card context menu in history mode.
+        ///
+        /// Key: `perch.readOnly`
+        /// en: "History is read-only · Jump to Live to edit"
+        public static var readOnly: String { L10nSupport.string("perch.readOnly") }
+
+        /// Perch board menu submenu.
+        ///
+        /// Key: `perch.recentlyDeleted`
+        /// en: "Recently deleted"
+        public static var recentlyDeleted: String { L10nSupport.string("perch.recentlyDeleted") }
+
+        /// Perch board menu: restores a deleted board.
+        ///
+        /// Key: `perch.restore`
+        /// en: "Restore {name}"
+        public static func restore(name: String) -> String {
+            L10nSupport.format("perch.restore", name)
+        }
+
+        /// Perch toolbar: turns the board's rules back on.
+        ///
+        /// Key: `perch.resumeRules`
+        /// en: "Resume rules"
+        public static var resumeRules: String { L10nSupport.string("perch.resumeRules") }
+
+        /// Perch canvas control.
+        ///
+        /// Key: `perch.zoomIn`
+        /// en: "Zoom in"
+        public static var zoomIn: String { L10nSupport.string("perch.zoomIn") }
+
+        /// Perch canvas control.
+        ///
+        /// Key: `perch.zoomOut`
+        /// en: "Zoom out"
+        public static var zoomOut: String { L10nSupport.string("perch.zoomOut") }
+
+        public enum Attention {
+            /// Rule condition value: the task is waiting for review. distinct-from: catchUp.phase.review
+            ///
+            /// Key: `perch.attention.review`
+            /// en: "Review"
+            public static var review: String { L10nSupport.string("perch.attention.review") }
+        }
+
+        public enum Card {
+            /// Perch card tag on inferred work. distinct-from: task.card.auto — capitals on the canvas.
+            ///
+            /// Key: `perch.card.auto`
+            /// en: "AUTO"
+            public static var auto: String { L10nSupport.string("perch.card.auto") }
+
+            /// Perch card: button that folds the sub-agents.
+            ///
+            /// Key: `perch.card.collapse`
+            /// en: "↳ collapse"
+            public static var collapse: String { L10nSupport.string("perch.card.collapse") }
+
+            /// VoiceOver label of the fold button.
+            ///
+            /// Key: `perch.card.collapseSubagents`
+            /// en: "Collapse subagents"
+            public static var collapseSubagents: String { L10nSupport.string("perch.card.collapseSubagents") }
+
+            /// VoiceOver label of the fold button.
+            ///
+            /// Key: `perch.card.expandSubagents`
+            /// en: "Expand subagents"
+            public static var expandSubagents: String { L10nSupport.string("perch.card.expandSubagents") }
+
+            /// VoiceOver: part of a Perch card's label. distinct-from: board.bucket.needsYou
+            ///
+            /// Key: `perch.card.needsYou`
+            /// en: "needs you"
+            public static var needsYou: String { L10nSupport.string("perch.card.needsYou") }
+
+            /// VoiceOver: part of a Perch card's label.
+            ///
+            /// Key: `perch.card.subagents`
+            /// en: "{count} subagents"
+            public static func subagents(count: Int) -> String {
+                L10nSupport.format("perch.card.subagents", count)
+            }
+
+            /// Perch card footer.
+            ///
+            /// Key: `perch.card.tools`
+            /// en: "tools {count}"
+            public static func tools(count: Int) -> String {
+                L10nSupport.format("perch.card.tools", count)
+            }
+
+            /// Perch card footer.
+            ///
+            /// Key: `perch.card.turns`
+            /// en: "turns {count}"
+            public static func turns(count: Int) -> String {
+                L10nSupport.format("perch.card.turns", count)
+            }
+        }
+
+        public enum History {
+            /// History inspector: key before the board's name. distinct-from: flight.board
+            ///
+            /// Key: `perch.history.board`
+            /// en: "board"
+            public static var board: String { L10nSupport.string("perch.history.board") }
+
+            /// History inspector while the moment loads.
+            ///
+            /// Key: `perch.history.building`
+            /// en: "Building this Perch moment…"
+            public static var building: String { L10nSupport.string("perch.history.building") }
+
+            /// History inspector while the moment loads.
+            ///
+            /// Key: `perch.history.buildingDetail`
+            /// en: "The board state at the playhead will appear here. History is read-only."
+            public static var buildingDetail: String { L10nSupport.string("perch.history.buildingDetail") }
+
+            /// History inspector fact (shown upper-cased).
+            ///
+            /// Key: `perch.history.liveSessions`
+            /// en: "Live sessions"
+            public static var liveSessions: String { L10nSupport.string("perch.history.liveSessions") }
+
+            /// History inspector eyebrow (shown upper-cased).
+            ///
+            /// Key: `perch.history.momentBoard`
+            /// en: "Moment · board"
+            public static var momentBoard: String { L10nSupport.string("perch.history.momentBoard") }
+
+            /// History inspector footnote.
+            ///
+            /// Key: `perch.history.note`
+            /// en: "Membership, state, tasks, and rules are historical. Card positions and camera stay current. History cannot Resume or edit dependencies."
+            public static var note: String { L10nSupport.string("perch.history.note") }
+
+            /// History inspector: key before a card's x, y.
+            ///
+            /// Key: `perch.history.position`
+            /// en: "position"
+            public static var position: String { L10nSupport.string("perch.history.position") }
+
+            /// History inspector heading (shown upper-cased).
+            ///
+            /// Key: `perch.history.selected`
+            /// en: "Selected · current spatial memory"
+            public static var selected: String { L10nSupport.string("perch.history.selected") }
+
+            /// History inspector: which event is shown and how far behind the present it is.
+            ///
+            /// Key: `perch.history.since`
+            /// en: "{index} / {count} · {behind} events behind Live"
+            public static func since(index: Int, count: Int, behind: Int) -> String {
+                L10nSupport.format("perch.history.since", index, count, behind)
+            }
+
+            /// History inspector heading (shown upper-cased).
+            ///
+            /// Key: `perch.history.sinceMoment`
+            /// en: "Since this moment"
+            public static var sinceMoment: String { L10nSupport.string("perch.history.sinceMoment") }
+
+            /// History inspector fact (shown upper-cased).
+            ///
+            /// Key: `perch.history.toolsOpen`
+            /// en: "Tools open"
+            public static var toolsOpen: String { L10nSupport.string("perch.history.toolsOpen") }
+        }
+
+        public enum Merge {
+            /// Merge sheet confirm button.
+            ///
+            /// Key: `perch.merge.action`
+            /// en: "Merge"
+            public static var action: String { L10nSupport.string("perch.merge.action") }
+
+            /// Merge sheet: key before a count of membership changes that merge cleanly.
+            ///
+            /// Key: `perch.merge.automaticMemberships`
+            /// en: "automatic memberships"
+            public static var automaticMemberships: String { L10nSupport.string("perch.merge.automaticMemberships") }
+
+            /// Merge sheet: key before a count of position changes that merge cleanly.
+            ///
+            /// Key: `perch.merge.automaticPositions`
+            /// en: "automatic positions"
+            public static var automaticPositions: String { L10nSupport.string("perch.merge.automaticPositions") }
+
+            /// Merge sheet: label (upper-cased) over the branch's side of a conflict.
+            ///
+            /// Key: `perch.merge.branch`
+            /// en: "Branch"
+            public static var branch: String { L10nSupport.string("perch.merge.branch") }
+
+            /// Merge sheet: conflict picker's empty choice.
+            ///
+            /// Key: `perch.merge.choose`
+            /// en: "Choose…"
+            public static var choose: String { L10nSupport.string("perch.merge.choose") }
+
+            /// Merge sheet: key before the number of conflicts.
+            ///
+            /// Key: `perch.merge.conflicts`
+            /// en: "conflicts"
+            public static var conflicts: String { L10nSupport.string("perch.merge.conflicts") }
+
+            /// Merge sheet error.
+            ///
+            /// Key: `perch.merge.failed`
+            /// en: "The merge comparison could not be prepared."
+            public static var failed: String { L10nSupport.string("perch.merge.failed") }
+
+            /// Merge sheet: conflict choice.
+            ///
+            /// Key: `perch.merge.keepParent`
+            /// en: "Keep parent"
+            public static var keepParent: String { L10nSupport.string("perch.merge.keepParent") }
+
+            /// Merge sheet empty state.
+            ///
+            /// Key: `perch.merge.noConflicts`
+            /// en: "No conflicts"
+            public static var noConflicts: String { L10nSupport.string("perch.merge.noConflicts") }
+
+            /// Merge sheet empty state detail.
+            ///
+            /// Key: `perch.merge.noConflictsDetail`
+            /// en: "The branch can be merged without replacing later parent edits."
+            public static var noConflictsDetail: String { L10nSupport.string("perch.merge.noConflictsDetail") }
+
+            /// Merge sheet: label (upper-cased) over the parent's side of a conflict.
+            ///
+            /// Key: `perch.merge.parent`
+            /// en: "Parent"
+            public static var parent: String { L10nSupport.string("perch.merge.parent") }
+
+            /// Merge sheet: picker label (hidden) for a conflict.
+            ///
+            /// Key: `perch.merge.resolution`
+            /// en: "Resolution"
+            public static var resolution: String { L10nSupport.string("perch.merge.resolution") }
+
+            /// Merge sheet: conflict choice.
+            ///
+            /// Key: `perch.merge.takeBranch`
+            /// en: "Take branch"
+            public static var takeBranch: String { L10nSupport.string("perch.merge.takeBranch") }
+
+            public enum Field {
+                /// Merge sheet: what a conflict is about (upper-cased).
+                ///
+                /// Key: `perch.merge.field.membership`
+                /// en: "Membership"
+                public static var membership: String { L10nSupport.string("perch.merge.field.membership") }
+
+                /// Merge sheet: what a conflict is about (upper-cased). distinct-from: perch.history.position
+                ///
+                /// Key: `perch.merge.field.position`
+                /// en: "Position"
+                public static var position: String { L10nSupport.string("perch.merge.field.position") }
+
+                /// Merge sheet: what a conflict is about (upper-cased).
+                ///
+                /// Key: `perch.merge.field.rules`
+                /// en: "Rules"
+                public static var rules: String { L10nSupport.string("perch.merge.field.rules") }
+            }
+        }
+
+        public enum Rules {
+            /// Board rules sheet button.
+            ///
+            /// Key: `perch.rules.add`
+            /// en: "Add rules"
+            public static var add: String { L10nSupport.string("perch.rules.add") }
+
+            /// Rule node kind.
+            ///
+            /// Key: `perch.rules.all`
+            /// en: "All (AND)"
+            public static var all: String { L10nSupport.string("perch.rules.all") }
+
+            /// Rule node kind.
+            ///
+            /// Key: `perch.rules.any`
+            /// en: "Any (OR)"
+            public static var any: String { L10nSupport.string("perch.rules.any") }
+
+            /// Board rules sheet button.
+            ///
+            /// Key: `perch.rules.apply`
+            /// en: "Apply rules"
+            public static var apply: String { L10nSupport.string("perch.rules.apply") }
+
+            /// Rule condition field: whether a session is asking for the person.
+            ///
+            /// Key: `perch.rules.attention`
+            /// en: "Attention"
+            public static var attention: String { L10nSupport.string("perch.rules.attention") }
+
+            /// Rule editor: adds a condition; also the name of a single-condition rule node.
+            ///
+            /// Key: `perch.rules.condition`
+            /// en: "Condition"
+            public static var condition: String { L10nSupport.string("perch.rules.condition") }
+
+            /// Rule editor: an empty AND group.
+            ///
+            /// Key: `perch.rules.emptyAll`
+            /// en: "All with no conditions matches everything."
+            public static var emptyAll: String { L10nSupport.string("perch.rules.emptyAll") }
+
+            /// Rule editor: an empty OR / NOT group.
+            ///
+            /// Key: `perch.rules.emptyGroup`
+            /// en: "This group matches nothing."
+            public static var emptyGroup: String { L10nSupport.string("perch.rules.emptyGroup") }
+
+            /// Picker label (hidden) for what a condition tests.
+            ///
+            /// Key: `perch.rules.field`
+            /// en: "Field"
+            public static var field: String { L10nSupport.string("perch.rules.field") }
+
+            /// Picker label (hidden) for a rule node.
+            ///
+            /// Key: `perch.rules.kind`
+            /// en: "Rule kind"
+            public static var kind: String { L10nSupport.string("perch.rules.kind") }
+
+            /// Rule node kind.
+            ///
+            /// Key: `perch.rules.not`
+            /// en: "Not"
+            public static var not: String { L10nSupport.string("perch.rules.not") }
+
+            /// Board rules sheet: note under the title. AND / OR / NOT stay in capitals.
+            ///
+            /// Key: `perch.rules.note`
+            /// en: "Nested AND / OR / NOT, then per-task include or exclude overrides."
+            public static var note: String { L10nSupport.string("perch.rules.note") }
+
+            /// Field placeholder: the project key a condition matches.
+            ///
+            /// Key: `perch.rules.projectKey`
+            /// en: "Project key"
+            public static var projectKey: String { L10nSupport.string("perch.rules.projectKey") }
+
+            /// VoiceOver label of a rule's remove button.
+            ///
+            /// Key: `perch.rules.remove`
+            /// en: "Remove rule"
+            public static var remove: String { L10nSupport.string("perch.rules.remove") }
+
+            /// Board rules sheet: section title for the rule tree.
+            ///
+            /// Key: `perch.rules.title`
+            /// en: "Automatic membership"
+            public static var title: String { L10nSupport.string("perch.rules.title") }
+        }
+    }
+
+    public enum Placeholder {
+        /// Placeholder page for a section not built yet. {milestone} is a milestone name such as M2.
+        ///
+        /// Key: `placeholder.arrivesIn`
+        /// en: "Arrives in {milestone}."
+        public static func arrivesIn(milestone: String) -> String {
+            L10nSupport.format("placeholder.arrivesIn", milestone)
+        }
+
+        /// Placeholder page explanation.
+        ///
+        /// Key: `placeholder.harnesses`
+        /// en: "Which harnesses are installed, where their stores are, and how far each tailer has read."
+        public static var harnesses: String { L10nSupport.string("placeholder.harnesses") }
+
+        /// Placeholder page explanation.
+        ///
+        /// Key: `placeholder.live`
+        /// en: "The live board."
+        public static var live: String { L10nSupport.string("placeholder.live") }
+
+        /// Placeholder page explanation.
+        ///
+        /// Key: `placeholder.projects`
+        /// en: "Sessions grouped by git root and worktree, so three agents in three worktrees of one repository read as one project."
+        public static var projects: String { L10nSupport.string("placeholder.projects") }
+
+        /// Placeholder page explanation.
+        ///
+        /// Key: `placeholder.tasks`
+        /// en: "The shared task board, exposed over MCP so an agent can see what its siblings are working on."
+        public static var tasks: String { L10nSupport.string("placeholder.tasks") }
+    }
+
+    public enum Projects {
+        /// Import sheet destination.
+        ///
+        /// Key: `projects.aNewProject`
+        /// en: "A new project"
+        public static var aNewProject: String { L10nSupport.string("projects.aNewProject") }
+
+        /// Project card button.
+        ///
+        /// Key: `projects.addFolder`
+        /// en: "Add folder…"
+        public static var addFolder: String { L10nSupport.string("projects.addFolder") }
+
+        /// A project's task pill when nothing is open.
+        ///
+        /// Key: `projects.allDone`
+        /// en: "all done"
+        public static var allDone: String { L10nSupport.string("projects.allDone") }
+
+        /// Tooltip on a project's task pill.
+        ///
+        /// Key: `projects.allTasksDone`
+        /// en: "Every task in this project is done"
+        public static var allTasksDone: String { L10nSupport.string("projects.allTasksDone") }
+
+        /// Projects page section rule.
+        ///
+        /// Key: `projects.automatic`
+        /// en: "Automatic"
+        public static var automatic: String { L10nSupport.string("projects.automatic") }
+
+        /// Projects page section note.
+        ///
+        /// Key: `projects.automaticDetail`
+        /// en: "Worked out from where sessions are running. Nothing is stored."
+        public static var automaticDetail: String { L10nSupport.string("projects.automaticDetail") }
+
+        /// Projects page when nothing is automatic.
+        ///
+        /// Key: `projects.automaticEmpty`
+        /// en: "Every project on the board is one of yours."
+        public static var automaticEmpty: String { L10nSupport.string("projects.automaticEmpty") }
+
+        /// Open panel message.
+        ///
+        /// Key: `projects.chooseFolder`
+        /// en: "Choose a folder for this project"
+        public static var chooseFolder: String { L10nSupport.string("projects.chooseFolder") }
+
+        /// New project sheet button.
+        ///
+        /// Key: `projects.chooseFolderButton`
+        /// en: "Choose folder…"
+        public static var chooseFolderButton: String { L10nSupport.string("projects.chooseFolderButton") }
+
+        /// Open panel confirm button.
+        ///
+        /// Key: `projects.claim`
+        /// en: "Claim"
+        public static var claim: String { L10nSupport.string("projects.claim") }
+
+        /// Project card warning.
+        ///
+        /// Key: `projects.claimsNothing`
+        /// en: "Claims nothing yet, so no session is placed in it."
+        public static var claimsNothing: String { L10nSupport.string("projects.claimsNothing") }
+
+        /// Tooltip on the colour menu.
+        ///
+        /// Key: `projects.colourHelp`
+        /// en: "The project's colour on the board"
+        public static var colourHelp: String { L10nSupport.string("projects.colourHelp") }
+
+        /// Tooltip on a project's delete button.
+        ///
+        /// Key: `projects.deleteHelp`
+        /// en: "Delete the project. Its sessions go back to where git puts them."
+        public static var deleteHelp: String { L10nSupport.string("projects.deleteHelp") }
+
+        /// Projects page eyebrow. distinct-from: section.projects
+        ///
+        /// Key: `projects.eyebrow`
+        /// en: "Projects"
+        public static var eyebrow: String { L10nSupport.string("projects.eyebrow") }
+
+        /// Import sheet field placeholder.
+        ///
+        /// Key: `projects.filterByPath`
+        /// en: "Filter by path"
+        public static var filterByPath: String { L10nSupport.string("projects.filterByPath") }
+
+        /// Sidebar: tooltip on a task's chevron.
+        ///
+        /// Key: `projects.foldSessions`
+        /// en: "Fold these sessions away"
+        public static var foldSessions: String { L10nSupport.string("projects.foldSessions") }
+
+        /// New project sheet label.
+        ///
+        /// Key: `projects.folders`
+        /// en: "Folders"
+        public static var folders: String { L10nSupport.string("projects.folders") }
+
+        /// A harness's throwaway directories grouped as one pseudo-project, e.g. "Codex · scratch".
+        ///
+        /// Key: `projects.harnessScratch`
+        /// en: "{harness} · scratch"
+        public static func harnessScratch(harness: String) -> String {
+            L10nSupport.format("projects.harnessScratch", harness)
+        }
+
+        /// Sidebar: tooltip on a checkout's chevron.
+        ///
+        /// Key: `projects.hideCheckoutTasks`
+        /// en: "Hide this checkout's tasks"
+        public static var hideCheckoutTasks: String { L10nSupport.string("projects.hideCheckoutTasks") }
+
+        /// Sidebar: tooltip on an ignored session row.
+        ///
+        /// Key: `projects.ignoredRow`
+        /// en: "{title} — {state} · ignored by a rule"
+        public static func ignoredRow(title: String, state: String) -> String {
+            L10nSupport.format("projects.ignoredRow", title, state)
+        }
+
+        /// Projects page button.
+        ///
+        /// Key: `projects.import`
+        /// en: "Import from harness…"
+        public static var `import`: String { L10nSupport.string("projects.import") }
+
+        /// Import sheet eyebrow.
+        ///
+        /// Key: `projects.importEyebrow`
+        /// en: "Import"
+        public static var importEyebrow: String { L10nSupport.string("projects.importEyebrow") }
+
+        /// Import sheet note.
+        ///
+        /// Key: `projects.importNote`
+        /// en: "Read from each harness's own registry, and only the paths: Claude Code's projects folder and the project keys of ~/.claude.json, Codex's config.toml tables and its thread catalog. Nothing is written back."
+        public static var importNote: String { L10nSupport.string("projects.importNote") }
+
+        /// Import sheet title.
+        ///
+        /// Key: `projects.importTitle`
+        /// en: "Projects your harnesses already know about"
+        public static var importTitle: String { L10nSupport.string("projects.importTitle") }
+
+        /// Project card note. {harnesses} is a comma-separated list of harness names.
+        ///
+        /// Key: `projects.importedFrom`
+        /// en: "Imported from {harnesses}."
+        public static func importedFrom(harnesses: String) -> String {
+            L10nSupport.format("projects.importedFrom", harnesses)
+        }
+
+        /// Import sheet: the path already belongs to project {name}.
+        ///
+        /// Key: `projects.inProject`
+        /// en: "in {name}"
+        public static func inProject(name: String) -> String {
+            L10nSupport.format("projects.inProject", name)
+        }
+
+        /// Import sheet picker label.
+        ///
+        /// Key: `projects.into`
+        /// en: "Into"
+        public static var into: String { L10nSupport.string("projects.into") }
+
+        /// Projects page introduction.
+        ///
+        /// Key: `projects.intro`
+        /// en: "Auspex groups sessions by git root on its own, so three worktrees of one repository are already one project. A project of your own claims folders instead: every session working under a claimed folder is placed in it, whatever git says, and the deepest claim wins when two overlap."
+        public static var intro: String { L10nSupport.string("projects.intro") }
+
+        /// Sidebar: tooltip on a task's chevron.
+        ///
+        /// Key: `projects.listSessions`
+        /// en: "List the sessions on this task"
+        public static var listSessions: String { L10nSupport.string("projects.listSessions") }
+
+        /// Automatic project row button.
+        ///
+        /// Key: `projects.makeAProject`
+        /// en: "Make a project"
+        public static var makeAProject: String { L10nSupport.string("projects.makeAProject") }
+
+        /// Session context menu.
+        ///
+        /// Key: `projects.makeFolderProject`
+        /// en: "Make this folder an Auspex project"
+        public static var makeFolderProject: String { L10nSupport.string("projects.makeFolderProject") }
+
+        /// Sidebar project context menu.
+        ///
+        /// Key: `projects.makeProject`
+        /// en: "Make this an Auspex project"
+        public static var makeProject: String { L10nSupport.string("projects.makeProject") }
+
+        /// Project name field placeholder.
+        ///
+        /// Key: `projects.name`
+        /// en: "Name"
+        public static var name: String { L10nSupport.string("projects.name") }
+
+        /// Projects page button.
+        ///
+        /// Key: `projects.new`
+        /// en: "New project…"
+        public static var new: String { L10nSupport.string("projects.new") }
+
+        /// New project sheet title.
+        ///
+        /// Key: `projects.newSubtitle`
+        /// en: "One project, any number of folders"
+        public static var newSubtitle: String { L10nSupport.string("projects.newSubtitle") }
+
+        /// New project sheet eyebrow; also the default name of an unnamed project. distinct-from: projects.new
+        ///
+        /// Key: `projects.newTitle`
+        /// en: "New project"
+        public static var newTitle: String { L10nSupport.string("projects.newTitle") }
+
+        /// Subtitle of a pseudo-project.
+        ///
+        /// Key: `projects.noDirectory`
+        /// en: "No working directory"
+        public static var noDirectory: String { L10nSupport.string("projects.noDirectory") }
+
+        /// Project card: sessions on the board when none is live.
+        ///
+        /// Key: `projects.onBoard`
+        /// en: "{count} on the board"
+        public static func onBoard(count: Int) -> String {
+            L10nSupport.format("projects.onBoard", count)
+        }
+
+        /// New project sheet field placeholder.
+        ///
+        /// Key: `projects.pastePath`
+        /// en: "…or paste a path"
+        public static var pastePath: String { L10nSupport.string("projects.pastePath") }
+
+        /// Tooltip on a project's pin button. distinct-from: projects.pinToTop
+        ///
+        /// Key: `projects.pinHelp`
+        /// en: "Pin it to the top"
+        public static var pinHelp: String { L10nSupport.string("projects.pinHelp") }
+
+        /// Sidebar project context menu.
+        ///
+        /// Key: `projects.pinToTop`
+        /// en: "Pin to the top"
+        public static var pinToTop: String { L10nSupport.string("projects.pinToTop") }
+
+        /// Projects page error. {error} is a system error description.
+        ///
+        /// Key: `projects.saveError`
+        /// en: "Your change is in effect but could not be saved: {error}"
+        public static func saveError(error: String) -> String {
+            L10nSupport.format("projects.saveError", error)
+        }
+
+        /// Subtitle of the Scratch pseudo-project.
+        ///
+        /// Key: `projects.scratchSubtitle`
+        /// en: "Work filed before Auspex could tell where it belonged"
+        public static var scratchSubtitle: String { L10nSupport.string("projects.scratchSubtitle") }
+
+        /// Import sheet count.
+        ///
+        /// Key: `projects.selected`
+        /// en: "{count} selected"
+        public static func selected(count: Int) -> String {
+            L10nSupport.format("projects.selected", count)
+        }
+
+        /// Tooltip on the focused project in the sidebar. distinct-from: board.focus.allProjectsHelp
+        ///
+        /// Key: `projects.showAll`
+        /// en: "Show every project on the board again"
+        public static var showAll: String { L10nSupport.string("projects.showAll") }
+
+        /// Sidebar: tooltip on a checkout's chevron.
+        ///
+        /// Key: `projects.showCheckoutTasks`
+        /// en: "Show this checkout's tasks"
+        public static var showCheckoutTasks: String { L10nSupport.string("projects.showCheckoutTasks") }
+
+        /// Tooltip on a project in the sidebar.
+        ///
+        /// Key: `projects.showOnly`
+        /// en: "Show only {name} on the board"
+        public static func showOnly(name: String) -> String {
+            L10nSupport.format("projects.showOnly", name)
+        }
+
+        /// Sidebar note when there are no projects yet.
+        ///
+        /// Key: `projects.sidebarEmpty`
+        /// en: "Projects appear here as sessions report where they are working."
+        public static var sidebarEmpty: String { L10nSupport.string("projects.sidebarEmpty") }
+
+        /// Tooltip on a project's task pill.
+        ///
+        /// Key: `projects.tasksHelp`
+        /// en: "{open} of {total} tasks in this project are open"
+        public static func tasksHelp(`open`: Int, total: Int) -> String {
+            L10nSupport.format("projects.tasksHelp", `open`, total)
+        }
+
+        /// Sidebar: tooltip on a project's task pill. {description} is projects.tasksOpen.
+        ///
+        /// Key: `projects.tasksOnBoard`
+        /// en: "{description} on the task board · {total} filed in all"
+        public static func tasksOnBoard(description: String, total: Int) -> String {
+            L10nSupport.format("projects.tasksOnBoard", description, total)
+        }
+
+        /// A project's open-task pill.
+        ///
+        /// Key: `projects.tasksOpen`
+        /// en: "{count, plural, one {# task open} other {# tasks open}}"
+        public static func tasksOpen(count: Int) -> String {
+            L10nSupport.localizedFormat("projects.tasksOpen", count)
+        }
+
+        /// Tooltip on a folder's remove button.
+        ///
+        /// Key: `projects.unclaimFolder`
+        /// en: "Stop claiming this folder"
+        public static var unclaimFolder: String { L10nSupport.string("projects.unclaimFolder") }
+
+        /// Sidebar: tooltip on the Ungrouped header.
+        ///
+        /// Key: `projects.ungroupedHelp`
+        /// en: "These sessions reported no working directory, and no ancestor did either."
+        public static var ungroupedHelp: String { L10nSupport.string("projects.ungroupedHelp") }
+
+        /// Sidebar project context menu.
+        ///
+        /// Key: `projects.unpin`
+        /// en: "Unpin"
+        public static var unpin: String { L10nSupport.string("projects.unpin") }
+
+        /// Tooltip on a project's pin button. distinct-from: projects.unpin
+        ///
+        /// Key: `projects.unpinHelp`
+        /// en: "Stop pinning it to the top"
+        public static var unpinHelp: String { L10nSupport.string("projects.unpinHelp") }
+
+        /// Projects page section rule.
+        ///
+        /// Key: `projects.yours`
+        /// en: "Yours"
+        public static var yours: String { L10nSupport.string("projects.yours") }
+
+        /// Projects page section note.
+        ///
+        /// Key: `projects.yoursDetail`
+        /// en: "Claim folders; the board follows."
+        public static var yoursDetail: String { L10nSupport.string("projects.yoursDetail") }
+
+        /// Projects page when the person has no projects.
+        ///
+        /// Key: `projects.yoursEmpty`
+        /// en: "Nothing yet. Make one from a folder, or import the projects Claude Code and Codex already know about."
+        public static var yoursEmpty: String { L10nSupport.string("projects.yoursEmpty") }
+
+        public enum Badge {
+            /// VoiceOver label of a sidebar attention badge. distinct-from: projects.fold.finished distinct-from: notification.finished
+            ///
+            /// Key: `projects.badge.finished`
+            /// en: "{count} finished"
+            public static func finished(count: Int) -> String {
+                L10nSupport.format("projects.badge.finished", count)
+            }
+
+            /// VoiceOver label of a sidebar attention badge.
+            ///
+            /// Key: `projects.badge.needYou`
+            /// en: "{count} need you"
+            public static func needYou(count: Int) -> String {
+                L10nSupport.format("projects.badge.needYou", count)
+            }
+        }
+
+        public enum Fold {
+            /// Sidebar fold. distinct-from: notification.finished
+            ///
+            /// Key: `projects.fold.finished`
+            /// en: "{count} finished"
+            public static func finished(count: Int) -> String {
+                L10nSupport.format("projects.fold.finished", count)
+            }
+
+            /// Sidebar fold tooltip, second half.
+            ///
+            /// Key: `projects.fold.finishedElsewhere`
+            /// en: "{count, plural, one {# finished session is in the board's Ended section} other {# finished sessions are in the board's Ended section}}"
+            public static func finishedElsewhere(count: Int) -> String {
+                L10nSupport.localizedFormat("projects.fold.finishedElsewhere", count)
+            }
+
+            /// Sidebar fold tooltip, first half.
+            ///
+            /// Key: `projects.fold.listEvery`
+            /// en: "List every running session here"
+            public static var listEvery: String { L10nSupport.string("projects.fold.listEvery") }
+
+            /// Sidebar fold tooltip.
+            ///
+            /// Key: `projects.fold.listFirst`
+            /// en: "List only the first {count} again"
+            public static func listFirst(count: Int) -> String {
+                L10nSupport.format("projects.fold.listFirst", count)
+            }
+
+            /// Sidebar fold.
+            ///
+            /// Key: `projects.fold.more`
+            /// en: "+{count} more"
+            public static func more(count: Int) -> String {
+                L10nSupport.format("projects.fold.more", count)
+            }
+
+            /// Sidebar fold: sessions cut from the list and finished ones elsewhere.
+            ///
+            /// Key: `projects.fold.moreAndFinished`
+            /// en: "+{more} more · {finished} finished"
+            public static func moreAndFinished(more: Int, finished: Int) -> String {
+                L10nSupport.format("projects.fold.moreAndFinished", more, finished)
+            }
+
+            /// Joins the two halves of the sidebar fold tooltip.
+            ///
+            /// Key: `projects.fold.separator`
+            /// en: "{first}. {second}"
+            public static func separator(first: String, second: String) -> String {
+                L10nSupport.format("projects.fold.separator", first, second)
+            }
+
+            /// Sidebar fold under a long project.
+            ///
+            /// Key: `projects.fold.showFewer`
+            /// en: "Show fewer"
+            public static var showFewer: String { L10nSupport.string("projects.fold.showFewer") }
+        }
+
+        public enum Headline {
+            /// Projects page headline.
+            ///
+            /// Key: `projects.headline.autoOnly`
+            /// en: "{count} found on the board, none of them yours yet."
+            public static func autoOnly(count: Int) -> String {
+                L10nSupport.format("projects.headline.autoOnly", count)
+            }
+
+            /// Projects page headline.
+            ///
+            /// Key: `projects.headline.mixed`
+            /// en: "{mine} yours, {auto} more found on the board."
+            public static func mixed(mine: Int, auto: Int) -> String {
+                L10nSupport.format("projects.headline.mixed", mine, auto)
+            }
+
+            /// Projects page headline.
+            ///
+            /// Key: `projects.headline.none`
+            /// en: "No projects yet."
+            public static var `none`: String { L10nSupport.string("projects.headline.none") }
+        }
+    }
+
+    public enum Search {
+        /// Transcript search results header.
+        ///
+        /// Key: `search.matches`
+        /// en: "{count, plural, one {# match} other {# matches}}"
+        public static func matches(count: Int) -> String {
+            L10nSupport.localizedFormat("search.matches", count)
+        }
+
+        /// Transcript search results header.
+        ///
+        /// Key: `search.scope`
+        /// en: "Full text · every harness"
+        public static var scope: String { L10nSupport.string("search.scope") }
+    }
+
+    public enum Section {
+        /// Sidebar section: the rack of harnesses Auspex can observe.
+        ///
+        /// Key: `section.harnesses`
+        /// en: "Harnesses"
+        public static var harnesses: String { L10nSupport.string("section.harnesses") }
+
+        /// Sidebar section: the person's projects.
+        ///
+        /// Key: `section.projects`
+        /// en: "Projects"
+        public static var projects: String { L10nSupport.string("section.projects") }
+
+        /// Sidebar section: every session in the window as a wall.
+        ///
+        /// Key: `section.sessions`
+        /// en: "Sessions"
+        public static var sessions: String { L10nSupport.string("section.sessions") }
+
+        /// Sidebar section and window: Auspex's settings.
+        ///
+        /// Key: `section.settings`
+        /// en: "Settings"
+        public static var settings: String { L10nSupport.string("section.settings") }
+
+        /// Sidebar section: the task board.
+        ///
+        /// Key: `section.tasks`
+        /// en: "Tasks"
+        public static var tasks: String { L10nSupport.string("section.tasks") }
+    }
+
+    public enum Session {
+        /// Card metadata: the session is a harness's automatic code review. Lower-case.
+        ///
+        /// Key: `session.autoReview`
+        /// en: "auto review"
+        public static var autoReview: String { L10nSupport.string("session.autoReview") }
+
+        /// Chip on a card whose session spawned sub-agents.
+        ///
+        /// Key: `session.children`
+        /// en: "{count, plural, one {↳ # child} other {↳ # children}}"
+        public static func children(count: Int) -> String {
+            L10nSupport.localizedFormat("session.children", count)
+        }
+
+        /// Session context menu.
+        ///
+        /// Key: `session.copyResumeCommand`
+        /// en: "Copy resume command"
+        public static var copyResumeCommand: String { L10nSupport.string("session.copyResumeCommand") }
+
+        /// Session context menu.
+        ///
+        /// Key: `session.copySessionID`
+        /// en: "Copy session ID"
+        public static var copySessionID: String { L10nSupport.string("session.copySessionID") }
+
+        /// Session context menu.
+        ///
+        /// Key: `session.copyWorkingDirectory`
+        /// en: "Copy working directory"
+        public static var copyWorkingDirectory: String { L10nSupport.string("session.copyWorkingDirectory") }
+
+        /// Notice when a signal was refused. {reason} is an explanation in English from Auspex's process checks.
+        ///
+        /// Key: `session.didNotSignal`
+        /// en: "Auspex did not signal this session: {reason}"
+        public static func didNotSignal(reason: String) -> String {
+            L10nSupport.format("session.didNotSignal", reason)
+        }
+
+        /// Notice when sending a signal failed. {reason} is an explanation in English.
+        ///
+        /// Key: `session.didNotSignalPid`
+        /// en: "Auspex did not signal pid {pid}: {reason}"
+        public static func didNotSignalPid(pid: Int, reason: String) -> String {
+            L10nSupport.format("session.didNotSignalPid", pid, reason)
+        }
+
+        /// Tooltip on the Kill… item. SIGTERM is a signal name, never translated.
+        ///
+        /// Key: `session.killHelp`
+        /// en: "Asks first, then sends SIGTERM to pid {pid}"
+        public static func killHelp(pid: Int) -> String {
+            L10nSupport.format("session.killHelp", pid)
+        }
+
+        /// Tooltip on disabled directory items in the session context menu.
+        ///
+        /// Key: `session.noDirectory`
+        /// en: "This session's store records no directory"
+        public static var noDirectory: String { L10nSupport.string("session.noDirectory") }
+
+        /// Why the signal items are disabled right after launch.
+        ///
+        /// Key: `session.notWatchingProcesses`
+        /// en: "Auspex is not watching processes yet."
+        public static var notWatchingProcesses: String { L10nSupport.string("session.notWatchingProcesses") }
+
+        /// Session context menu. {app} is a terminal or editor app's name.
+        ///
+        /// Key: `session.openIn`
+        /// en: "Open in {app}"
+        public static func openIn(app: String) -> String {
+            L10nSupport.format("session.openIn", app)
+        }
+
+        /// Tooltip on Open in {terminal}.
+        ///
+        /// Key: `session.openInTerminalHelp`
+        /// en: "A window on that directory. Nothing is run in it."
+        public static var openInTerminalHelp: String { L10nSupport.string("session.openInTerminalHelp") }
+
+        /// Card: label before when the agent last replied, e.g. "replied · 12 min ago".
+        ///
+        /// Key: `session.replied`
+        /// en: "replied"
+        public static var replied: String { L10nSupport.string("session.replied") }
+
+        /// Tooltip on Resume in {app}.
+        ///
+        /// Key: `session.resumeHelp`
+        /// en: "Copies the command and opens {app} running it"
+        public static func resumeHelp(app: String) -> String {
+            L10nSupport.format("session.resumeHelp", app)
+        }
+
+        /// Session context menu. {app} is a terminal app's name such as Terminal or iTerm.
+        ///
+        /// Key: `session.resumeIn`
+        /// en: "Resume in {app}"
+        public static func resumeIn(app: String) -> String {
+            L10nSupport.format("session.resumeIn", app)
+        }
+
+        /// Session context menu.
+        ///
+        /// Key: `session.revealDirectory`
+        /// en: "Reveal working directory in Finder"
+        public static var revealDirectory: String { L10nSupport.string("session.revealDirectory") }
+
+        /// Session context menu.
+        ///
+        /// Key: `session.revealTranscript`
+        /// en: "Reveal transcript in Finder"
+        public static var revealTranscript: String { L10nSupport.string("session.revealTranscript") }
+
+        /// Tooltip on the parent chip of a sub-agent's card.
+        ///
+        /// Key: `session.spawnedByHelp`
+        /// en: "Open the session that spawned this one"
+        public static var spawnedByHelp: String { L10nSupport.string("session.spawnedByHelp") }
+
+        /// Tooltip on a card's token counts.
+        ///
+        /// Key: `session.tokensHelp`
+        /// en: "Tokens in / out"
+        public static var tokensHelp: String { L10nSupport.string("session.tokensHelp") }
+
+        /// VoiceOver label of the dot on a card whose agent replied.
+        ///
+        /// Key: `session.unreadReply`
+        /// en: "Replied, and you have not looked at it"
+        public static var unreadReply: String { L10nSupport.string("session.unreadReply") }
+
+        public enum Elapsed {
+            /// Card: label before how long the current turn has run.
+            ///
+            /// Key: `session.elapsed.elapsed`
+            /// en: "elapsed"
+            public static var elapsed: String { L10nSupport.string("session.elapsed.elapsed") }
+
+            /// Card: label before how long an idle session has been quiet.
+            ///
+            /// Key: `session.elapsed.quiet`
+            /// en: "quiet"
+            public static var quiet: String { L10nSupport.string("session.elapsed.quiet") }
+
+            /// Card: label before an ended session's duration. Lower-case.
+            ///
+            /// Key: `session.elapsed.ranFor`
+            /// en: "ran for"
+            public static var ranFor: String { L10nSupport.string("session.elapsed.ranFor") }
+
+            /// Card: label before how long a session has waited on a permission prompt.
+            ///
+            /// Key: `session.elapsed.waiting`
+            /// en: "waiting"
+            public static var waiting: String { L10nSupport.string("session.elapsed.waiting") }
+        }
+
+        public enum InterruptHelp {
+            /// Tooltip on Interrupt for a Claude Code session.
+            ///
+            /// Key: `session.interruptHelp.claude`
+            /// en: "Sends SIGINT to pid {pid}. Claude Code takes that as a graceful quit — it saves the session and exits, rather than stopping only the current turn."
+            public static func claude(pid: Int) -> String {
+                L10nSupport.format("session.interruptHelp.claude", pid)
+            }
+
+            /// Tooltip on Interrupt for other harnesses.
+            ///
+            /// Key: `session.interruptHelp.other`
+            /// en: "Sends SIGINT to pid {pid} — the signal a terminal sends on ⌃C. What the harness does with it is the harness's decision."
+            public static func other(pid: Int) -> String {
+                L10nSupport.format("session.interruptHelp.other", pid)
+            }
+        }
+
+        public enum Kill {
+            /// Destructive button in the kill confirmation dialog. distinct-from: session.signal.kill — no ellipsis, this is the question itself.
+            ///
+            /// Key: `session.kill.confirm`
+            /// en: "Kill"
+            public static var confirm: String { L10nSupport.string("session.kill.confirm") }
+
+            /// Body of the force-kill dialog.
+            ///
+            /// Key: `session.kill.forceMessage`
+            /// en: "{process} (pid {pid}) is still running {seconds}s after SIGTERM. SIGKILL cannot be caught, so it will not get to finish writing anything."
+            public static func forceMessage(process: String, pid: Int, seconds: Int) -> String {
+                L10nSupport.format("session.kill.forceMessage", process, pid, seconds)
+            }
+
+            /// Second dialog, offered when SIGTERM did not stop the process.
+            ///
+            /// Key: `session.kill.forcePrompt`
+            /// en: "Force {title} to stop?"
+            public static func forcePrompt(title: String) -> String {
+                L10nSupport.format("session.kill.forcePrompt", title)
+            }
+
+            /// Kill confirmation dialog body.
+            ///
+            /// Key: `session.kill.message`
+            /// en: "Auspex will send SIGTERM to {process} (pid {pid}). Anything the agent was part-way through will not be finished."
+            public static func message(process: String, pid: Int) -> String {
+                L10nSupport.format("session.kill.message", process, pid)
+            }
+
+            /// Kill confirmation dialog body for a resumable session. {process} is an executable name.
+            ///
+            /// Key: `session.kill.messageResumable`
+            /// en: "Auspex will send SIGTERM to {process} (pid {pid}). The transcript is already on disk, so the session can be resumed afterwards; anything the agent was part-way through will not be finished."
+            public static func messageResumable(process: String, pid: Int) -> String {
+                L10nSupport.format("session.kill.messageResumable", process, pid)
+            }
+
+            /// Kill confirmation dialog title. {title} is the session's title, cut to one line.
+            ///
+            /// Key: `session.kill.prompt`
+            /// en: "Kill {title}?"
+            public static func prompt(title: String) -> String {
+                L10nSupport.format("session.kill.prompt", title)
+            }
+
+            /// Stand-in for {title} in session.kill.prompt when the session has no title.
+            ///
+            /// Key: `session.kill.thisSession`
+            /// en: "this session"
+            public static var thisSession: String { L10nSupport.string("session.kill.thisSession") }
+        }
+
+        public enum Signal {
+            /// Menu item and dialog button that sends SIGKILL.
+            ///
+            /// Key: `session.signal.forceKill`
+            /// en: "Force kill"
+            public static var forceKill: String { L10nSupport.string("session.signal.forceKill") }
+
+            /// Session context menu item that sends SIGINT.
+            ///
+            /// Key: `session.signal.interrupt`
+            /// en: "Interrupt (SIGINT)"
+            public static var interrupt: String { L10nSupport.string("session.signal.interrupt") }
+
+            /// Session context menu item that asks, then sends SIGTERM.
+            ///
+            /// Key: `session.signal.kill`
+            /// en: "Kill…"
+            public static var kill: String { L10nSupport.string("session.signal.kill") }
+        }
     }
 
     public enum Settings {
+        /// Settings: picker label (hidden) of the narrow-window pane menu.
+        ///
+        /// Key: `settings.paneMenu`
+        /// en: "Settings pane"
+        public static var paneMenu: String { L10nSupport.string("settings.paneMenu") }
+
+        /// Settings error. {error} is a system error description.
+        ///
+        /// Key: `settings.saveError`
+        /// en: "The setting is in effect, but could not be saved: {error}"
+        public static func saveError(error: String) -> String {
+            L10nSupport.format("settings.saveError", error)
+        }
+
+        public enum Appearance {
+            /// Settings → Appearance swatch.
+            ///
+            /// Key: `settings.appearance.accent`
+            /// en: "Accent"
+            public static var accent: String { L10nSupport.string("settings.appearance.accent") }
+
+            /// Settings → Appearance swatch.
+            ///
+            /// Key: `settings.appearance.background`
+            /// en: "Background"
+            public static var background: String { L10nSupport.string("settings.appearance.background") }
+
+            /// Appearance option.
+            ///
+            /// Key: `settings.appearance.dark`
+            /// en: "Dark"
+            public static var dark: String { L10nSupport.string("settings.appearance.dark") }
+
+            /// Appearance option explanation.
+            ///
+            /// Key: `settings.appearance.darkDetail`
+            /// en: "Always dark, whatever your Mac is set to."
+            public static var darkDetail: String { L10nSupport.string("settings.appearance.darkDetail") }
+
+            /// Settings → Appearance: label before Light or Dark.
+            ///
+            /// Key: `settings.appearance.drawingIn`
+            /// en: "Drawing in"
+            public static var drawingIn: String { L10nSupport.string("settings.appearance.drawingIn") }
+
+            /// Settings → Appearance swatch.
+            ///
+            /// Key: `settings.appearance.foreground`
+            /// en: "Foreground"
+            public static var foreground: String { L10nSupport.string("settings.appearance.foreground") }
+
+            /// Settings → Appearance introduction.
+            ///
+            /// Key: `settings.appearance.intro`
+            /// en: "Every colour Auspex draws with has a value for each appearance, so the board is the same board either way: the same four surface steps, the same three text steps, one colour per state and one per harness. Only their brightness moves."
+            public static var intro: String { L10nSupport.string("settings.appearance.intro") }
+
+            /// Appearance option.
+            ///
+            /// Key: `settings.appearance.light`
+            /// en: "Light"
+            public static var light: String { L10nSupport.string("settings.appearance.light") }
+
+            /// Appearance option explanation.
+            ///
+            /// Key: `settings.appearance.lightDetail`
+            /// en: "Always light, whatever your Mac is set to."
+            public static var lightDetail: String { L10nSupport.string("settings.appearance.lightDetail") }
+
+            /// Settings → Appearance footnote.
+            ///
+            /// Key: `settings.appearance.noRelaunch`
+            /// en: "Nothing has to be relaunched. The window, the menu bar panel, the office and the crew all repaint where they stand."
+            public static var noRelaunch: String { L10nSupport.string("settings.appearance.noRelaunch") }
+
+            /// Appearance option explanation.
+            ///
+            /// Key: `settings.appearance.systemDetail`
+            /// en: "Follows the appearance your Mac is set to, including a scheduled switch."
+            public static var systemDetail: String { L10nSupport.string("settings.appearance.systemDetail") }
+
+            /// Settings → Appearance toggle explanation.
+            ///
+            /// Key: `settings.appearance.translucentNote`
+            /// en: "The system's sidebar material under the column, which picks up what is behind the window and drains when the window is not in front. Switch it off for a flat ground that matches the board exactly."
+            public static var translucentNote: String { L10nSupport.string("settings.appearance.translucentNote") }
+
+            /// Settings → Appearance toggle.
+            ///
+            /// Key: `settings.appearance.translucentSidebar`
+            /// en: "Translucent sidebar"
+            public static var translucentSidebar: String { L10nSupport.string("settings.appearance.translucentSidebar") }
+
+            /// Settings → Appearance label and picker label.
+            ///
+            /// Key: `settings.appearance.windowAppearance`
+            /// en: "Window appearance"
+            public static var windowAppearance: String { L10nSupport.string("settings.appearance.windowAppearance") }
+        }
+
+        public enum Crew {
+            /// Crew liveliness option.
+            ///
+            /// Key: `settings.crew.calm`
+            /// en: "Calm"
+            public static var calm: String { L10nSupport.string("settings.crew.calm") }
+
+            /// Crew liveliness explanation.
+            ///
+            /// Key: `settings.crew.calmDetail`
+            /// en: "Something happens to an avatar every fourteen to fifty seconds. For a board you work beside rather than watch."
+            public static var calmDetail: String { L10nSupport.string("settings.crew.calmDetail") }
+
+            /// Settings → Crew introduction.
+            ///
+            /// Key: `settings.crew.intro`
+            /// en: "Every avatar lives in a loop that belongs to what its session is doing — thinking, working, waiting on you — and now and then it breaks out of it: a glance away, a shrug, a yawn. This is how often that happens. It does not change how fast anything moves, and it does not switch anything off."
+            public static var intro: String { L10nSupport.string("settings.crew.intro") }
+
+            /// Settings → Crew picker label.
+            ///
+            /// Key: `settings.crew.liveliness`
+            /// en: "Liveliness"
+            public static var liveliness: String { L10nSupport.string("settings.crew.liveliness") }
+
+            /// Crew liveliness option.
+            ///
+            /// Key: `settings.crew.lively`
+            /// en: "Lively"
+            public static var lively: String { L10nSupport.string("settings.crew.lively") }
+
+            /// Crew liveliness explanation.
+            ///
+            /// Key: `settings.crew.livelyDetail`
+            /// en: "Something happens to an avatar every five to eighteen seconds. The wall is never quite still."
+            public static var livelyDetail: String { L10nSupport.string("settings.crew.livelyDetail") }
+
+            /// Crew liveliness option. distinct-from: task.importance.normal
+            ///
+            /// Key: `settings.crew.normal`
+            /// en: "Normal"
+            public static var normal: String { L10nSupport.string("settings.crew.normal") }
+
+            /// Crew liveliness explanation.
+            ///
+            /// Key: `settings.crew.normalDetail`
+            /// en: "Something happens to an avatar every eight to thirty seconds."
+            public static var normalDetail: String { L10nSupport.string("settings.crew.normalDetail") }
+
+            /// Settings → Crew note.
+            ///
+            /// Key: `settings.crew.waitingNote`
+            /// en: "A session that is waiting on you keeps its own rhythm whatever this says: it is the one state that will not resolve itself, so it goes on asking."
+            public static var waitingNote: String { L10nSupport.string("settings.crew.waitingNote") }
+        }
+
+        public enum General {
+            /// Settings → General introduction.
+            ///
+            /// Key: `settings.general.intro`
+            /// en: "The board can only catch work that happens while Auspex is running. macOS can start it at login with the menu bar and observation pipeline ready, without opening the board in front of whatever you were doing."
+            public static var intro: String { L10nSupport.string("settings.general.intro") }
+
+            /// Settings → General toggle.
+            ///
+            /// Key: `settings.general.launchAtLogin`
+            /// en: "Launch at login"
+            public static var launchAtLogin: String { L10nSupport.string("settings.general.launchAtLogin") }
+
+            /// Settings → General error. {error} is a system error description.
+            ///
+            /// Key: `settings.general.loginError`
+            /// en: "macOS did not change the login item: {error}"
+            public static func loginError(error: String) -> String {
+                L10nSupport.format("settings.general.loginError", error)
+            }
+
+            /// Settings → General footnote.
+            ///
+            /// Key: `settings.general.note`
+            /// en: "This registers the signed main application through ServiceManagement. It does not install a helper, add a LaunchAgent, change the empty entitlements, or grant Auspex any new access to the disk."
+            public static var note: String { L10nSupport.string("settings.general.note") }
+
+            /// Settings → General button that opens System Settings.
+            ///
+            /// Key: `settings.general.openLoginItems`
+            /// en: "Open Login Items"
+            public static var openLoginItems: String { L10nSupport.string("settings.general.openLoginItems") }
+        }
+
+        public enum Ignore {
+            /// Settings → Ignore section rule.
+            ///
+            /// Key: `settings.ignore.addRule`
+            /// en: "Add a rule"
+            public static var addRule: String { L10nSupport.string("settings.ignore.addRule") }
+
+            /// Settings → Ignore harness picker's empty choice.
+            ///
+            /// Key: `settings.ignore.chooseHarness`
+            /// en: "Choose a harness"
+            public static var chooseHarness: String { L10nSupport.string("settings.ignore.chooseHarness") }
+
+            /// Tooltip on a rule's delete button.
+            ///
+            /// Key: `settings.ignore.deleteRule`
+            /// en: "Delete this rule"
+            public static var deleteRule: String { L10nSupport.string("settings.ignore.deleteRule") }
+
+            /// Settings → Ignore empty state title.
+            ///
+            /// Key: `settings.ignore.noRules`
+            /// en: "No rules yet."
+            public static var noRules: String { L10nSupport.string("settings.ignore.noRules") }
+
+            /// Settings → Ignore empty state detail.
+            ///
+            /// Key: `settings.ignore.noRulesDetail`
+            /// en: "Right-click a card, or a project in the sidebar, to hide the folder it is in."
+            public static var noRulesDetail: String { L10nSupport.string("settings.ignore.noRulesDetail") }
+
+            /// Settings → Ignore headline.
+            ///
+            /// Key: `settings.ignore.nothingHidden`
+            /// en: "Nothing is being hidden."
+            public static var nothingHidden: String { L10nSupport.string("settings.ignore.nothingHidden") }
+
+            /// Settings → Ignore headline when every rule is on.
+            ///
+            /// Key: `settings.ignore.rules`
+            /// en: "{count, plural, one {# rule.} other {# rules.}}"
+            public static func rules(count: Int) -> String {
+                L10nSupport.localizedFormat("settings.ignore.rules", count)
+            }
+
+            /// Settings → Ignore section note.
+            ///
+            /// Key: `settings.ignore.rulesDetail`
+            /// en: "Switch one off to try the board without it."
+            public static var rulesDetail: String { L10nSupport.string("settings.ignore.rulesDetail") }
+
+            /// Settings → Ignore headline when some rules are off.
+            ///
+            /// Key: `settings.ignore.rulesOn`
+            /// en: "{count, plural, one {# rule, {active} of them on.} other {# rules, {active} of them on.}}"
+            public static func rulesOn(count: Int, active: Int) -> String {
+                L10nSupport.localizedFormat("settings.ignore.rulesOn", count, active)
+            }
+
+            /// Settings → Ignore section rule. distinct-from: perch.merge.field.rules
+            ///
+            /// Key: `settings.ignore.rulesTitle`
+            /// en: "Rules"
+            public static var rulesTitle: String { L10nSupport.string("settings.ignore.rulesTitle") }
+        }
+
         public enum Language {
+            /// Settings → General: the line under the Language picker.
+            ///
+            /// Key: `settings.language.caption`
+            /// en: "Auspex follows the macOS language unless you pick one here. Harness, company and product names stay as their owners spell them. The change takes effect at once."
+            public static var caption: String { L10nSupport.string("settings.language.caption") }
+
             /// Settings → General → Language: follow the macOS language. The other two options are each language's own name and are not translated. distinct-from: flight.role.system
             ///
             /// Key: `settings.language.system`
@@ -32,6 +5320,1930 @@ public enum L10n {
             /// en: "Language"
             public static var title: String { L10nSupport.string("settings.language.title") }
         }
+
+        public enum Pane {
+            /// Settings pane name. distinct-from: flight.agents
+            ///
+            /// Key: `settings.pane.agents`
+            /// en: "Agents"
+            public static var agents: String { L10nSupport.string("settings.pane.agents") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.agentsSubtitle`
+            /// en: "What Auspex has written into each harness, and how to take it back."
+            public static var agentsSubtitle: String { L10nSupport.string("settings.pane.agentsSubtitle") }
+
+            /// Settings pane name.
+            ///
+            /// Key: `settings.pane.appearance`
+            /// en: "Appearance"
+            public static var appearance: String { L10nSupport.string("settings.pane.appearance") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.appearanceSubtitle`
+            /// en: "Light and dark, and one accent in both."
+            public static var appearanceSubtitle: String { L10nSupport.string("settings.pane.appearanceSubtitle") }
+
+            /// Settings pane name: which character figure each harness wears in the office.
+            ///
+            /// Key: `settings.pane.characters`
+            /// en: "Characters"
+            public static var characters: String { L10nSupport.string("settings.pane.characters") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.charactersSubtitle`
+            /// en: "Which character each harness wears, and where packages come from."
+            public static var charactersSubtitle: String { L10nSupport.string("settings.pane.charactersSubtitle") }
+
+            /// Settings pane name: the wall of faces (the Flock view). Keep consistent with viewMode.crew.
+            ///
+            /// Key: `settings.pane.crew`
+            /// en: "Crew"
+            public static var crew: String { L10nSupport.string("settings.pane.crew") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.crewSubtitle`
+            /// en: "How often the wall of faces moves."
+            public static var crewSubtitle: String { L10nSupport.string("settings.pane.crewSubtitle") }
+
+            /// Settings pane name.
+            ///
+            /// Key: `settings.pane.general`
+            /// en: "General"
+            public static var general: String { L10nSupport.string("settings.pane.general") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.generalSubtitle`
+            /// en: "Whether the observer is already there when you log in, and the language it speaks."
+            public static var generalSubtitle: String { L10nSupport.string("settings.pane.generalSubtitle") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.ignoreSubtitle`
+            /// en: "Everything the board is not showing, and why."
+            public static var ignoreSubtitle: String { L10nSupport.string("settings.pane.ignoreSubtitle") }
+
+            /// Settings pane name: the office map.
+            ///
+            /// Key: `settings.pane.scene`
+            /// en: "Scene"
+            public static var scene: String { L10nSupport.string("settings.pane.scene") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.sceneSubtitle`
+            /// en: "How much map there is: the office, and the places people walk to."
+            public static var sceneSubtitle: String { L10nSupport.string("settings.pane.sceneSubtitle") }
+
+            /// Settings pane name.
+            ///
+            /// Key: `settings.pane.updates`
+            /// en: "Updates"
+            public static var updates: String { L10nSupport.string("settings.pane.updates") }
+
+            /// Settings pane subtitle.
+            ///
+            /// Key: `settings.pane.updatesSubtitle`
+            /// en: "Which channel this copy follows, and when it last asked."
+            public static var updatesSubtitle: String { L10nSupport.string("settings.pane.updatesSubtitle") }
+        }
+
+        public enum Scene {
+            /// Settings → Scene footnote.
+            ///
+            /// Key: `settings.scene.bothOff`
+            /// en: "With both switched off, everybody stays at their desk and the map is the office on its own."
+            public static var bothOff: String { L10nSupport.string("settings.scene.bothOff") }
+
+            /// Settings → Scene toggle.
+            ///
+            /// Key: `settings.scene.breakAreas`
+            /// en: "Break areas"
+            public static var breakAreas: String { L10nSupport.string("settings.scene.breakAreas") }
+
+            /// Settings → Scene toggle explanation.
+            ///
+            /// Key: `settings.scene.breakAreasDetail`
+            /// en: "Idle sessions rest, stale ones doze, anything that finished while you were elsewhere waits by the door holding a note, and anything that is over walks out through it."
+            public static var breakAreasDetail: String { L10nSupport.string("settings.scene.breakAreasDetail") }
+
+            /// Settings → Scene picker label.
+            ///
+            /// Key: `settings.scene.breakStyle`
+            /// en: "Break area style"
+            public static var breakStyle: String { L10nSupport.string("settings.scene.breakStyle") }
+
+            /// Break area style and the name of that area in the office.
+            ///
+            /// Key: `settings.scene.garden`
+            /// en: "Garden"
+            public static var garden: String { L10nSupport.string("settings.scene.garden") }
+
+            /// Settings → Scene label over the window picker.
+            ///
+            /// Key: `settings.scene.howFarBack`
+            /// en: "How far back"
+            public static var howFarBack: String { L10nSupport.string("settings.scene.howFarBack") }
+
+            /// Settings → Scene introduction.
+            ///
+            /// Key: `settings.scene.intro`
+            /// en: "A project's sessions share a suite: desks for the ones that are working, a meeting room for each family that is delegating, and one break room where anything resting, asleep, finished, or waiting to be read goes — and where the door out is."
+            public static var intro: String { L10nSupport.string("settings.scene.intro") }
+
+            /// Break area style and the name of that area in the office.
+            ///
+            /// Key: `settings.scene.lounge`
+            /// en: "Lounge"
+            public static var lounge: String { L10nSupport.string("settings.scene.lounge") }
+
+            /// Settings → Scene toggle.
+            ///
+            /// Key: `settings.scene.meetingRooms`
+            /// en: "Meeting rooms"
+            public static var meetingRooms: String { L10nSupport.string("settings.scene.meetingRooms") }
+
+            /// Settings → Scene toggle explanation.
+            ///
+            /// Key: `settings.scene.meetingRoomsDetail`
+            /// en: "A session that is delegating walks to a long table in its own project's suite and sits at the head of it, with the subagents it spawned down the sides. A project with three or more sessions has a meeting room whether or not anybody is in it."
+            public static var meetingRoomsDetail: String { L10nSupport.string("settings.scene.meetingRoomsDetail") }
+
+            /// Break area style option.
+            ///
+            /// Key: `settings.scene.perProject`
+            /// en: "Per project (random)"
+            public static var perProject: String { L10nSupport.string("settings.scene.perProject") }
+
+            /// Settings → Scene note.
+            ///
+            /// Key: `settings.scene.perProjectNote`
+            /// en: "Per project picks one of the three from the project's own path and keeps it, so a suite is recognisable before its nameplate is."
+            public static var perProjectNote: String { L10nSupport.string("settings.scene.perProjectNote") }
+
+            /// Break area style and the name of that area in the office.
+            ///
+            /// Key: `settings.scene.teaRoom`
+            /// en: "Tea room"
+            public static var teaRoom: String { L10nSupport.string("settings.scene.teaRoom") }
+
+            /// Settings → Scene footnote.
+            ///
+            /// Key: `settings.scene.waitingNote`
+            /// en: "A session waiting on you never leaves its desk, whichever of these is on. It is the one thing here allowed to interrupt, and it has to do it from somewhere you are already looking."
+            public static var waitingNote: String { L10nSupport.string("settings.scene.waitingNote") }
+
+            /// Settings → Scene note.
+            ///
+            /// Key: `settings.scene.windowNote`
+            /// en: "Auspex keeps a week of sessions and draws the recent ones. Anything alive, working, or waiting on you is drawn whatever its age — the window only decides how much history stands behind it. Nothing is deleted: widen it and the rest come back."
+            public static var windowNote: String { L10nSupport.string("settings.scene.windowNote") }
+        }
+
+        public enum Updates {
+            /// Settings → Updates toggle.
+            ///
+            /// Key: `settings.updates.automatic`
+            /// en: "Check for updates automatically"
+            public static var automatic: String { L10nSupport.string("settings.updates.automatic") }
+
+            /// Settings → Updates toggle explanation.
+            ///
+            /// Key: `settings.updates.automaticNote`
+            /// en: "Once a day, in the background. Nothing is downloaded or installed without a person saying yes to it first — this is a board people leave open for days, and an app that replaced itself under a running session would take the session's window with it."
+            public static var automaticNote: String { L10nSupport.string("settings.updates.automaticNote") }
+
+            /// Settings → Updates label and picker label.
+            ///
+            /// Key: `settings.updates.channel`
+            /// en: "Update channel"
+            public static var channel: String { L10nSupport.string("settings.updates.channel") }
+
+            /// Settings → Updates button.
+            ///
+            /// Key: `settings.updates.checkNow`
+            /// en: "Check now"
+            public static var checkNow: String { L10nSupport.string("settings.updates.checkNow") }
+
+            /// Settings → Updates in demo mode.
+            ///
+            /// Key: `settings.updates.demo`
+            /// en: "This is a demo launch. It reads nothing and writes nothing, including Sparkle's own check timestamp, so the updater is not running."
+            public static var demo: String { L10nSupport.string("settings.updates.demo") }
+
+            /// Settings → Updates eyebrow. distinct-from: settings.pane.updates
+            ///
+            /// Key: `settings.updates.eyebrow`
+            /// en: "Updates"
+            public static var eyebrow: String { L10nSupport.string("settings.updates.eyebrow") }
+
+            /// Settings → Updates footnote.
+            ///
+            /// Key: `settings.updates.feed`
+            /// en: "Feed: {url}"
+            public static func feed(url: String) -> String {
+                L10nSupport.format("settings.updates.feed", url)
+            }
+
+            /// Settings → Updates footnote.
+            ///
+            /// Key: `settings.updates.footnote`
+            /// en: "The channel is kept in ~/.auspex/settings.json. Whether to check on a schedule is Sparkle's own setting and lives in the app's defaults, because a second copy of it here would be a second answer to the same question."
+            public static var footnote: String { L10nSupport.string("settings.updates.footnote") }
+
+            /// Settings → Updates introduction.
+            ///
+            /// Key: `settings.updates.intro`
+            /// en: "Auspex reads one update feed and installs nothing without asking. Every build in it is signed with the project's EdDSA key and checked against the key compiled into this copy before a single byte is unpacked, so an update that was tampered with in transit is refused rather than run."
+            public static var intro: String { L10nSupport.string("settings.updates.intro") }
+
+            /// Settings → Updates. {time} is a relative time such as "2 hours ago".
+            ///
+            /// Key: `settings.updates.lastChecked`
+            /// en: "Last checked {time}."
+            public static func lastChecked(time: String) -> String {
+                L10nSupport.format("settings.updates.lastChecked", time)
+            }
+
+            /// Settings → Updates: when no check has run.
+            ///
+            /// Key: `settings.updates.noCheckYet`
+            /// en: "No check yet. The first one runs shortly after launch."
+            public static var noCheckYet: String { L10nSupport.string("settings.updates.noCheckYet") }
+
+            /// Settings → Updates when there is no updater.
+            ///
+            /// Key: `settings.updates.notPackaged`
+            /// en: "This copy was not packaged as an app bundle, so it has no update feed and no key to verify one with. Build it with Scripts/build_app.sh and run Auspex.app."
+            public static var notPackaged: String { L10nSupport.string("settings.updates.notPackaged") }
+
+            /// Settings → Updates error.
+            ///
+            /// Key: `settings.updates.saveError`
+            /// en: "The channel is in effect, but could not be saved: {error}"
+            public static func saveError(error: String) -> String {
+                L10nSupport.format("settings.updates.saveError", error)
+            }
+
+            /// Settings → Updates title.
+            ///
+            /// Key: `settings.updates.title`
+            /// en: "Two streams, one signed feed"
+            public static var title: String { L10nSupport.string("settings.updates.title") }
+
+            /// Settings → Updates: this copy's version, e.g. "Auspex 0.2.0 (31)".
+            ///
+            /// Key: `settings.updates.version`
+            /// en: "Auspex {version}"
+            public static func version(version: String) -> String {
+                L10nSupport.format("settings.updates.version", version)
+            }
+
+            public enum Channel {
+                /// Update channel.
+                ///
+                /// Key: `settings.updates.channel.dev`
+                /// en: "Dev"
+                public static var dev: String { L10nSupport.string("settings.updates.channel.dev") }
+
+                /// Update channel explanation.
+                ///
+                /// Key: `settings.updates.channel.devDetail`
+                /// en: "Preview builds cut between releases, plus every stable release. They are built from a tag but they have not been lived with."
+                public static var devDetail: String { L10nSupport.string("settings.updates.channel.devDetail") }
+
+                /// Update channel.
+                ///
+                /// Key: `settings.updates.channel.stable`
+                /// en: "Stable"
+                public static var stable: String { L10nSupport.string("settings.updates.channel.stable") }
+
+                /// Update channel explanation.
+                ///
+                /// Key: `settings.updates.channel.stableDetail`
+                /// en: "Released versions only. This is the one to be on."
+                public static var stableDetail: String { L10nSupport.string("settings.updates.channel.stableDetail") }
+            }
+        }
+    }
+
+    public enum Setup {
+        /// Setup sheet confirm button with how many items are ticked.
+        ///
+        /// Key: `setup.install`
+        /// en: "Install {count}"
+        public static func install(count: Int) -> String {
+            L10nSupport.format("setup.install", count)
+        }
+
+        /// Setup sheet introduction.
+        ///
+        /// Key: `setup.intro`
+        /// en: "Auspex already watches every agent session on this Mac by reading the files they write. These add explicit coordination: an MCP server for task truth and human attention, a versioned skill that teaches Supervisor/Worker/Reviewer handoffs, and hooks for states such as permission waits that transcripts do not record."
+        public static var intro: String { L10nSupport.string("setup.intro") }
+
+        /// Setup sheet login toggle.
+        ///
+        /// Key: `setup.keepWatching`
+        /// en: "Keep Auspex watching after restart"
+        public static var keepWatching: String { L10nSupport.string("setup.keepWatching") }
+
+        /// Setup sheet login note.
+        ///
+        /// Key: `setup.loginNote`
+        /// en: "Uses macOS Login Items to start the signed main app quietly. No helper, LaunchAgent, or additional disk access is installed."
+        public static var loginNote: String { L10nSupport.string("setup.loginNote") }
+
+        /// Setup and Agents: tag on a harness that is not installed.
+        ///
+        /// Key: `setup.notDetected`
+        /// en: "not detected"
+        public static var notDetected: String { L10nSupport.string("setup.notDetected") }
+
+        /// Setup sheet when there is no socket.
+        ///
+        /// Key: `setup.notServing`
+        /// en: "The MCP socket is not being served, so nothing will answer yet."
+        public static var notServing: String { L10nSupport.string("setup.notServing") }
+
+        /// Setup sheet note.
+        ///
+        /// Key: `setup.safety`
+        /// en: "Every box is off until you tick it. Each one names the file it writes to. Config edits stay inside an Auspex-owned fence; the skill gets one exclusive directory with an ownership marker and content hash. Existing or modified directories are left alone. Updates are backed up to ~/.auspex/backups/ and can be undone."
+        public static var safety: String { L10nSupport.string("setup.safety") }
+
+        /// Setup sheet button.
+        ///
+        /// Key: `setup.selectAll`
+        /// en: "Select all"
+        public static var selectAll: String { L10nSupport.string("setup.selectAll") }
+
+        /// Setup sheet: where the MCP socket is. {path} is a socket path.
+        ///
+        /// Key: `setup.serving`
+        /// en: "Serving {path}"
+        public static func serving(path: String) -> String {
+            L10nSupport.format("setup.serving", path)
+        }
+
+        /// Setup error. auspex-coordination is a skill's directory name.
+        ///
+        /// Key: `setup.skillMissing`
+        /// en: "The packaged auspex-coordination resource is missing."
+        public static var skillMissing: String { L10nSupport.string("setup.skillMissing") }
+
+        /// Setup sheet button.
+        ///
+        /// Key: `setup.skip`
+        /// en: "Skip for now"
+        public static var skip: String { L10nSupport.string("setup.skip") }
+
+        /// Setup sheet title.
+        ///
+        /// Key: `setup.title`
+        /// en: "Let your agents talk back"
+        public static var title: String { L10nSupport.string("setup.title") }
+
+        public enum Piece {
+            /// Setup row title.
+            ///
+            /// Key: `setup.piece.coordinationSkill`
+            /// en: "Install the Auspex coordination skill"
+            public static var coordinationSkill: String { L10nSupport.string("setup.piece.coordinationSkill") }
+
+            /// Setup row explanation. Supervisor/Worker/Reviewer are role names and stay in English.
+            ///
+            /// Key: `setup.piece.coordinationSkillDetail`
+            /// en: "Adds a versioned, on-demand Supervisor/Worker/Reviewer playbook. It guides MCP use; the server remains the source of truth."
+            public static var coordinationSkillDetail: String { L10nSupport.string("setup.piece.coordinationSkillDetail") }
+
+            /// Setup row title.
+            ///
+            /// Key: `setup.piece.hooks`
+            /// en: "Install harness hooks"
+            public static var hooks: String { L10nSupport.string("setup.piece.hooks") }
+
+            /// Setup row explanation.
+            ///
+            /// Key: `setup.piece.hooksDetail`
+            /// en: "Lets the harness tell Auspex the moment it needs permission, starts, delegates or stops — the states no transcript records."
+            public static var hooksDetail: String { L10nSupport.string("setup.piece.hooksDetail") }
+
+            /// Setup row title.
+            ///
+            /// Key: `setup.piece.mcpServer`
+            /// en: "Register the Auspex MCP server"
+            public static var mcpServer: String { L10nSupport.string("setup.piece.mcpServer") }
+
+            /// Setup row explanation. `auspex`, notify, plans and tasks are identifiers.
+            ///
+            /// Key: `setup.piece.mcpServerDetail`
+            /// en: "Adds one `auspex` server entry, so this harness's agents can call notify, plans and tasks."
+            public static var mcpServerDetail: String { L10nSupport.string("setup.piece.mcpServerDetail") }
+
+            /// Setup row title.
+            ///
+            /// Key: `setup.piece.protocolNote`
+            /// en: "Install the task-protocol note"
+            public static var protocolNote: String { L10nSupport.string("setup.piece.protocolNote") }
+
+            /// Setup row explanation.
+            ///
+            /// Key: `setup.piece.protocolNoteDetail`
+            /// en: "Appends the always-loaded invariants and routes coordinated work to the richer auspex-coordination skill."
+            public static var protocolNoteDetail: String { L10nSupport.string("setup.piece.protocolNoteDetail") }
+        }
+
+        public enum State {
+            /// Setup row state. {what} is what the existing entry points at.
+            ///
+            /// Key: `setup.state.elsewhere`
+            /// en: "Already there, pointing at {what}. Ticking this replaces it."
+            public static func elsewhere(what: String) -> String {
+                L10nSupport.format("setup.state.elsewhere", what)
+            }
+
+            /// Setup row state. distinct-from: agents.installed
+            ///
+            /// Key: `setup.state.installed`
+            /// en: "Installed."
+            public static var installed: String { L10nSupport.string("setup.state.installed") }
+
+            /// Setup row state. {what} names the installed thing, in English.
+            ///
+            /// Key: `setup.state.ownedInstalled`
+            /// en: "An owned {what} is installed. Ticking this updates it after backup."
+            public static func ownedInstalled(what: String) -> String {
+                L10nSupport.format("setup.state.ownedInstalled", what)
+            }
+        }
+
+        public enum Summary {
+            /// Setup result: a harness whose install failed with no reason given. distinct-from: flight.failed
+            ///
+            /// Key: `setup.summary.failed`
+            /// en: "failed"
+            public static var failed: String { L10nSupport.string("setup.summary.failed") }
+
+            /// Setup result.
+            ///
+            /// Key: `setup.summary.nothing`
+            /// en: "Nothing to change — everything ticked was already in place."
+            public static var nothing: String { L10nSupport.string("setup.summary.nothing") }
+
+            /// Setup result.
+            ///
+            /// Key: `setup.summary.wrote`
+            /// en: "{count, plural, one {Wrote # change. Backups are in ~/.auspex/backups/.} other {Wrote # changes. Backups are in ~/.auspex/backups/.}}"
+            public static func wrote(count: Int) -> String {
+                L10nSupport.localizedFormat("setup.summary.wrote", count)
+            }
+        }
+    }
+
+    public enum Sidebar {
+        /// Sidebar footer in demo mode.
+        ///
+        /// Key: `sidebar.demoNote`
+        /// en: "Fabricated sessions, in-memory store. No harness store is read."
+        public static var demoNote: String { L10nSupport.string("sidebar.demoNote") }
+
+        /// Sidebar footer in demo mode.
+        ///
+        /// Key: `sidebar.demoReplay`
+        /// en: "Demo replay"
+        public static var demoReplay: String { L10nSupport.string("sidebar.demoReplay") }
+
+        /// Sidebar: beside Tasks, how many tasks wait for review.
+        ///
+        /// Key: `sidebar.review`
+        /// en: "{count} review"
+        public static func review(count: Int) -> String {
+            L10nSupport.format("sidebar.review", count)
+        }
+    }
+
+    public enum State {
+        /// Card activity line while a session delegates.
+        ///
+        /// Key: `state.childSessions`
+        /// en: "{count, plural, one {# child session} other {# child sessions}}"
+        public static func childSessions(count: Int) -> String {
+            L10nSupport.localizedFormat("state.childSessions", count)
+        }
+
+        /// Session state pill: waiting on sub-agents. The count rides in a badge beside it.
+        ///
+        /// Key: `state.delegating`
+        /// en: "Delegating"
+        public static var delegating: String { L10nSupport.string("state.delegating") }
+
+        /// Session state phrase with the number of child sessions.
+        ///
+        /// Key: `state.delegatingCount`
+        /// en: "Delegating ({count})"
+        public static func delegatingCount(count: Int) -> String {
+            L10nSupport.format("state.delegatingCount", count)
+        }
+
+        /// Card activity line when a session writes a file whose name is not known.
+        ///
+        /// Key: `state.file`
+        /// en: "file"
+        public static var file: String { L10nSupport.string("state.file") }
+
+        /// Tag beside a working session that has gone quiet.
+        ///
+        /// Key: `state.stale`
+        /// en: "Stale"
+        public static var stale: String { L10nSupport.string("state.stale") }
+
+        /// VoiceOver label of the Stale tag.
+        ///
+        /// Key: `state.staleAccessibility`
+        /// en: "Stale: no events recently"
+        public static var staleAccessibility: String { L10nSupport.string("state.staleAccessibility") }
+
+        /// Session state pill and phrase.
+        ///
+        /// Key: `state.thinking`
+        /// en: "Thinking"
+        public static var thinking: String { L10nSupport.string("state.thinking") }
+
+        /// Session state pill: running a tool call.
+        ///
+        /// Key: `state.tool`
+        /// en: "Tool"
+        public static var tool: String { L10nSupport.string("state.tool") }
+
+        /// Session state phrase; {name} is the tool, e.g. Bash.
+        ///
+        /// Key: `state.toolNamed`
+        /// en: "Tool: {name}"
+        public static func toolNamed(name: String) -> String {
+            L10nSupport.format("state.toolNamed", name)
+        }
+
+        /// Session state pill: writing a file.
+        ///
+        /// Key: `state.writing`
+        /// en: "Writing"
+        public static var writing: String { L10nSupport.string("state.writing") }
+
+        /// Session state phrase.
+        ///
+        /// Key: `state.writingFile`
+        /// en: "Writing file"
+        public static var writingFile: String { L10nSupport.string("state.writingFile") }
+
+        public enum Explain {
+            /// Tooltip on an Ended state pill.
+            ///
+            /// Key: `state.explain.ended`
+            /// en: "Ended — the process is gone. Nothing more will happen in that terminal; only Resume brings the work back."
+            public static var ended: String { L10nSupport.string("state.explain.ended") }
+
+            /// Tooltip on an Idle state pill.
+            ///
+            /// Key: `state.explain.idle`
+            /// en: "Idle — nothing outstanding, and the process is still there. You can keep talking in that terminal."
+            public static var idle: String { L10nSupport.string("state.explain.idle") }
+
+            /// Tooltip on a Needs you state pill.
+            ///
+            /// Key: `state.explain.needsYou`
+            /// en: "Needs you — it will make no further progress until somebody answers."
+            public static var needsYou: String { L10nSupport.string("state.explain.needsYou") }
+
+            /// Tooltip on the Stale tag.
+            ///
+            /// Key: `state.explain.stale`
+            /// en: "Stale — it says it is working and has said nothing for a while. A long build looks exactly like this, and so does a wedged one."
+            public static var stale: String { L10nSupport.string("state.explain.stale") }
+        }
+    }
+
+    public enum Task {
+        /// Tooltip on the waits-on chip. {tasks} lists "AUS-3 Title · AUS-7 Title".
+        ///
+        /// Key: `task.blockedBy`
+        /// en: "Blocked by {tasks}"
+        public static func blockedBy(tasks: String) -> String {
+            L10nSupport.format("task.blockedBy", tasks)
+        }
+
+        /// Tooltip on a task's importance mark.
+        ///
+        /// Key: `task.importanceHelp`
+        /// en: "Importance: {importance}"
+        public static func importanceHelp(importance: String) -> String {
+            L10nSupport.format("task.importanceHelp", importance)
+        }
+
+        /// Tooltip on the claim orphaned chip.
+        ///
+        /// Key: `task.orphanHelp`
+        /// en: "The session holding this claim ended without finishing. Release it so somebody else can take it."
+        public static var orphanHelp: String { L10nSupport.string("task.orphanHelp") }
+
+        /// Task chip: the tasks this one depends on. {ids} is a comma-separated list of short ids.
+        ///
+        /// Key: `task.waitsOn`
+        /// en: "waits on {ids}"
+        public static func waitsOn(ids: String) -> String {
+            L10nSupport.format("task.waitsOn", ids)
+        }
+
+        public enum Card {
+            /// VoiceOver label of a task card.
+            ///
+            /// Key: `task.card.accessibility`
+            /// en: "{title}, {status}, {count} sessions"
+            public static func accessibility(title: String, status: String, count: Int) -> String {
+                L10nSupport.format("task.card.accessibility", title, status, count)
+            }
+
+            /// Task card tag on a piece of work Auspex inferred from a delegation.
+            ///
+            /// Key: `task.card.auto`
+            /// en: "auto"
+            public static var auto: String { L10nSupport.string("task.card.auto") }
+
+            /// Tooltip on the auto tag.
+            ///
+            /// Key: `task.card.autoHelp`
+            /// en: "Auspex worked this out from a delegation. Nobody filed a task for it."
+            public static var autoHelp: String { L10nSupport.string("task.card.autoHelp") }
+
+            /// Task card: beside "unclaimed", saying the task was filed but nobody picked it up.
+            ///
+            /// Key: `task.card.filed`
+            /// en: "filed"
+            public static var filed: String { L10nSupport.string("task.card.filed") }
+
+            /// Task card: label before how long ago the task finished and went to review.
+            ///
+            /// Key: `task.card.finished`
+            /// en: "finished"
+            public static var finished: String { L10nSupport.string("task.card.finished") }
+
+            /// Tooltip on a task card's chevron while its session list is open.
+            ///
+            /// Key: `task.card.foldSessions`
+            /// en: "Fold the sessions back into the card"
+            public static var foldSessions: String { L10nSupport.string("task.card.foldSessions") }
+
+            /// Task card: tag on the session that leads the task.
+            ///
+            /// Key: `task.card.lead`
+            /// en: "lead"
+            public static var lead: String { L10nSupport.string("task.card.lead") }
+
+            /// Tooltip on a task card's chevron while its session list is folded.
+            ///
+            /// Key: `task.card.openSessions`
+            /// en: "{count} sessions are working on this — open the list"
+            public static func openSessions(count: Int) -> String {
+                L10nSupport.format("task.card.openSessions", count)
+            }
+
+            /// Tooltip on a session row inside a task card.
+            ///
+            /// Key: `task.card.openTranscript`
+            /// en: "Open this session's transcript"
+            public static var openTranscript: String { L10nSupport.string("task.card.openTranscript") }
+
+            /// Tooltip on a task card's token counts.
+            ///
+            /// Key: `task.card.tokensHelp`
+            /// en: "Tokens in / out, across every session on this task"
+            public static var tokensHelp: String { L10nSupport.string("task.card.tokensHelp") }
+        }
+
+        public enum Filter {
+            /// Active filter chip: only tasks claimed by a session that ended.
+            ///
+            /// Key: `task.filter.claimOrphaned`
+            /// en: "claim orphaned"
+            public static var claimOrphaned: String { L10nSupport.string("task.filter.claimOrphaned") }
+
+            /// Filter chip and task card word: a session holds the task. Lower-case. distinct-from: task.link.claimed distinct-from: harnesses.count.claimed
+            ///
+            /// Key: `task.filter.claimed`
+            /// en: "claimed"
+            public static var claimed: String { L10nSupport.string("task.filter.claimed") }
+
+            /// Filter menu item.
+            ///
+            /// Key: `task.filter.clearFilters`
+            /// en: "Clear filters"
+            public static var clearFilters: String { L10nSupport.string("task.filter.clearFilters") }
+
+            /// Tooltip on Clear in the filter bar.
+            ///
+            /// Key: `task.filter.clearHelp`
+            /// en: "Show every task again"
+            public static var clearHelp: String { L10nSupport.string("task.filter.clearHelp") }
+
+            /// Tooltip on the filter menu.
+            ///
+            /// Key: `task.filter.help`
+            /// en: "Narrow the wall: importance, label, harness, what is ready, what is claimed"
+            public static var help: String { L10nSupport.string("task.filter.help") }
+
+            /// Filter menu section.
+            ///
+            /// Key: `task.filter.importance`
+            /// en: "Importance"
+            public static var importance: String { L10nSupport.string("task.filter.importance") }
+
+            /// Filter menu section.
+            ///
+            /// Key: `task.filter.label`
+            /// en: "Label"
+            public static var label: String { L10nSupport.string("task.filter.label") }
+
+            /// Filter menu section holding the yes/no filters.
+            ///
+            /// Key: `task.filter.only`
+            /// en: "Only"
+            public static var only: String { L10nSupport.string("task.filter.only") }
+
+            /// Filter menu item.
+            ///
+            /// Key: `task.filter.orphanedClaims`
+            /// en: "Orphaned claims"
+            public static var orphanedClaims: String { L10nSupport.string("task.filter.orphanedClaims") }
+
+            /// Active filter chip: only tasks whose dependencies are closed.
+            ///
+            /// Key: `task.filter.readyOnly`
+            /// en: "ready only"
+            public static var readyOnly: String { L10nSupport.string("task.filter.readyOnly") }
+
+            /// Filter menu item.
+            ///
+            /// Key: `task.filter.readyToStart`
+            /// en: "Ready to start"
+            public static var readyToStart: String { L10nSupport.string("task.filter.readyToStart") }
+
+            /// Tooltip on an active filter chip.
+            ///
+            /// Key: `task.filter.stopFiltering`
+            /// en: "Stop filtering by {filter}"
+            public static func stopFiltering(filter: String) -> String {
+                L10nSupport.format("task.filter.stopFiltering", filter)
+            }
+
+            /// Filter chip, and a task card's word for a task nobody has claimed. Lower-case.
+            ///
+            /// Key: `task.filter.unclaimed`
+            /// en: "unclaimed"
+            public static var unclaimed: String { L10nSupport.string("task.filter.unclaimed") }
+        }
+
+        public enum Importance {
+            /// Task importance, lower-case.
+            ///
+            /// Key: `task.importance.important`
+            /// en: "important"
+            public static var important: String { L10nSupport.string("task.importance.important") }
+
+            /// Task importance, lower-case.
+            ///
+            /// Key: `task.importance.low`
+            /// en: "low"
+            public static var low: String { L10nSupport.string("task.importance.low") }
+
+            /// Task importance, lower-case.
+            ///
+            /// Key: `task.importance.normal`
+            /// en: "normal"
+            public static var normal: String { L10nSupport.string("task.importance.normal") }
+
+            /// Task importance, lower-case.
+            ///
+            /// Key: `task.importance.urgent`
+            /// en: "urgent"
+            public static var urgent: String { L10nSupport.string("task.importance.urgent") }
+        }
+
+        public enum Kind {
+            /// Task kind tag, lower-case.
+            ///
+            /// Key: `task.kind.chore`
+            /// en: "chore"
+            public static var chore: String { L10nSupport.string("task.kind.chore") }
+
+            /// Task kind tag, lower-case.
+            ///
+            /// Key: `task.kind.feature`
+            /// en: "feature"
+            public static var feature: String { L10nSupport.string("task.kind.feature") }
+
+            /// Task kind tag, lower-case.
+            ///
+            /// Key: `task.kind.fix`
+            /// en: "fix"
+            public static var fix: String { L10nSupport.string("task.kind.fix") }
+
+            /// Task kind tag, lower-case.
+            ///
+            /// Key: `task.kind.research`
+            /// en: "research"
+            public static var research: String { L10nSupport.string("task.kind.research") }
+        }
+
+        public enum Link {
+            /// How a session is attached to a task: it claimed it over MCP. distinct-from: harnesses.count.claimed
+            ///
+            /// Key: `task.link.claimed`
+            /// en: "claimed"
+            public static var claimed: String { L10nSupport.string("task.link.claimed") }
+
+            /// How a session is attached to a task: it is a sub-agent of the session that claimed it.
+            ///
+            /// Key: `task.link.inherited`
+            /// en: "under claimer"
+            public static var inherited: String { L10nSupport.string("task.link.inherited") }
+
+            /// How a session is attached to a task: a person linked it.
+            ///
+            /// Key: `task.link.linked`
+            /// en: "linked"
+            public static var linked: String { L10nSupport.string("task.link.linked") }
+        }
+
+        public enum Log {
+            /// Task history: a person closed the task.
+            ///
+            /// Key: `task.log.closed`
+            /// en: "closed"
+            public static var closed: String { L10nSupport.string("task.log.closed") }
+
+            /// Task history: entry kind. Lower-case tag.
+            ///
+            /// Key: `task.log.created`
+            /// en: "created"
+            public static var created: String { L10nSupport.string("task.log.created") }
+
+            /// Task history: an agent reported finishing. distinct-from: crew.badge.finished
+            ///
+            /// Key: `task.log.finished`
+            /// en: "finished"
+            public static var finished: String { L10nSupport.string("task.log.finished") }
+
+            /// Task history: the task moved project. distinct-from: common.project
+            ///
+            /// Key: `task.log.project`
+            /// en: "project"
+            public static var project: String { L10nSupport.string("task.log.project") }
+
+            /// Task history: a claim was released.
+            ///
+            /// Key: `task.log.released`
+            /// en: "released"
+            public static var released: String { L10nSupport.string("task.log.released") }
+
+            /// Task history: the task's status changed. distinct-from: board.empty.status distinct-from: common.status
+            ///
+            /// Key: `task.log.status`
+            /// en: "status"
+            public static var status: String { L10nSupport.string("task.log.status") }
+
+            /// Task history entry kind.
+            ///
+            /// Key: `task.log.takeoverExpired`
+            /// en: "takeover expired"
+            public static var takeoverExpired: String { L10nSupport.string("task.log.takeoverExpired") }
+
+            /// Task history entry kind.
+            ///
+            /// Key: `task.log.takeoverRequested`
+            /// en: "takeover requested"
+            public static var takeoverRequested: String { L10nSupport.string("task.log.takeoverRequested") }
+
+            /// Task history entry kind.
+            ///
+            /// Key: `task.log.unlinked`
+            /// en: "unlinked"
+            public static var unlinked: String { L10nSupport.string("task.log.unlinked") }
+        }
+
+        public enum Menu {
+            /// Task card context menu. distinct-from: app.menu.openTask
+            ///
+            /// Key: `task.menu.open`
+            /// en: "Open task…"
+            public static var `open`: String { L10nSupport.string("task.menu.open") }
+
+            /// Task card context menu: turns inferred work into a real task.
+            ///
+            /// Key: `task.menu.promote`
+            /// en: "Promote to task…"
+            public static var promote: String { L10nSupport.string("task.menu.promote") }
+
+            /// Task card context menu: drops a claim held by a session that ended.
+            ///
+            /// Key: `task.menu.releaseClaim`
+            /// en: "Release claim"
+            public static var releaseClaim: String { L10nSupport.string("task.menu.releaseClaim") }
+
+            /// Task card context menu: reopens a done task.
+            ///
+            /// Key: `task.menu.reopen`
+            /// en: "Reopen"
+            public static var reopen: String { L10nSupport.string("task.menu.reopen") }
+        }
+
+        public enum Note {
+            /// Kind of note an agent recorded on a task, lower-case.
+            ///
+            /// Key: `task.note.decision`
+            /// en: "decision"
+            public static var decision: String { L10nSupport.string("task.note.decision") }
+
+            /// Kind of note an agent recorded on a task, lower-case.
+            ///
+            /// Key: `task.note.evidence`
+            /// en: "evidence"
+            public static var evidence: String { L10nSupport.string("task.note.evidence") }
+
+            /// Kind of note an agent recorded on a task, lower-case.
+            ///
+            /// Key: `task.note.note`
+            /// en: "note"
+            public static var note: String { L10nSupport.string("task.note.note") }
+
+            /// Kind of note an agent recorded on a task, lower-case. distinct-from: catchUp.line.risk
+            ///
+            /// Key: `task.note.risk`
+            /// en: "risk"
+            public static var risk: String { L10nSupport.string("task.note.risk") }
+        }
+
+        public enum Status {
+            /// Task status. distinct-from: catchUp.phase.blocked
+            ///
+            /// Key: `task.status.blocked`
+            /// en: "Blocked"
+            public static var blocked: String { L10nSupport.string("task.status.blocked") }
+
+            /// Task status. distinct-from: now.column.doing — a status, not a column header about activity. distinct-from: ledger.doing
+            ///
+            /// Key: `task.status.doing`
+            /// en: "Doing"
+            public static var doing: String { L10nSupport.string("task.status.doing") }
+
+            /// Task status. distinct-from: common.done — a status, not a button. distinct-from: catchUp.phase.done distinct-from: attention.done
+            ///
+            /// Key: `task.status.done`
+            /// en: "Done"
+            public static var done: String { L10nSupport.string("task.status.done") }
+
+            /// Task status: an agent finished and the person has to judge it. distinct-from: catchUp.reason.review distinct-from: catchUp.phase.review
+            ///
+            /// Key: `task.status.review`
+            /// en: "Review"
+            public static var review: String { L10nSupport.string("task.status.review") }
+
+            /// Task status: a column on the task board and a status word.
+            ///
+            /// Key: `task.status.todo`
+            /// en: "To do"
+            public static var todo: String { L10nSupport.string("task.status.todo") }
+        }
+    }
+
+    public enum TaskDetail {
+        /// Task page: label over the agent's own completion report.
+        ///
+        /// Key: `taskDetail.agentReport`
+        /// en: "Agent report · self-reported"
+        public static var agentReport: String { L10nSupport.string("taskDetail.agentReport") }
+
+        /// Task page takeover action.
+        ///
+        /// Key: `taskDetail.approve`
+        /// en: "Approve"
+        public static var approve: String { L10nSupport.string("taskDetail.approve") }
+
+        /// Task page: tooltip on the back crumb. "ledger" is viewMode.board.
+        ///
+        /// Key: `taskDetail.backHelp`
+        /// en: "Back to the ledger — or press Escape"
+        public static var backHelp: String { L10nSupport.string("taskDetail.backHelp") }
+
+        /// Task page property label.
+        ///
+        /// Key: `taskDetail.claimedBy`
+        /// en: "Claimed by"
+        public static var claimedBy: String { L10nSupport.string("taskDetail.claimedBy") }
+
+        /// Task page action: puts this review at the back of the queue.
+        ///
+        /// Key: `taskDetail.defer`
+        /// en: "Defer"
+        public static var `defer`: String { L10nSupport.string("taskDetail.defer") }
+
+        /// Task page property label, followed by a relative time. distinct-from: task.card.filed
+        ///
+        /// Key: `taskDetail.filed`
+        /// en: "Filed"
+        public static var filed: String { L10nSupport.string("taskDetail.filed") }
+
+        /// Task page note under the dependency list.
+        ///
+        /// Key: `taskDetail.graphStub`
+        /// en: "The whole dependency graph is a page of its own, and is not built yet."
+        public static var graphStub: String { L10nSupport.string("taskDetail.graphStub") }
+
+        /// Task page section title over its log. distinct-from: perch.history
+        ///
+        /// Key: `taskDetail.history`
+        /// en: "History"
+        public static var history: String { L10nSupport.string("taskDetail.history") }
+
+        /// Task page property label.
+        ///
+        /// Key: `taskDetail.kind`
+        /// en: "Kind"
+        public static var kind: String { L10nSupport.string("taskDetail.kind") }
+
+        /// Task page property label.
+        ///
+        /// Key: `taskDetail.labels`
+        /// en: "Labels"
+        public static var labels: String { L10nSupport.string("taskDetail.labels") }
+
+        /// Task page: tooltip on the next-review chevron.
+        ///
+        /// Key: `taskDetail.nextReview`
+        /// en: "Next review"
+        public static var nextReview: String { L10nSupport.string("taskDetail.nextReview") }
+
+        /// Task page section title for inferred work.
+        ///
+        /// Key: `taskDetail.notFiled`
+        /// en: "Not filed"
+        public static var notFiled: String { L10nSupport.string("taskDetail.notFiled") }
+
+        /// Task page history when empty.
+        ///
+        /// Key: `taskDetail.nothingWritten`
+        /// en: "Nothing has been written down yet."
+        public static var nothingWritten: String { L10nSupport.string("taskDetail.nothingWritten") }
+
+        /// Tooltip on a dependency. {id} is a task's short handle.
+        ///
+        /// Key: `taskDetail.openDependency`
+        /// en: "Open {id}"
+        public static func openDependency(id: String) -> String {
+            L10nSupport.format("taskDetail.openDependency", id)
+        }
+
+        /// Task page action. distinct-from: app.menu.openFlight
+        ///
+        /// Key: `taskDetail.openFlight`
+        /// en: "Open flight"
+        public static var openFlight: String { L10nSupport.string("taskDetail.openFlight") }
+
+        /// Tooltip on a session row on the task page.
+        ///
+        /// Key: `taskDetail.openSessionFlight`
+        /// en: "Open this session's flight"
+        public static var openSessionFlight: String { L10nSupport.string("taskDetail.openSessionFlight") }
+
+        /// Task page: tooltip on the previous-review chevron.
+        ///
+        /// Key: `taskDetail.previousReview`
+        /// en: "Previous review"
+        public static var previousReview: String { L10nSupport.string("taskDetail.previousReview") }
+
+        /// Task page action. distinct-from: task.menu.promote
+        ///
+        /// Key: `taskDetail.promote`
+        /// en: "Promote to task"
+        public static var promote: String { L10nSupport.string("taskDetail.promote") }
+
+        /// Task page explanation for inferred work.
+        ///
+        /// Key: `taskDetail.promoteNote`
+        /// en: "Auspex worked this out from a delegation: {harness} started it and nobody registered a task. Promoting it writes one, claimed by the session already doing the work — the card keeps its place and gains a history, a milestone, and something to close."
+        public static func promoteNote(harness: String) -> String {
+            L10nSupport.format("taskDetail.promoteNote", harness)
+        }
+
+        /// Task page dependencies when none is open.
+        ///
+        /// Key: `taskDetail.ready`
+        /// en: "Everything it waits on is closed. Ready to start."
+        public static var ready: String { L10nSupport.string("taskDetail.ready") }
+
+        /// Task page note field placeholder for a reference (a URL, a commit…).
+        ///
+        /// Key: `taskDetail.ref`
+        /// en: "ref"
+        public static var ref: String { L10nSupport.string("taskDetail.ref") }
+
+        /// Task page takeover action.
+        ///
+        /// Key: `taskDetail.reject`
+        /// en: "Reject"
+        public static var reject: String { L10nSupport.string("taskDetail.reject") }
+
+        /// Task page: the task version the takeover was asked against.
+        ///
+        /// Key: `taskDetail.requestedAt`
+        /// en: "requested at v{version}"
+        public static func requestedAt(version: Int) -> String {
+            L10nSupport.format("taskDetail.requestedAt", version)
+        }
+
+        /// Task page section title over its sessions.
+        ///
+        /// Key: `taskDetail.sessions`
+        /// en: "{count, plural, one {Session} other {# sessions}}"
+        public static func sessions(count: Int) -> String {
+            L10nSupport.localizedFormat("taskDetail.sessions", count)
+        }
+
+        /// Task page section title.
+        ///
+        /// Key: `taskDetail.takeoverRequests`
+        /// en: "{count, plural, one {Takeover request} other {Takeover requests}}"
+        public static func takeoverRequests(count: Int) -> String {
+            L10nSupport.localizedFormat("taskDetail.takeoverRequests", count)
+        }
+
+        /// Task page property label.
+        ///
+        /// Key: `taskDetail.version`
+        /// en: "Version"
+        public static var version: String { L10nSupport.string("taskDetail.version") }
+
+        /// Task page section title over dependencies.
+        ///
+        /// Key: `taskDetail.waitsOn`
+        /// en: "Waits on"
+        public static var waitsOn: String { L10nSupport.string("taskDetail.waitsOn") }
+
+        /// Task page note field placeholder.
+        ///
+        /// Key: `taskDetail.writeItDown`
+        /// en: "Write it down"
+        public static var writeItDown: String { L10nSupport.string("taskDetail.writeItDown") }
+    }
+
+    public enum Tasks {
+        /// Tooltip on a milestone's archive button.
+        ///
+        /// Key: `tasks.archiveMilestoneHelp`
+        /// en: "File this milestone away. Its tasks stay in this project."
+        public static var archiveMilestoneHelp: String { L10nSupport.string("tasks.archiveMilestoneHelp") }
+
+        /// Tag on an archived milestone.
+        ///
+        /// Key: `tasks.archived`
+        /// en: "archived"
+        public static var archived: String { L10nSupport.string("tasks.archived") }
+
+        /// Tooltip on the archived toggle.
+        ///
+        /// Key: `tasks.archivedHelp`
+        /// en: "Show milestones that have been filed away"
+        public static var archivedHelp: String { L10nSupport.string("tasks.archivedHelp") }
+
+        /// Tooltip on the auto tag on the Tasks page. distinct-from: task.card.autoHelp
+        ///
+        /// Key: `tasks.autoHelp`
+        /// en: "Auspex worked this out from a delegation. Nobody filed a task."
+        public static var autoHelp: String { L10nSupport.string("tasks.autoHelp") }
+
+        /// Tasks page hint. Quote tasks.linkToTask.
+        ///
+        /// Key: `tasks.dragHint`
+        /// en: "Drag one onto a task, or use “Link to task…” on its card."
+        public static var dragHint: String { L10nSupport.string("tasks.dragHint") }
+
+        /// Tooltip on the + button of a lane.
+        ///
+        /// Key: `tasks.fileInProject`
+        /// en: "File a task in this project"
+        public static var fileInProject: String { L10nSupport.string("tasks.fileInProject") }
+
+        /// Task context menu: moves the task to another milestone or project.
+        ///
+        /// Key: `tasks.fileUnder`
+        /// en: "File under…"
+        public static var fileUnder: String { L10nSupport.string("tasks.fileUnder") }
+
+        /// Tooltip on the + button of a milestone.
+        ///
+        /// Key: `tasks.fileUnderMilestone`
+        /// en: "File a task under this milestone"
+        public static var fileUnderMilestone: String { L10nSupport.string("tasks.fileUnderMilestone") }
+
+        /// Tasks page toggle.
+        ///
+        /// Key: `tasks.hideArchived`
+        /// en: "Hide archived"
+        public static var hideArchived: String { L10nSupport.string("tasks.hideArchived") }
+
+        /// Tasks page: open count beside a project lane.
+        ///
+        /// Key: `tasks.laneOpen`
+        /// en: "{count} open"
+        public static func laneOpen(count: Int) -> String {
+            L10nSupport.format("tasks.laneOpen", count)
+        }
+
+        /// Tooltip on the disabled Link to task… item.
+        ///
+        /// Key: `tasks.linkDisabledHelp`
+        /// en: "Nothing is filed yet. File a task on the Tasks page."
+        public static var linkDisabledHelp: String { L10nSupport.string("tasks.linkDisabledHelp") }
+
+        /// Session context menu.
+        ///
+        /// Key: `tasks.linkToTask`
+        /// en: "Link to task…"
+        public static var linkToTask: String { L10nSupport.string("tasks.linkToTask") }
+
+        /// Tasks page button that registers a milestone.
+        ///
+        /// Key: `tasks.milestone`
+        /// en: "Milestone"
+        public static var milestone: String { L10nSupport.string("tasks.milestone") }
+
+        /// Empty milestone detail.
+        ///
+        /// Key: `tasks.milestoneEmpty`
+        /// en: "This milestone has no tasks under it."
+        public static var milestoneEmpty: String { L10nSupport.string("tasks.milestoneEmpty") }
+
+        /// Tooltip on Milestone.
+        ///
+        /// Key: `tasks.milestoneHelp`
+        /// en: "Register a milestone inside this project"
+        public static var milestoneHelp: String { L10nSupport.string("tasks.milestoneHelp") }
+
+        /// Milestone field placeholder.
+        ///
+        /// Key: `tasks.milestonePlaceholder`
+        /// en: "What is the whole piece of work?"
+        public static var milestonePlaceholder: String { L10nSupport.string("tasks.milestonePlaceholder") }
+
+        /// Task context menu. {status} is a task status.
+        ///
+        /// Key: `tasks.moveTo`
+        /// en: "Move to {status}"
+        public static func moveTo(status: String) -> String {
+            L10nSupport.format("tasks.moveTo", status)
+        }
+
+        /// New task field placeholder.
+        ///
+        /// Key: `tasks.newTaskPlaceholder`
+        /// en: "What has to be done"
+        public static var newTaskPlaceholder: String { L10nSupport.string("tasks.newTaskPlaceholder") }
+
+        /// Heading over tasks with no milestone.
+        ///
+        /// Key: `tasks.notInMilestone`
+        /// en: "Not in a milestone"
+        public static var notInMilestone: String { L10nSupport.string("tasks.notInMilestone") }
+
+        /// Tasks page: heading over sessions not linked to any task.
+        ///
+        /// Key: `tasks.notOnBoard`
+        /// en: "Not on the board"
+        public static var notOnBoard: String { L10nSupport.string("tasks.notOnBoard") }
+
+        /// Tasks page empty state title.
+        ///
+        /// Key: `tasks.nothingFiled`
+        /// en: "Nothing is filed yet."
+        public static var nothingFiled: String { L10nSupport.string("tasks.nothingFiled") }
+
+        /// Tasks page empty state detail.
+        ///
+        /// Key: `tasks.nothingFiledDetail`
+        /// en: "An agent with Auspex's MCP server installed files a task in whatever project it is working in — install it from the Harnesses page."
+        public static var nothingFiledDetail: String { L10nSupport.string("tasks.nothingFiledDetail") }
+
+        /// Empty lane detail.
+        ///
+        /// Key: `tasks.nothingFiledInProject`
+        /// en: "Nothing is filed in this project yet."
+        public static var nothingFiledInProject: String { L10nSupport.string("tasks.nothingFiledInProject") }
+
+        /// Empty milestone or project lane title.
+        ///
+        /// Key: `tasks.nothingToDo`
+        /// en: "Nothing to do"
+        public static var nothingToDo: String { L10nSupport.string("tasks.nothingToDo") }
+
+        /// Tooltip on claim orphaned on the Tasks page.
+        ///
+        /// Key: `tasks.orphanHelp`
+        /// en: "The session holding this claim ended without finishing."
+        public static var orphanHelp: String { L10nSupport.string("tasks.orphanHelp") }
+
+        /// Milestone field button.
+        ///
+        /// Key: `tasks.register`
+        /// en: "Register"
+        public static var register: String { L10nSupport.string("tasks.register") }
+
+        /// Tasks page button: opens the first task waiting for review.
+        ///
+        /// Key: `tasks.reviewNext`
+        /// en: "Review next · {count}"
+        public static func reviewNext(count: Int) -> String {
+            L10nSupport.format("tasks.reviewNext", count)
+        }
+
+        /// Tooltip on Review next.
+        ///
+        /// Key: `tasks.reviewNextHelp`
+        /// en: "Open the first task waiting for review"
+        public static var reviewNextHelp: String { L10nSupport.string("tasks.reviewNextHelp") }
+
+        /// Tasks page toggle.
+        ///
+        /// Key: `tasks.showArchived`
+        /// en: "Show archived"
+        public static var showArchived: String { L10nSupport.string("tasks.showArchived") }
+
+        /// Tasks page summary: tasks.summary.projects · projects.tasksOpen.
+        ///
+        /// Key: `tasks.summary`
+        /// en: "{projects} · {tasks}"
+        public static func summary(projects: String, tasks: String) -> String {
+            L10nSupport.format("tasks.summary", projects, tasks)
+        }
+
+        /// Notice after deciding a takeover that is no longer valid.
+        ///
+        /// Key: `tasks.takeoverExpired`
+        /// en: "That takeover request expired because the task or its holder changed. Review the current claim before deciding again."
+        public static var takeoverExpired: String { L10nSupport.string("tasks.takeoverExpired") }
+
+        /// Task context menu: detaches a session from the task.
+        ///
+        /// Key: `tasks.unlink`
+        /// en: "Unlink {title}"
+        public static func unlink(title: String) -> String {
+            L10nSupport.format("tasks.unlink", title)
+        }
+
+        public enum Summary {
+            /// Tasks page summary, first half.
+            ///
+            /// Key: `tasks.summary.projects`
+            /// en: "{count, plural, one {# project} other {# projects}}"
+            public static func projects(count: Int) -> String {
+                L10nSupport.localizedFormat("tasks.summary.projects", count)
+            }
+        }
+    }
+
+    public enum Time {
+        /// Compact relative time.
+        ///
+        /// Key: `time.daysAgo`
+        /// en: "{count}d ago"
+        public static func daysAgo(count: Int) -> String {
+            L10nSupport.format("time.daysAgo", count)
+        }
+
+        /// Compact relative time.
+        ///
+        /// Key: `time.hoursAgo`
+        /// en: "{count}h ago"
+        public static func hoursAgo(count: Int) -> String {
+            L10nSupport.format("time.hoursAgo", count)
+        }
+
+        /// Relative time under ten seconds.
+        ///
+        /// Key: `time.justNow`
+        /// en: "just now"
+        public static var justNow: String { L10nSupport.string("time.justNow") }
+
+        /// Compact relative time.
+        ///
+        /// Key: `time.minutesAgo`
+        /// en: "{count}m ago"
+        public static func minutesAgo(count: Int) -> String {
+            L10nSupport.format("time.minutesAgo", count)
+        }
+
+        /// Relative time when something never happened.
+        ///
+        /// Key: `time.never`
+        /// en: "never"
+        public static var never: String { L10nSupport.string("time.never") }
+
+        /// Compact relative time.
+        ///
+        /// Key: `time.secondsAgo`
+        /// en: "{count}s ago"
+        public static func secondsAgo(count: Int) -> String {
+            L10nSupport.format("time.secondsAgo", count)
+        }
+    }
+
+    public enum Trace {
+        /// Trace header: small label over what the session was asked to do.
+        ///
+        /// Key: `trace.askedFor`
+        /// en: "asked for"
+        public static var askedFor: String { L10nSupport.string("trace.askedFor") }
+
+        /// Assignment context menu.
+        ///
+        /// Key: `trace.copyAssignment`
+        /// en: "Copy the assignment"
+        public static var copyAssignment: String { L10nSupport.string("trace.copyAssignment") }
+
+        /// Tooltip on the copy button beside the assignment.
+        ///
+        /// Key: `trace.copyAssignmentHelp`
+        /// en: "Copy everything this session was asked for"
+        public static var copyAssignmentHelp: String { L10nSupport.string("trace.copyAssignmentHelp") }
+
+        /// Working directory chip menu.
+        ///
+        /// Key: `trace.copyPath`
+        /// en: "Copy path"
+        public static var copyPath: String { L10nSupport.string("trace.copyPath") }
+
+        /// Tooltip on the working directory chip; the path follows on the next line.
+        ///
+        /// Key: `trace.cwdHelp`
+        /// en: "Click to copy the working directory · ⌥-click to reveal it in Finder"
+        public static var cwdHelp: String { L10nSupport.string("trace.cwdHelp") }
+
+        /// Trace: button that draws rows cut from the top of a long trace.
+        ///
+        /// Key: `trace.earlierRows`
+        /// en: "{count, plural, one {# earlier row} other {# earlier rows}}"
+        public static func earlierRows(count: Int) -> String {
+            L10nSupport.localizedFormat("trace.earlierRows", count)
+        }
+
+        /// Tooltip on the earlier rows button.
+        ///
+        /// Key: `trace.earlierRowsHelp`
+        /// en: "Draw the whole of this session's trace, however long it is"
+        public static var earlierRowsHelp: String { L10nSupport.string("trace.earlierRowsHelp") }
+
+        /// Trace header: label before the session's elapsed time. distinct-from: session.elapsed.elapsed distinct-from: meta.elapsed
+        ///
+        /// Key: `trace.elapsed`
+        /// en: "elapsed"
+        public static var elapsed: String { L10nSupport.string("trace.elapsed") }
+
+        /// Expanded trace row: label over the raw JSON.
+        ///
+        /// Key: `trace.eventPayload`
+        /// en: "Event payload"
+        public static var eventPayload: String { L10nSupport.string("trace.eventPayload") }
+
+        /// Tooltip on the project chip in the trace header.
+        ///
+        /// Key: `trace.focusProject`
+        /// en: "Show only this project on the board"
+        public static var focusProject: String { L10nSupport.string("trace.focusProject") }
+
+        /// Trace toggle: keeps the view scrolled to the newest row. distinct-from: perch.following
+        ///
+        /// Key: `trace.following`
+        /// en: "Following"
+        public static var following: String { L10nSupport.string("trace.following") }
+
+        /// Expanded trace row: label over the full text.
+        ///
+        /// Key: `trace.fullText`
+        /// en: "Full text"
+        public static var fullText: String { L10nSupport.string("trace.fullText") }
+
+        /// Button that folds a long assignment.
+        ///
+        /// Key: `trace.less`
+        /// en: "less"
+        public static var less: String { L10nSupport.string("trace.less") }
+
+        /// Perch inspector heading (shown upper-cased): the session's family.
+        ///
+        /// Key: `trace.lineage`
+        /// en: "Lineage"
+        public static var lineage: String { L10nSupport.string("trace.lineage") }
+
+        /// Trace empty state while loading.
+        ///
+        /// Key: `trace.loading`
+        /// en: "Loading the event log…"
+        public static var loading: String { L10nSupport.string("trace.loading") }
+
+        /// Perch inspector: other boards the card is on. {boards} is a list joined with " · ".
+        ///
+        /// Key: `trace.mirroredOn`
+        /// en: "Mirrored on {boards}"
+        public static func mirroredOn(boards: String) -> String {
+            L10nSupport.format("trace.mirroredOn", boards)
+        }
+
+        /// Button that unfolds a long assignment.
+        ///
+        /// Key: `trace.more`
+        /// en: "more"
+        public static var more: String { L10nSupport.string("trace.more") }
+
+        /// Tooltip on the trace header's … menu.
+        ///
+        /// Key: `trace.moreHelp`
+        /// en: "Copy the resume command, open the folder, interrupt or kill this session"
+        public static var moreHelp: String { L10nSupport.string("trace.moreHelp") }
+
+        /// Trace empty state when the filter hides everything.
+        ///
+        /// Key: `trace.nothingInView`
+        /// en: "Nothing in this view."
+        public static var nothingInView: String { L10nSupport.string("trace.nothingInView") }
+
+        /// Perch inspector heading (shown upper-cased). "Perch" is viewMode.perch.
+        ///
+        /// Key: `trace.onThePerch`
+        /// en: "On the Perch"
+        public static var onThePerch: String { L10nSupport.string("trace.onThePerch") }
+
+        /// Trace header button. distinct-from: app.menu.openFlight
+        ///
+        /// Key: `trace.openTrajectory`
+        /// en: "Open trajectory"
+        public static var openTrajectory: String { L10nSupport.string("trace.openTrajectory") }
+
+        /// Tooltip on Open trajectory.
+        ///
+        /// Key: `trace.openTrajectoryHelp`
+        /// en: "Open this session's whole history as a waterfall (⌘T)"
+        public static var openTrajectoryHelp: String { L10nSupport.string("trace.openTrajectoryHelp") }
+
+        /// Perch inspector note. "Flight" is viewMode.trajectory.
+        ///
+        /// Key: `trace.perchNote`
+        /// en: "Double-click the card to open its Flight. Resume stays an explicit action above."
+        public static var perchNote: String { L10nSupport.string("trace.perchNote") }
+
+        /// Perch inspector: which board the card is on.
+        ///
+        /// Key: `trace.pinnedIn`
+        /// en: "Pinned in {board}"
+        public static func pinnedIn(board: String) -> String {
+            L10nSupport.format("trace.pinnedIn", board)
+        }
+
+        /// Trace header button that resumes the session in a terminal.
+        ///
+        /// Key: `trace.resume`
+        /// en: "Resume"
+        public static var resume: String { L10nSupport.string("trace.resume") }
+
+        /// Tooltip on Resume. {app} is a terminal app's name.
+        ///
+        /// Key: `trace.resumeHelp`
+        /// en: "Opens {app} on this session's own CLI command"
+        public static func resumeHelp(app: String) -> String {
+            L10nSupport.format("trace.resumeHelp", app)
+        }
+
+        /// Working directory chip menu.
+        ///
+        /// Key: `trace.revealInFinder`
+        /// en: "Reveal in Finder"
+        public static var revealInFinder: String { L10nSupport.string("trace.revealInFinder") }
+
+        /// Trace placeholder when nothing is selected.
+        ///
+        /// Key: `trace.selectSession`
+        /// en: "Select a session"
+        public static var selectSession: String { L10nSupport.string("trace.selectSession") }
+
+        /// Trace placeholder detail.
+        ///
+        /// Key: `trace.selectSessionDetail`
+        /// en: "Its prompts, tool calls, and turns appear here as they happen."
+        public static var selectSessionDetail: String { L10nSupport.string("trace.selectSessionDetail") }
+
+        /// Trace empty state button that clears the filter.
+        ///
+        /// Key: `trace.showEverything`
+        /// en: "Show everything"
+        public static var showEverything: String { L10nSupport.string("trace.showEverything") }
+
+        /// Trace filter tab tooltip. {tab} is one of trace.tab.*, lower-cased in English.
+        ///
+        /// Key: `trace.showTab`
+        /// en: "Show {tab}"
+        public static func showTab(tab: String) -> String {
+            L10nSupport.format("trace.showTab", tab)
+        }
+
+        /// Tooltip on the parent chip. {evidence} is how Auspex knows, in English.
+        ///
+        /// Key: `trace.spawnedBy`
+        /// en: "Spawned by {parent} — {evidence}"
+        public static func spawnedBy(parent: String, evidence: String) -> String {
+            L10nSupport.format("trace.spawnedBy", parent, evidence)
+        }
+
+        /// Tooltip on the Following toggle while off.
+        ///
+        /// Key: `trace.startFollowing`
+        /// en: "Scroll to the newest row as it arrives"
+        public static var startFollowing: String { L10nSupport.string("trace.startFollowing") }
+
+        /// Tooltip on the Following toggle while on.
+        ///
+        /// Key: `trace.stopFollowing`
+        /// en: "Stop scrolling to the newest row"
+        public static var stopFollowing: String { L10nSupport.string("trace.stopFollowing") }
+
+        /// Perch inspector: sub-agent count. distinct-from: perch.card.subagents
+        ///
+        /// Key: `trace.subagents`
+        /// en: "{count} subagents"
+        public static func subagents(count: Int) -> String {
+            L10nSupport.format("trace.subagents", count)
+        }
+
+        /// Trace divider between turns. distinct-from: flight.turnCount
+        ///
+        /// Key: `trace.turn`
+        /// en: "Turn {number}"
+        public static func turn(number: Int) -> String {
+            L10nSupport.format("trace.turn", number)
+        }
+
+        public enum Event {
+            /// Trace row title: model prose.
+            ///
+            /// Key: `trace.event.assistant`
+            /// en: "Assistant"
+            public static var assistant: String { L10nSupport.string("trace.event.assistant") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.contextCompacted`
+            /// en: "Context compacted"
+            public static var contextCompacted: String { L10nSupport.string("trace.event.contextCompacted") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.identityUpdated`
+            /// en: "Identity updated"
+            public static var identityUpdated: String { L10nSupport.string("trace.event.identityUpdated") }
+
+            /// Trace row title: a note Auspex wrote into the trace. distinct-from: task.note.note
+            ///
+            /// Key: `trace.event.note`
+            /// en: "Note"
+            public static var note: String { L10nSupport.string("trace.event.note") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.permissionAllowed`
+            /// en: "Permission allowed"
+            public static var permissionAllowed: String { L10nSupport.string("trace.event.permissionAllowed") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.permissionDenied`
+            /// en: "Permission denied"
+            public static var permissionDenied: String { L10nSupport.string("trace.event.permissionDenied") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.permissionRequested`
+            /// en: "Permission requested"
+            public static var permissionRequested: String { L10nSupport.string("trace.event.permissionRequested") }
+
+            /// Trace row title: a usage quota reading.
+            ///
+            /// Key: `trace.event.planLimit`
+            /// en: "Plan limit"
+            public static var planLimit: String { L10nSupport.string("trace.event.planLimit") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.processAlive`
+            /// en: "Process alive"
+            public static var processAlive: String { L10nSupport.string("trace.event.processAlive") }
+
+            /// Trace row title. distinct-from: trace.tab.prompts
+            ///
+            /// Key: `trace.event.prompt`
+            /// en: "Prompt"
+            public static var prompt: String { L10nSupport.string("trace.event.prompt") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.sessionEnded`
+            /// en: "Session ended"
+            public static var sessionEnded: String { L10nSupport.string("trace.event.sessionEnded") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.sessionStarted`
+            /// en: "Session started"
+            public static var sessionStarted: String { L10nSupport.string("trace.event.sessionStarted") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.subagentFinished`
+            /// en: "Subagent finished"
+            public static var subagentFinished: String { L10nSupport.string("trace.event.subagentFinished") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.subagentStarted`
+            /// en: "Subagent started"
+            public static var subagentStarted: String { L10nSupport.string("trace.event.subagentStarted") }
+
+            /// Trace row title with the sub-agent's type.
+            ///
+            /// Key: `trace.event.subagentType`
+            /// en: "Subagent · {type}"
+            public static func subagentType(type: String) -> String {
+                L10nSupport.format("trace.event.subagentType", type)
+            }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.toolFailed`
+            /// en: "Tool failed"
+            public static var toolFailed: String { L10nSupport.string("trace.event.toolFailed") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.toolFinished`
+            /// en: "Tool finished"
+            public static var toolFinished: String { L10nSupport.string("trace.event.toolFinished") }
+
+            /// Trace row title. distinct-from: context.slice.toolResults
+            ///
+            /// Key: `trace.event.toolResult`
+            /// en: "Tool result"
+            public static var toolResult: String { L10nSupport.string("trace.event.toolResult") }
+
+            /// Trace row title with the tool call's id.
+            ///
+            /// Key: `trace.event.toolResultFor`
+            /// en: "Tool result · {id}"
+            public static func toolResultFor(id: String) -> String {
+                L10nSupport.format("trace.event.toolResultFor", id)
+            }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.turnEnded`
+            /// en: "Turn ended"
+            public static var turnEnded: String { L10nSupport.string("trace.event.turnEnded") }
+
+            /// Trace row title.
+            ///
+            /// Key: `trace.event.turnStarted`
+            /// en: "Turn started"
+            public static var turnStarted: String { L10nSupport.string("trace.event.turnStarted") }
+        }
+
+        public enum Family {
+            /// Tooltip on the family chip of a session.
+            ///
+            /// Key: `trace.family.childHelp`
+            /// en: "What this session delegated to"
+            public static var childHelp: String { L10nSupport.string("trace.family.childHelp") }
+
+            /// Trace: the family chip on a session that delegated.
+            ///
+            /// Key: `trace.family.children`
+            /// en: "{count, plural, one {# child} other {# children}}"
+            public static func children(count: Int) -> String {
+                L10nSupport.localizedFormat("trace.family.children", count)
+            }
+
+            /// Tooltip on Expand all in board.
+            ///
+            /// Key: `trace.family.expandHelp`
+            /// en: "Divide the board along the delegation tree, so this family reads as one"
+            public static var expandHelp: String { L10nSupport.string("trace.family.expandHelp") }
+
+            /// Family popover button.
+            ///
+            /// Key: `trace.family.expandInBoard`
+            /// en: "Expand all in board"
+            public static var expandInBoard: String { L10nSupport.string("trace.family.expandInBoard") }
+
+            /// Trace: the family chip on a task, e.g. "↳ 3 sessions".
+            ///
+            /// Key: `trace.family.moreSessions`
+            /// en: "{count, plural, one {# more session} other {# sessions}}"
+            public static func moreSessions(count: Int) -> String {
+                L10nSupport.localizedFormat("trace.family.moreSessions", count)
+            }
+
+            /// Family popover heading. {noun} is trace.family.moreSessions.
+            ///
+            /// Key: `trace.family.onTask`
+            /// en: "{noun} on this task"
+            public static func onTask(noun: String) -> String {
+                L10nSupport.format("trace.family.onTask", noun)
+            }
+
+            /// Tooltip on the family chip of a task.
+            ///
+            /// Key: `trace.family.taskHelp`
+            /// en: "Everybody else working on this task"
+            public static var taskHelp: String { L10nSupport.string("trace.family.taskHelp") }
+        }
+
+        public enum Tab {
+            /// Trace filter tab. distinct-from: common.all
+            ///
+            /// Key: `trace.tab.all`
+            /// en: "All"
+            public static var all: String { L10nSupport.string("trace.tab.all") }
+
+            /// Trace filter tab.
+            ///
+            /// Key: `trace.tab.prompts`
+            /// en: "Prompts"
+            public static var prompts: String { L10nSupport.string("trace.tab.prompts") }
+
+            /// Trace filter tab.
+            ///
+            /// Key: `trace.tab.text`
+            /// en: "Text"
+            public static var text: String { L10nSupport.string("trace.tab.text") }
+
+            /// Trace filter tab. distinct-from: meta.tools
+            ///
+            /// Key: `trace.tab.tools`
+            /// en: "Tools"
+            public static var tools: String { L10nSupport.string("trace.tab.tools") }
+
+            /// Trace filter tab.
+            ///
+            /// Key: `trace.tab.usage`
+            /// en: "Usage"
+            public static var usage: String { L10nSupport.string("trace.tab.usage") }
+        }
+    }
+
+    public enum ViewMode {
+        /// Name of the view that shows every task as a card on a wall. One of six bird-and-augury themed view names (Now, Ledger, Aviary, Flock, Perch, Flight).
+        ///
+        /// Key: `viewMode.board`
+        /// en: "Ledger"
+        public static var board: String { L10nSupport.string("viewMode.board") }
+
+        /// Name of the view that shows a wall of animated faces, one per piece of work.
+        ///
+        /// Key: `viewMode.crew`
+        /// en: "Flock"
+        public static var crew: String { L10nSupport.string("viewMode.crew") }
+
+        /// Name of the default view (and of its sidebar row): the office stage over the lists of what needs the person now. distinct-from: catchUp.line.now
+        ///
+        /// Key: `viewMode.now`
+        /// en: "Now"
+        public static var now: String { L10nSupport.string("viewMode.now") }
+
+        /// Name of the view that is a user-arranged canvas of tasks, where a card stays where the person put it.
+        ///
+        /// Key: `viewMode.perch`
+        /// en: "Perch"
+        public static var perch: String { L10nSupport.string("viewMode.perch") }
+
+        /// Name of the view that draws the office with an animated person per agent session. Also shown upper-cased as the tag on Now's stage.
+        ///
+        /// Key: `viewMode.scene`
+        /// en: "Aviary"
+        public static var scene: String { L10nSupport.string("viewMode.scene") }
+
+        /// Name of the view that opens one session out into a graph of every step it took.
+        ///
+        /// Key: `viewMode.trajectory`
+        /// en: "Flight"
+        public static var trajectory: String { L10nSupport.string("viewMode.trajectory") }
     }
 }
 
@@ -46,17 +7258,2224 @@ enum L10nCatalogFacts {
     ]
 
     static let keys: [String] = [
+        "agents.install",
+        "agents.installed",
+        "agents.notServing",
+        "agents.note",
+        "agents.notifyDone",
+        "agents.notifyDoneNote",
+        "agents.openSetup",
+        "agents.replace",
+        "agents.serving",
+        "agents.update",
+        "app.menu.catchUp",
+        "app.menu.checkForUpdates",
+        "app.menu.closeFlight",
+        "app.menu.closeTask",
+        "app.menu.goToTask",
+        "app.menu.markAllSeen",
+        "app.menu.openFlight",
+        "app.menu.openTask",
+        "app.menu.reviewNext",
+        "attention.a11y.finished",
+        "attention.a11y.needsYou",
+        "attention.a11y.needsYouAgent",
+        "attention.dismissNeedsYou",
+        "attention.dismissRead",
+        "attention.done",
+        "attention.headline",
+        "attention.waitingPermission",
+        "aviary.empty",
+        "aviary.emptyDetail",
+        "aviary.floor.blocked",
+        "aviary.floor.delegating",
+        "aviary.legend.delegatingHelp",
+        "aviary.legend.thinkingHelp",
+        "aviary.legend.toolHelp",
+        "aviary.legend.writingHelp",
+        "aviary.minimapHelp",
+        "aviary.noProject",
+        "aviary.olderHelp",
+        "aviary.room.free",
+        "aviary.room.live",
+        "aviary.room.meeting",
+        "aviary.room.meetingRoom",
+        "aviary.room.resting",
+        "aviary.room.restingMore",
+        "aviary.zoom",
+        "board.bucket.ended",
+        "board.bucket.idle",
+        "board.bucket.inReview",
+        "board.bucket.needsYou",
+        "board.bucket.working",
+        "board.chip.showAll",
+        "board.chip.showOnly",
+        "board.empty.adapterPending",
+        "board.empty.allEnded",
+        "board.empty.demoHint",
+        "board.empty.demoNote",
+        "board.empty.fromPipeline",
+        "board.empty.noAdapter",
+        "board.empty.noAgent",
+        "board.empty.sessionStore",
+        "board.empty.tailing",
+        "board.empty.tailingStatus",
+        "board.empty.watching",
+        "board.ended.collapsedHelp",
+        "board.ended.olderHelp",
+        "board.ended.showAll",
+        "board.ended.showRecent",
+        "board.ended.title",
+        "board.focus.allProjects",
+        "board.focus.allProjectsHelp",
+        "board.focus.escapeHelp",
+        "board.group.allSessions",
+        "board.group.allTasks",
+        "board.group.below",
+        "board.group.by",
+        "board.group.help",
+        "board.group.none",
+        "board.group.standalone",
+        "board.group.title",
+        "board.group.tree",
+        "board.group.unknownCheckout",
+        "board.header.catchUp",
+        "board.header.catchUpHelp",
+        "board.header.harnessesSubtitle",
+        "board.header.review",
+        "board.header.reviewHelp",
+        "board.ignored.count",
+        "board.ignored.hideHelp",
+        "board.ignored.showHelp",
+        "board.markAllSeenHelp",
+        "board.search",
+        "board.searchHelp",
+        "board.section.live",
+        "board.showSubagents",
+        "board.window.days",
+        "board.window.daysShort",
+        "board.window.help",
+        "board.window.hiddenHelp",
+        "board.window.hours",
+        "board.window.hoursShort",
+        "board.window.menuNote",
+        "board.window.menuTitle",
+        "board.window.olderHidden",
+        "catchUp.caughtUp",
+        "catchUp.caughtUpDetail",
+        "catchUp.change.changed",
+        "catchUp.change.completed",
+        "catchUp.change.started",
+        "catchUp.confidence.high",
+        "catchUp.confidence.medium",
+        "catchUp.line.goal",
+        "catchUp.line.latest",
+        "catchUp.line.next",
+        "catchUp.line.now",
+        "catchUp.line.risk",
+        "catchUp.markCaughtUp",
+        "catchUp.otherChanges",
+        "catchUp.phase.blocked",
+        "catchUp.phase.done",
+        "catchUp.phase.notStarted",
+        "catchUp.phase.review",
+        "catchUp.reason.orphanedClaim",
+        "catchUp.reason.review",
+        "catchUp.reason.takeover",
+        "catchUp.sessions",
+        "catchUp.signal.confidence",
+        "catchUp.signal.contextPressure",
+        "catchUp.signal.longTool",
+        "catchUp.signal.sharedBranch",
+        "catchUp.signal.sharedDirectory",
+        "catchUp.signal.staleSession",
+        "catchUp.since",
+        "catchUp.source.derived",
+        "catchUp.source.observed",
+        "catchUp.source.reported",
+        "catchUp.source.task",
+        "catchUp.title",
+        "catchUp.watchSignals",
+        "catchUp.watchSignalsNote",
+        "catchUp.yourQueue",
+        "characters.accentNote",
+        "characters.allPoses",
+        "characters.allPosesAlways",
+        "characters.automatic",
+        "characters.automaticRecommended",
+        "characters.builtIn",
+        "characters.builtInCode",
+        "characters.chosen",
+        "characters.defaultDetail",
+        "characters.defaultPerHarness",
+        "characters.drawnInCode",
+        "characters.folderNote",
+        "characters.headline.mine",
+        "characters.headline.none",
+        "characters.headline.shipped",
+        "characters.idle",
+        "characters.installed",
+        "characters.intro",
+        "characters.kind.person",
+        "characters.kind.pet",
+        "characters.noArt",
+        "characters.noPackages",
+        "characters.noPackagesDetail",
+        "characters.noPoses",
+        "characters.notInstalled",
+        "characters.openFolder",
+        "characters.previewLabel",
+        "characters.reload",
+        "characters.saveError",
+        "characters.somePoses",
+        "characters.source.builtIn",
+        "characters.source.user",
+        "characters.whereTheyLive",
+        "colour.amber",
+        "colour.blue",
+        "colour.coral",
+        "colour.green",
+        "colour.lime",
+        "colour.magenta",
+        "colour.none",
+        "colour.sky",
+        "colour.teal",
+        "colour.violet",
+        "common.add",
+        "common.all",
         "common.cancel",
+        "common.clear",
+        "common.close",
+        "common.context",
+        "common.copy",
+        "common.create",
+        "common.delete",
+        "common.done",
+        "common.harness",
+        "common.open",
+        "common.project",
+        "common.remove",
+        "common.scratch",
+        "common.status",
+        "context.chip",
+        "context.estimate.derived",
+        "context.estimate.join",
+        "context.estimate.overEstimated",
+        "context.estimate.recorded",
+        "context.estimate.sinceCompaction",
+        "context.estimate.truncated",
+        "context.estimate.unattributed",
+        "context.fill.derived",
+        "context.fill.recorded",
+        "context.fill.unknownSuffix",
+        "context.help.cached",
+        "context.help.compacted",
+        "context.help.derived",
+        "context.help.notOnRecord",
+        "context.help.overflow",
+        "context.help.recorded",
+        "context.ledger.cached",
+        "context.ledger.compactions",
+        "context.ledger.notBelievable",
+        "context.ledger.notRecorded",
+        "context.ledger.notReported",
+        "context.ledger.output",
+        "context.ledger.used",
+        "context.ledger.window",
+        "context.slice.everythingElse",
+        "context.slice.free",
+        "context.slice.messages",
+        "context.slice.toolResults",
+        "context.unknownWindow",
+        "context.whatsInIt",
+        "context.window",
+        "copy.clickToCopy",
+        "copy.copied",
+        "copy.copyWhat",
+        "copy.what.assignment",
+        "copy.what.branch",
+        "copy.what.handoffPacket",
+        "copy.what.model",
+        "copy.what.pid",
+        "copy.what.resumeCommand",
+        "copy.what.sessionID",
+        "copy.what.taskHandle",
+        "copy.what.title",
+        "copy.what.workingDirectory",
+        "copy.what.worktreeTask",
+        "crew.asleep",
+        "crew.badge.finished",
+        "crew.badge.waitingForYou",
+        "crew.end.exited",
+        "crew.end.killed",
+        "crew.end.processGone",
+        "crew.end.wentQuiet",
+        "crew.finishedAccessibility",
+        "crew.finishedHelp",
+        "crew.sessionsBelow",
+        "crew.sessionsOnTask",
+        "delivery.aheadBehind",
+        "delivery.branch",
+        "delivery.changed",
+        "delivery.changedFiles",
+        "delivery.changedFilesCapped",
+        "delivery.checked",
+        "delivery.checkout",
+        "delivery.copyPacket",
+        "delivery.copyPacketHelp",
+        "delivery.decisions",
+        "delivery.diffstat",
+        "delivery.evidence",
+        "delivery.handoff",
+        "delivery.handoffNote",
+        "delivery.handoffTitle",
+        "delivery.lastCommit",
+        "delivery.noCheckout",
+        "delivery.noEvidence",
+        "delivery.noRisks",
+        "delivery.observation",
+        "delivery.observedLocalGit",
+        "delivery.reading",
+        "delivery.refresh",
+        "delivery.refreshHelp",
+        "delivery.reviewRecord",
+        "delivery.risks",
+        "delivery.title",
+        "delivery.tree.clean",
+        "delivery.tree.dirty",
+        "delivery.tree.unknown",
+        "delivery.upstream",
+        "delivery.waitForCheck",
+        "delivery.workingTree",
+        "flight.agents",
+        "flight.agentsAtMoment",
+        "flight.asked",
+        "flight.atPlayhead",
+        "flight.backHelp",
+        "flight.beforeTurn1",
+        "flight.board",
+        "flight.buildingGraph",
+        "flight.buildingGraphDetail",
+        "flight.cached",
+        "flight.callID",
+        "flight.camera.follow",
+        "flight.camera.manual",
+        "flight.camera.overview",
+        "flight.cameraHelp",
+        "flight.closeInspector",
+        "flight.failed",
+        "flight.filesTouched",
+        "flight.filterHelp",
+        "flight.filterSteps",
+        "flight.firstEvents",
+        "flight.follow",
+        "flight.followAccessibility",
+        "flight.generation",
+        "flight.in",
+        "flight.inFlight",
+        "flight.inspector",
+        "flight.keyHint",
+        "flight.lane.input",
+        "flight.lane.model",
+        "flight.live",
+        "flight.liveAhead",
+        "flight.liveDetail",
+        "flight.moment",
+        "flight.noEnd",
+        "flight.noSource",
+        "flight.noToolOpen",
+        "flight.nodeA11y",
+        "flight.nothingInFlight",
+        "flight.nothingInRange",
+        "flight.nothingRead",
+        "flight.nothingSelected",
+        "flight.nothingSelectedDetail",
+        "flight.ok",
+        "flight.out",
+        "flight.outTokens",
+        "flight.outcome",
+        "flight.outsideRequest",
+        "flight.pauseGraph",
+        "flight.paused",
+        "flight.playGraph",
+        "flight.playhead",
+        "flight.playheadA11y",
+        "flight.pre",
+        "flight.presentation.graph",
+        "flight.presentation.trace",
+        "flight.preview",
+        "flight.previewOnly",
+        "flight.readingLog",
+        "flight.readingRecord",
+        "flight.rebuilding",
+        "flight.record",
+        "flight.request",
+        "flight.requestTiming",
+        "flight.role.system",
+        "flight.role.user",
+        "flight.scale.calls",
+        "flight.scale.duration",
+        "flight.scale.events",
+        "flight.scale.turns",
+        "flight.scaleHelp",
+        "flight.scope.session",
+        "flight.scope.task",
+        "flight.scopeHelp",
+        "flight.selectNodeHint",
+        "flight.selectSessionDetail",
+        "flight.selectedAgent",
+        "flight.showWholeSession",
+        "flight.showing",
+        "flight.source",
+        "flight.startFollowing",
+        "flight.started",
+        "flight.step",
+        "flight.stopFollowing",
+        "flight.tab.moment",
+        "flight.tab.raw",
+        "flight.tab.step",
+        "flight.tab.summary",
+        "flight.throughput",
+        "flight.tokens",
+        "flight.tokensPerSecond",
+        "flight.totalDuration",
+        "flight.ttft",
+        "flight.turn",
+        "flight.turnCount",
+        "harnesses.config.alsoConfigured",
+        "harnesses.config.canReach",
+        "harnesses.config.cannotReach",
+        "harnesses.config.global",
+        "harnesses.config.noFile",
+        "harnesses.config.notRegistered",
+        "harnesses.config.scoped",
+        "harnesses.config.servers",
+        "harnesses.config.unreadable",
+        "harnesses.count.claimed",
+        "harnesses.count.finished",
+        "harnesses.count.idle",
+        "harnesses.count.live",
+        "harnesses.count.total",
+        "harnesses.detected",
+        "harnesses.empty.detail",
+        "harnesses.empty.title",
+        "harnesses.footnote",
+        "harnesses.hooksHelp",
+        "harnesses.hooksOff",
+        "harnesses.mcp.notRunning",
+        "harnesses.mcp.setUpAgents",
+        "harnesses.mcp.setUpAgentsHelp",
+        "harnesses.mcp.title",
+        "harnesses.mcp.unattributedClient",
+        "harnesses.median",
+        "harnesses.medianHelp",
+        "harnesses.noAdapter",
+        "harnesses.notInstalled",
+        "harnesses.store.chatgptShared",
+        "harnesses.store.codexShared",
+        "ignore.explain.folder",
+        "ignore.explain.harness",
+        "ignore.explain.project",
+        "ignore.explain.promptPrefix",
+        "ignore.explain.scratchFolder",
+        "ignore.explain.titleContains",
+        "ignore.eyebrow",
+        "ignore.matchOn",
+        "ignore.menu.folder",
+        "ignore.menu.harness",
+        "ignore.menu.project",
+        "ignore.menu.prompt",
+        "ignore.placeholder.harness",
+        "ignore.placeholder.project",
+        "ignore.stillRecorded",
+        "ignore.tag.folder",
+        "ignore.tag.promptPrefix",
+        "ignore.tag.scratchFolder",
+        "ignore.tag.titleContains",
+        "ignore.title",
+        "ledger.asked",
+        "ledger.doing",
+        "ledger.said",
+        "loginItem.disabledExternally",
+        "loginItem.enabled",
+        "loginItem.keptAfterUpdate",
+        "loginItem.notFound",
+        "loginItem.notRegistered",
+        "loginItem.requiresApproval",
+        "loginItem.unknown",
+        "mcp.status.agentsAttached",
+        "mcp.status.conflict",
+        "mcp.status.demo",
+        "mcp.status.serving",
+        "mcp.status.stopped",
+        "mcp.status.theSocket",
+        "menuBar.andMore",
+        "menuBar.demoStarting",
+        "menuBar.done",
+        "menuBar.idle",
+        "menuBar.live",
+        "menuBar.needsYou",
+        "menuBar.noLiveSessions",
+        "menuBar.nothingRunning",
+        "menuBar.openAuspex",
+        "menuBar.quit",
+        "menuBar.settings",
+        "menuBar.working",
+        "meta.elapsed",
+        "meta.failed",
+        "meta.live",
+        "meta.requests",
+        "meta.session",
+        "meta.steps",
+        "meta.tokens",
+        "meta.tools",
+        "meta.turns",
+        "notice.agentSays",
+        "notice.blocked",
+        "notice.dismissHelp",
+        "notice.done",
+        "notice.needsInput",
+        "notice.needsReview",
+        "notification.blocked",
+        "notification.finished",
+        "notification.show",
+        "notification.waitingOnYou",
+        "notification.wantsReview",
+        "now.allClear",
+        "now.blockedTask",
+        "now.column.doing",
+        "now.column.turn",
+        "now.context.unrecorded",
+        "now.doneUnseen",
+        "now.fewer",
+        "now.idle",
+        "now.idleFold.hide",
+        "now.idleFold.show",
+        "now.idleFor",
+        "now.markSeen",
+        "now.mayNeedYou",
+        "now.more",
+        "now.needsYou",
+        "now.note.mayNeedYou",
+        "now.note.needsYou",
+        "now.note.working",
+        "now.openArrow",
+        "now.search",
+        "now.stage.collapse",
+        "now.stage.hint",
+        "now.stage.listsOnly",
+        "now.stage.officeAndLists",
+        "now.status",
+        "now.taskArrow",
+        "now.viewMenu.accessibility",
+        "now.viewMenu.help",
+        "now.viewMenu.title",
+        "now.waitingAnswer",
+        "now.waitingPermission",
+        "now.watch.aTool",
+        "now.watch.contextPressure",
+        "now.watch.longTool",
+        "now.watch.orphanedClaim",
+        "now.watch.sharedBranch",
+        "now.watch.sharedDirectory",
+        "now.watch.staleSession",
+        "now.working",
+        "palette.closeTask",
+        "palette.closeTaskSubtitle",
+        "palette.hideSubagents",
+        "palette.kind.close",
+        "palette.kind.filter",
+        "palette.kind.project",
+        "palette.kind.session",
+        "palette.kind.task",
+        "palette.kind.view",
+        "palette.nothingMatched",
+        "palette.placeholder",
+        "palette.readyOnly",
+        "palette.readyOnlySubtitle",
+        "palette.subagentsSubtitle",
+        "palette.switchTo",
+        "perch.ahead",
+        "perch.allBoards",
+        "perch.attention.review",
+        "perch.boardName",
+        "perch.boardRules",
+        "perch.card.auto",
+        "perch.card.collapse",
+        "perch.card.collapseSubagents",
+        "perch.card.expandSubagents",
+        "perch.card.needsYou",
+        "perch.card.subagents",
+        "perch.card.tools",
+        "perch.card.turns",
+        "perch.cards",
+        "perch.deleteBoard",
+        "perch.deleteConfirm",
+        "perch.dependencyHandle",
+        "perch.dependencyHandleHelp",
+        "perch.depends",
+        "perch.dependsOn",
+        "perch.empty",
+        "perch.emptyProtected",
+        "perch.emptyUser",
+        "perch.eventPosition",
+        "perch.fitAll",
+        "perch.following",
+        "perch.fork",
+        "perch.forkName",
+        "perch.frameLabel",
+        "perch.history",
+        "perch.history.board",
+        "perch.history.building",
+        "perch.history.buildingDetail",
+        "perch.history.liveSessions",
+        "perch.history.momentBoard",
+        "perch.history.note",
+        "perch.history.position",
+        "perch.history.selected",
+        "perch.history.since",
+        "perch.history.sinceMoment",
+        "perch.history.toolsOpen",
+        "perch.indexing",
+        "perch.jumpToLive",
+        "perch.live",
+        "perch.liveOverview",
+        "perch.merge",
+        "perch.merge.action",
+        "perch.merge.automaticMemberships",
+        "perch.merge.automaticPositions",
+        "perch.merge.branch",
+        "perch.merge.choose",
+        "perch.merge.conflicts",
+        "perch.merge.failed",
+        "perch.merge.field.membership",
+        "perch.merge.field.position",
+        "perch.merge.field.rules",
+        "perch.merge.keepParent",
+        "perch.merge.noConflicts",
+        "perch.merge.noConflictsDetail",
+        "perch.merge.parent",
+        "perch.merge.resolution",
+        "perch.merge.takeBranch",
+        "perch.mergeComparing",
+        "perch.mergeNote",
+        "perch.mergeTitle",
+        "perch.minimapHelp",
+        "perch.moveEarlier",
+        "perch.moveLater",
+        "perch.newBoard",
+        "perch.newBoardNote",
+        "perch.newBoardTitle",
+        "perch.noActivity",
+        "perch.pausePlayback",
+        "perch.pauseRules",
+        "perch.pinSelected",
+        "perch.placing",
+        "perch.playHistory",
+        "perch.playhead",
+        "perch.playheadValue",
+        "perch.promoteFirst",
+        "perch.readOnly",
+        "perch.recentlyDeleted",
+        "perch.restore",
+        "perch.resumeRules",
+        "perch.rules.add",
+        "perch.rules.all",
+        "perch.rules.any",
+        "perch.rules.apply",
+        "perch.rules.attention",
+        "perch.rules.condition",
+        "perch.rules.emptyAll",
+        "perch.rules.emptyGroup",
+        "perch.rules.field",
+        "perch.rules.kind",
+        "perch.rules.not",
+        "perch.rules.note",
+        "perch.rules.projectKey",
+        "perch.rules.remove",
+        "perch.rules.title",
+        "perch.zoomIn",
+        "perch.zoomOut",
+        "placeholder.arrivesIn",
+        "placeholder.harnesses",
+        "placeholder.live",
+        "placeholder.projects",
+        "placeholder.tasks",
+        "projects.aNewProject",
+        "projects.addFolder",
+        "projects.allDone",
+        "projects.allTasksDone",
+        "projects.automatic",
+        "projects.automaticDetail",
+        "projects.automaticEmpty",
+        "projects.badge.finished",
+        "projects.badge.needYou",
+        "projects.chooseFolder",
+        "projects.chooseFolderButton",
+        "projects.claim",
+        "projects.claimsNothing",
+        "projects.colourHelp",
+        "projects.deleteHelp",
+        "projects.eyebrow",
+        "projects.filterByPath",
+        "projects.fold.finished",
+        "projects.fold.finishedElsewhere",
+        "projects.fold.listEvery",
+        "projects.fold.listFirst",
+        "projects.fold.more",
+        "projects.fold.moreAndFinished",
+        "projects.fold.separator",
+        "projects.fold.showFewer",
+        "projects.foldSessions",
+        "projects.folders",
+        "projects.harnessScratch",
+        "projects.headline.autoOnly",
+        "projects.headline.mixed",
+        "projects.headline.none",
+        "projects.hideCheckoutTasks",
+        "projects.ignoredRow",
+        "projects.import",
+        "projects.importEyebrow",
+        "projects.importNote",
+        "projects.importTitle",
+        "projects.importedFrom",
+        "projects.inProject",
+        "projects.into",
+        "projects.intro",
+        "projects.listSessions",
+        "projects.makeAProject",
+        "projects.makeFolderProject",
+        "projects.makeProject",
+        "projects.name",
+        "projects.new",
+        "projects.newSubtitle",
+        "projects.newTitle",
+        "projects.noDirectory",
+        "projects.onBoard",
+        "projects.pastePath",
+        "projects.pinHelp",
+        "projects.pinToTop",
+        "projects.saveError",
+        "projects.scratchSubtitle",
+        "projects.selected",
+        "projects.showAll",
+        "projects.showCheckoutTasks",
+        "projects.showOnly",
+        "projects.sidebarEmpty",
+        "projects.tasksHelp",
+        "projects.tasksOnBoard",
+        "projects.tasksOpen",
+        "projects.unclaimFolder",
+        "projects.ungroupedHelp",
+        "projects.unpin",
+        "projects.unpinHelp",
+        "projects.yours",
+        "projects.yoursDetail",
+        "projects.yoursEmpty",
+        "search.matches",
+        "search.scope",
+        "section.harnesses",
+        "section.projects",
+        "section.sessions",
+        "section.settings",
+        "section.tasks",
+        "session.autoReview",
+        "session.children",
+        "session.copyResumeCommand",
+        "session.copySessionID",
+        "session.copyWorkingDirectory",
+        "session.didNotSignal",
+        "session.didNotSignalPid",
+        "session.elapsed.elapsed",
+        "session.elapsed.quiet",
+        "session.elapsed.ranFor",
+        "session.elapsed.waiting",
+        "session.interruptHelp.claude",
+        "session.interruptHelp.other",
+        "session.kill.confirm",
+        "session.kill.forceMessage",
+        "session.kill.forcePrompt",
+        "session.kill.message",
+        "session.kill.messageResumable",
+        "session.kill.prompt",
+        "session.kill.thisSession",
+        "session.killHelp",
+        "session.noDirectory",
+        "session.notWatchingProcesses",
+        "session.openIn",
+        "session.openInTerminalHelp",
+        "session.replied",
+        "session.resumeHelp",
+        "session.resumeIn",
+        "session.revealDirectory",
+        "session.revealTranscript",
+        "session.signal.forceKill",
+        "session.signal.interrupt",
+        "session.signal.kill",
+        "session.spawnedByHelp",
+        "session.tokensHelp",
+        "session.unreadReply",
+        "settings.appearance.accent",
+        "settings.appearance.background",
+        "settings.appearance.dark",
+        "settings.appearance.darkDetail",
+        "settings.appearance.drawingIn",
+        "settings.appearance.foreground",
+        "settings.appearance.intro",
+        "settings.appearance.light",
+        "settings.appearance.lightDetail",
+        "settings.appearance.noRelaunch",
+        "settings.appearance.systemDetail",
+        "settings.appearance.translucentNote",
+        "settings.appearance.translucentSidebar",
+        "settings.appearance.windowAppearance",
+        "settings.crew.calm",
+        "settings.crew.calmDetail",
+        "settings.crew.intro",
+        "settings.crew.liveliness",
+        "settings.crew.lively",
+        "settings.crew.livelyDetail",
+        "settings.crew.normal",
+        "settings.crew.normalDetail",
+        "settings.crew.waitingNote",
+        "settings.general.intro",
+        "settings.general.launchAtLogin",
+        "settings.general.loginError",
+        "settings.general.note",
+        "settings.general.openLoginItems",
+        "settings.ignore.addRule",
+        "settings.ignore.chooseHarness",
+        "settings.ignore.deleteRule",
+        "settings.ignore.noRules",
+        "settings.ignore.noRulesDetail",
+        "settings.ignore.nothingHidden",
+        "settings.ignore.rules",
+        "settings.ignore.rulesDetail",
+        "settings.ignore.rulesOn",
+        "settings.ignore.rulesTitle",
+        "settings.language.caption",
         "settings.language.system",
         "settings.language.title",
+        "settings.pane.agents",
+        "settings.pane.agentsSubtitle",
+        "settings.pane.appearance",
+        "settings.pane.appearanceSubtitle",
+        "settings.pane.characters",
+        "settings.pane.charactersSubtitle",
+        "settings.pane.crew",
+        "settings.pane.crewSubtitle",
+        "settings.pane.general",
+        "settings.pane.generalSubtitle",
+        "settings.pane.ignoreSubtitle",
+        "settings.pane.scene",
+        "settings.pane.sceneSubtitle",
+        "settings.pane.updates",
+        "settings.pane.updatesSubtitle",
+        "settings.paneMenu",
+        "settings.saveError",
+        "settings.scene.bothOff",
+        "settings.scene.breakAreas",
+        "settings.scene.breakAreasDetail",
+        "settings.scene.breakStyle",
+        "settings.scene.garden",
+        "settings.scene.howFarBack",
+        "settings.scene.intro",
+        "settings.scene.lounge",
+        "settings.scene.meetingRooms",
+        "settings.scene.meetingRoomsDetail",
+        "settings.scene.perProject",
+        "settings.scene.perProjectNote",
+        "settings.scene.teaRoom",
+        "settings.scene.waitingNote",
+        "settings.scene.windowNote",
+        "settings.updates.automatic",
+        "settings.updates.automaticNote",
+        "settings.updates.channel",
+        "settings.updates.channel.dev",
+        "settings.updates.channel.devDetail",
+        "settings.updates.channel.stable",
+        "settings.updates.channel.stableDetail",
+        "settings.updates.checkNow",
+        "settings.updates.demo",
+        "settings.updates.eyebrow",
+        "settings.updates.feed",
+        "settings.updates.footnote",
+        "settings.updates.intro",
+        "settings.updates.lastChecked",
+        "settings.updates.noCheckYet",
+        "settings.updates.notPackaged",
+        "settings.updates.saveError",
+        "settings.updates.title",
+        "settings.updates.version",
+        "setup.install",
+        "setup.intro",
+        "setup.keepWatching",
+        "setup.loginNote",
+        "setup.notDetected",
+        "setup.notServing",
+        "setup.piece.coordinationSkill",
+        "setup.piece.coordinationSkillDetail",
+        "setup.piece.hooks",
+        "setup.piece.hooksDetail",
+        "setup.piece.mcpServer",
+        "setup.piece.mcpServerDetail",
+        "setup.piece.protocolNote",
+        "setup.piece.protocolNoteDetail",
+        "setup.safety",
+        "setup.selectAll",
+        "setup.serving",
+        "setup.skillMissing",
+        "setup.skip",
+        "setup.state.elsewhere",
+        "setup.state.installed",
+        "setup.state.ownedInstalled",
+        "setup.summary.failed",
+        "setup.summary.nothing",
+        "setup.summary.wrote",
+        "setup.title",
+        "sidebar.demoNote",
+        "sidebar.demoReplay",
+        "sidebar.review",
+        "state.childSessions",
+        "state.delegating",
+        "state.delegatingCount",
+        "state.explain.ended",
+        "state.explain.idle",
+        "state.explain.needsYou",
+        "state.explain.stale",
+        "state.file",
+        "state.stale",
+        "state.staleAccessibility",
+        "state.thinking",
+        "state.tool",
+        "state.toolNamed",
+        "state.writing",
+        "state.writingFile",
+        "task.blockedBy",
+        "task.card.accessibility",
+        "task.card.auto",
+        "task.card.autoHelp",
+        "task.card.filed",
+        "task.card.finished",
+        "task.card.foldSessions",
+        "task.card.lead",
+        "task.card.openSessions",
+        "task.card.openTranscript",
+        "task.card.tokensHelp",
+        "task.filter.claimOrphaned",
+        "task.filter.claimed",
+        "task.filter.clearFilters",
+        "task.filter.clearHelp",
+        "task.filter.help",
+        "task.filter.importance",
+        "task.filter.label",
+        "task.filter.only",
+        "task.filter.orphanedClaims",
+        "task.filter.readyOnly",
+        "task.filter.readyToStart",
+        "task.filter.stopFiltering",
+        "task.filter.unclaimed",
+        "task.importance.important",
+        "task.importance.low",
+        "task.importance.normal",
+        "task.importance.urgent",
+        "task.importanceHelp",
+        "task.kind.chore",
+        "task.kind.feature",
+        "task.kind.fix",
+        "task.kind.research",
+        "task.link.claimed",
+        "task.link.inherited",
+        "task.link.linked",
+        "task.log.closed",
+        "task.log.created",
+        "task.log.finished",
+        "task.log.project",
+        "task.log.released",
+        "task.log.status",
+        "task.log.takeoverExpired",
+        "task.log.takeoverRequested",
+        "task.log.unlinked",
+        "task.menu.open",
+        "task.menu.promote",
+        "task.menu.releaseClaim",
+        "task.menu.reopen",
+        "task.note.decision",
+        "task.note.evidence",
+        "task.note.note",
+        "task.note.risk",
+        "task.orphanHelp",
+        "task.status.blocked",
+        "task.status.doing",
+        "task.status.done",
+        "task.status.review",
+        "task.status.todo",
+        "task.waitsOn",
+        "taskDetail.agentReport",
+        "taskDetail.approve",
+        "taskDetail.backHelp",
+        "taskDetail.claimedBy",
+        "taskDetail.defer",
+        "taskDetail.filed",
+        "taskDetail.graphStub",
+        "taskDetail.history",
+        "taskDetail.kind",
+        "taskDetail.labels",
+        "taskDetail.nextReview",
+        "taskDetail.notFiled",
+        "taskDetail.nothingWritten",
+        "taskDetail.openDependency",
+        "taskDetail.openFlight",
+        "taskDetail.openSessionFlight",
+        "taskDetail.previousReview",
+        "taskDetail.promote",
+        "taskDetail.promoteNote",
+        "taskDetail.ready",
+        "taskDetail.ref",
+        "taskDetail.reject",
+        "taskDetail.requestedAt",
+        "taskDetail.sessions",
+        "taskDetail.takeoverRequests",
+        "taskDetail.version",
+        "taskDetail.waitsOn",
+        "taskDetail.writeItDown",
+        "tasks.archiveMilestoneHelp",
+        "tasks.archived",
+        "tasks.archivedHelp",
+        "tasks.autoHelp",
+        "tasks.dragHint",
+        "tasks.fileInProject",
+        "tasks.fileUnder",
+        "tasks.fileUnderMilestone",
+        "tasks.hideArchived",
+        "tasks.laneOpen",
+        "tasks.linkDisabledHelp",
+        "tasks.linkToTask",
+        "tasks.milestone",
+        "tasks.milestoneEmpty",
+        "tasks.milestoneHelp",
+        "tasks.milestonePlaceholder",
+        "tasks.moveTo",
+        "tasks.newTaskPlaceholder",
+        "tasks.notInMilestone",
+        "tasks.notOnBoard",
+        "tasks.nothingFiled",
+        "tasks.nothingFiledDetail",
+        "tasks.nothingFiledInProject",
+        "tasks.nothingToDo",
+        "tasks.orphanHelp",
+        "tasks.register",
+        "tasks.reviewNext",
+        "tasks.reviewNextHelp",
+        "tasks.showArchived",
+        "tasks.summary",
+        "tasks.summary.projects",
+        "tasks.takeoverExpired",
+        "tasks.unlink",
+        "time.daysAgo",
+        "time.hoursAgo",
+        "time.justNow",
+        "time.minutesAgo",
+        "time.never",
+        "time.secondsAgo",
+        "trace.askedFor",
+        "trace.copyAssignment",
+        "trace.copyAssignmentHelp",
+        "trace.copyPath",
+        "trace.cwdHelp",
+        "trace.earlierRows",
+        "trace.earlierRowsHelp",
+        "trace.elapsed",
+        "trace.event.assistant",
+        "trace.event.contextCompacted",
+        "trace.event.identityUpdated",
+        "trace.event.note",
+        "trace.event.permissionAllowed",
+        "trace.event.permissionDenied",
+        "trace.event.permissionRequested",
+        "trace.event.planLimit",
+        "trace.event.processAlive",
+        "trace.event.prompt",
+        "trace.event.sessionEnded",
+        "trace.event.sessionStarted",
+        "trace.event.subagentFinished",
+        "trace.event.subagentStarted",
+        "trace.event.subagentType",
+        "trace.event.toolFailed",
+        "trace.event.toolFinished",
+        "trace.event.toolResult",
+        "trace.event.toolResultFor",
+        "trace.event.turnEnded",
+        "trace.event.turnStarted",
+        "trace.eventPayload",
+        "trace.family.childHelp",
+        "trace.family.children",
+        "trace.family.expandHelp",
+        "trace.family.expandInBoard",
+        "trace.family.moreSessions",
+        "trace.family.onTask",
+        "trace.family.taskHelp",
+        "trace.focusProject",
+        "trace.following",
+        "trace.fullText",
+        "trace.less",
+        "trace.lineage",
+        "trace.loading",
+        "trace.mirroredOn",
+        "trace.more",
+        "trace.moreHelp",
+        "trace.nothingInView",
+        "trace.onThePerch",
+        "trace.openTrajectory",
+        "trace.openTrajectoryHelp",
+        "trace.perchNote",
+        "trace.pinnedIn",
+        "trace.resume",
+        "trace.resumeHelp",
+        "trace.revealInFinder",
+        "trace.selectSession",
+        "trace.selectSessionDetail",
+        "trace.showEverything",
+        "trace.showTab",
+        "trace.spawnedBy",
+        "trace.startFollowing",
+        "trace.stopFollowing",
+        "trace.subagents",
+        "trace.tab.all",
+        "trace.tab.prompts",
+        "trace.tab.text",
+        "trace.tab.tools",
+        "trace.tab.usage",
+        "trace.turn",
+        "viewMode.board",
+        "viewMode.crew",
+        "viewMode.now",
+        "viewMode.perch",
+        "viewMode.scene",
+        "viewMode.trajectory",
     ]
 
     static let pluralKeys: Set<String> = [
+        "board.window.days",
+        "board.window.hours",
+        "characters.headline.mine",
+        "characters.headline.shipped",
+        "context.help.compacted",
+        "delivery.changedFiles",
+        "delivery.changedFilesCapped",
+        "harnesses.config.servers",
+        "mcp.status.agentsAttached",
+        "projects.fold.finishedElsewhere",
+        "projects.tasksOpen",
+        "search.matches",
+        "session.children",
+        "settings.ignore.rules",
+        "settings.ignore.rulesOn",
+        "setup.summary.wrote",
+        "state.childSessions",
+        "taskDetail.sessions",
+        "taskDetail.takeoverRequests",
+        "tasks.summary.projects",
+        "trace.earlierRows",
+        "trace.family.children",
+        "trace.family.moreSessions",
     ]
 
     static let placeholderCounts: [String: Int] = [
+        "agents.install": 0,
+        "agents.installed": 0,
+        "agents.notServing": 0,
+        "agents.note": 0,
+        "agents.notifyDone": 0,
+        "agents.notifyDoneNote": 0,
+        "agents.openSetup": 0,
+        "agents.replace": 0,
+        "agents.serving": 1,
+        "agents.update": 0,
+        "app.menu.catchUp": 0,
+        "app.menu.checkForUpdates": 0,
+        "app.menu.closeFlight": 0,
+        "app.menu.closeTask": 0,
+        "app.menu.goToTask": 0,
+        "app.menu.markAllSeen": 0,
+        "app.menu.openFlight": 0,
+        "app.menu.openTask": 0,
+        "app.menu.reviewNext": 0,
+        "attention.a11y.finished": 1,
+        "attention.a11y.needsYou": 1,
+        "attention.a11y.needsYouAgent": 1,
+        "attention.dismissNeedsYou": 0,
+        "attention.dismissRead": 0,
+        "attention.done": 0,
+        "attention.headline": 1,
+        "attention.waitingPermission": 1,
+        "aviary.empty": 0,
+        "aviary.emptyDetail": 0,
+        "aviary.floor.blocked": 1,
+        "aviary.floor.delegating": 1,
+        "aviary.legend.delegatingHelp": 0,
+        "aviary.legend.thinkingHelp": 0,
+        "aviary.legend.toolHelp": 0,
+        "aviary.legend.writingHelp": 0,
+        "aviary.minimapHelp": 0,
+        "aviary.noProject": 0,
+        "aviary.olderHelp": 0,
+        "aviary.room.free": 0,
+        "aviary.room.live": 1,
+        "aviary.room.meeting": 1,
+        "aviary.room.meetingRoom": 0,
+        "aviary.room.resting": 1,
+        "aviary.room.restingMore": 2,
+        "aviary.zoom": 0,
+        "board.bucket.ended": 0,
+        "board.bucket.idle": 0,
+        "board.bucket.inReview": 0,
+        "board.bucket.needsYou": 0,
+        "board.bucket.working": 0,
+        "board.chip.showAll": 0,
+        "board.chip.showOnly": 1,
+        "board.empty.adapterPending": 0,
+        "board.empty.allEnded": 0,
+        "board.empty.demoHint": 0,
+        "board.empty.demoNote": 0,
+        "board.empty.fromPipeline": 0,
+        "board.empty.noAdapter": 0,
+        "board.empty.noAgent": 0,
+        "board.empty.sessionStore": 0,
+        "board.empty.tailing": 0,
+        "board.empty.tailingStatus": 0,
+        "board.empty.watching": 0,
+        "board.ended.collapsedHelp": 0,
+        "board.ended.olderHelp": 0,
+        "board.ended.showAll": 1,
+        "board.ended.showRecent": 1,
+        "board.ended.title": 0,
+        "board.focus.allProjects": 0,
+        "board.focus.allProjectsHelp": 0,
+        "board.focus.escapeHelp": 0,
+        "board.group.allSessions": 0,
+        "board.group.allTasks": 0,
+        "board.group.below": 1,
+        "board.group.by": 0,
+        "board.group.help": 0,
+        "board.group.none": 0,
+        "board.group.standalone": 0,
+        "board.group.title": 0,
+        "board.group.tree": 0,
+        "board.group.unknownCheckout": 0,
+        "board.header.catchUp": 1,
+        "board.header.catchUpHelp": 0,
+        "board.header.harnessesSubtitle": 1,
+        "board.header.review": 1,
+        "board.header.reviewHelp": 0,
+        "board.ignored.count": 1,
+        "board.ignored.hideHelp": 1,
+        "board.ignored.showHelp": 2,
+        "board.markAllSeenHelp": 0,
+        "board.search": 0,
+        "board.searchHelp": 0,
+        "board.section.live": 1,
+        "board.showSubagents": 0,
+        "board.window.days": 1,
+        "board.window.daysShort": 1,
+        "board.window.help": 0,
+        "board.window.hiddenHelp": 1,
+        "board.window.hours": 1,
+        "board.window.hoursShort": 1,
+        "board.window.menuNote": 0,
+        "board.window.menuTitle": 0,
+        "board.window.olderHidden": 2,
+        "catchUp.caughtUp": 0,
+        "catchUp.caughtUpDetail": 0,
+        "catchUp.change.changed": 0,
+        "catchUp.change.completed": 0,
+        "catchUp.change.started": 0,
+        "catchUp.confidence.high": 0,
+        "catchUp.confidence.medium": 0,
+        "catchUp.line.goal": 0,
+        "catchUp.line.latest": 0,
+        "catchUp.line.next": 0,
+        "catchUp.line.now": 0,
+        "catchUp.line.risk": 0,
+        "catchUp.markCaughtUp": 0,
+        "catchUp.otherChanges": 0,
+        "catchUp.phase.blocked": 0,
+        "catchUp.phase.done": 0,
+        "catchUp.phase.notStarted": 0,
+        "catchUp.phase.review": 0,
+        "catchUp.reason.orphanedClaim": 0,
+        "catchUp.reason.review": 0,
+        "catchUp.reason.takeover": 0,
+        "catchUp.sessions": 1,
+        "catchUp.signal.confidence": 1,
+        "catchUp.signal.contextPressure": 0,
+        "catchUp.signal.longTool": 0,
+        "catchUp.signal.sharedBranch": 0,
+        "catchUp.signal.sharedDirectory": 0,
+        "catchUp.signal.staleSession": 0,
+        "catchUp.since": 1,
+        "catchUp.source.derived": 0,
+        "catchUp.source.observed": 0,
+        "catchUp.source.reported": 0,
+        "catchUp.source.task": 0,
+        "catchUp.title": 0,
+        "catchUp.watchSignals": 0,
+        "catchUp.watchSignalsNote": 0,
+        "catchUp.yourQueue": 0,
+        "characters.accentNote": 0,
+        "characters.allPoses": 0,
+        "characters.allPosesAlways": 0,
+        "characters.automatic": 1,
+        "characters.automaticRecommended": 0,
+        "characters.builtIn": 0,
+        "characters.builtInCode": 0,
+        "characters.chosen": 0,
+        "characters.defaultDetail": 0,
+        "characters.defaultPerHarness": 0,
+        "characters.drawnInCode": 1,
+        "characters.folderNote": 0,
+        "characters.headline.mine": 2,
+        "characters.headline.none": 0,
+        "characters.headline.shipped": 1,
+        "characters.idle": 0,
+        "characters.installed": 0,
+        "characters.intro": 0,
+        "characters.kind.person": 0,
+        "characters.kind.pet": 0,
+        "characters.noArt": 0,
+        "characters.noPackages": 0,
+        "characters.noPackagesDetail": 0,
+        "characters.noPoses": 0,
+        "characters.notInstalled": 2,
+        "characters.openFolder": 0,
+        "characters.previewLabel": 2,
+        "characters.reload": 0,
+        "characters.saveError": 1,
+        "characters.somePoses": 2,
+        "characters.source.builtIn": 0,
+        "characters.source.user": 0,
+        "characters.whereTheyLive": 0,
+        "colour.amber": 0,
+        "colour.blue": 0,
+        "colour.coral": 0,
+        "colour.green": 0,
+        "colour.lime": 0,
+        "colour.magenta": 0,
+        "colour.none": 0,
+        "colour.sky": 0,
+        "colour.teal": 0,
+        "colour.violet": 0,
+        "common.add": 0,
+        "common.all": 0,
         "common.cancel": 0,
+        "common.clear": 0,
+        "common.close": 0,
+        "common.context": 0,
+        "common.copy": 0,
+        "common.create": 0,
+        "common.delete": 0,
+        "common.done": 0,
+        "common.harness": 0,
+        "common.open": 0,
+        "common.project": 0,
+        "common.remove": 0,
+        "common.scratch": 0,
+        "common.status": 0,
+        "context.chip": 0,
+        "context.estimate.derived": 1,
+        "context.estimate.join": 2,
+        "context.estimate.overEstimated": 0,
+        "context.estimate.recorded": 1,
+        "context.estimate.sinceCompaction": 0,
+        "context.estimate.truncated": 0,
+        "context.estimate.unattributed": 0,
+        "context.fill.derived": 0,
+        "context.fill.recorded": 0,
+        "context.fill.unknownSuffix": 1,
+        "context.help.cached": 1,
+        "context.help.compacted": 1,
+        "context.help.derived": 0,
+        "context.help.notOnRecord": 0,
+        "context.help.overflow": 0,
+        "context.help.recorded": 0,
+        "context.ledger.cached": 0,
+        "context.ledger.compactions": 0,
+        "context.ledger.notBelievable": 1,
+        "context.ledger.notRecorded": 0,
+        "context.ledger.notReported": 0,
+        "context.ledger.output": 0,
+        "context.ledger.used": 0,
+        "context.ledger.window": 0,
+        "context.slice.everythingElse": 0,
+        "context.slice.free": 0,
+        "context.slice.messages": 0,
+        "context.slice.toolResults": 0,
+        "context.unknownWindow": 1,
+        "context.whatsInIt": 0,
+        "context.window": 0,
+        "copy.clickToCopy": 2,
+        "copy.copied": 1,
+        "copy.copyWhat": 1,
+        "copy.what.assignment": 0,
+        "copy.what.branch": 0,
+        "copy.what.handoffPacket": 0,
+        "copy.what.model": 0,
+        "copy.what.pid": 0,
+        "copy.what.resumeCommand": 0,
+        "copy.what.sessionID": 0,
+        "copy.what.taskHandle": 0,
+        "copy.what.title": 0,
+        "copy.what.workingDirectory": 0,
+        "copy.what.worktreeTask": 0,
+        "crew.asleep": 1,
+        "crew.badge.finished": 0,
+        "crew.badge.waitingForYou": 0,
+        "crew.end.exited": 0,
+        "crew.end.killed": 0,
+        "crew.end.processGone": 0,
+        "crew.end.wentQuiet": 0,
+        "crew.finishedAccessibility": 1,
+        "crew.finishedHelp": 1,
+        "crew.sessionsBelow": 1,
+        "crew.sessionsOnTask": 1,
+        "delivery.aheadBehind": 2,
+        "delivery.branch": 0,
+        "delivery.changed": 0,
+        "delivery.changedFiles": 1,
+        "delivery.changedFilesCapped": 1,
+        "delivery.checked": 1,
+        "delivery.checkout": 0,
+        "delivery.copyPacket": 0,
+        "delivery.copyPacketHelp": 0,
+        "delivery.decisions": 0,
+        "delivery.diffstat": 0,
+        "delivery.evidence": 0,
+        "delivery.handoff": 0,
+        "delivery.handoffNote": 0,
+        "delivery.handoffTitle": 0,
+        "delivery.lastCommit": 0,
+        "delivery.noCheckout": 0,
+        "delivery.noEvidence": 0,
+        "delivery.noRisks": 0,
+        "delivery.observation": 0,
+        "delivery.observedLocalGit": 0,
+        "delivery.reading": 0,
+        "delivery.refresh": 0,
+        "delivery.refreshHelp": 0,
+        "delivery.reviewRecord": 0,
+        "delivery.risks": 0,
+        "delivery.title": 0,
+        "delivery.tree.clean": 0,
+        "delivery.tree.dirty": 0,
+        "delivery.tree.unknown": 0,
+        "delivery.upstream": 0,
+        "delivery.waitForCheck": 0,
+        "delivery.workingTree": 0,
+        "flight.agents": 0,
+        "flight.agentsAtMoment": 0,
+        "flight.asked": 0,
+        "flight.atPlayhead": 0,
+        "flight.backHelp": 0,
+        "flight.beforeTurn1": 0,
+        "flight.board": 0,
+        "flight.buildingGraph": 0,
+        "flight.buildingGraphDetail": 0,
+        "flight.cached": 0,
+        "flight.callID": 0,
+        "flight.camera.follow": 0,
+        "flight.camera.manual": 0,
+        "flight.camera.overview": 0,
+        "flight.cameraHelp": 0,
+        "flight.closeInspector": 0,
+        "flight.failed": 0,
+        "flight.filesTouched": 0,
+        "flight.filterHelp": 0,
+        "flight.filterSteps": 0,
+        "flight.firstEvents": 1,
+        "flight.follow": 0,
+        "flight.followAccessibility": 0,
+        "flight.generation": 0,
+        "flight.in": 0,
+        "flight.inFlight": 0,
+        "flight.inspector": 0,
+        "flight.keyHint": 0,
+        "flight.lane.input": 0,
+        "flight.lane.model": 0,
+        "flight.live": 0,
+        "flight.liveAhead": 1,
+        "flight.liveDetail": 0,
+        "flight.moment": 0,
+        "flight.noEnd": 0,
+        "flight.noSource": 0,
+        "flight.noToolOpen": 0,
+        "flight.nodeA11y": 3,
+        "flight.nothingInFlight": 0,
+        "flight.nothingInRange": 0,
+        "flight.nothingRead": 0,
+        "flight.nothingSelected": 0,
+        "flight.nothingSelectedDetail": 0,
+        "flight.ok": 0,
+        "flight.out": 0,
+        "flight.outTokens": 1,
+        "flight.outcome": 0,
+        "flight.outsideRequest": 0,
+        "flight.pauseGraph": 0,
+        "flight.paused": 0,
+        "flight.playGraph": 0,
+        "flight.playhead": 0,
+        "flight.playheadA11y": 0,
+        "flight.pre": 0,
+        "flight.presentation.graph": 0,
+        "flight.presentation.trace": 0,
+        "flight.preview": 0,
+        "flight.previewOnly": 0,
+        "flight.readingLog": 0,
+        "flight.readingRecord": 0,
+        "flight.rebuilding": 0,
+        "flight.record": 0,
+        "flight.request": 0,
+        "flight.requestTiming": 0,
+        "flight.role.system": 0,
+        "flight.role.user": 0,
+        "flight.scale.calls": 0,
+        "flight.scale.duration": 0,
+        "flight.scale.events": 0,
+        "flight.scale.turns": 0,
+        "flight.scaleHelp": 0,
+        "flight.scope.session": 0,
+        "flight.scope.task": 0,
+        "flight.scopeHelp": 0,
+        "flight.selectNodeHint": 0,
+        "flight.selectSessionDetail": 0,
+        "flight.selectedAgent": 0,
+        "flight.showWholeSession": 0,
+        "flight.showing": 2,
+        "flight.source": 0,
+        "flight.startFollowing": 0,
+        "flight.started": 0,
+        "flight.step": 1,
+        "flight.stopFollowing": 0,
+        "flight.tab.moment": 0,
+        "flight.tab.raw": 0,
+        "flight.tab.step": 0,
+        "flight.tab.summary": 0,
+        "flight.throughput": 0,
+        "flight.tokens": 0,
+        "flight.tokensPerSecond": 1,
+        "flight.totalDuration": 0,
+        "flight.ttft": 0,
+        "flight.turn": 0,
+        "flight.turnCount": 1,
+        "harnesses.config.alsoConfigured": 1,
+        "harnesses.config.canReach": 0,
+        "harnesses.config.cannotReach": 0,
+        "harnesses.config.global": 0,
+        "harnesses.config.noFile": 0,
+        "harnesses.config.notRegistered": 1,
+        "harnesses.config.scoped": 0,
+        "harnesses.config.servers": 1,
+        "harnesses.config.unreadable": 0,
+        "harnesses.count.claimed": 0,
+        "harnesses.count.finished": 0,
+        "harnesses.count.idle": 0,
+        "harnesses.count.live": 0,
+        "harnesses.count.total": 0,
+        "harnesses.detected": 0,
+        "harnesses.empty.detail": 0,
+        "harnesses.empty.title": 0,
+        "harnesses.footnote": 0,
+        "harnesses.hooksHelp": 0,
+        "harnesses.hooksOff": 0,
+        "harnesses.mcp.notRunning": 0,
+        "harnesses.mcp.setUpAgents": 0,
+        "harnesses.mcp.setUpAgentsHelp": 0,
+        "harnesses.mcp.title": 0,
+        "harnesses.mcp.unattributedClient": 0,
+        "harnesses.median": 0,
+        "harnesses.medianHelp": 0,
+        "harnesses.noAdapter": 0,
+        "harnesses.notInstalled": 0,
+        "harnesses.store.chatgptShared": 0,
+        "harnesses.store.codexShared": 0,
+        "ignore.explain.folder": 0,
+        "ignore.explain.harness": 0,
+        "ignore.explain.project": 0,
+        "ignore.explain.promptPrefix": 0,
+        "ignore.explain.scratchFolder": 0,
+        "ignore.explain.titleContains": 0,
+        "ignore.eyebrow": 0,
+        "ignore.matchOn": 0,
+        "ignore.menu.folder": 0,
+        "ignore.menu.harness": 1,
+        "ignore.menu.project": 0,
+        "ignore.menu.prompt": 0,
+        "ignore.placeholder.harness": 0,
+        "ignore.placeholder.project": 0,
+        "ignore.stillRecorded": 0,
+        "ignore.tag.folder": 0,
+        "ignore.tag.promptPrefix": 0,
+        "ignore.tag.scratchFolder": 0,
+        "ignore.tag.titleContains": 0,
+        "ignore.title": 0,
+        "ledger.asked": 0,
+        "ledger.doing": 0,
+        "ledger.said": 0,
+        "loginItem.disabledExternally": 0,
+        "loginItem.enabled": 0,
+        "loginItem.keptAfterUpdate": 0,
+        "loginItem.notFound": 0,
+        "loginItem.notRegistered": 0,
+        "loginItem.requiresApproval": 0,
+        "loginItem.unknown": 0,
+        "mcp.status.agentsAttached": 1,
+        "mcp.status.conflict": 0,
+        "mcp.status.demo": 0,
+        "mcp.status.serving": 2,
+        "mcp.status.stopped": 0,
+        "mcp.status.theSocket": 0,
+        "menuBar.andMore": 1,
+        "menuBar.demoStarting": 0,
+        "menuBar.done": 1,
+        "menuBar.idle": 1,
+        "menuBar.live": 0,
+        "menuBar.needsYou": 1,
+        "menuBar.noLiveSessions": 0,
+        "menuBar.nothingRunning": 0,
+        "menuBar.openAuspex": 0,
+        "menuBar.quit": 0,
+        "menuBar.settings": 0,
+        "menuBar.working": 1,
+        "meta.elapsed": 0,
+        "meta.failed": 0,
+        "meta.live": 0,
+        "meta.requests": 0,
+        "meta.session": 0,
+        "meta.steps": 0,
+        "meta.tokens": 0,
+        "meta.tools": 0,
+        "meta.turns": 0,
+        "notice.agentSays": 1,
+        "notice.blocked": 0,
+        "notice.dismissHelp": 0,
+        "notice.done": 0,
+        "notice.needsInput": 0,
+        "notice.needsReview": 0,
+        "notification.blocked": 1,
+        "notification.finished": 1,
+        "notification.show": 0,
+        "notification.waitingOnYou": 1,
+        "notification.wantsReview": 1,
+        "now.allClear": 0,
+        "now.blockedTask": 0,
+        "now.column.doing": 0,
+        "now.column.turn": 0,
+        "now.context.unrecorded": 0,
+        "now.doneUnseen": 0,
+        "now.fewer": 0,
+        "now.idle": 0,
+        "now.idleFold.hide": 1,
+        "now.idleFold.show": 1,
+        "now.idleFor": 1,
+        "now.markSeen": 0,
+        "now.mayNeedYou": 0,
+        "now.more": 1,
+        "now.needsYou": 0,
+        "now.note.mayNeedYou": 0,
+        "now.note.needsYou": 0,
+        "now.note.working": 0,
+        "now.openArrow": 0,
+        "now.search": 0,
+        "now.stage.collapse": 0,
+        "now.stage.hint": 0,
+        "now.stage.listsOnly": 0,
+        "now.stage.officeAndLists": 0,
+        "now.status": 3,
+        "now.taskArrow": 0,
+        "now.viewMenu.accessibility": 1,
+        "now.viewMenu.help": 0,
+        "now.viewMenu.title": 0,
+        "now.waitingAnswer": 0,
+        "now.waitingPermission": 0,
+        "now.watch.aTool": 0,
+        "now.watch.contextPressure": 1,
+        "now.watch.longTool": 2,
+        "now.watch.orphanedClaim": 0,
+        "now.watch.sharedBranch": 0,
+        "now.watch.sharedDirectory": 0,
+        "now.watch.staleSession": 0,
+        "now.working": 0,
+        "palette.closeTask": 1,
+        "palette.closeTaskSubtitle": 1,
+        "palette.hideSubagents": 0,
+        "palette.kind.close": 0,
+        "palette.kind.filter": 0,
+        "palette.kind.project": 0,
+        "palette.kind.session": 0,
+        "palette.kind.task": 0,
+        "palette.kind.view": 0,
+        "palette.nothingMatched": 0,
+        "palette.placeholder": 0,
+        "palette.readyOnly": 0,
+        "palette.readyOnlySubtitle": 0,
+        "palette.subagentsSubtitle": 0,
+        "palette.switchTo": 1,
+        "perch.ahead": 1,
+        "perch.allBoards": 0,
+        "perch.attention.review": 0,
+        "perch.boardName": 0,
+        "perch.boardRules": 0,
+        "perch.card.auto": 0,
+        "perch.card.collapse": 0,
+        "perch.card.collapseSubagents": 0,
+        "perch.card.expandSubagents": 0,
+        "perch.card.needsYou": 0,
+        "perch.card.subagents": 1,
+        "perch.card.tools": 1,
+        "perch.card.turns": 1,
+        "perch.cards": 1,
+        "perch.deleteBoard": 0,
+        "perch.deleteConfirm": 0,
+        "perch.dependencyHandle": 0,
+        "perch.dependencyHandleHelp": 0,
+        "perch.depends": 0,
+        "perch.dependsOn": 0,
+        "perch.empty": 0,
+        "perch.emptyProtected": 0,
+        "perch.emptyUser": 0,
+        "perch.eventPosition": 2,
+        "perch.fitAll": 0,
+        "perch.following": 0,
+        "perch.fork": 0,
+        "perch.forkName": 2,
+        "perch.frameLabel": 2,
+        "perch.history": 0,
+        "perch.history.board": 0,
+        "perch.history.building": 0,
+        "perch.history.buildingDetail": 0,
+        "perch.history.liveSessions": 0,
+        "perch.history.momentBoard": 0,
+        "perch.history.note": 0,
+        "perch.history.position": 0,
+        "perch.history.selected": 0,
+        "perch.history.since": 3,
+        "perch.history.sinceMoment": 0,
+        "perch.history.toolsOpen": 0,
+        "perch.indexing": 0,
+        "perch.jumpToLive": 0,
+        "perch.live": 0,
+        "perch.liveOverview": 0,
+        "perch.merge": 0,
+        "perch.merge.action": 0,
+        "perch.merge.automaticMemberships": 0,
+        "perch.merge.automaticPositions": 0,
+        "perch.merge.branch": 0,
+        "perch.merge.choose": 0,
+        "perch.merge.conflicts": 0,
+        "perch.merge.failed": 0,
+        "perch.merge.field.membership": 0,
+        "perch.merge.field.position": 0,
+        "perch.merge.field.rules": 0,
+        "perch.merge.keepParent": 0,
+        "perch.merge.noConflicts": 0,
+        "perch.merge.noConflictsDetail": 0,
+        "perch.merge.parent": 0,
+        "perch.merge.resolution": 0,
+        "perch.merge.takeBranch": 0,
+        "perch.mergeComparing": 0,
+        "perch.mergeNote": 0,
+        "perch.mergeTitle": 0,
+        "perch.minimapHelp": 0,
+        "perch.moveEarlier": 0,
+        "perch.moveLater": 0,
+        "perch.newBoard": 0,
+        "perch.newBoardNote": 0,
+        "perch.newBoardTitle": 0,
+        "perch.noActivity": 0,
+        "perch.pausePlayback": 0,
+        "perch.pauseRules": 0,
+        "perch.pinSelected": 0,
+        "perch.placing": 0,
+        "perch.playHistory": 0,
+        "perch.playhead": 0,
+        "perch.playheadValue": 2,
+        "perch.promoteFirst": 0,
+        "perch.readOnly": 0,
+        "perch.recentlyDeleted": 0,
+        "perch.restore": 1,
+        "perch.resumeRules": 0,
+        "perch.rules.add": 0,
+        "perch.rules.all": 0,
+        "perch.rules.any": 0,
+        "perch.rules.apply": 0,
+        "perch.rules.attention": 0,
+        "perch.rules.condition": 0,
+        "perch.rules.emptyAll": 0,
+        "perch.rules.emptyGroup": 0,
+        "perch.rules.field": 0,
+        "perch.rules.kind": 0,
+        "perch.rules.not": 0,
+        "perch.rules.note": 0,
+        "perch.rules.projectKey": 0,
+        "perch.rules.remove": 0,
+        "perch.rules.title": 0,
+        "perch.zoomIn": 0,
+        "perch.zoomOut": 0,
+        "placeholder.arrivesIn": 1,
+        "placeholder.harnesses": 0,
+        "placeholder.live": 0,
+        "placeholder.projects": 0,
+        "placeholder.tasks": 0,
+        "projects.aNewProject": 0,
+        "projects.addFolder": 0,
+        "projects.allDone": 0,
+        "projects.allTasksDone": 0,
+        "projects.automatic": 0,
+        "projects.automaticDetail": 0,
+        "projects.automaticEmpty": 0,
+        "projects.badge.finished": 1,
+        "projects.badge.needYou": 1,
+        "projects.chooseFolder": 0,
+        "projects.chooseFolderButton": 0,
+        "projects.claim": 0,
+        "projects.claimsNothing": 0,
+        "projects.colourHelp": 0,
+        "projects.deleteHelp": 0,
+        "projects.eyebrow": 0,
+        "projects.filterByPath": 0,
+        "projects.fold.finished": 1,
+        "projects.fold.finishedElsewhere": 1,
+        "projects.fold.listEvery": 0,
+        "projects.fold.listFirst": 1,
+        "projects.fold.more": 1,
+        "projects.fold.moreAndFinished": 2,
+        "projects.fold.separator": 2,
+        "projects.fold.showFewer": 0,
+        "projects.foldSessions": 0,
+        "projects.folders": 0,
+        "projects.harnessScratch": 1,
+        "projects.headline.autoOnly": 1,
+        "projects.headline.mixed": 2,
+        "projects.headline.none": 0,
+        "projects.hideCheckoutTasks": 0,
+        "projects.ignoredRow": 2,
+        "projects.import": 0,
+        "projects.importEyebrow": 0,
+        "projects.importNote": 0,
+        "projects.importTitle": 0,
+        "projects.importedFrom": 1,
+        "projects.inProject": 1,
+        "projects.into": 0,
+        "projects.intro": 0,
+        "projects.listSessions": 0,
+        "projects.makeAProject": 0,
+        "projects.makeFolderProject": 0,
+        "projects.makeProject": 0,
+        "projects.name": 0,
+        "projects.new": 0,
+        "projects.newSubtitle": 0,
+        "projects.newTitle": 0,
+        "projects.noDirectory": 0,
+        "projects.onBoard": 1,
+        "projects.pastePath": 0,
+        "projects.pinHelp": 0,
+        "projects.pinToTop": 0,
+        "projects.saveError": 1,
+        "projects.scratchSubtitle": 0,
+        "projects.selected": 1,
+        "projects.showAll": 0,
+        "projects.showCheckoutTasks": 0,
+        "projects.showOnly": 1,
+        "projects.sidebarEmpty": 0,
+        "projects.tasksHelp": 2,
+        "projects.tasksOnBoard": 2,
+        "projects.tasksOpen": 1,
+        "projects.unclaimFolder": 0,
+        "projects.ungroupedHelp": 0,
+        "projects.unpin": 0,
+        "projects.unpinHelp": 0,
+        "projects.yours": 0,
+        "projects.yoursDetail": 0,
+        "projects.yoursEmpty": 0,
+        "search.matches": 1,
+        "search.scope": 0,
+        "section.harnesses": 0,
+        "section.projects": 0,
+        "section.sessions": 0,
+        "section.settings": 0,
+        "section.tasks": 0,
+        "session.autoReview": 0,
+        "session.children": 1,
+        "session.copyResumeCommand": 0,
+        "session.copySessionID": 0,
+        "session.copyWorkingDirectory": 0,
+        "session.didNotSignal": 1,
+        "session.didNotSignalPid": 2,
+        "session.elapsed.elapsed": 0,
+        "session.elapsed.quiet": 0,
+        "session.elapsed.ranFor": 0,
+        "session.elapsed.waiting": 0,
+        "session.interruptHelp.claude": 1,
+        "session.interruptHelp.other": 1,
+        "session.kill.confirm": 0,
+        "session.kill.forceMessage": 3,
+        "session.kill.forcePrompt": 1,
+        "session.kill.message": 2,
+        "session.kill.messageResumable": 2,
+        "session.kill.prompt": 1,
+        "session.kill.thisSession": 0,
+        "session.killHelp": 1,
+        "session.noDirectory": 0,
+        "session.notWatchingProcesses": 0,
+        "session.openIn": 1,
+        "session.openInTerminalHelp": 0,
+        "session.replied": 0,
+        "session.resumeHelp": 1,
+        "session.resumeIn": 1,
+        "session.revealDirectory": 0,
+        "session.revealTranscript": 0,
+        "session.signal.forceKill": 0,
+        "session.signal.interrupt": 0,
+        "session.signal.kill": 0,
+        "session.spawnedByHelp": 0,
+        "session.tokensHelp": 0,
+        "session.unreadReply": 0,
+        "settings.appearance.accent": 0,
+        "settings.appearance.background": 0,
+        "settings.appearance.dark": 0,
+        "settings.appearance.darkDetail": 0,
+        "settings.appearance.drawingIn": 0,
+        "settings.appearance.foreground": 0,
+        "settings.appearance.intro": 0,
+        "settings.appearance.light": 0,
+        "settings.appearance.lightDetail": 0,
+        "settings.appearance.noRelaunch": 0,
+        "settings.appearance.systemDetail": 0,
+        "settings.appearance.translucentNote": 0,
+        "settings.appearance.translucentSidebar": 0,
+        "settings.appearance.windowAppearance": 0,
+        "settings.crew.calm": 0,
+        "settings.crew.calmDetail": 0,
+        "settings.crew.intro": 0,
+        "settings.crew.liveliness": 0,
+        "settings.crew.lively": 0,
+        "settings.crew.livelyDetail": 0,
+        "settings.crew.normal": 0,
+        "settings.crew.normalDetail": 0,
+        "settings.crew.waitingNote": 0,
+        "settings.general.intro": 0,
+        "settings.general.launchAtLogin": 0,
+        "settings.general.loginError": 1,
+        "settings.general.note": 0,
+        "settings.general.openLoginItems": 0,
+        "settings.ignore.addRule": 0,
+        "settings.ignore.chooseHarness": 0,
+        "settings.ignore.deleteRule": 0,
+        "settings.ignore.noRules": 0,
+        "settings.ignore.noRulesDetail": 0,
+        "settings.ignore.nothingHidden": 0,
+        "settings.ignore.rules": 1,
+        "settings.ignore.rulesDetail": 0,
+        "settings.ignore.rulesOn": 2,
+        "settings.ignore.rulesTitle": 0,
+        "settings.language.caption": 0,
         "settings.language.system": 0,
         "settings.language.title": 0,
+        "settings.pane.agents": 0,
+        "settings.pane.agentsSubtitle": 0,
+        "settings.pane.appearance": 0,
+        "settings.pane.appearanceSubtitle": 0,
+        "settings.pane.characters": 0,
+        "settings.pane.charactersSubtitle": 0,
+        "settings.pane.crew": 0,
+        "settings.pane.crewSubtitle": 0,
+        "settings.pane.general": 0,
+        "settings.pane.generalSubtitle": 0,
+        "settings.pane.ignoreSubtitle": 0,
+        "settings.pane.scene": 0,
+        "settings.pane.sceneSubtitle": 0,
+        "settings.pane.updates": 0,
+        "settings.pane.updatesSubtitle": 0,
+        "settings.paneMenu": 0,
+        "settings.saveError": 1,
+        "settings.scene.bothOff": 0,
+        "settings.scene.breakAreas": 0,
+        "settings.scene.breakAreasDetail": 0,
+        "settings.scene.breakStyle": 0,
+        "settings.scene.garden": 0,
+        "settings.scene.howFarBack": 0,
+        "settings.scene.intro": 0,
+        "settings.scene.lounge": 0,
+        "settings.scene.meetingRooms": 0,
+        "settings.scene.meetingRoomsDetail": 0,
+        "settings.scene.perProject": 0,
+        "settings.scene.perProjectNote": 0,
+        "settings.scene.teaRoom": 0,
+        "settings.scene.waitingNote": 0,
+        "settings.scene.windowNote": 0,
+        "settings.updates.automatic": 0,
+        "settings.updates.automaticNote": 0,
+        "settings.updates.channel": 0,
+        "settings.updates.channel.dev": 0,
+        "settings.updates.channel.devDetail": 0,
+        "settings.updates.channel.stable": 0,
+        "settings.updates.channel.stableDetail": 0,
+        "settings.updates.checkNow": 0,
+        "settings.updates.demo": 0,
+        "settings.updates.eyebrow": 0,
+        "settings.updates.feed": 1,
+        "settings.updates.footnote": 0,
+        "settings.updates.intro": 0,
+        "settings.updates.lastChecked": 1,
+        "settings.updates.noCheckYet": 0,
+        "settings.updates.notPackaged": 0,
+        "settings.updates.saveError": 1,
+        "settings.updates.title": 0,
+        "settings.updates.version": 1,
+        "setup.install": 1,
+        "setup.intro": 0,
+        "setup.keepWatching": 0,
+        "setup.loginNote": 0,
+        "setup.notDetected": 0,
+        "setup.notServing": 0,
+        "setup.piece.coordinationSkill": 0,
+        "setup.piece.coordinationSkillDetail": 0,
+        "setup.piece.hooks": 0,
+        "setup.piece.hooksDetail": 0,
+        "setup.piece.mcpServer": 0,
+        "setup.piece.mcpServerDetail": 0,
+        "setup.piece.protocolNote": 0,
+        "setup.piece.protocolNoteDetail": 0,
+        "setup.safety": 0,
+        "setup.selectAll": 0,
+        "setup.serving": 1,
+        "setup.skillMissing": 0,
+        "setup.skip": 0,
+        "setup.state.elsewhere": 1,
+        "setup.state.installed": 0,
+        "setup.state.ownedInstalled": 1,
+        "setup.summary.failed": 0,
+        "setup.summary.nothing": 0,
+        "setup.summary.wrote": 1,
+        "setup.title": 0,
+        "sidebar.demoNote": 0,
+        "sidebar.demoReplay": 0,
+        "sidebar.review": 1,
+        "state.childSessions": 1,
+        "state.delegating": 0,
+        "state.delegatingCount": 1,
+        "state.explain.ended": 0,
+        "state.explain.idle": 0,
+        "state.explain.needsYou": 0,
+        "state.explain.stale": 0,
+        "state.file": 0,
+        "state.stale": 0,
+        "state.staleAccessibility": 0,
+        "state.thinking": 0,
+        "state.tool": 0,
+        "state.toolNamed": 1,
+        "state.writing": 0,
+        "state.writingFile": 0,
+        "task.blockedBy": 1,
+        "task.card.accessibility": 3,
+        "task.card.auto": 0,
+        "task.card.autoHelp": 0,
+        "task.card.filed": 0,
+        "task.card.finished": 0,
+        "task.card.foldSessions": 0,
+        "task.card.lead": 0,
+        "task.card.openSessions": 1,
+        "task.card.openTranscript": 0,
+        "task.card.tokensHelp": 0,
+        "task.filter.claimOrphaned": 0,
+        "task.filter.claimed": 0,
+        "task.filter.clearFilters": 0,
+        "task.filter.clearHelp": 0,
+        "task.filter.help": 0,
+        "task.filter.importance": 0,
+        "task.filter.label": 0,
+        "task.filter.only": 0,
+        "task.filter.orphanedClaims": 0,
+        "task.filter.readyOnly": 0,
+        "task.filter.readyToStart": 0,
+        "task.filter.stopFiltering": 1,
+        "task.filter.unclaimed": 0,
+        "task.importance.important": 0,
+        "task.importance.low": 0,
+        "task.importance.normal": 0,
+        "task.importance.urgent": 0,
+        "task.importanceHelp": 1,
+        "task.kind.chore": 0,
+        "task.kind.feature": 0,
+        "task.kind.fix": 0,
+        "task.kind.research": 0,
+        "task.link.claimed": 0,
+        "task.link.inherited": 0,
+        "task.link.linked": 0,
+        "task.log.closed": 0,
+        "task.log.created": 0,
+        "task.log.finished": 0,
+        "task.log.project": 0,
+        "task.log.released": 0,
+        "task.log.status": 0,
+        "task.log.takeoverExpired": 0,
+        "task.log.takeoverRequested": 0,
+        "task.log.unlinked": 0,
+        "task.menu.open": 0,
+        "task.menu.promote": 0,
+        "task.menu.releaseClaim": 0,
+        "task.menu.reopen": 0,
+        "task.note.decision": 0,
+        "task.note.evidence": 0,
+        "task.note.note": 0,
+        "task.note.risk": 0,
+        "task.orphanHelp": 0,
+        "task.status.blocked": 0,
+        "task.status.doing": 0,
+        "task.status.done": 0,
+        "task.status.review": 0,
+        "task.status.todo": 0,
+        "task.waitsOn": 1,
+        "taskDetail.agentReport": 0,
+        "taskDetail.approve": 0,
+        "taskDetail.backHelp": 0,
+        "taskDetail.claimedBy": 0,
+        "taskDetail.defer": 0,
+        "taskDetail.filed": 0,
+        "taskDetail.graphStub": 0,
+        "taskDetail.history": 0,
+        "taskDetail.kind": 0,
+        "taskDetail.labels": 0,
+        "taskDetail.nextReview": 0,
+        "taskDetail.notFiled": 0,
+        "taskDetail.nothingWritten": 0,
+        "taskDetail.openDependency": 1,
+        "taskDetail.openFlight": 0,
+        "taskDetail.openSessionFlight": 0,
+        "taskDetail.previousReview": 0,
+        "taskDetail.promote": 0,
+        "taskDetail.promoteNote": 1,
+        "taskDetail.ready": 0,
+        "taskDetail.ref": 0,
+        "taskDetail.reject": 0,
+        "taskDetail.requestedAt": 1,
+        "taskDetail.sessions": 1,
+        "taskDetail.takeoverRequests": 1,
+        "taskDetail.version": 0,
+        "taskDetail.waitsOn": 0,
+        "taskDetail.writeItDown": 0,
+        "tasks.archiveMilestoneHelp": 0,
+        "tasks.archived": 0,
+        "tasks.archivedHelp": 0,
+        "tasks.autoHelp": 0,
+        "tasks.dragHint": 0,
+        "tasks.fileInProject": 0,
+        "tasks.fileUnder": 0,
+        "tasks.fileUnderMilestone": 0,
+        "tasks.hideArchived": 0,
+        "tasks.laneOpen": 1,
+        "tasks.linkDisabledHelp": 0,
+        "tasks.linkToTask": 0,
+        "tasks.milestone": 0,
+        "tasks.milestoneEmpty": 0,
+        "tasks.milestoneHelp": 0,
+        "tasks.milestonePlaceholder": 0,
+        "tasks.moveTo": 1,
+        "tasks.newTaskPlaceholder": 0,
+        "tasks.notInMilestone": 0,
+        "tasks.notOnBoard": 0,
+        "tasks.nothingFiled": 0,
+        "tasks.nothingFiledDetail": 0,
+        "tasks.nothingFiledInProject": 0,
+        "tasks.nothingToDo": 0,
+        "tasks.orphanHelp": 0,
+        "tasks.register": 0,
+        "tasks.reviewNext": 1,
+        "tasks.reviewNextHelp": 0,
+        "tasks.showArchived": 0,
+        "tasks.summary": 2,
+        "tasks.summary.projects": 1,
+        "tasks.takeoverExpired": 0,
+        "tasks.unlink": 1,
+        "time.daysAgo": 1,
+        "time.hoursAgo": 1,
+        "time.justNow": 0,
+        "time.minutesAgo": 1,
+        "time.never": 0,
+        "time.secondsAgo": 1,
+        "trace.askedFor": 0,
+        "trace.copyAssignment": 0,
+        "trace.copyAssignmentHelp": 0,
+        "trace.copyPath": 0,
+        "trace.cwdHelp": 0,
+        "trace.earlierRows": 1,
+        "trace.earlierRowsHelp": 0,
+        "trace.elapsed": 0,
+        "trace.event.assistant": 0,
+        "trace.event.contextCompacted": 0,
+        "trace.event.identityUpdated": 0,
+        "trace.event.note": 0,
+        "trace.event.permissionAllowed": 0,
+        "trace.event.permissionDenied": 0,
+        "trace.event.permissionRequested": 0,
+        "trace.event.planLimit": 0,
+        "trace.event.processAlive": 0,
+        "trace.event.prompt": 0,
+        "trace.event.sessionEnded": 0,
+        "trace.event.sessionStarted": 0,
+        "trace.event.subagentFinished": 0,
+        "trace.event.subagentStarted": 0,
+        "trace.event.subagentType": 1,
+        "trace.event.toolFailed": 0,
+        "trace.event.toolFinished": 0,
+        "trace.event.toolResult": 0,
+        "trace.event.toolResultFor": 1,
+        "trace.event.turnEnded": 0,
+        "trace.event.turnStarted": 0,
+        "trace.eventPayload": 0,
+        "trace.family.childHelp": 0,
+        "trace.family.children": 1,
+        "trace.family.expandHelp": 0,
+        "trace.family.expandInBoard": 0,
+        "trace.family.moreSessions": 1,
+        "trace.family.onTask": 1,
+        "trace.family.taskHelp": 0,
+        "trace.focusProject": 0,
+        "trace.following": 0,
+        "trace.fullText": 0,
+        "trace.less": 0,
+        "trace.lineage": 0,
+        "trace.loading": 0,
+        "trace.mirroredOn": 1,
+        "trace.more": 0,
+        "trace.moreHelp": 0,
+        "trace.nothingInView": 0,
+        "trace.onThePerch": 0,
+        "trace.openTrajectory": 0,
+        "trace.openTrajectoryHelp": 0,
+        "trace.perchNote": 0,
+        "trace.pinnedIn": 1,
+        "trace.resume": 0,
+        "trace.resumeHelp": 1,
+        "trace.revealInFinder": 0,
+        "trace.selectSession": 0,
+        "trace.selectSessionDetail": 0,
+        "trace.showEverything": 0,
+        "trace.showTab": 1,
+        "trace.spawnedBy": 2,
+        "trace.startFollowing": 0,
+        "trace.stopFollowing": 0,
+        "trace.subagents": 1,
+        "trace.tab.all": 0,
+        "trace.tab.prompts": 0,
+        "trace.tab.text": 0,
+        "trace.tab.tools": 0,
+        "trace.tab.usage": 0,
+        "trace.turn": 1,
+        "viewMode.board": 0,
+        "viewMode.crew": 0,
+        "viewMode.now": 0,
+        "viewMode.perch": 0,
+        "viewMode.scene": 0,
+        "viewMode.trajectory": 0,
     ]
 }

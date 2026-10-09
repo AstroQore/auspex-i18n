@@ -2,14 +2,3290 @@
   "$schema": "../schema/catalog.schema.json",
   "locale": "zh-Hans",
   "keys": {
+    "agents.install": {
+      "value": "安装"
+    },
+    "agents.installed": {
+      "value": "已安装"
+    },
+    "agents.notServing": {
+      "value": "Auspex 没有在此进程中提供 MCP 服务。"
+    },
+    "agents.note": {
+      "value": "Auspex 只会在这里、且只在它自己拥有的区域内写入 harness 的文件——一个标有 `>>> auspex >>>` 的区块、JSON 配置中的一个 `auspex` 条目、运行 Auspex 程序的 hook 条目，或专属的 auspex-coordination skill 目录。该 skill 带有归属标记、版本和内容哈希；一旦被外部修改，Auspex 拒绝替换或删除它。更新前会备份到 ~/.auspex/backups/。"
+    },
+    "agents.notifyDone": {
+      "value": "agent 报告完成时通知我"
+    },
+    "agents.notifyDoneNote": {
+      "value": "卡在等你的会话总是会发通知，因为它不会自己解开。"
+    },
+    "agents.openSetup": {
+      "value": "打开配置…"
+    },
+    "agents.replace": {
+      "value": "替换"
+    },
+    "agents.serving": {
+      "value": "Auspex 正在 {path} 上提供 MCP 服务。"
+    },
+    "agents.update": {
+      "value": "更新"
+    },
+    "app.menu.catchUp": {
+      "value": "回顾…"
+    },
+    "app.menu.checkForUpdates": {
+      "value": "检查更新…"
+    },
+    "app.menu.closeFlight": {
+      "value": "关闭航迹"
+    },
+    "app.menu.closeTask": {
+      "value": "关闭任务"
+    },
+    "app.menu.goToTask": {
+      "value": "前往任务…"
+    },
+    "app.menu.markAllSeen": {
+      "value": "全部标为已查看"
+    },
+    "app.menu.openFlight": {
+      "value": "打开航迹"
+    },
+    "app.menu.openTask": {
+      "value": "打开任务"
+    },
+    "app.menu.reviewNext": {
+      "value": "审阅下一个"
+    },
+    "attention.a11y.finished": {
+      "value": "已完成 — {summary}"
+    },
+    "attention.a11y.needsYou": {
+      "value": "需要你 — {reason}"
+    },
+    "attention.a11y.needsYouAgent": {
+      "value": "需要你 — {reason}，agent 如是说"
+    },
+    "attention.dismissNeedsYou": {
+      "value": "忽略 — 卡片会安静下来，不再计数"
+    },
+    "attention.dismissRead": {
+      "value": "忽略 — 你已读过"
+    },
+    "attention.done": {
+      "value": "已完成"
+    },
+    "attention.headline": {
+      "value": "{headline}："
+    },
+    "attention.waitingPermission": {
+      "value": "等待授权：{tool}"
+    },
+    "aviary.empty": {
+      "value": "办公室里空无一人"
+    },
+    "aviary.emptyDetail": {
+      "value": "Auspex 能看到的每个会话都会出现一张工位。"
+    },
+    "aviary.floor.blocked": {
+      "value": "{count} 个受阻"
+    },
+    "aviary.floor.delegating": {
+      "value": "{count} 个委派中"
+    },
+    "aviary.legend.delegatingHelp": {
+      "value": "围坐在桌边，等待它派生的子 agent。"
+    },
+    "aviary.legend.thinkingHelp": {
+      "value": "正在推理，没有打开的工具调用。"
+    },
+    "aviary.legend.toolHelp": {
+      "value": "有工具调用正在运行。"
+    },
+    "aviary.legend.writingHelp": {
+      "value": "工作区正在被修改。"
+    },
+    "aviary.minimapHelp": {
+      "value": "整个办公室。点按即可前往。"
+    },
+    "aviary.noProject": {
+      "value": "无项目"
+    },
+    "aviary.olderHelp": {
+      "value": "更早的会话保存在存储中，不在地图上。放宽范围即可显示。"
+    },
+    "aviary.room.free": {
+      "value": "空闲"
+    },
+    "aviary.room.live": {
+      "value": "{count} 个活跃"
+    },
+    "aviary.room.meeting": {
+      "value": "{count} 人在开会"
+    },
+    "aviary.room.meetingRoom": {
+      "value": "会议室"
+    },
+    "aviary.room.resting": {
+      "value": "{count} 人在休息"
+    },
+    "aviary.room.restingMore": {
+      "value": "{count} 人在休息 · 另有 {more} 人"
+    },
+    "aviary.zoom": {
+      "value": "缩放"
+    },
+    "board.bucket.ended": {
+      "value": "已结束"
+    },
+    "board.bucket.idle": {
+      "value": "空闲"
+    },
+    "board.bucket.inReview": {
+      "value": "待审阅"
+    },
+    "board.bucket.needsYou": {
+      "value": "需要你"
+    },
+    "board.bucket.working": {
+      "value": "工作中"
+    },
+    "board.chip.showAll": {
+      "value": "重新显示全部会话"
+    },
+    "board.chip.showOnly": {
+      "value": "只显示「{bucket}」会话"
+    },
+    "board.empty.adapterPending": {
+      "value": "适配器待定"
+    },
+    "board.empty.allEnded": {
+      "value": "所有会话都已结束。"
+    },
+    "board.empty.demoHint": {
+      "value": "用虚构的会话查看看板"
+    },
+    "board.empty.demoNote": {
+      "value": "演示完全在内存中运行，不读取任何 harness 存储，也不向磁盘写入任何内容。"
+    },
+    "board.empty.fromPipeline": {
+      "value": "来自采集管线"
+    },
+    "board.empty.noAdapter": {
+      "value": "Auspex 读取各个 harness 自己的会话存储，重建每个 agent 正在做的事。目前还没有可用的适配器，所以没有任何存储在被跟踪 — 看板宁可留空也不猜测。"
+    },
+    "board.empty.noAgent": {
+      "value": "没有正在运行的 agent。"
+    },
+    "board.empty.sessionStore": {
+      "value": "会话存储"
+    },
+    "board.empty.tailing": {
+      "value": "Auspex 正在跟踪下列存储。在其中任意一个启动 agent，它的卡片会在一秒内出现在这里。"
+    },
+    "board.empty.tailingStatus": {
+      "value": "跟踪中"
+    },
+    "board.empty.watching": {
+      "value": "正在观察"
+    },
+    "board.ended.collapsedHelp": {
+      "value": "已完成的工作会折叠，让看板的开销只随正在运行的工作增长"
+    },
+    "board.ended.olderHelp": {
+      "value": "更早的会话保存在存储中，不在看板上。放宽范围即可显示。"
+    },
+    "board.ended.showAll": {
+      "value": "显示全部 {count} 个"
+    },
+    "board.ended.showRecent": {
+      "value": "只显示最近 {count} 个"
+    },
+    "board.ended.title": {
+      "value": "已结束"
+    },
+    "board.focus.allProjects": {
+      "value": "全部项目"
+    },
+    "board.focus.allProjectsHelp": {
+      "value": "重新在看板上显示全部项目 — 也可按 Esc 键"
+    },
+    "board.focus.escapeHelp": {
+      "value": "按 Esc 键重新显示全部项目"
+    },
+    "board.group.allSessions": {
+      "value": "全部会话"
+    },
+    "board.group.allTasks": {
+      "value": "全部任务"
+    },
+    "board.group.below": {
+      "value": "下有 {count} 个"
+    },
+    "board.group.by": {
+      "value": "按"
+    },
+    "board.group.help": {
+      "value": "将看板分成若干区，并选择每张卡片是否列出其中的会话"
+    },
+    "board.group.none": {
+      "value": "不分组"
+    },
+    "board.group.standalone": {
+      "value": "未委派"
+    },
+    "board.group.title": {
+      "value": "分组方式"
+    },
+    "board.group.tree": {
+      "value": "树状"
+    },
+    "board.group.unknownCheckout": {
+      "value": "未知检出"
+    },
+    "board.header.catchUp": {
+      "value": "回顾 {count}"
+    },
+    "board.header.catchUpHelp": {
+      "value": "查看重要变更、人工完成的工作和琥珀色观察信号"
+    },
+    "board.header.harnessesSubtitle": {
+      "value": "{count} 个 harness · Auspex 能在这台 Mac 上看到什么，以及如何看到"
+    },
+    "board.header.review": {
+      "value": "审阅 {count}"
+    },
+    "board.header.reviewHelp": {
+      "value": "审阅下一个 — 打开第一个等你裁决的任务"
+    },
+    "board.ignored.count": {
+      "value": "已忽略 {count} 个"
+    },
+    "board.ignored.hideHelp": {
+      "value": "再次隐藏已忽略的会话。{note}"
+    },
+    "board.ignored.showHelp": {
+      "value": "以淡色显示被规则隐藏的 {count} 个会话。{note}"
+    },
+    "board.markAllSeenHelp": {
+      "value": "全部标为已查看 — 清除所有正在提问或汇报的卡片。仍受阻的会话会再次提示。"
+    },
+    "board.search": {
+      "value": "搜索会话"
+    },
+    "board.searchHelp": {
+      "value": "搜索全部对话记录"
+    },
+    "board.section.live": {
+      "value": "{count} 个活跃"
+    },
+    "board.showSubagents": {
+      "value": "显示子 agent"
+    },
+    "board.window.days": {
+      "value": "{count, plural, other {# 天}}"
+    },
+    "board.window.daysShort": {
+      "value": "{count} 天"
+    },
+    "board.window.help": {
+      "value": "看板和地图回溯的时间范围。更早的会话仍保存在存储中。"
+    },
+    "board.window.hiddenHelp": {
+      "value": "{hint}。放宽范围即可看到。"
+    },
+    "board.window.hours": {
+      "value": "{count, plural, other {# 小时}}"
+    },
+    "board.window.hoursShort": {
+      "value": "{count} 小时"
+    },
+    "board.window.menuNote": {
+      "value": "所有内容都保留在存储中 — 这里只决定显示多少。"
+    },
+    "board.window.menuTitle": {
+      "value": "显示最近活跃的会话"
+    },
+    "board.window.olderHidden": {
+      "value": "已隐藏 {count} 个早于 {window}的会话"
+    },
+    "catchUp.caughtUp": {
+      "value": "已全部回顾"
+    },
+    "catchUp.caughtUpDetail": {
+      "value": "没有待查看的重要变化或观察信号。"
+    },
+    "catchUp.change.changed": {
+      "value": "有变化"
+    },
+    "catchUp.change.completed": {
+      "value": "已完成"
+    },
+    "catchUp.change.started": {
+      "value": "已开始"
+    },
+    "catchUp.confidence.high": {
+      "value": "高"
+    },
+    "catchUp.confidence.medium": {
+      "value": "中"
+    },
+    "catchUp.line.goal": {
+      "value": "目标"
+    },
+    "catchUp.line.latest": {
+      "value": "最近"
+    },
+    "catchUp.line.next": {
+      "value": "下一步"
+    },
+    "catchUp.line.now": {
+      "value": "当前"
+    },
+    "catchUp.line.risk": {
+      "value": "风险"
+    },
+    "catchUp.markCaughtUp": {
+      "value": "标为已回顾"
+    },
+    "catchUp.otherChanges": {
+      "value": "其他变化"
+    },
+    "catchUp.phase.blocked": {
+      "value": "受阻"
+    },
+    "catchUp.phase.done": {
+      "value": "已完成"
+    },
+    "catchUp.phase.notStarted": {
+      "value": "未开始"
+    },
+    "catchUp.phase.review": {
+      "value": "审阅中"
+    },
+    "catchUp.reason.orphanedClaim": {
+      "value": "孤立认领"
+    },
+    "catchUp.reason.review": {
+      "value": "审阅"
+    },
+    "catchUp.reason.takeover": {
+      "value": "接管待批准"
+    },
+    "catchUp.sessions": {
+      "value": "{count} 个会话"
+    },
+    "catchUp.signal.confidence": {
+      "value": "置信度：{confidence} · 不是请求关注"
+    },
+    "catchUp.signal.contextPressure": {
+      "value": "上下文吃紧"
+    },
+    "catchUp.signal.longTool": {
+      "value": "长时间运行的工具"
+    },
+    "catchUp.signal.sharedBranch": {
+      "value": "共用分支"
+    },
+    "catchUp.signal.sharedDirectory": {
+      "value": "共用工作目录"
+    },
+    "catchUp.signal.staleSession": {
+      "value": "停滞的会话"
+    },
+    "catchUp.since": {
+      "value": "{time}以来的变化"
+    },
+    "catchUp.source.derived": {
+      "value": "推断"
+    },
+    "catchUp.source.observed": {
+      "value": "观察所得"
+    },
+    "catchUp.source.reported": {
+      "value": "自行报告"
+    },
+    "catchUp.source.task": {
+      "value": "任务"
+    },
+    "catchUp.title": {
+      "value": "回顾"
+    },
+    "catchUp.watchSignals": {
+      "value": "观察信号"
+    },
+    "catchUp.watchSignalsNote": {
+      "value": "值得留意的已观察或推断出的风险。它们不是 agent 发出的请求，本身也不会触发通知。"
+    },
+    "catchUp.yourQueue": {
+      "value": "你的队列"
+    },
+    "characters.accentNote": {
+      "value": "按每个 harness 自己的强调色组合 — 上面的形象只代表形状，不代表颜色。"
+    },
+    "characters.allPoses": {
+      "value": "8 个姿势都已绘制。"
+    },
+    "characters.allPosesAlways": {
+      "value": "8 个姿势全部具备。"
+    },
+    "characters.automatic": {
+      "value": "自动 · {name}"
+    },
+    "characters.automaticRecommended": {
+      "value": "自动（推荐）"
+    },
+    "characters.builtIn": {
+      "value": "Auspex 内置"
+    },
+    "characters.builtInCode": {
+      "value": "内置 · 代码绘制"
+    },
+    "characters.chosen": {
+      "value": "已选择"
+    },
+    "characters.defaultDetail": {
+      "value": "「自动」会使用指定了该 harness 的角色包，没有时使用内置形象。"
+    },
+    "characters.defaultPerHarness": {
+      "value": "各 harness 的默认角色"
+    },
+    "characters.drawnInCode": {
+      "value": "{name} · 代码绘制"
+    },
+    "characters.folderNote": {
+      "value": "Auspex 只会读取这个文件夹。这里的角色包会替换同 id 的内置角色包。"
+    },
+    "characters.headline.mine": {
+      "value": "{count, plural, other {# 个角色包，其中 {mine} 个是你自己的。}}"
+    },
+    "characters.headline.none": {
+      "value": "只有内置形象，还没有角色包。"
+    },
+    "characters.headline.shipped": {
+      "value": "{count, plural, other {# 个角色包，都随 Auspex 附带。}}"
+    },
+    "characters.idle": {
+      "value": "空闲"
+    },
+    "characters.installed": {
+      "value": "已安装"
+    },
+    "characters.intro": {
+      "value": "办公室里的每个 agent 要么来自一个角色包——一个包含 character.json、每个姿势一条帧带的文件夹——要么来自 Auspex 自带的形象，后者在代码中按 harness 的强调色组合而成。把角色包放进 characters 文件夹，它就会出现在这里，无需重新启动。内置形象始终可用、从不缺姿势，也能像角色包一样为某个 harness 选用。"
+    },
+    "characters.kind.person": {
+      "value": "人物"
+    },
+    "characters.kind.pet": {
+      "value": "宠物"
+    },
+    "characters.noArt": {
+      "value": "无图"
+    },
+    "characters.noPackages": {
+      "value": "还没有角色包。"
+    },
+    "characters.noPackagesDetail": {
+      "value": "角色包是一个包含 character.json 和每个姿势一条帧带的文件夹。没有绘制的姿势会退回使用上面的形象。"
+    },
+    "characters.noPoses": {
+      "value": "还没有绘制任何姿势。"
+    },
+    "characters.notInstalled": {
+      "value": "{id} 未安装 · 正在使用 {name}"
+    },
+    "characters.openFolder": {
+      "value": "打开 characters 文件夹"
+    },
+    "characters.previewLabel": {
+      "value": "{name}，{pose}"
+    },
+    "characters.reload": {
+      "value": "重新载入"
+    },
+    "characters.saveError": {
+      "value": "选择已生效，但未能保存：{error}"
+    },
+    "characters.somePoses": {
+      "value": "已绘制 8 个姿势中的 {drawn} 个。以下使用内置：{missing}。"
+    },
+    "characters.source.builtIn": {
+      "value": "内置"
+    },
+    "characters.source.user": {
+      "value": "用户"
+    },
+    "characters.whereTheyLive": {
+      "value": "存放位置"
+    },
+    "colour.amber": {
+      "value": "琥珀色"
+    },
+    "colour.blue": {
+      "value": "蓝色"
+    },
+    "colour.coral": {
+      "value": "珊瑚色"
+    },
+    "colour.green": {
+      "value": "绿色"
+    },
+    "colour.lime": {
+      "value": "青柠色"
+    },
+    "colour.magenta": {
+      "value": "品红色"
+    },
+    "colour.none": {
+      "value": "无颜色"
+    },
+    "colour.sky": {
+      "value": "天蓝色"
+    },
+    "colour.teal": {
+      "value": "青色"
+    },
+    "colour.violet": {
+      "value": "紫罗兰色"
+    },
+    "common.add": {
+      "value": "添加"
+    },
+    "common.all": {
+      "value": "全部"
+    },
     "common.cancel": {
       "value": "取消"
+    },
+    "common.clear": {
+      "value": "清除"
+    },
+    "common.close": {
+      "value": "关闭"
+    },
+    "common.context": {
+      "value": "上下文"
+    },
+    "common.copy": {
+      "value": "复制"
+    },
+    "common.create": {
+      "value": "创建"
+    },
+    "common.delete": {
+      "value": "删除"
+    },
+    "common.done": {
+      "value": "完成"
+    },
+    "common.harness": {
+      "value": "Harness"
+    },
+    "common.open": {
+      "value": "打开"
+    },
+    "common.project": {
+      "value": "项目"
+    },
+    "common.remove": {
+      "value": "移除"
+    },
+    "common.scratch": {
+      "value": "临时目录"
+    },
+    "common.status": {
+      "value": "状态"
+    },
+    "context.chip": {
+      "value": "上下文"
+    },
+    "context.estimate.derived": {
+      "value": "估算值，来自 Auspex 已索引的 {count} 条消息 — Claude Code 自带的 /context 才是精确值。"
+    },
+    "context.estimate.join": {
+      "value": "{first}{second}"
+    },
+    "context.estimate.overEstimated": {
+      "value": "按每 token 四个字符估算在此偏多，各部分已按比例缩放。"
+    },
+    "context.estimate.recorded": {
+      "value": "估算值，来自 Auspex 已索引的 {count} 条消息。该 harness 记录了用量，但没有分项。"
+    },
+    "context.estimate.sinceCompaction": {
+      "value": "从上一次压缩开始计算。"
+    },
+    "context.estimate.truncated": {
+      "value": "更早的消息未被读取，因此已测量的部分只是下限。"
+    },
+    "context.estimate.unattributed": {
+      "value": "此会话只有少量文本被索引，因此窗口的大部分归入「其他全部」，而没有被归类。"
+    },
+    "context.fill.derived": {
+      "value": "用量读自对话记录。窗口大小按模型查得 — 该 harness 不记录它。"
+    },
+    "context.fill.recorded": {
+      "value": "用量和窗口大小均由 harness 记录。"
+    },
+    "context.fill.unknownSuffix": {
+      "value": "{reason}下方的用量为对话记录中的数值。"
+    },
+    "context.help.cached": {
+      "value": "其中 {tokens} 来自缓存"
+    },
+    "context.help.compacted": {
+      "value": "{count, plural, other {已压缩 # 次。}}"
+    },
+    "context.help.derived": {
+      "value": "用量读自对话记录；窗口大小按模型查得。"
+    },
+    "context.help.notOnRecord": {
+      "value": "该模型的窗口大小没有记录；用量为推算值。"
+    },
+    "context.help.overflow": {
+      "value": "该 harness 报告的用量超过了它同时报告的窗口大小。"
+    },
+    "context.help.recorded": {
+      "value": "用量和窗口大小均由 harness 记录。"
+    },
+    "context.ledger.cached": {
+      "value": "缓存"
+    },
+    "context.ledger.compactions": {
+      "value": "压缩次数"
+    },
+    "context.ledger.notBelievable": {
+      "value": "{value} · 不可信"
+    },
+    "context.ledger.notRecorded": {
+      "value": "未记录"
+    },
+    "context.ledger.notReported": {
+      "value": "未报告"
+    },
+    "context.ledger.output": {
+      "value": "输出（全部轮次）"
+    },
+    "context.ledger.used": {
+      "value": "已用"
+    },
+    "context.ledger.window": {
+      "value": "窗口"
+    },
+    "context.slice.everythingElse": {
+      "value": "其他全部"
+    },
+    "context.slice.free": {
+      "value": "空闲"
+    },
+    "context.slice.messages": {
+      "value": "消息"
+    },
+    "context.slice.toolResults": {
+      "value": "工具结果"
+    },
+    "context.unknownWindow": {
+      "value": "{used} · 窗口 ?"
+    },
+    "context.whatsInIt": {
+      "value": "其中包含什么"
+    },
+    "context.window": {
+      "value": "上下文窗口"
+    },
+    "copy.clickToCopy": {
+      "value": "点按复制{what} — {value}"
+    },
+    "copy.copied": {
+      "value": "已复制{what}"
+    },
+    "copy.copyWhat": {
+      "value": "复制{what}"
+    },
+    "copy.what.assignment": {
+      "value": "任务说明"
+    },
+    "copy.what.branch": {
+      "value": "分支名"
+    },
+    "copy.what.handoffPacket": {
+      "value": "交接包"
+    },
+    "copy.what.model": {
+      "value": "模型名"
+    },
+    "copy.what.pid": {
+      "value": "进程 ID"
+    },
+    "copy.what.resumeCommand": {
+      "value": "恢复命令"
+    },
+    "copy.what.sessionID": {
+      "value": "会话 ID"
+    },
+    "copy.what.taskHandle": {
+      "value": "任务编号"
+    },
+    "copy.what.title": {
+      "value": "标题"
+    },
+    "copy.what.workingDirectory": {
+      "value": "工作目录"
+    },
+    "copy.what.worktreeTask": {
+      "value": "worktree 任务"
+    },
+    "crew.asleep": {
+      "value": "{count} 个已休眠"
+    },
+    "crew.badge.finished": {
+      "value": "已完成"
+    },
+    "crew.badge.waitingForYou": {
+      "value": "在等你"
+    },
+    "crew.end.exited": {
+      "value": "已退出"
+    },
+    "crew.end.killed": {
+      "value": "被终止"
+    },
+    "crew.end.processGone": {
+      "value": "进程消失"
+    },
+    "crew.end.wentQuiet": {
+      "value": "没了动静"
+    },
+    "crew.finishedAccessibility": {
+      "value": "{harness}，已完成"
+    },
+    "crew.finishedHelp": {
+      "value": "{harness} — 已完成"
+    },
+    "crew.sessionsBelow": {
+      "value": "此会话下还有 {count} 个会话"
+    },
+    "crew.sessionsOnTask": {
+      "value": "此任务上有 {count} 个会话"
+    },
+    "delivery.aheadBehind": {
+      "value": "领先 {ahead} · 落后 {behind} · 仅本地引用"
+    },
+    "delivery.branch": {
+      "value": "分支"
+    },
+    "delivery.changed": {
+      "value": "已更改"
+    },
+    "delivery.changedFiles": {
+      "value": "{count, plural, other {# 个文件}}"
+    },
+    "delivery.changedFilesCapped": {
+      "value": "{count, plural, other {# 个以上文件（已截断显示）}}"
+    },
+    "delivery.checked": {
+      "value": "检查于 {time} · 未 fetch"
+    },
+    "delivery.checkout": {
+      "value": "检出目录"
+    },
+    "delivery.copyPacket": {
+      "value": "复制交接包"
+    },
+    "delivery.copyPacketHelp": {
+      "value": "复制交接包。不会发送任何内容。"
+    },
+    "delivery.decisions": {
+      "value": "决定"
+    },
+    "delivery.diffstat": {
+      "value": "差异统计"
+    },
+    "delivery.evidence": {
+      "value": "验证证据"
+    },
+    "delivery.handoff": {
+      "value": "交接"
+    },
+    "delivery.handoffNote": {
+      "value": "包含目标、阶段、当前状态、参与者、交付、记录和恢复提示。不会发送任何内容。"
+    },
+    "delivery.handoffTitle": {
+      "value": "复制一份有限长度的上下文包"
+    },
+    "delivery.lastCommit": {
+      "value": "最近提交"
+    },
+    "delivery.noCheckout": {
+      "value": "此任务的会话都没有记录本地检出目录。"
+    },
+    "delivery.noEvidence": {
+      "value": "尚未记录任何验证证据。"
+    },
+    "delivery.noRisks": {
+      "value": "尚未记录风险说明；这并不代表没有风险。"
+    },
+    "delivery.observation": {
+      "value": "观察说明"
+    },
+    "delivery.observedLocalGit": {
+      "value": "本地 Git 观察结果"
+    },
+    "delivery.reading": {
+      "value": "正在读取记录的检出目录…"
+    },
+    "delivery.refresh": {
+      "value": "刷新"
+    },
+    "delivery.refreshHelp": {
+      "value": "重新读取此检出目录。不会执行 fetch，也不会发出网络请求。"
+    },
+    "delivery.reviewRecord": {
+      "value": "审阅记录"
+    },
+    "delivery.risks": {
+      "value": "风险"
+    },
+    "delivery.title": {
+      "value": "交付"
+    },
+    "delivery.tree.clean": {
+      "value": "干净"
+    },
+    "delivery.tree.dirty": {
+      "value": "有改动"
+    },
+    "delivery.tree.unknown": {
+      "value": "未知"
+    },
+    "delivery.upstream": {
+      "value": "上游"
+    },
+    "delivery.waitForCheck": {
+      "value": "请等待本地交付检查完成"
+    },
+    "delivery.workingTree": {
+      "value": "工作区"
+    },
+    "flight.agents": {
+      "value": "Agent"
+    },
+    "flight.agentsAtMoment": {
+      "value": "此刻的 agent"
+    },
+    "flight.asked": {
+      "value": "任务要求"
+    },
+    "flight.atPlayhead": {
+      "value": "播放头处"
+    },
+    "flight.backHelp": {
+      "value": "返回看板（⌘T）"
+    },
+    "flight.beforeTurn1": {
+      "value": "第 1 轮之前"
+    },
+    "flight.board": {
+      "value": "看板"
+    },
+    "flight.buildingGraph": {
+      "value": "正在构建执行图…"
+    },
+    "flight.buildingGraphDetail": {
+      "value": "航迹正在整理此会话中观察到的 agent 和工具事件。"
+    },
+    "flight.cached": {
+      "value": "缓存"
+    },
+    "flight.callID": {
+      "value": "调用 ID"
+    },
+    "flight.camera.follow": {
+      "value": "跟随"
+    },
+    "flight.camera.manual": {
+      "value": "手动"
+    },
+    "flight.camera.overview": {
+      "value": "总览"
+    },
+    "flight.cameraHelp": {
+      "value": "「总览」适配整张图；「跟随」平滑移动到活动处；平移或缩放即进入「手动」"
+    },
+    "flight.closeInspector": {
+      "value": "关闭检查器（Esc）"
+    },
+    "flight.failed": {
+      "value": "失败"
+    },
+    "flight.filesTouched": {
+      "value": "涉及的文件"
+    },
+    "flight.filterHelp": {
+      "value": "只显示文本匹配的步骤"
+    },
+    "flight.filterSteps": {
+      "value": "筛选步骤"
+    },
+    "flight.firstEvents": {
+      "value": "仅前 {count} 个事件"
+    },
+    "flight.follow": {
+      "value": "跟随"
+    },
+    "flight.followAccessibility": {
+      "value": "跟随最新的步骤"
+    },
+    "flight.generation": {
+      "value": "生成时长"
+    },
+    "flight.in": {
+      "value": "输入"
+    },
+    "flight.inFlight": {
+      "value": "进行中"
+    },
+    "flight.inspector": {
+      "value": "检查器"
+    },
+    "flight.keyHint": {
+      "value": "o 总览 · f 跟随 · 平移/缩放 = 手动"
+    },
+    "flight.lane.input": {
+      "value": "输入"
+    },
+    "flight.lane.model": {
+      "value": "模型"
+    },
+    "flight.live": {
+      "value": "实时"
+    },
+    "flight.liveAhead": {
+      "value": "实时状态领先 {count} 个事件"
+    },
+    "flight.liveDetail": {
+      "value": "暂停或拖动事件标尺，即可查看某个历史时刻。"
+    },
+    "flight.moment": {
+      "value": "时刻"
+    },
+    "flight.noEnd": {
+      "value": "未记录结束"
+    },
+    "flight.noSource": {
+      "value": "Auspex 没有记录此事件的来源位置。"
+    },
+    "flight.noToolOpen": {
+      "value": "此事件发生时没有打开的工具调用。"
+    },
+    "flight.nodeA11y": {
+      "value": "{title}，{state}，{count} 次工具调用"
+    },
+    "flight.nothingInFlight": {
+      "value": "此刻没有进行中的调用。"
+    },
+    "flight.nothingInRange": {
+      "value": "此范围内没有内容。"
+    },
+    "flight.nothingRead": {
+      "value": "尚未读取任何内容。"
+    },
+    "flight.nothingSelected": {
+      "value": "未选择任何内容"
+    },
+    "flight.nothingSelectedDetail": {
+      "value": "点按一行或时间线上的一个条块，即可拆解这一步。"
+    },
+    "flight.ok": {
+      "value": "成功"
+    },
+    "flight.out": {
+      "value": "输出"
+    },
+    "flight.outTokens": {
+      "value": "输出 {tokens}"
+    },
+    "flight.outcome": {
+      "value": "结果"
+    },
+    "flight.outsideRequest": {
+      "value": "这一步发生在模型请求之外。"
+    },
+    "flight.pauseGraph": {
+      "value": "暂停图回放"
+    },
+    "flight.paused": {
+      "value": "已暂停"
+    },
+    "flight.playGraph": {
+      "value": "播放图的历史"
+    },
+    "flight.playhead": {
+      "value": "播放头"
+    },
+    "flight.playheadA11y": {
+      "value": "航迹事件播放头"
+    },
+    "flight.pre": {
+      "value": "前置"
+    },
+    "flight.presentation.graph": {
+      "value": "图"
+    },
+    "flight.presentation.trace": {
+      "value": "记录"
+    },
+    "flight.preview": {
+      "value": "预览"
+    },
+    "flight.previewOnly": {
+      "value": "该 harness 只记录了这一步的预览，日志中没有完整文本可显示。"
+    },
+    "flight.readingLog": {
+      "value": "正在读取事件日志…"
+    },
+    "flight.readingRecord": {
+      "value": "正在读取记录…"
+    },
+    "flight.rebuilding": {
+      "value": "正在重建此事件…"
+    },
+    "flight.record": {
+      "value": "记录"
+    },
+    "flight.request": {
+      "value": "请求"
+    },
+    "flight.requestTiming": {
+      "value": "请求耗时"
+    },
+    "flight.role.system": {
+      "value": "系统"
+    },
+    "flight.role.user": {
+      "value": "用户"
+    },
+    "flight.scale.calls": {
+      "value": "调用"
+    },
+    "flight.scale.duration": {
+      "value": "时长"
+    },
+    "flight.scale.events": {
+      "value": "事件"
+    },
+    "flight.scale.turns": {
+      "value": "轮次"
+    },
+    "flight.scaleHelp": {
+      "value": "时间线的宽度代表什么"
+    },
+    "flight.scope.session": {
+      "value": "会话"
+    },
+    "flight.scope.task": {
+      "value": "任务"
+    },
+    "flight.scopeHelp": {
+      "value": "单个会话的航迹，或整个任务的航迹 — 任务上的所有会话按发生顺序汇成一张瀑布图"
+    },
+    "flight.selectNodeHint": {
+      "value": "点按图中的节点即可在这里固定其详情。「跟随」会平滑移动到当前活动；平移或缩放即进入「手动」。"
+    },
+    "flight.selectSessionDetail": {
+      "value": "航迹就是把一个会话完全展开。选择一张卡片即可查看它的各轮。"
+    },
+    "flight.selectedAgent": {
+      "value": "所选 agent"
+    },
+    "flight.showWholeSession": {
+      "value": "显示整个会话"
+    },
+    "flight.showing": {
+      "value": "显示 {shown} / {total}"
+    },
+    "flight.source": {
+      "value": "来源"
+    },
+    "flight.startFollowing": {
+      "value": "有新步骤时滚动到最新的步骤"
+    },
+    "flight.started": {
+      "value": "开始时间"
+    },
+    "flight.step": {
+      "value": "第 {number} 步"
+    },
+    "flight.stopFollowing": {
+      "value": "停止滚动到最新的步骤"
+    },
+    "flight.tab.moment": {
+      "value": "时刻"
+    },
+    "flight.tab.raw": {
+      "value": "原始"
+    },
+    "flight.tab.step": {
+      "value": "步骤"
+    },
+    "flight.tab.summary": {
+      "value": "摘要"
+    },
+    "flight.throughput": {
+      "value": "吞吐量"
+    },
+    "flight.tokens": {
+      "value": "Token"
+    },
+    "flight.tokensPerSecond": {
+      "value": "{rate} tok/s"
+    },
+    "flight.totalDuration": {
+      "value": "总时长"
+    },
+    "flight.ttft": {
+      "value": "首 token 时间"
+    },
+    "flight.turn": {
+      "value": "轮次"
+    },
+    "flight.turnCount": {
+      "value": "第 {count} 轮"
+    },
+    "harnesses.config.alsoConfigured": {
+      "value": "另外还配置了：{names}"
+    },
+    "harnesses.config.canReach": {
+      "value": "这个 harness 可以访问 Auspex 任务板。"
+    },
+    "harnesses.config.cannotReach": {
+      "value": "这个 harness 无法访问 Auspex 任务板。请通过上方的「配置 agent…」注册。"
+    },
+    "harnesses.config.global": {
+      "value": "为所有会话配置"
+    },
+    "harnesses.config.noFile": {
+      "value": "没有配置文件"
+    },
+    "harnesses.config.notRegistered": {
+      "value": "{name} — 未注册"
+    },
+    "harnesses.config.scoped": {
+      "value": "仅为一个项目目录配置"
+    },
+    "harnesses.config.servers": {
+      "value": "{count, plural, =0 {没有服务} other {# 个服务}}"
+    },
+    "harnesses.config.unreadable": {
+      "value": "无法读取"
+    },
+    "harnesses.count.claimed": {
+      "value": "已认领"
+    },
+    "harnesses.count.finished": {
+      "value": "已完成"
+    },
+    "harnesses.count.idle": {
+      "value": "空闲"
+    },
+    "harnesses.count.live": {
+      "value": "活跃"
+    },
+    "harnesses.count.total": {
+      "value": "总计"
+    },
+    "harnesses.detected": {
+      "value": "已检测到"
+    },
+    "harnesses.empty.detail": {
+      "value": "一旦有适配器开始监视某个 harness 的存储，Auspex 就会在这里列出它。"
+    },
+    "harnesses.empty.title": {
+      "value": "没有可报告的 harness。"
+    },
+    "harnesses.footnote": {
+      "value": "这里只读：Auspex 跟踪每个存储自己的文件，从不擅自写入任何 harness 目录。唯一的例外是上方的配置 — 注册 MCP、安装简短说明或带版本的 skill，以及 hook，而且只在你点按时才会发生。配置改动都限定在围栏内；skill 只有一个带哈希、归 Auspex 所有的目录，被修改过的内容绝不会被覆盖或删除。"
+    },
+    "harnesses.hooksHelp": {
+      "value": "harness 的 hook 会在生命周期事件发生的瞬间推送，而不是等下一次轮询文件。它是可选功能，会在后续里程碑中提供；无论如何，跟踪文件始终是基础方式。"
+    },
+    "harnesses.hooksOff": {
+      "value": "hook 未开启"
+    },
+    "harnesses.mcp.notRunning": {
+      "value": "未在此进程中运行。"
+    },
+    "harnesses.mcp.setUpAgents": {
+      "value": "配置 agent…"
+    },
+    "harnesses.mcp.setUpAgentsHelp": {
+      "value": "在每个 harness 中注册 Auspex，安装简短的协议说明，并添加可选的协作 skill"
+    },
+    "harnesses.mcp.title": {
+      "value": "MCP 服务"
+    },
+    "harnesses.mcp.unattributedClient": {
+      "value": "未识别的客户端"
+    },
+    "harnesses.median": {
+      "value": "中位数"
+    },
+    "harnesses.medianHelp": {
+      "value": "该 harness 已关闭任务从认领到完成的中位用时"
+    },
+    "harnesses.noAdapter": {
+      "value": "没有适配器在监视这个 harness 的存储。"
+    },
+    "harnesses.notInstalled": {
+      "value": "未安装"
+    },
+    "harnesses.store.chatgptShared": {
+      "value": "与他人共用 ~/.codex/sessions；来源为 ChatGPT Work"
+    },
+    "harnesses.store.codexShared": {
+      "value": "与他人共用 ~/.codex/sessions；除 ChatGPT Work 之外的所有来源"
+    },
+    "ignore.explain.folder": {
+      "value": "隐藏在该文件夹及其子目录中工作的所有会话。"
+    },
+    "ignore.explain.harness": {
+      "value": "隐藏某个 harness 的所有会话。"
+    },
+    "ignore.explain.project": {
+      "value": "隐藏整个项目，不论其会话是如何归类的。"
+    },
+    "ignore.explain.promptPrefix": {
+      "value": "隐藏首条提示词以此开头的会话。"
+    },
+    "ignore.explain.scratchFolder": {
+      "value": "让该文件夹中的会话留在看板上、归入其 harness 的临时区，而不是把这个文件夹当成项目。"
+    },
+    "ignore.explain.titleContains": {
+      "value": "隐藏标题包含此内容的会话（不区分大小写）。"
+    },
+    "ignore.eyebrow": {
+      "value": "忽略"
+    },
+    "ignore.matchOn": {
+      "value": "匹配方式"
+    },
+    "ignore.menu.folder": {
+      "value": "忽略此文件夹…"
+    },
+    "ignore.menu.harness": {
+      "value": "忽略所有 {harness} 会话…"
+    },
+    "ignore.menu.project": {
+      "value": "忽略项目…"
+    },
+    "ignore.menu.prompt": {
+      "value": "忽略以此开头的提示词…"
+    },
+    "ignore.placeholder.harness": {
+      "value": "harness 名称"
+    },
+    "ignore.placeholder.project": {
+      "value": "项目名称"
+    },
+    "ignore.stillRecorded": {
+      "value": "被忽略的会话仍会被记录、仍可搜索 — 只是不在看板、场景和计数中显示。"
+    },
+    "ignore.tag.folder": {
+      "value": "文件夹"
+    },
+    "ignore.tag.promptPrefix": {
+      "value": "提示词开头为"
+    },
+    "ignore.tag.scratchFolder": {
+      "value": "临时文件夹"
+    },
+    "ignore.tag.titleContains": {
+      "value": "标题包含"
+    },
+    "ignore.title": {
+      "value": "在看板上隐藏这些会话"
+    },
+    "ledger.asked": {
+      "value": "要求"
+    },
+    "ledger.doing": {
+      "value": "正在做"
+    },
+    "ledger.said": {
+      "value": "回复"
+    },
+    "loginItem.disabledExternally": {
+      "value": "macOS 已关闭登录时启动，Auspex 也保持关闭。"
+    },
+    "loginItem.enabled": {
+      "value": "登录时 Auspex 会在后台安静启动。"
+    },
+    "loginItem.keptAfterUpdate": {
+      "value": "Auspex 已更新，macOS 仍保持登录时启动。"
+    },
+    "loginItem.notFound": {
+      "value": "此副本无法使用。请把打包好的 Auspex.app 移到「应用程序」中并打开一次。"
+    },
+    "loginItem.notRegistered": {
+      "value": "macOS 中已关闭。除非你点按此开关，Auspex 不会重新开启它。"
+    },
+    "loginItem.requiresApproval": {
+      "value": "正在等待在「系统设置 → 通用 → 登录项」中批准。"
+    },
+    "loginItem.unknown": {
+      "value": "macOS 返回了未知的登录项状态。"
+    },
+    "mcp.status.agentsAttached": {
+      "value": "{count, plural, other {已连接 # 个 agent}}"
+    },
+    "mcp.status.conflict": {
+      "value": "另一个 Auspex 副本正在提供 MCP 套接字服务。"
+    },
+    "mcp.status.demo": {
+      "value": "这是演示回放，因此未绑定 MCP 套接字。"
+    },
+    "mcp.status.serving": {
+      "value": "正在服务 {socket} · {clients}"
+    },
+    "mcp.status.stopped": {
+      "value": "未在服务。"
+    },
+    "mcp.status.theSocket": {
+      "value": "MCP 套接字"
+    },
+    "menuBar.andMore": {
+      "value": "还有 {count} 个"
+    },
+    "menuBar.demoStarting": {
+      "value": "演示启动中…"
+    },
+    "menuBar.done": {
+      "value": "{count} 个已完成"
+    },
+    "menuBar.idle": {
+      "value": "{count} 个空闲"
+    },
+    "menuBar.live": {
+      "value": "活跃"
+    },
+    "menuBar.needsYou": {
+      "value": "{count} 个需要你"
+    },
+    "menuBar.noLiveSessions": {
+      "value": "没有活跃会话"
+    },
+    "menuBar.nothingRunning": {
+      "value": "没有正在运行的会话"
+    },
+    "menuBar.openAuspex": {
+      "value": "打开 Auspex"
+    },
+    "menuBar.quit": {
+      "value": "退出"
+    },
+    "menuBar.settings": {
+      "value": "设置…"
+    },
+    "menuBar.working": {
+      "value": "{count} 个工作中"
+    },
+    "meta.elapsed": {
+      "value": "已用时"
+    },
+    "meta.failed": {
+      "value": "失败"
+    },
+    "meta.live": {
+      "value": "活跃"
+    },
+    "meta.requests": {
+      "value": "请求"
+    },
+    "meta.session": {
+      "value": "会话"
+    },
+    "meta.steps": {
+      "value": "步骤"
+    },
+    "meta.tokens": {
+      "value": "token"
+    },
+    "meta.tools": {
+      "value": "工具"
+    },
+    "meta.turns": {
+      "value": "轮次"
+    },
+    "notice.agentSays": {
+      "value": "agent 表示：{kind}"
+    },
+    "notice.blocked": {
+      "value": "受阻"
+    },
+    "notice.dismissHelp": {
+      "value": "忽略 — agent 不再询问，卡片会安静下来"
+    },
+    "notice.done": {
+      "value": "已完成"
+    },
+    "notice.needsInput": {
+      "value": "需要输入"
+    },
+    "notice.needsReview": {
+      "value": "需要审阅"
+    },
+    "notification.blocked": {
+      "value": "{harness} 受阻了"
+    },
+    "notification.finished": {
+      "value": "{harness} 已完成"
+    },
+    "notification.show": {
+      "value": "显示"
+    },
+    "notification.waitingOnYou": {
+      "value": "{harness} 正在等你"
+    },
+    "notification.wantsReview": {
+      "value": "{harness} 请你审阅"
+    },
+    "now.allClear": {
+      "value": "没有正在运行的会话，也没有在等你处理的事。"
+    },
+    "now.blockedTask": {
+      "value": "任务已标记为受阻"
+    },
+    "now.column.doing": {
+      "value": "正在做"
+    },
+    "now.column.turn": {
+      "value": "轮次 / 子 agent"
+    },
+    "now.context.unrecorded": {
+      "value": "该 harness 不记录上下文窗口。"
+    },
+    "now.doneUnseen": {
+      "value": "已完成未查看"
+    },
+    "now.fewer": {
+      "value": "收起"
+    },
+    "now.idle": {
+      "value": "空闲"
+    },
+    "now.idleFold.hide": {
+      "value": "空闲 {count} · 收起"
+    },
+    "now.idleFold.show": {
+      "value": "空闲 {count} · 展开 →"
+    },
+    "now.idleFor": {
+      "value": "空闲 {duration}"
+    },
+    "now.markSeen": {
+      "value": "标为已查看"
+    },
+    "now.mayNeedYou": {
+      "value": "可能需要你"
+    },
+    "now.more": {
+      "value": "另外 {count} 个 →"
+    },
+    "now.needsYou": {
+      "value": "需要你"
+    },
+    "now.note.mayNeedYou": {
+      "value": "推断所得 — 观察信号"
+    },
+    "now.note.needsYou": {
+      "value": "仅限明确信号"
+    },
+    "now.note.working": {
+      "value": "每个根会话一行，子 agent 已折叠"
+    },
+    "now.openArrow": {
+      "value": "打开 →"
+    },
+    "now.search": {
+      "value": "搜索会话…"
+    },
+    "now.stage.collapse": {
+      "value": "收起办公室"
+    },
+    "now.stage.hint": {
+      "value": "点按人物即可打开会话 · 悬停可查看其正在做什么"
+    },
+    "now.stage.listsOnly": {
+      "value": "仅列表"
+    },
+    "now.stage.officeAndLists": {
+      "value": "办公室 + 列表"
+    },
+    "now.status": {
+      "value": "{time} · {live} 个活跃 · {working} 个工作中"
+    },
+    "now.taskArrow": {
+      "value": "任务 →"
+    },
+    "now.viewMenu.accessibility": {
+      "value": "视图：{mode}"
+    },
+    "now.viewMenu.help": {
+      "value": "视图：此刻、卡片账本、鸟舍、鸟群、你的栖枝，或单个会话的航迹"
+    },
+    "now.viewMenu.title": {
+      "value": "视图"
+    },
+    "now.waitingAnswer": {
+      "value": "等待答复"
+    },
+    "now.waitingPermission": {
+      "value": "等待授权"
+    },
+    "now.watch.aTool": {
+      "value": "某个工具"
+    },
+    "now.watch.contextPressure": {
+      "value": "上下文已用超过 {percent}%"
+    },
+    "now.watch.longTool": {
+      "value": "{tool} 已运行超过 {minutes} 分钟"
+    },
+    "now.watch.orphanedClaim": {
+      "value": "认领它的会话已结束"
+    },
+    "now.watch.sharedBranch": {
+      "value": "与其他会话共用分支"
+    },
+    "now.watch.sharedDirectory": {
+      "value": "与其他会话共用工作目录"
+    },
+    "now.watch.staleSession": {
+      "value": "仍在运行，但没有新动静"
+    },
+    "now.working": {
+      "value": "工作中"
+    },
+    "palette.closeTask": {
+      "value": "关闭「{title}」"
+    },
+    "palette.closeTaskSubtitle": {
+      "value": "{id} · 已完成，等你处理"
+    },
+    "palette.hideSubagents": {
+      "value": "隐藏子 agent"
+    },
+    "palette.kind.close": {
+      "value": "关闭"
+    },
+    "palette.kind.filter": {
+      "value": "筛选"
+    },
+    "palette.kind.project": {
+      "value": "项目"
+    },
+    "palette.kind.session": {
+      "value": "会话"
+    },
+    "palette.kind.task": {
+      "value": "任务"
+    },
+    "palette.kind.view": {
+      "value": "视图"
+    },
+    "palette.nothingMatched": {
+      "value": "没有匹配项。"
+    },
+    "palette.placeholder": {
+      "value": "前往任务、项目、会话 — 或执行操作"
+    },
+    "palette.readyOnly": {
+      "value": "只显示可开始的任务"
+    },
+    "palette.readyOnlySubtitle": {
+      "value": "依赖已全部关闭的任务"
+    },
+    "palette.subagentsSubtitle": {
+      "value": "列出每个任务中的会话"
+    },
+    "palette.switchTo": {
+      "value": "切换到{view}"
+    },
+    "perch.ahead": {
+      "value": "之后还有 {count} 个"
+    },
+    "perch.allBoards": {
+      "value": "全部画板"
+    },
+    "perch.attention.review": {
+      "value": "审阅"
+    },
+    "perch.boardName": {
+      "value": "画板名称"
+    },
+    "perch.boardRules": {
+      "value": "画板规则"
+    },
+    "perch.card.auto": {
+      "value": "自动"
+    },
+    "perch.card.collapse": {
+      "value": "↳ 收起"
+    },
+    "perch.card.collapseSubagents": {
+      "value": "收起子 agent"
+    },
+    "perch.card.expandSubagents": {
+      "value": "展开子 agent"
+    },
+    "perch.card.needsYou": {
+      "value": "需要你"
+    },
+    "perch.card.subagents": {
+      "value": "{count} 个子 agent"
+    },
+    "perch.card.tools": {
+      "value": "工具 {count}"
+    },
+    "perch.card.turns": {
+      "value": "轮次 {count}"
+    },
+    "perch.cards": {
+      "value": "{count} 张卡片"
+    },
+    "perch.deleteBoard": {
+      "value": "删除画板"
+    },
+    "perch.deleteConfirm": {
+      "value": "删除这块画板？"
+    },
+    "perch.dependencyHandle": {
+      "value": "依赖手柄"
+    },
+    "perch.dependencyHandleHelp": {
+      "value": "拖到另一个任务上以添加依赖"
+    },
+    "perch.depends": {
+      "value": "依赖"
+    },
+    "perch.dependsOn": {
+      "value": "依赖于"
+    },
+    "perch.empty": {
+      "value": "这块画板是空的"
+    },
+    "perch.emptyProtected": {
+      "value": "Auspex 能看到的每项工作都会出现一张卡片。"
+    },
+    "perch.emptyUser": {
+      "value": "在这里固定一个任务，或添加一条能匹配任务的规则。"
+    },
+    "perch.eventPosition": {
+      "value": "事件 {index} / {count}"
+    },
+    "perch.fitAll": {
+      "value": "全部显示"
+    },
+    "perch.following": {
+      "value": "跟随中"
+    },
+    "perch.fork": {
+      "value": "从此处派生画板"
+    },
+    "perch.forkName": {
+      "value": "{name} · 事件 {index}"
+    },
+    "perch.frameLabel": {
+      "value": "{title} · {count} 个活跃"
+    },
+    "perch.history": {
+      "value": "历史"
+    },
+    "perch.history.board": {
+      "value": "画板"
+    },
+    "perch.history.building": {
+      "value": "正在构建这个栖枝时刻…"
+    },
+    "perch.history.buildingDetail": {
+      "value": "播放头所在时刻的画板状态会显示在这里。历史只读。"
+    },
+    "perch.history.liveSessions": {
+      "value": "活跃会话"
+    },
+    "perch.history.momentBoard": {
+      "value": "时刻 · 画板"
+    },
+    "perch.history.note": {
+      "value": "成员、状态、任务和规则都是历史状态；卡片位置和视角保持当前状态。历史中无法恢复会话或编辑依赖。"
+    },
+    "perch.history.position": {
+      "value": "位置"
+    },
+    "perch.history.selected": {
+      "value": "所选 · 当前空间记忆"
+    },
+    "perch.history.since": {
+      "value": "事件 {index} / {count} · 比实时落后 {behind} 个事件"
+    },
+    "perch.history.sinceMoment": {
+      "value": "此刻之后"
+    },
+    "perch.history.toolsOpen": {
+      "value": "进行中的工具"
+    },
+    "perch.indexing": {
+      "value": "正在索引…"
+    },
+    "perch.jumpToLive": {
+      "value": "跳到实时"
+    },
+    "perch.live": {
+      "value": "实时"
+    },
+    "perch.liveOverview": {
+      "value": "实时活动概览"
+    },
+    "perch.merge": {
+      "value": "合并回上级"
+    },
+    "perch.merge.action": {
+      "value": "合并"
+    },
+    "perch.merge.automaticMemberships": {
+      "value": "自动成员"
+    },
+    "perch.merge.automaticPositions": {
+      "value": "自动位置"
+    },
+    "perch.merge.branch": {
+      "value": "分支"
+    },
+    "perch.merge.choose": {
+      "value": "请选择…"
+    },
+    "perch.merge.conflicts": {
+      "value": "冲突"
+    },
+    "perch.merge.failed": {
+      "value": "无法准备合并比较。"
+    },
+    "perch.merge.field.membership": {
+      "value": "成员"
+    },
+    "perch.merge.field.position": {
+      "value": "位置"
+    },
+    "perch.merge.field.rules": {
+      "value": "规则"
+    },
+    "perch.merge.keepParent": {
+      "value": "保留上级"
+    },
+    "perch.merge.noConflicts": {
+      "value": "没有冲突"
+    },
+    "perch.merge.noConflictsDetail": {
+      "value": "该分支可以直接合并，不会覆盖上级之后的修改。"
+    },
+    "perch.merge.parent": {
+      "value": "上级"
+    },
+    "perch.merge.resolution": {
+      "value": "解决方式"
+    },
+    "perch.merge.takeBranch": {
+      "value": "采用分支"
+    },
+    "perch.mergeComparing": {
+      "value": "正在比较派生基点、上级和分支…"
+    },
+    "perch.mergeNote": {
+      "value": "只合并位置、成员覆盖和规则树。任务、依赖、agent、画板名称和视角都不会变。"
+    },
+    "perch.mergeTitle": {
+      "value": "合并栖枝分支"
+    },
+    "perch.minimapHelp": {
+      "value": "整块画板。点按或拖移以移动视角。"
+    },
+    "perch.moveEarlier": {
+      "value": "前移"
+    },
+    "perch.moveLater": {
+      "value": "后移"
+    },
+    "perch.newBoard": {
+      "value": "新建画板…"
+    },
+    "perch.newBoardNote": {
+      "value": "这块画板从手动模式开始。创建后可在「画板规则」中添加嵌套规则。"
+    },
+    "perch.newBoardTitle": {
+      "value": "新建栖枝画板"
+    },
+    "perch.noActivity": {
+      "value": "没有观察到活动"
+    },
+    "perch.pausePlayback": {
+      "value": "暂停回放"
+    },
+    "perch.pauseRules": {
+      "value": "暂停规则"
+    },
+    "perch.pinSelected": {
+      "value": "固定所选"
+    },
+    "perch.placing": {
+      "value": "正在摆放画布…"
+    },
+    "perch.playHistory": {
+      "value": "播放历史"
+    },
+    "perch.playhead": {
+      "value": "栖枝历史播放头"
+    },
+    "perch.playheadValue": {
+      "value": "第 {index} 个事件，共 {count} 个"
+    },
+    "perch.promoteFirst": {
+      "value": "先提升为任务，再添加依赖"
+    },
+    "perch.readOnly": {
+      "value": "历史只读 · 跳到实时以编辑"
+    },
+    "perch.recentlyDeleted": {
+      "value": "最近删除"
+    },
+    "perch.restore": {
+      "value": "恢复「{name}」"
+    },
+    "perch.resumeRules": {
+      "value": "恢复规则"
+    },
+    "perch.rules.add": {
+      "value": "添加规则"
+    },
+    "perch.rules.all": {
+      "value": "全部 (AND)"
+    },
+    "perch.rules.any": {
+      "value": "任一 (OR)"
+    },
+    "perch.rules.apply": {
+      "value": "应用规则"
+    },
+    "perch.rules.attention": {
+      "value": "关注状态"
+    },
+    "perch.rules.condition": {
+      "value": "条件"
+    },
+    "perch.rules.emptyAll": {
+      "value": "没有条件的「全部」会匹配所有内容。"
+    },
+    "perch.rules.emptyGroup": {
+      "value": "此分组不匹配任何内容。"
+    },
+    "perch.rules.field": {
+      "value": "字段"
+    },
+    "perch.rules.kind": {
+      "value": "规则类型"
+    },
+    "perch.rules.not": {
+      "value": "非 (NOT)"
+    },
+    "perch.rules.note": {
+      "value": "可嵌套的 AND / OR / NOT 条件，之后可逐个任务设置包含或排除。"
+    },
+    "perch.rules.projectKey": {
+      "value": "项目键"
+    },
+    "perch.rules.remove": {
+      "value": "移除规则"
+    },
+    "perch.rules.title": {
+      "value": "自动成员"
+    },
+    "perch.zoomIn": {
+      "value": "放大"
+    },
+    "perch.zoomOut": {
+      "value": "缩小"
+    },
+    "placeholder.arrivesIn": {
+      "value": "将在 {milestone} 中推出。"
+    },
+    "placeholder.harnesses": {
+      "value": "安装了哪些 harness、它们的存储在哪里，以及每个跟踪器读到了哪里。"
+    },
+    "placeholder.live": {
+      "value": "实时看板。"
+    },
+    "placeholder.projects": {
+      "value": "会话按 git 根目录和 worktree 归组，同一仓库三个 worktree 里的三个 agent 会显示为一个项目。"
+    },
+    "placeholder.tasks": {
+      "value": "通过 MCP 暴露的共享任务板，让 agent 能看到同伴们在做什么。"
+    },
+    "projects.aNewProject": {
+      "value": "新项目"
+    },
+    "projects.addFolder": {
+      "value": "添加文件夹…"
+    },
+    "projects.allDone": {
+      "value": "全部完成"
+    },
+    "projects.allTasksDone": {
+      "value": "此项目的所有任务都已完成"
+    },
+    "projects.automatic": {
+      "value": "自动"
+    },
+    "projects.automaticDetail": {
+      "value": "根据会话的运行位置推断，不做任何存储。"
+    },
+    "projects.automaticEmpty": {
+      "value": "看板上的每个项目都是你自己的。"
+    },
+    "projects.badge.finished": {
+      "value": "{count} 个已完成"
+    },
+    "projects.badge.needYou": {
+      "value": "{count} 个需要你"
+    },
+    "projects.chooseFolder": {
+      "value": "为此项目选择一个文件夹"
+    },
+    "projects.chooseFolderButton": {
+      "value": "选择文件夹…"
+    },
+    "projects.claim": {
+      "value": "认领"
+    },
+    "projects.claimsNothing": {
+      "value": "尚未认领任何文件夹，因此没有会话归入其中。"
+    },
+    "projects.colourHelp": {
+      "value": "项目在看板上的颜色"
+    },
+    "projects.deleteHelp": {
+      "value": "删除此项目。它的会话会回到 git 所归的位置。"
+    },
+    "projects.eyebrow": {
+      "value": "项目"
+    },
+    "projects.filterByPath": {
+      "value": "按路径筛选"
+    },
+    "projects.fold.finished": {
+      "value": "{count} 个已结束"
+    },
+    "projects.fold.finishedElsewhere": {
+      "value": "{count, plural, other {# 个已结束的会话在看板的「已结束」区}}"
+    },
+    "projects.fold.listEvery": {
+      "value": "在这里列出所有运行中的会话"
+    },
+    "projects.fold.listFirst": {
+      "value": "只列出前 {count} 个"
+    },
+    "projects.fold.more": {
+      "value": "另有 {count} 个"
+    },
+    "projects.fold.moreAndFinished": {
+      "value": "另有 {more} 个 · {finished} 个已结束"
+    },
+    "projects.fold.separator": {
+      "value": "{first}。{second}"
+    },
+    "projects.fold.showFewer": {
+      "value": "收起"
+    },
+    "projects.foldSessions": {
+      "value": "收起这些会话"
+    },
+    "projects.folders": {
+      "value": "文件夹"
+    },
+    "projects.harnessScratch": {
+      "value": "{harness} · 临时目录"
+    },
+    "projects.headline.autoOnly": {
+      "value": "看板上发现 {count} 个，还没有一个是你自己的。"
+    },
+    "projects.headline.mixed": {
+      "value": "你的 {mine} 个，看板上另外发现 {auto} 个。"
+    },
+    "projects.headline.none": {
+      "value": "还没有项目。"
+    },
+    "projects.hideCheckoutTasks": {
+      "value": "隐藏此检出的任务"
+    },
+    "projects.ignoredRow": {
+      "value": "{title} — {state} · 已被规则忽略"
+    },
+    "projects.import": {
+      "value": "从 harness 导入…"
+    },
+    "projects.importEyebrow": {
+      "value": "导入"
+    },
+    "projects.importNote": {
+      "value": "只从各个 harness 自己的登记处读取路径：Claude Code 的 projects 文件夹和 ~/.claude.json 中的项目键，Codex 的 config.toml 表及其线程目录。不会回写任何内容。"
+    },
+    "projects.importTitle": {
+      "value": "你的 harness 已经知道的项目"
+    },
+    "projects.importedFrom": {
+      "value": "导入自 {harnesses}。"
+    },
+    "projects.inProject": {
+      "value": "已在「{name}」中"
+    },
+    "projects.into": {
+      "value": "导入到"
+    },
+    "projects.intro": {
+      "value": "Auspex 会自动按 git 根目录归组会话，所以同一仓库的三个 worktree 本来就是一个项目。你自己的项目则改为认领文件夹：在被认领文件夹下工作的所有会话都会归入其中，不论 git 怎么说；两个认领重叠时，最深的那个生效。"
+    },
+    "projects.listSessions": {
+      "value": "列出此任务上的会话"
+    },
+    "projects.makeAProject": {
+      "value": "设为项目"
+    },
+    "projects.makeFolderProject": {
+      "value": "将此文件夹设为 Auspex 项目"
+    },
+    "projects.makeProject": {
+      "value": "设为 Auspex 项目"
+    },
+    "projects.name": {
+      "value": "名称"
+    },
+    "projects.new": {
+      "value": "新建项目…"
+    },
+    "projects.newSubtitle": {
+      "value": "一个项目，任意多个文件夹"
+    },
+    "projects.newTitle": {
+      "value": "新建项目"
+    },
+    "projects.noDirectory": {
+      "value": "没有工作目录"
+    },
+    "projects.onBoard": {
+      "value": "看板上 {count} 个"
+    },
+    "projects.pastePath": {
+      "value": "…或粘贴路径"
+    },
+    "projects.pinHelp": {
+      "value": "置顶"
+    },
+    "projects.pinToTop": {
+      "value": "置顶"
+    },
+    "projects.saveError": {
+      "value": "更改已生效，但未能保存：{error}"
+    },
+    "projects.scratchSubtitle": {
+      "value": "Auspex 判断出归属之前就登记的工作"
+    },
+    "projects.selected": {
+      "value": "已选择 {count} 个"
+    },
+    "projects.showAll": {
+      "value": "重新在看板上显示全部项目"
+    },
+    "projects.showCheckoutTasks": {
+      "value": "显示此检出的任务"
+    },
+    "projects.showOnly": {
+      "value": "只在看板上显示「{name}」"
+    },
+    "projects.sidebarEmpty": {
+      "value": "会话报告工作位置后，项目会出现在这里。"
+    },
+    "projects.tasksHelp": {
+      "value": "此项目 {total} 个任务中有 {open} 个未完成"
+    },
+    "projects.tasksOnBoard": {
+      "value": "任务板上{description} · 共登记 {total} 个"
+    },
+    "projects.tasksOpen": {
+      "value": "{count, plural, other {# 个任务未完成}}"
+    },
+    "projects.unclaimFolder": {
+      "value": "不再认领此文件夹"
+    },
+    "projects.ungroupedHelp": {
+      "value": "这些会话没有报告工作目录，它们的上级会话也没有。"
+    },
+    "projects.unpin": {
+      "value": "取消置顶"
+    },
+    "projects.unpinHelp": {
+      "value": "取消置顶"
+    },
+    "projects.yours": {
+      "value": "你的"
+    },
+    "projects.yoursDetail": {
+      "value": "认领文件夹，看板随之调整。"
+    },
+    "projects.yoursEmpty": {
+      "value": "还没有。可以从文件夹新建，或导入 Claude Code 和 Codex 已经知道的项目。"
+    },
+    "search.matches": {
+      "value": "{count, plural, other {# 个匹配}}"
+    },
+    "search.scope": {
+      "value": "全文 · 所有 harness"
+    },
+    "section.harnesses": {
+      "value": "Harness"
+    },
+    "section.projects": {
+      "value": "项目"
+    },
+    "section.sessions": {
+      "value": "会话"
+    },
+    "section.settings": {
+      "value": "设置"
+    },
+    "section.tasks": {
+      "value": "任务"
+    },
+    "session.autoReview": {
+      "value": "自动审阅"
+    },
+    "session.children": {
+      "value": "{count, plural, other {↳ # 个子会话}}"
+    },
+    "session.copyResumeCommand": {
+      "value": "复制恢复命令"
+    },
+    "session.copySessionID": {
+      "value": "复制会话 ID"
+    },
+    "session.copyWorkingDirectory": {
+      "value": "复制工作目录"
+    },
+    "session.didNotSignal": {
+      "value": "Auspex 未向此会话发送信号：{reason}"
+    },
+    "session.didNotSignalPid": {
+      "value": "Auspex 未向进程 {pid} 发送信号：{reason}"
+    },
+    "session.elapsed.elapsed": {
+      "value": "已用时"
+    },
+    "session.elapsed.quiet": {
+      "value": "静默"
+    },
+    "session.elapsed.ranFor": {
+      "value": "运行了"
+    },
+    "session.elapsed.waiting": {
+      "value": "等待中"
+    },
+    "session.interruptHelp.claude": {
+      "value": "向进程 {pid} 发送 SIGINT。Claude Code 会把它当作正常退出 — 保存会话后退出，而不只是停止当前轮次。"
+    },
+    "session.interruptHelp.other": {
+      "value": "向进程 {pid} 发送 SIGINT — 即终端在按下 ⌃C 时发送的信号。harness 如何处理由它自己决定。"
+    },
+    "session.kill.confirm": {
+      "value": "终止"
+    },
+    "session.kill.forceMessage": {
+      "value": "发送 SIGTERM {seconds} 秒后，{process}（进程 {pid}）仍在运行。SIGKILL 无法被拦截，因此它将来不及写完任何内容。"
+    },
+    "session.kill.forcePrompt": {
+      "value": "强制停止「{title}」？"
+    },
+    "session.kill.message": {
+      "value": "Auspex 将向 {process}（进程 {pid}）发送 SIGTERM。agent 正在进行中的工作不会完成。"
+    },
+    "session.kill.messageResumable": {
+      "value": "Auspex 将向 {process}（进程 {pid}）发送 SIGTERM。对话记录已在磁盘上，之后仍可恢复该会话；agent 正在进行中的工作不会完成。"
+    },
+    "session.kill.prompt": {
+      "value": "终止「{title}」？"
+    },
+    "session.kill.thisSession": {
+      "value": "此会话"
+    },
+    "session.killHelp": {
+      "value": "先确认，再向进程 {pid} 发送 SIGTERM"
+    },
+    "session.noDirectory": {
+      "value": "该会话的存储没有记录目录"
+    },
+    "session.notWatchingProcesses": {
+      "value": "Auspex 尚未开始监视进程。"
+    },
+    "session.openIn": {
+      "value": "在 {app} 中打开"
+    },
+    "session.openInTerminalHelp": {
+      "value": "在该目录打开一个窗口，不会在其中运行任何命令。"
+    },
+    "session.replied": {
+      "value": "已回复"
+    },
+    "session.resumeHelp": {
+      "value": "复制命令并打开 {app} 运行它"
+    },
+    "session.resumeIn": {
+      "value": "在 {app} 中恢复"
+    },
+    "session.revealDirectory": {
+      "value": "在访达中显示工作目录"
+    },
+    "session.revealTranscript": {
+      "value": "在访达中显示对话记录"
+    },
+    "session.signal.forceKill": {
+      "value": "强制终止"
+    },
+    "session.signal.interrupt": {
+      "value": "中断 (SIGINT)"
+    },
+    "session.signal.kill": {
+      "value": "终止…"
+    },
+    "session.spawnedByHelp": {
+      "value": "打开派生出此会话的会话"
+    },
+    "session.tokensHelp": {
+      "value": "输入 / 输出 token"
+    },
+    "session.unreadReply": {
+      "value": "已回复，但你还没看"
+    },
+    "settings.appearance.accent": {
+      "value": "强调色"
+    },
+    "settings.appearance.background": {
+      "value": "背景"
+    },
+    "settings.appearance.dark": {
+      "value": "深色"
+    },
+    "settings.appearance.darkDetail": {
+      "value": "始终使用深色，不论 Mac 如何设置。"
+    },
+    "settings.appearance.drawingIn": {
+      "value": "当前显示为"
+    },
+    "settings.appearance.foreground": {
+      "value": "前景"
+    },
+    "settings.appearance.intro": {
+      "value": "Auspex 使用的每种颜色在两种外观下各有取值，所以看板在哪种外观下都是同一块看板：同样的四级表面、同样的三级文字、每种状态一种颜色、每个 harness 一种颜色。变的只是亮度。"
+    },
+    "settings.appearance.light": {
+      "value": "浅色"
+    },
+    "settings.appearance.lightDetail": {
+      "value": "始终使用浅色，不论 Mac 如何设置。"
+    },
+    "settings.appearance.noRelaunch": {
+      "value": "无需重新启动。窗口、菜单栏面板、办公室和鸟群都会就地重绘。"
+    },
+    "settings.appearance.systemDetail": {
+      "value": "跟随 Mac 的外观设置，包括定时切换。"
+    },
+    "settings.appearance.translucentNote": {
+      "value": "在侧栏下使用系统的侧边栏材质，它会透出窗口后面的内容，窗口不在最前面时颜色会变淡。关闭后使用与看板完全一致的纯色底。"
+    },
+    "settings.appearance.translucentSidebar": {
+      "value": "半透明侧边栏"
+    },
+    "settings.appearance.windowAppearance": {
+      "value": "窗口外观"
+    },
+    "settings.crew.calm": {
+      "value": "平静"
+    },
+    "settings.crew.calmDetail": {
+      "value": "每个头像每 14 到 50 秒有一次小动作。适合放在旁边而不是盯着看的看板。"
+    },
+    "settings.crew.intro": {
+      "value": "每个头像都在一个与其会话状态对应的循环里——思考、工作、等你——并时不时跳出来：瞥一眼、耸耸肩、打个哈欠。这里设置的是这种情况发生的频率。它不会改变任何动作的速度，也不会关闭任何东西。"
+    },
+    "settings.crew.liveliness": {
+      "value": "活跃程度"
+    },
+    "settings.crew.lively": {
+      "value": "活泼"
+    },
+    "settings.crew.livelyDetail": {
+      "value": "每个头像每 5 到 18 秒有一次小动作。头像墙几乎从不静止。"
+    },
+    "settings.crew.normal": {
+      "value": "正常"
+    },
+    "settings.crew.normalDetail": {
+      "value": "每个头像每 8 到 30 秒有一次小动作。"
+    },
+    "settings.crew.waitingNote": {
+      "value": "正在等你的会话不受此设置影响，保持自己的节奏：这是唯一不会自行解决的状态，所以它会一直提醒。"
+    },
+    "settings.general.intro": {
+      "value": "看板只能捕捉 Auspex 运行期间发生的工作。macOS 可以在登录时启动它，菜单栏和观察管线随即就绪，而不会把看板弹到你正在做的事情前面。"
+    },
+    "settings.general.launchAtLogin": {
+      "value": "登录时启动"
+    },
+    "settings.general.loginError": {
+      "value": "macOS 未更改登录项：{error}"
+    },
+    "settings.general.note": {
+      "value": "这会通过 ServiceManagement 注册已签名的主程序。它不会安装辅助程序、添加 LaunchAgent、改动为空的权限声明，也不会给 Auspex 任何新的磁盘访问权限。"
+    },
+    "settings.general.openLoginItems": {
+      "value": "打开登录项"
+    },
+    "settings.ignore.addRule": {
+      "value": "添加规则"
+    },
+    "settings.ignore.chooseHarness": {
+      "value": "选择 harness"
+    },
+    "settings.ignore.deleteRule": {
+      "value": "删除此规则"
+    },
+    "settings.ignore.noRules": {
+      "value": "还没有规则。"
+    },
+    "settings.ignore.noRulesDetail": {
+      "value": "右键点按卡片或侧栏中的项目，即可隐藏它所在的文件夹。"
+    },
+    "settings.ignore.nothingHidden": {
+      "value": "没有隐藏任何内容。"
+    },
+    "settings.ignore.rules": {
+      "value": "{count, plural, other {# 条规则。}}"
+    },
+    "settings.ignore.rulesDetail": {
+      "value": "关闭某条规则即可看看没有它时看板的样子。"
+    },
+    "settings.ignore.rulesOn": {
+      "value": "{count, plural, other {# 条规则，其中 {active} 条已开启。}}"
+    },
+    "settings.ignore.rulesTitle": {
+      "value": "规则"
+    },
+    "settings.language.caption": {
+      "value": "Auspex 默认跟随 macOS 语言，也可以在此单独指定。Harness、公司和产品名称保持其原始拼写。更改立即生效。"
     },
     "settings.language.system": {
       "value": "跟随系统"
     },
     "settings.language.title": {
       "value": "语言"
+    },
+    "settings.pane.agents": {
+      "value": "Agent"
+    },
+    "settings.pane.agentsSubtitle": {
+      "value": "Auspex 在每个 harness 中写入了什么，以及如何撤销。"
+    },
+    "settings.pane.appearance": {
+      "value": "外观"
+    },
+    "settings.pane.appearanceSubtitle": {
+      "value": "浅色与深色，以及两者共用的一种强调色。"
+    },
+    "settings.pane.characters": {
+      "value": "角色"
+    },
+    "settings.pane.charactersSubtitle": {
+      "value": "每个 harness 穿哪个角色形象，以及角色包从哪里来。"
+    },
+    "settings.pane.crew": {
+      "value": "鸟群"
+    },
+    "settings.pane.crewSubtitle": {
+      "value": "头像墙多久动一次。"
+    },
+    "settings.pane.general": {
+      "value": "通用"
+    },
+    "settings.pane.generalSubtitle": {
+      "value": "登录时观察者是否已经在运行，以及界面使用的语言。"
+    },
+    "settings.pane.ignoreSubtitle": {
+      "value": "看板没有显示的一切，以及原因。"
+    },
+    "settings.pane.scene": {
+      "value": "场景"
+    },
+    "settings.pane.sceneSubtitle": {
+      "value": "地图有多大：办公室，以及人们会走去的地方。"
+    },
+    "settings.pane.updates": {
+      "value": "更新"
+    },
+    "settings.pane.updatesSubtitle": {
+      "value": "这个副本跟随哪个渠道，以及上次检查的时间。"
+    },
+    "settings.paneMenu": {
+      "value": "设置面板"
+    },
+    "settings.saveError": {
+      "value": "设置已生效，但未能保存：{error}"
+    },
+    "settings.scene.bothOff": {
+      "value": "两者都关闭时，所有人都留在工位上，地图就只是办公室本身。"
+    },
+    "settings.scene.breakAreas": {
+      "value": "休息区"
+    },
+    "settings.scene.breakAreasDetail": {
+      "value": "空闲的会话会休息，停滞的会打盹，你不在时完成的会拿着便条在门边等候，已经结束的则从门口走出去。"
+    },
+    "settings.scene.breakStyle": {
+      "value": "休息区样式"
+    },
+    "settings.scene.garden": {
+      "value": "花园"
+    },
+    "settings.scene.howFarBack": {
+      "value": "回溯范围"
+    },
+    "settings.scene.intro": {
+      "value": "同一项目的会话共用一个套间：工作中的会话坐在工位，正在委派的每组会话各有一间会议室，还有一个休息室，休息、睡着、已完成或等着被查看的会话都去那里——出口也在那里。"
+    },
+    "settings.scene.lounge": {
+      "value": "休息室"
+    },
+    "settings.scene.meetingRooms": {
+      "value": "会议室"
+    },
+    "settings.scene.meetingRoomsDetail": {
+      "value": "正在委派的会话会走到自己项目套间里的长桌旁，坐在主位，它派生的子 agent 坐在两侧。有三个及以上会话的项目无论有没有人都会有一间会议室。"
+    },
+    "settings.scene.perProject": {
+      "value": "按项目（随机）"
+    },
+    "settings.scene.perProjectNote": {
+      "value": "「按项目」会根据项目自身的路径从三种中选定一种并保持不变，这样不用看门牌也能认出是哪个套间。"
+    },
+    "settings.scene.teaRoom": {
+      "value": "茶水间"
+    },
+    "settings.scene.waitingNote": {
+      "value": "在等你的会话无论开启哪一项都不会离开工位。它是这里唯一可以打断你的东西，所以必须待在你本来就在看的地方。"
+    },
+    "settings.scene.windowNote": {
+      "value": "Auspex 保留一周的会话并绘制最近的那些。存活、工作中或在等你的会话不论多久都会被绘制——这个范围只决定背后有多少历史。不会删除任何内容：放宽范围，其余的就会回来。"
+    },
+    "settings.updates.automatic": {
+      "value": "自动检查更新"
+    },
+    "settings.updates.automaticNote": {
+      "value": "每天一次，在后台进行。未经同意不会下载或安装任何东西 — 人们会让这块看板连开好几天，一个在会话运行时替换掉自己的应用会把会话的窗口一起带走。"
+    },
+    "settings.updates.channel": {
+      "value": "更新渠道"
+    },
+    "settings.updates.channel.dev": {
+      "value": "开发版"
+    },
+    "settings.updates.channel.devDetail": {
+      "value": "两次发布之间的预览构建，以及所有稳定版。它们从 tag 构建，但还没有经过日常使用的检验。"
+    },
+    "settings.updates.channel.stable": {
+      "value": "稳定版"
+    },
+    "settings.updates.channel.stableDetail": {
+      "value": "仅正式发布的版本。推荐使用这个。"
+    },
+    "settings.updates.checkNow": {
+      "value": "立即检查"
+    },
+    "settings.updates.demo": {
+      "value": "这是演示启动。它不读取也不写入任何内容（包括 Sparkle 自己的检查时间戳），因此更新程序没有运行。"
+    },
+    "settings.updates.eyebrow": {
+      "value": "更新"
+    },
+    "settings.updates.feed": {
+      "value": "更新源：{url}"
+    },
+    "settings.updates.footnote": {
+      "value": "渠道保存在 ~/.auspex/settings.json 中。是否定期检查是 Sparkle 自己的设置，保存在应用的 defaults 里，因为在这里再存一份就会对同一个问题给出第二个答案。"
+    },
+    "settings.updates.intro": {
+      "value": "Auspex 只读取一个更新源，未经询问不会安装任何东西。其中的每个构建都用项目的 EdDSA 密钥签名，并在解包第一个字节之前用编译进本副本的密钥校验，因此传输中被篡改的更新会被拒绝，而不会被运行。"
+    },
+    "settings.updates.lastChecked": {
+      "value": "上次检查：{time}。"
+    },
+    "settings.updates.noCheckYet": {
+      "value": "尚未检查。首次检查会在启动后不久进行。"
+    },
+    "settings.updates.notPackaged": {
+      "value": "此副本未打包为应用程序包，因此没有更新源，也没有用于校验的密钥。请用 Scripts/build_app.sh 构建并运行 Auspex.app。"
+    },
+    "settings.updates.saveError": {
+      "value": "渠道已生效，但未能保存：{error}"
+    },
+    "settings.updates.title": {
+      "value": "两个渠道，一个签名的更新源"
+    },
+    "settings.updates.version": {
+      "value": "Auspex {version}"
+    },
+    "setup.install": {
+      "value": "安装 {count} 项"
+    },
+    "setup.intro": {
+      "value": "Auspex 已经通过读取各 agent 写下的文件来观察这台 Mac 上的每个 agent 会话。下面这些会加上显式协作：一个用于任务事实和人工关注的 MCP 服务，一份讲授 Supervisor/Worker/Reviewer 交接的带版本 skill，以及用于捕捉授权等待等对话记录不会写下的状态的 hook。"
+    },
+    "setup.keepWatching": {
+      "value": "重启后让 Auspex 继续观察"
+    },
+    "setup.loginNote": {
+      "value": "使用 macOS 登录项在后台启动已签名的主程序。不会安装辅助程序、LaunchAgent，也不会增加磁盘访问权限。"
+    },
+    "setup.notDetected": {
+      "value": "未检测到"
+    },
+    "setup.notServing": {
+      "value": "MCP 套接字未在服务，因此暂时不会有任何响应。"
+    },
+    "setup.piece.coordinationSkill": {
+      "value": "安装 Auspex 协作 skill"
+    },
+    "setup.piece.coordinationSkillDetail": {
+      "value": "添加一份带版本、按需加载的 Supervisor/Worker/Reviewer 协作手册。它指导 MCP 的使用；以服务端为准。"
+    },
+    "setup.piece.hooks": {
+      "value": "安装 harness hook"
+    },
+    "setup.piece.hooksDetail": {
+      "value": "让 harness 在需要授权、开始、委派或停止的那一刻通知 Auspex——这些状态没有任何对话记录会写下来。"
+    },
+    "setup.piece.mcpServer": {
+      "value": "注册 Auspex MCP 服务"
+    },
+    "setup.piece.mcpServerDetail": {
+      "value": "添加一个 `auspex` 服务条目，让这个 harness 的 agent 可以调用 notify、plans 和 tasks。"
+    },
+    "setup.piece.protocolNote": {
+      "value": "安装任务协议说明"
+    },
+    "setup.piece.protocolNoteDetail": {
+      "value": "追加始终加载的基本约定，并把协作工作交给更完整的 auspex-coordination skill。"
+    },
+    "setup.safety": {
+      "value": "每一项在你勾选之前都是关闭的，并且都标明了会写入哪个文件。配置改动都限定在 Auspex 自己的围栏内；skill 拥有一个带归属标记和内容哈希的专属目录。已有或被修改过的目录不会被触碰。更新前会备份到 ~/.auspex/backups/，可以撤销。"
+    },
+    "setup.selectAll": {
+      "value": "全选"
+    },
+    "setup.serving": {
+      "value": "正在服务 {path}"
+    },
+    "setup.skillMissing": {
+      "value": "应用内附带的 auspex-coordination 资源缺失。"
+    },
+    "setup.skip": {
+      "value": "暂时跳过"
+    },
+    "setup.state.elsewhere": {
+      "value": "已存在，指向 {what}。勾选后会替换它。"
+    },
+    "setup.state.installed": {
+      "value": "已安装。"
+    },
+    "setup.state.ownedInstalled": {
+      "value": "已安装一个归 Auspex 所有的{what}。勾选后会先备份再更新。"
+    },
+    "setup.summary.failed": {
+      "value": "失败"
+    },
+    "setup.summary.nothing": {
+      "value": "无需更改——勾选的各项都已就位。"
+    },
+    "setup.summary.wrote": {
+      "value": "{count, plural, other {已写入 # 处更改。备份位于 ~/.auspex/backups/。}}"
+    },
+    "setup.title": {
+      "value": "让你的 agent 开口说话"
+    },
+    "sidebar.demoNote": {
+      "value": "虚构的会话，内存存储，不读取任何 harness 存储。"
+    },
+    "sidebar.demoReplay": {
+      "value": "演示回放"
+    },
+    "sidebar.review": {
+      "value": "{count} 个待审阅"
+    },
+    "state.childSessions": {
+      "value": "{count, plural, other {# 个子会话}}"
+    },
+    "state.delegating": {
+      "value": "委派中"
+    },
+    "state.delegatingCount": {
+      "value": "委派中（{count}）"
+    },
+    "state.explain.ended": {
+      "value": "已结束 — 进程已退出。那个终端里不会再发生任何事；只有「恢复」能把工作接回来。"
+    },
+    "state.explain.idle": {
+      "value": "空闲 — 没有待处理的事，进程仍然在。你可以继续在那个终端里对话。"
+    },
+    "state.explain.needsYou": {
+      "value": "需要你 — 在有人答复之前它不会再有任何进展。"
+    },
+    "state.explain.stale": {
+      "value": "停滞 — 它声称在工作，却已经很久没有动静。长时间的构建就是这个样子，卡死的也是。"
+    },
+    "state.file": {
+      "value": "文件"
+    },
+    "state.stale": {
+      "value": "停滞"
+    },
+    "state.staleAccessibility": {
+      "value": "停滞：最近没有事件"
+    },
+    "state.thinking": {
+      "value": "思考中"
+    },
+    "state.tool": {
+      "value": "工具"
+    },
+    "state.toolNamed": {
+      "value": "工具：{name}"
+    },
+    "state.writing": {
+      "value": "写入中"
+    },
+    "state.writingFile": {
+      "value": "正在写文件"
+    },
+    "task.blockedBy": {
+      "value": "被以下任务阻塞：{tasks}"
+    },
+    "task.card.accessibility": {
+      "value": "{title}，{status}，{count} 个会话"
+    },
+    "task.card.auto": {
+      "value": "自动"
+    },
+    "task.card.autoHelp": {
+      "value": "这是 Auspex 根据委派推断出来的，没有人为它登记任务。"
+    },
+    "task.card.filed": {
+      "value": "已登记"
+    },
+    "task.card.finished": {
+      "value": "已完成于"
+    },
+    "task.card.foldSessions": {
+      "value": "把会话折叠回卡片"
+    },
+    "task.card.lead": {
+      "value": "主"
+    },
+    "task.card.openSessions": {
+      "value": "有 {count} 个会话在处理此任务 — 展开列表"
+    },
+    "task.card.openTranscript": {
+      "value": "打开此会话的对话记录"
+    },
+    "task.card.tokensHelp": {
+      "value": "此任务所有会话的输入 / 输出 token"
+    },
+    "task.filter.claimOrphaned": {
+      "value": "认领已孤立"
+    },
+    "task.filter.claimed": {
+      "value": "已认领"
+    },
+    "task.filter.clearFilters": {
+      "value": "清除筛选"
+    },
+    "task.filter.clearHelp": {
+      "value": "重新显示全部任务"
+    },
+    "task.filter.help": {
+      "value": "缩小范围：按重要性、标签、harness、是否可开始、是否已认领"
+    },
+    "task.filter.importance": {
+      "value": "重要性"
+    },
+    "task.filter.label": {
+      "value": "标签"
+    },
+    "task.filter.only": {
+      "value": "仅限"
+    },
+    "task.filter.orphanedClaims": {
+      "value": "孤立的认领"
+    },
+    "task.filter.readyOnly": {
+      "value": "仅可开始"
+    },
+    "task.filter.readyToStart": {
+      "value": "可以开始"
+    },
+    "task.filter.stopFiltering": {
+      "value": "不再按「{filter}」筛选"
+    },
+    "task.filter.unclaimed": {
+      "value": "未认领"
+    },
+    "task.importance.important": {
+      "value": "重要"
+    },
+    "task.importance.low": {
+      "value": "低"
+    },
+    "task.importance.normal": {
+      "value": "普通"
+    },
+    "task.importance.urgent": {
+      "value": "紧急"
+    },
+    "task.importanceHelp": {
+      "value": "重要性：{importance}"
+    },
+    "task.kind.chore": {
+      "value": "杂务"
+    },
+    "task.kind.feature": {
+      "value": "功能"
+    },
+    "task.kind.fix": {
+      "value": "修复"
+    },
+    "task.kind.research": {
+      "value": "调研"
+    },
+    "task.link.claimed": {
+      "value": "已认领"
+    },
+    "task.link.inherited": {
+      "value": "随认领者"
+    },
+    "task.link.linked": {
+      "value": "已关联"
+    },
+    "task.log.closed": {
+      "value": "已关闭"
+    },
+    "task.log.created": {
+      "value": "已创建"
+    },
+    "task.log.finished": {
+      "value": "已完成"
+    },
+    "task.log.project": {
+      "value": "项目变更"
+    },
+    "task.log.released": {
+      "value": "已释放"
+    },
+    "task.log.status": {
+      "value": "状态变更"
+    },
+    "task.log.takeoverExpired": {
+      "value": "接管已失效"
+    },
+    "task.log.takeoverRequested": {
+      "value": "请求接管"
+    },
+    "task.log.unlinked": {
+      "value": "已取消关联"
+    },
+    "task.menu.open": {
+      "value": "打开任务…"
+    },
+    "task.menu.promote": {
+      "value": "提升为任务…"
+    },
+    "task.menu.releaseClaim": {
+      "value": "释放认领"
+    },
+    "task.menu.reopen": {
+      "value": "重新打开"
+    },
+    "task.note.decision": {
+      "value": "决定"
+    },
+    "task.note.evidence": {
+      "value": "证据"
+    },
+    "task.note.note": {
+      "value": "备注"
+    },
+    "task.note.risk": {
+      "value": "风险"
+    },
+    "task.orphanHelp": {
+      "value": "持有此认领的会话未完成就结束了。释放它，好让别人接手。"
+    },
+    "task.status.blocked": {
+      "value": "受阻"
+    },
+    "task.status.doing": {
+      "value": "进行中"
+    },
+    "task.status.done": {
+      "value": "已完成"
+    },
+    "task.status.review": {
+      "value": "待审阅"
+    },
+    "task.status.todo": {
+      "value": "待办"
+    },
+    "task.waitsOn": {
+      "value": "等待 {ids}"
+    },
+    "taskDetail.agentReport": {
+      "value": "Agent 报告 · 自行报告"
+    },
+    "taskDetail.approve": {
+      "value": "批准"
+    },
+    "taskDetail.backHelp": {
+      "value": "返回账本 — 也可按 Esc 键"
+    },
+    "taskDetail.claimedBy": {
+      "value": "认领者"
+    },
+    "taskDetail.defer": {
+      "value": "推迟"
+    },
+    "taskDetail.filed": {
+      "value": "登记于"
+    },
+    "taskDetail.graphStub": {
+      "value": "完整的依赖图会是一个单独的页面，目前尚未完成。"
+    },
+    "taskDetail.history": {
+      "value": "历史记录"
+    },
+    "taskDetail.kind": {
+      "value": "类型"
+    },
+    "taskDetail.labels": {
+      "value": "标签"
+    },
+    "taskDetail.nextReview": {
+      "value": "下一个审阅"
+    },
+    "taskDetail.notFiled": {
+      "value": "未登记"
+    },
+    "taskDetail.nothingWritten": {
+      "value": "还没有任何记录。"
+    },
+    "taskDetail.openDependency": {
+      "value": "打开 {id}"
+    },
+    "taskDetail.openFlight": {
+      "value": "打开航迹"
+    },
+    "taskDetail.openSessionFlight": {
+      "value": "打开此会话的航迹"
+    },
+    "taskDetail.previousReview": {
+      "value": "上一个审阅"
+    },
+    "taskDetail.promote": {
+      "value": "提升为任务"
+    },
+    "taskDetail.promoteNote": {
+      "value": "这是 Auspex 根据委派推断出来的：{harness} 开始了它，但没有人登记任务。提升后会写入一个任务，由已经在做这项工作的会话认领 — 卡片保持原位，并获得历史记录、里程碑和可关闭的状态。"
+    },
+    "taskDetail.ready": {
+      "value": "它依赖的任务都已关闭，可以开始了。"
+    },
+    "taskDetail.ref": {
+      "value": "引用"
+    },
+    "taskDetail.reject": {
+      "value": "拒绝"
+    },
+    "taskDetail.requestedAt": {
+      "value": "请求时为 v{version}"
+    },
+    "taskDetail.sessions": {
+      "value": "{count, plural, other {# 个会话}}"
+    },
+    "taskDetail.takeoverRequests": {
+      "value": "{count, plural, other {接管请求}}"
+    },
+    "taskDetail.version": {
+      "value": "版本"
+    },
+    "taskDetail.waitsOn": {
+      "value": "依赖于"
+    },
+    "taskDetail.writeItDown": {
+      "value": "记下来"
+    },
+    "tasks.archiveMilestoneHelp": {
+      "value": "归档此里程碑。其中的任务仍保留在此项目中。"
+    },
+    "tasks.archived": {
+      "value": "已归档"
+    },
+    "tasks.archivedHelp": {
+      "value": "显示已归档的里程碑"
+    },
+    "tasks.autoHelp": {
+      "value": "这是 Auspex 根据委派推断出来的，没有人登记任务。"
+    },
+    "tasks.dragHint": {
+      "value": "把会话拖到任务上，或在其卡片上使用「关联到任务…」。"
+    },
+    "tasks.fileInProject": {
+      "value": "在此项目中登记任务"
+    },
+    "tasks.fileUnder": {
+      "value": "归入…"
+    },
+    "tasks.fileUnderMilestone": {
+      "value": "在此里程碑下登记任务"
+    },
+    "tasks.hideArchived": {
+      "value": "隐藏已归档"
+    },
+    "tasks.laneOpen": {
+      "value": "{count} 个未完成"
+    },
+    "tasks.linkDisabledHelp": {
+      "value": "还没有登记任何任务。请在任务页面登记。"
+    },
+    "tasks.linkToTask": {
+      "value": "关联到任务…"
+    },
+    "tasks.milestone": {
+      "value": "里程碑"
+    },
+    "tasks.milestoneEmpty": {
+      "value": "此里程碑下没有任务。"
+    },
+    "tasks.milestoneHelp": {
+      "value": "在此项目中登记一个里程碑"
+    },
+    "tasks.milestonePlaceholder": {
+      "value": "这整项工作是什么？"
+    },
+    "tasks.moveTo": {
+      "value": "移到「{status}」"
+    },
+    "tasks.newTaskPlaceholder": {
+      "value": "需要做什么"
+    },
+    "tasks.notInMilestone": {
+      "value": "不属于任何里程碑"
+    },
+    "tasks.notOnBoard": {
+      "value": "不在看板上"
+    },
+    "tasks.nothingFiled": {
+      "value": "还没有登记任何任务。"
+    },
+    "tasks.nothingFiledDetail": {
+      "value": "安装了 Auspex MCP 服务的 agent 会在它所工作的项目中登记任务 — 可在 Harness 页面安装。"
+    },
+    "tasks.nothingFiledInProject": {
+      "value": "此项目中还没有登记任何任务。"
+    },
+    "tasks.nothingToDo": {
+      "value": "无事可做"
+    },
+    "tasks.orphanHelp": {
+      "value": "持有此认领的会话未完成就结束了。"
+    },
+    "tasks.register": {
+      "value": "登记"
+    },
+    "tasks.reviewNext": {
+      "value": "审阅下一个 · {count}"
+    },
+    "tasks.reviewNextHelp": {
+      "value": "打开第一个等待审阅的任务"
+    },
+    "tasks.showArchived": {
+      "value": "显示已归档"
+    },
+    "tasks.summary": {
+      "value": "{projects} · {tasks}"
+    },
+    "tasks.summary.projects": {
+      "value": "{count, plural, other {# 个项目}}"
+    },
+    "tasks.takeoverExpired": {
+      "value": "该接管请求已失效，因为任务或其持有者发生了变化。请先查看当前的认领，再重新决定。"
+    },
+    "tasks.unlink": {
+      "value": "取消关联「{title}」"
+    },
+    "time.daysAgo": {
+      "value": "{count} 天前"
+    },
+    "time.hoursAgo": {
+      "value": "{count} 小时前"
+    },
+    "time.justNow": {
+      "value": "刚刚"
+    },
+    "time.minutesAgo": {
+      "value": "{count} 分钟前"
+    },
+    "time.never": {
+      "value": "从未"
+    },
+    "time.secondsAgo": {
+      "value": "{count} 秒前"
+    },
+    "trace.askedFor": {
+      "value": "任务要求"
+    },
+    "trace.copyAssignment": {
+      "value": "复制任务说明"
+    },
+    "trace.copyAssignmentHelp": {
+      "value": "复制此会话收到的全部要求"
+    },
+    "trace.copyPath": {
+      "value": "复制路径"
+    },
+    "trace.cwdHelp": {
+      "value": "点按复制工作目录 · 按住 ⌥ 点按可在访达中显示"
+    },
+    "trace.earlierRows": {
+      "value": "{count, plural, other {更早的 # 行}}"
+    },
+    "trace.earlierRowsHelp": {
+      "value": "绘制此会话的完整记录，不论它有多长"
+    },
+    "trace.elapsed": {
+      "value": "已用时"
+    },
+    "trace.event.assistant": {
+      "value": "助手"
+    },
+    "trace.event.contextCompacted": {
+      "value": "上下文已压缩"
+    },
+    "trace.event.identityUpdated": {
+      "value": "身份已更新"
+    },
+    "trace.event.note": {
+      "value": "备注"
+    },
+    "trace.event.permissionAllowed": {
+      "value": "已授权"
+    },
+    "trace.event.permissionDenied": {
+      "value": "授权被拒"
+    },
+    "trace.event.permissionRequested": {
+      "value": "请求授权"
+    },
+    "trace.event.planLimit": {
+      "value": "套餐额度"
+    },
+    "trace.event.processAlive": {
+      "value": "进程存活"
+    },
+    "trace.event.prompt": {
+      "value": "提示词"
+    },
+    "trace.event.sessionEnded": {
+      "value": "会话结束"
+    },
+    "trace.event.sessionStarted": {
+      "value": "会话开始"
+    },
+    "trace.event.subagentFinished": {
+      "value": "子 agent 结束"
+    },
+    "trace.event.subagentStarted": {
+      "value": "子 agent 开始"
+    },
+    "trace.event.subagentType": {
+      "value": "子 agent · {type}"
+    },
+    "trace.event.toolFailed": {
+      "value": "工具失败"
+    },
+    "trace.event.toolFinished": {
+      "value": "工具完成"
+    },
+    "trace.event.toolResult": {
+      "value": "工具结果"
+    },
+    "trace.event.toolResultFor": {
+      "value": "工具结果 · {id}"
+    },
+    "trace.event.turnEnded": {
+      "value": "轮次结束"
+    },
+    "trace.event.turnStarted": {
+      "value": "轮次开始"
+    },
+    "trace.eventPayload": {
+      "value": "事件载荷"
+    },
+    "trace.family.childHelp": {
+      "value": "此会话委派出去的会话"
+    },
+    "trace.family.children": {
+      "value": "{count, plural, other {# 个子会话}}"
+    },
+    "trace.family.expandHelp": {
+      "value": "按委派树划分看板，让这一组会话作为一个整体显示"
+    },
+    "trace.family.expandInBoard": {
+      "value": "在看板中全部展开"
+    },
+    "trace.family.moreSessions": {
+      "value": "{count, plural, other {# 个会话}}"
+    },
+    "trace.family.onTask": {
+      "value": "此任务上的{noun}"
+    },
+    "trace.family.taskHelp": {
+      "value": "正在处理此任务的其他所有会话"
+    },
+    "trace.focusProject": {
+      "value": "只在看板上显示此项目"
+    },
+    "trace.following": {
+      "value": "跟随中"
+    },
+    "trace.fullText": {
+      "value": "全文"
+    },
+    "trace.less": {
+      "value": "收起"
+    },
+    "trace.lineage": {
+      "value": "谱系"
+    },
+    "trace.loading": {
+      "value": "正在加载事件日志…"
+    },
+    "trace.mirroredOn": {
+      "value": "同时出现在 {boards}"
+    },
+    "trace.more": {
+      "value": "展开"
+    },
+    "trace.moreHelp": {
+      "value": "复制恢复命令、打开文件夹、中断或终止此会话"
+    },
+    "trace.nothingInView": {
+      "value": "此视图中没有内容。"
+    },
+    "trace.onThePerch": {
+      "value": "在栖枝上"
+    },
+    "trace.openTrajectory": {
+      "value": "打开航迹"
+    },
+    "trace.openTrajectoryHelp": {
+      "value": "以瀑布图打开此会话的完整历史（⌘T）"
+    },
+    "trace.perchNote": {
+      "value": "双击卡片即可打开它的航迹。恢复会话仍需通过上方的显式操作。"
+    },
+    "trace.pinnedIn": {
+      "value": "固定在「{board}」"
+    },
+    "trace.resume": {
+      "value": "恢复"
+    },
+    "trace.resumeHelp": {
+      "value": "用此会话自己的 CLI 命令打开 {app}"
+    },
+    "trace.revealInFinder": {
+      "value": "在访达中显示"
+    },
+    "trace.selectSession": {
+      "value": "选择一个会话"
+    },
+    "trace.selectSessionDetail": {
+      "value": "它的提示词、工具调用和轮次会在发生时显示在这里。"
+    },
+    "trace.showEverything": {
+      "value": "显示全部"
+    },
+    "trace.showTab": {
+      "value": "显示{tab}"
+    },
+    "trace.spawnedBy": {
+      "value": "由 {parent} 派生 — {evidence}"
+    },
+    "trace.startFollowing": {
+      "value": "有新行时滚动到最新一行"
+    },
+    "trace.stopFollowing": {
+      "value": "停止滚动到最新一行"
+    },
+    "trace.subagents": {
+      "value": "{count} 个子 agent"
+    },
+    "trace.tab.all": {
+      "value": "全部"
+    },
+    "trace.tab.prompts": {
+      "value": "提示词"
+    },
+    "trace.tab.text": {
+      "value": "文本"
+    },
+    "trace.tab.tools": {
+      "value": "工具"
+    },
+    "trace.tab.usage": {
+      "value": "用量"
+    },
+    "trace.turn": {
+      "value": "第 {number} 轮"
+    },
+    "viewMode.board": {
+      "value": "账本"
+    },
+    "viewMode.crew": {
+      "value": "鸟群"
+    },
+    "viewMode.now": {
+      "value": "此刻"
+    },
+    "viewMode.perch": {
+      "value": "栖枝"
+    },
+    "viewMode.scene": {
+      "value": "鸟舍"
+    },
+    "viewMode.trajectory": {
+      "value": "航迹"
     }
   }
 }

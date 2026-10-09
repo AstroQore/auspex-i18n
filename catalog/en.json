@@ -2,9 +2,3662 @@
   "$schema": "../schema/catalog.schema.json",
   "locale": "en",
   "keys": {
+    "agents.install": {
+      "value": "Install",
+      "comment": "Settings → Agents row button."
+    },
+    "agents.installed": {
+      "value": "installed",
+      "comment": "Settings → Agents row state."
+    },
+    "agents.notServing": {
+      "value": "Auspex is not serving its MCP server in this process.",
+      "comment": "Settings → Agents."
+    },
+    "agents.note": {
+      "value": "Auspex writes into a harness's own files only from here, only in a region it owns — a block marked `>>> auspex >>>`, one `auspex` entry in a JSON config, hook entries that run the Auspex binary, or the exclusive auspex-coordination skill directory. The skill carries an ownership marker, version and content hash; Auspex refuses to replace or remove it after any outside edit. Updates are backed up to ~/.auspex/backups/.",
+      "comment": "Settings → Agents footnote. Backtick spans are literal text."
+    },
+    "agents.notifyDone": {
+      "value": "Notify when an agent reports finishing",
+      "comment": "Settings → Agents toggle."
+    },
+    "agents.notifyDoneNote": {
+      "value": "A session that is blocked on you always raises one. It will not get unstuck on its own.",
+      "comment": "Settings → Agents toggle note."
+    },
+    "agents.openSetup": {
+      "value": "Open setup…",
+      "comment": "Settings → Agents button."
+    },
+    "agents.replace": {
+      "value": "Replace",
+      "comment": "Settings → Agents row button."
+    },
+    "agents.serving": {
+      "value": "Auspex is serving its MCP server on {path}.",
+      "comment": "Settings → Agents.",
+      "placeholders": {
+        "path": "string"
+      }
+    },
+    "agents.update": {
+      "value": "Update",
+      "comment": "Settings → Agents row button. distinct-from: settings.pane.updates"
+    },
+    "app.menu.catchUp": {
+      "value": "Catch Up…",
+      "comment": "View menu: opens the Catch-up panel."
+    },
+    "app.menu.checkForUpdates": {
+      "value": "Check for Updates…",
+      "comment": "App menu and menu-bar panel command."
+    },
+    "app.menu.closeFlight": {
+      "value": "Close Flight",
+      "comment": "View menu: leaves the Flight view."
+    },
+    "app.menu.closeTask": {
+      "value": "Close Task",
+      "comment": "View menu: closes the selected task that is in review."
+    },
+    "app.menu.goToTask": {
+      "value": "Go to Task…",
+      "comment": "View menu: opens the command palette (⌘K)."
+    },
+    "app.menu.markAllSeen": {
+      "value": "Mark All as Seen",
+      "comment": "View menu command (⇧⌘K) and the VoiceOver label of the header's clear-everything button."
+    },
+    "app.menu.openFlight": {
+      "value": "Open Flight",
+      "comment": "View menu: opens the Flight view on the selected session. \"Flight\" is viewMode.trajectory."
+    },
+    "app.menu.openTask": {
+      "value": "Open Task",
+      "comment": "View menu: opens the selected task."
+    },
+    "app.menu.reviewNext": {
+      "value": "Review Next",
+      "comment": "View menu: opens the next task waiting for review."
+    },
+    "attention.a11y.finished": {
+      "value": "finished — {summary}",
+      "comment": "VoiceOver: a card's banner when an agent reported finishing.",
+      "placeholders": {
+        "summary": "string"
+      }
+    },
+    "attention.a11y.needsYou": {
+      "value": "needs you — {reason}",
+      "comment": "VoiceOver: a card's banner when somebody is needed. {reason} is the sentence on the banner.",
+      "placeholders": {
+        "reason": "string"
+      }
+    },
+    "attention.a11y.needsYouAgent": {
+      "value": "needs you — {reason}, the agent says so",
+      "comment": "VoiceOver: as attention.a11y.needsYou, when the agent itself raised it.",
+      "placeholders": {
+        "reason": "string"
+      }
+    },
+    "attention.dismissNeedsYou": {
+      "value": "Dismiss — the card goes quiet and stops being counted",
+      "comment": "Tooltip on the banner's dismiss button when somebody is needed."
+    },
+    "attention.dismissRead": {
+      "value": "Dismiss — you have read it",
+      "comment": "Tooltip on the banner's dismiss button on a report."
+    },
+    "attention.done": {
+      "value": "Done",
+      "comment": "The word in front of an agent's report on a card's banner — \"Done: the tailer now handles partial lines\". distinct-from: common.done"
+    },
+    "attention.headline": {
+      "value": "{headline}: ",
+      "comment": "Punctuation after attention.done on a banner; keeps the trailing space in English.",
+      "placeholders": {
+        "headline": "string"
+      }
+    },
+    "attention.waitingPermission": {
+      "value": "Waiting for permission: {tool}",
+      "comment": "Banner on a card when the harness is stopped on a permission prompt for {tool}.",
+      "placeholders": {
+        "tool": "string"
+      }
+    },
+    "aviary.empty": {
+      "value": "The office is empty",
+      "comment": "Aviary empty state title."
+    },
+    "aviary.emptyDetail": {
+      "value": "A desk appears for every session Auspex can see.",
+      "comment": "Aviary empty state detail."
+    },
+    "aviary.floor.blocked": {
+      "value": "{count} blocked",
+      "comment": "Aviary: a project floor's tally of sessions waiting on a person.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "aviary.floor.delegating": {
+      "value": "{count} delegating",
+      "comment": "Aviary: a project floor's tally of delegating sessions.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "aviary.legend.delegatingHelp": {
+      "value": "Waiting on the sub-agents it spawned, around a table.",
+      "comment": "Aviary legend tooltip."
+    },
+    "aviary.legend.thinkingHelp": {
+      "value": "Reasoning, with no tool open.",
+      "comment": "Aviary legend tooltip."
+    },
+    "aviary.legend.toolHelp": {
+      "value": "A tool call is running.",
+      "comment": "Aviary legend tooltip."
+    },
+    "aviary.legend.writingHelp": {
+      "value": "The working tree is being changed.",
+      "comment": "Aviary legend tooltip."
+    },
+    "aviary.minimapHelp": {
+      "value": "The whole office. Click to go there.",
+      "comment": "Tooltip on the Aviary minimap."
+    },
+    "aviary.noProject": {
+      "value": "No project",
+      "comment": "Aviary: nameplate of the floor for sessions that belong to no project."
+    },
+    "aviary.olderHelp": {
+      "value": "Older sessions are in the store, not on the map. Widen to draw them.",
+      "comment": "Aviary: tooltip on the older-sessions nameplate. distinct-from: board.ended.olderHelp"
+    },
+    "aviary.room.free": {
+      "value": "free",
+      "comment": "Aviary: nameplate of an empty meeting room. Lower-case. distinct-from: board.bucket.idle"
+    },
+    "aviary.room.live": {
+      "value": "{count} live",
+      "comment": "Aviary: nameplate of a project's office. distinct-from: board.section.live",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "aviary.room.meeting": {
+      "value": "{count} meeting",
+      "comment": "Aviary: nameplate of a meeting room in use.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "aviary.room.meetingRoom": {
+      "value": "Meeting room",
+      "comment": "Aviary: nameplate of a suite's meeting room. distinct-from: settings.scene.meetingRooms"
+    },
+    "aviary.room.resting": {
+      "value": "{count} resting",
+      "comment": "Aviary: nameplate of a break room.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "aviary.room.restingMore": {
+      "value": "{count} resting · +{more} more",
+      "comment": "Aviary: nameplate of a full break room.",
+      "placeholders": {
+        "count": "int",
+        "more": "int"
+      }
+    },
+    "aviary.zoom": {
+      "value": "Zoom",
+      "comment": "Tooltip on the zoom readout."
+    },
+    "board.bucket.ended": {
+      "value": "ended",
+      "comment": "Summary chip after the number, and the menu-bar row's state when a session is over. Lower-case."
+    },
+    "board.bucket.idle": {
+      "value": "idle",
+      "comment": "Summary chip, after the number. Lower-case. distinct-from: now.idle"
+    },
+    "board.bucket.inReview": {
+      "value": "in review",
+      "comment": "Summary chip, after the number: \"1 in review\" — work an agent finished and asked to be checked."
+    },
+    "board.bucket.needsYou": {
+      "value": "needs you",
+      "comment": "Summary chip, after the number: \"2 needs you\". Lower-case. distinct-from: now.needsYou"
+    },
+    "board.bucket.working": {
+      "value": "working",
+      "comment": "Summary chip, after the number. Lower-case. distinct-from: now.working"
+    },
+    "board.chip.showAll": {
+      "value": "Show every session again",
+      "comment": "Tooltip on a selected summary chip: clicking clears the filter."
+    },
+    "board.chip.showOnly": {
+      "value": "Show only the {bucket} sessions",
+      "comment": "Tooltip on a summary chip. {bucket} is one of board.bucket.*.",
+      "placeholders": {
+        "bucket": "string"
+      }
+    },
+    "board.empty.adapterPending": {
+      "value": "Adapter pending",
+      "comment": "Empty board: status of a harness whose adapter has not shipped."
+    },
+    "board.empty.allEnded": {
+      "value": "Every session has ended.",
+      "comment": "Empty board headline when sessions existed but are all over."
+    },
+    "board.empty.demoHint": {
+      "value": "See the board with fabricated sessions",
+      "comment": "Empty board: label over the command that starts the demo."
+    },
+    "board.empty.demoNote": {
+      "value": "The demo runs entirely in memory. It reads no harness store and writes nothing to disk.",
+      "comment": "Empty board: under the demo command."
+    },
+    "board.empty.fromPipeline": {
+      "value": "From the ingest pipeline",
+      "comment": "Empty board: label over notices the ingest pipeline raised."
+    },
+    "board.empty.noAdapter": {
+      "value": "Auspex reads each harness's own session store and rebuilds what every agent is doing. No adapter has shipped yet, so nothing is being tailed — the board stays empty rather than guessing.",
+      "comment": "Empty board explanation when no adapter is installed."
+    },
+    "board.empty.noAgent": {
+      "value": "No agent is running.",
+      "comment": "Empty board headline when no session has been seen."
+    },
+    "board.empty.sessionStore": {
+      "value": "Session store",
+      "comment": "Empty board: column header — where each harness keeps its sessions."
+    },
+    "board.empty.tailing": {
+      "value": "Auspex is tailing the stores below. Start an agent in any of them and its card appears here within a second.",
+      "comment": "Empty board explanation."
+    },
+    "board.empty.tailingStatus": {
+      "value": "Tailing",
+      "comment": "Empty board: status of a harness store that is being read."
+    },
+    "board.empty.watching": {
+      "value": "Watching",
+      "comment": "Empty board: small label over the list of harness stores being watched."
+    },
+    "board.ended.collapsedHelp": {
+      "value": "Finished work is collapsed so the board's cost tracks what is running",
+      "comment": "Ledger: tooltip on the Ended section's expand button."
+    },
+    "board.ended.olderHelp": {
+      "value": "Older sessions are in the store, not on the board. Widen to draw them.",
+      "comment": "Ledger: tooltip on the hint under the Ended section."
+    },
+    "board.ended.showAll": {
+      "value": "Show all {count}",
+      "comment": "Ledger: button that expands the Ended section.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.ended.showRecent": {
+      "value": "Show the most recent {count}",
+      "comment": "Ledger: button that collapses the Ended section back.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.ended.title": {
+      "value": "Ended",
+      "comment": "Ledger: heading of the collapsed section of finished work. distinct-from: board.bucket.ended — a heading, capitalised."
+    },
+    "board.focus.allProjects": {
+      "value": "All projects",
+      "comment": "Breadcrumb at the top of the board when it is bound to one project; clicking it shows every project."
+    },
+    "board.focus.allProjectsHelp": {
+      "value": "Show every project on the board again — or press Escape",
+      "comment": "Tooltip on the All projects breadcrumb."
+    },
+    "board.focus.escapeHelp": {
+      "value": "Escape shows every project again",
+      "comment": "Tooltip on the Esc key cap at the right of the project breadcrumb."
+    },
+    "board.group.allSessions": {
+      "value": "All sessions",
+      "comment": "Ledger: the one section when the board is not grouped."
+    },
+    "board.group.allTasks": {
+      "value": "All tasks",
+      "comment": "Ledger: the one section of task cards when the board is not grouped."
+    },
+    "board.group.below": {
+      "value": "{count} below",
+      "comment": "Ledger tree grouping: a section's subtitle, how many sessions sit under its root.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.group.by": {
+      "value": "By",
+      "comment": "Header grouping menu's label, followed by the axis — \"By Project\"."
+    },
+    "board.group.help": {
+      "value": "Divide the board into sections, and choose whether every card lists the sessions inside it",
+      "comment": "Tooltip on the header's grouping menu."
+    },
+    "board.group.none": {
+      "value": "None",
+      "comment": "Grouping menu: no sections."
+    },
+    "board.group.standalone": {
+      "value": "Not delegating",
+      "comment": "Ledger tree grouping: the section of sessions with no delegation tree."
+    },
+    "board.group.title": {
+      "value": "Group by",
+      "comment": "Picker inside the header's grouping menu."
+    },
+    "board.group.tree": {
+      "value": "Tree",
+      "comment": "Grouping menu: one section per delegation tree."
+    },
+    "board.group.unknownCheckout": {
+      "value": "Unknown checkout",
+      "comment": "Sidebar: a checkout that recorded no branch, task or directory."
+    },
+    "board.header.catchUp": {
+      "value": "Catch up {count}",
+      "comment": "Header button that opens the Catch-up panel; {count} is how many items are waiting in it.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.header.catchUpHelp": {
+      "value": "Review material changes, human work, and amber watch signals",
+      "comment": "Tooltip on the header's Catch up button."
+    },
+    "board.header.harnessesSubtitle": {
+      "value": "{count} harnesses · what Auspex can see on this Mac, and how",
+      "comment": "Line beside the Harnesses page's heading.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.header.review": {
+      "value": "Review {count}",
+      "comment": "Header button that opens the next task waiting for review; {count} is how many are waiting.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.header.reviewHelp": {
+      "value": "Review next — open the first task waiting for your judgement",
+      "comment": "Tooltip on the header's Review button."
+    },
+    "board.ignored.count": {
+      "value": "{count} ignored",
+      "comment": "Header toggle that reveals sessions hidden by ignore rules.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.ignored.hideHelp": {
+      "value": "Hide the ignored sessions again. {note}",
+      "comment": "Tooltip on the ignored toggle while it is on. {note} is ignore.stillRecorded, a full sentence.",
+      "placeholders": {
+        "note": "string"
+      }
+    },
+    "board.ignored.showHelp": {
+      "value": "Show the {count} sessions your rules hide, dimmed. {note}",
+      "comment": "Tooltip on the ignored toggle while it is off. {note} is ignore.stillRecorded, a full sentence.",
+      "placeholders": {
+        "count": "int",
+        "note": "string"
+      }
+    },
+    "board.markAllSeenHelp": {
+      "value": "Mark all as seen — clear every card that is asking or reporting. A session that is still blocked will say so again.",
+      "comment": "Tooltip on the header's clear-everything button."
+    },
+    "board.search": {
+      "value": "Search sessions",
+      "comment": "Placeholder in the search field outside Now. distinct-from: now.search"
+    },
+    "board.searchHelp": {
+      "value": "Search every transcript",
+      "comment": "Tooltip on the header's search field."
+    },
+    "board.section.live": {
+      "value": "{count} live",
+      "comment": "Ledger: badge on a section header counting live sessions in it.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.showSubagents": {
+      "value": "Show subagents",
+      "comment": "Grouping menu toggle: every task card lists the sessions inside it."
+    },
+    "board.window.days": {
+      "value": "{count, plural, one {# day} other {# days}}",
+      "comment": "How far back the board reaches, in the window menu.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.window.daysShort": {
+      "value": "{count} d",
+      "comment": "The window menu's compact label, e.g. \"7 d\".",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.window.help": {
+      "value": "How far back the board and the map reach. Older sessions stay in the store.",
+      "comment": "Tooltip on the window menu."
+    },
+    "board.window.hiddenHelp": {
+      "value": "{hint}. Widen to see them.",
+      "comment": "Tooltip on the window menu when sessions are hidden. {hint} is board.window.olderHidden.",
+      "placeholders": {
+        "hint": "string"
+      }
+    },
+    "board.window.hours": {
+      "value": "{count, plural, one {# hour} other {# hours}}",
+      "comment": "How far back the board reaches, in the window menu.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.window.hoursShort": {
+      "value": "{count} h",
+      "comment": "The window menu's compact label, e.g. \"12 h\".",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "board.window.menuNote": {
+      "value": "Everything stays in the store — this is how much is drawn.",
+      "comment": "Note at the bottom of the window menu."
+    },
+    "board.window.menuTitle": {
+      "value": "Show sessions active in the last",
+      "comment": "Section title and picker label in the window menu; the options follow (1 hour, 6 hours…)."
+    },
+    "board.window.olderHidden": {
+      "value": "{count} older than {window}, hidden",
+      "comment": "Hint shown when the time window leaves sessions out. {window} is a compact span such as \"12 h\".",
+      "placeholders": {
+        "count": "int",
+        "window": "string"
+      }
+    },
+    "catchUp.caughtUp": {
+      "value": "Caught up",
+      "comment": "Catch-up panel empty state title."
+    },
+    "catchUp.caughtUpDetail": {
+      "value": "No material changes or watch signals are waiting.",
+      "comment": "Catch-up panel empty state detail."
+    },
+    "catchUp.change.changed": {
+      "value": "Changed",
+      "comment": "Catch-up row eyebrow (upper-cased)."
+    },
+    "catchUp.change.completed": {
+      "value": "Completed",
+      "comment": "Catch-up row eyebrow (upper-cased)."
+    },
+    "catchUp.change.started": {
+      "value": "Started",
+      "comment": "Catch-up row eyebrow (upper-cased)."
+    },
+    "catchUp.confidence.high": {
+      "value": "high",
+      "comment": "A watch signal's confidence."
+    },
+    "catchUp.confidence.medium": {
+      "value": "medium",
+      "comment": "A watch signal's confidence."
+    },
+    "catchUp.line.goal": {
+      "value": "goal",
+      "comment": "Catch-up row: short mono label before the task's goal line. Lower-case, ≤ 6 characters in English."
+    },
+    "catchUp.line.latest": {
+      "value": "latest",
+      "comment": "Catch-up row: label before the latest outcome."
+    },
+    "catchUp.line.next": {
+      "value": "next",
+      "comment": "Catch-up row: label before the next action."
+    },
+    "catchUp.line.now": {
+      "value": "now",
+      "comment": "Catch-up row: label before what is happening now."
+    },
+    "catchUp.line.risk": {
+      "value": "risk",
+      "comment": "Catch-up row: label before the risk line."
+    },
+    "catchUp.markCaughtUp": {
+      "value": "Mark caught up",
+      "comment": "Catch-up panel button that moves the \"since\" cursor to now."
+    },
+    "catchUp.otherChanges": {
+      "value": "Other changes",
+      "comment": "Catch-up panel section."
+    },
+    "catchUp.phase.blocked": {
+      "value": "blocked",
+      "comment": "Catch-up row: the task's phase. Lower-case."
+    },
+    "catchUp.phase.done": {
+      "value": "done",
+      "comment": "Catch-up row: the task's phase. Lower-case. distinct-from: attention.done"
+    },
+    "catchUp.phase.notStarted": {
+      "value": "not started",
+      "comment": "Catch-up row: the task's phase. Lower-case."
+    },
+    "catchUp.phase.review": {
+      "value": "review",
+      "comment": "Catch-up row: the task's phase. Lower-case. distinct-from: catchUp.reason.review"
+    },
+    "catchUp.reason.orphanedClaim": {
+      "value": "Orphaned claim",
+      "comment": "Catch-up row eyebrow and watch-signal title: a task is still claimed by a session that ended."
+    },
+    "catchUp.reason.review": {
+      "value": "Review",
+      "comment": "Catch-up row eyebrow (upper-cased): a task is waiting for the person's review."
+    },
+    "catchUp.reason.takeover": {
+      "value": "Takeover approval",
+      "comment": "Catch-up row eyebrow (upper-cased): another session asked to take over a claimed task."
+    },
+    "catchUp.sessions": {
+      "value": "{count} sessions",
+      "comment": "Catch-up row: how many sessions work on the task (shown only when more than one).",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "catchUp.signal.confidence": {
+      "value": "{confidence} confidence · not an attention request",
+      "comment": "Watch-signal row footnote. {confidence} is catchUp.confidence.*.",
+      "placeholders": {
+        "confidence": "string"
+      }
+    },
+    "catchUp.signal.contextPressure": {
+      "value": "Context pressure",
+      "comment": "Watch-signal title."
+    },
+    "catchUp.signal.longTool": {
+      "value": "Long-running tool",
+      "comment": "Watch-signal title."
+    },
+    "catchUp.signal.sharedBranch": {
+      "value": "Shared branch",
+      "comment": "Watch-signal title."
+    },
+    "catchUp.signal.sharedDirectory": {
+      "value": "Shared working directory",
+      "comment": "Watch-signal title."
+    },
+    "catchUp.signal.staleSession": {
+      "value": "Stale session",
+      "comment": "Watch-signal title."
+    },
+    "catchUp.since": {
+      "value": "Changes since {time}",
+      "comment": "Catch-up panel subtitle. {time} is a relative time such as \"2 hours ago\" or \"2小时前\".",
+      "placeholders": {
+        "time": "string"
+      }
+    },
+    "catchUp.source.derived": {
+      "value": "derived",
+      "comment": "Catch-up row: where a line came from — Auspex worked it out."
+    },
+    "catchUp.source.observed": {
+      "value": "observed",
+      "comment": "Catch-up row: where a line came from — Auspex saw it happen."
+    },
+    "catchUp.source.reported": {
+      "value": "reported",
+      "comment": "Catch-up row: where a line came from — the agent said so itself."
+    },
+    "catchUp.source.task": {
+      "value": "task",
+      "comment": "Catch-up row: where a line came from — the task record."
+    },
+    "catchUp.title": {
+      "value": "Catch up",
+      "comment": "Title of the Catch-up panel, which lists what changed while the person was away. distinct-from: app.menu.catchUp"
+    },
+    "catchUp.watchSignals": {
+      "value": "Watch signals",
+      "comment": "Catch-up panel section: risks Auspex observed or inferred."
+    },
+    "catchUp.watchSignalsNote": {
+      "value": "Observed or inferred risks worth a glance. They are not requests from an agent and never raise a notification by themselves.",
+      "comment": "Catch-up panel: note under the Watch signals heading."
+    },
+    "catchUp.yourQueue": {
+      "value": "Your queue",
+      "comment": "Catch-up panel section: work waiting on the person."
+    },
+    "characters.accentNote": {
+      "value": "Composed from each harness's own accent — the figure above is the shape, not the colour.",
+      "comment": "Built-in figures card."
+    },
+    "characters.allPoses": {
+      "value": "All 8 poses drawn.",
+      "comment": "Package card pose summary."
+    },
+    "characters.allPosesAlways": {
+      "value": "All 8 poses, always.",
+      "comment": "Built-in figures card."
+    },
+    "characters.automatic": {
+      "value": "Automatic · {name}",
+      "comment": "Character row subtitle. {name} is what Automatic resolves to.",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "characters.automaticRecommended": {
+      "value": "Automatic (recommended)",
+      "comment": "Character picker option."
+    },
+    "characters.builtIn": {
+      "value": "Auspex built-in",
+      "comment": "The procedural character figures, as a choice and a card title."
+    },
+    "characters.builtInCode": {
+      "value": "Built-in · drawn in code",
+      "comment": "Built-in figures card: in place of a package id."
+    },
+    "characters.chosen": {
+      "value": "Chosen",
+      "comment": "Character row subtitle when a package is chosen."
+    },
+    "characters.defaultDetail": {
+      "value": "Automatic uses whichever package names the harness, and the built-in figures while none does.",
+      "comment": "Settings → Characters section note."
+    },
+    "characters.defaultPerHarness": {
+      "value": "Default per harness",
+      "comment": "Settings → Characters section title."
+    },
+    "characters.drawnInCode": {
+      "value": "{name} · drawn in code",
+      "comment": "Character row subtitle for the built-in figures.",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "characters.folderNote": {
+      "value": "Auspex only ever reads this folder. A package here replaces a built-in one with the same id.",
+      "comment": "Settings → Characters note."
+    },
+    "characters.headline.mine": {
+      "value": "{count, plural, one {# package, {mine} of them yours.} other {# packages, {mine} of them yours.}}",
+      "comment": "Settings → Characters headline.",
+      "placeholders": {
+        "count": "int",
+        "mine": "int"
+      }
+    },
+    "characters.headline.none": {
+      "value": "The built-in figures, and no packages yet.",
+      "comment": "Settings → Characters headline."
+    },
+    "characters.headline.shipped": {
+      "value": "{count, plural, one {# package, all shipped with Auspex.} other {# packages, all shipped with Auspex.}}",
+      "comment": "Settings → Characters headline.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "characters.idle": {
+      "value": "idle",
+      "comment": "VoiceOver: the pose the built-in preview shows. distinct-from: board.bucket.idle"
+    },
+    "characters.installed": {
+      "value": "Installed",
+      "comment": "Settings → Characters section title. distinct-from: agents.installed"
+    },
+    "characters.intro": {
+      "value": "Every agent in the office is drawn either from a character package — a folder with a character.json and one frame strip per pose — or from Auspex's own figures, which are composed in code from the harness's accent. Drop a package into the characters folder and it appears here without a relaunch. The built-in figures are always installed, never miss a pose, and can be chosen for a harness exactly the way a package can.",
+      "comment": "Settings → Characters introduction. character.json is a file name."
+    },
+    "characters.kind.person": {
+      "value": "Person",
+      "comment": "Character package chip: the figure is a person."
+    },
+    "characters.kind.pet": {
+      "value": "Pet",
+      "comment": "Character package chip: the figure is a pet."
+    },
+    "characters.noArt": {
+      "value": "No art",
+      "comment": "Character preview placeholder."
+    },
+    "characters.noPackages": {
+      "value": "No packages yet.",
+      "comment": "Settings → Characters empty state title."
+    },
+    "characters.noPackagesDetail": {
+      "value": "A package is a folder holding character.json and one frame strip per pose. Any pose you have not drawn falls back to the figures above.",
+      "comment": "Settings → Characters empty state detail."
+    },
+    "characters.noPoses": {
+      "value": "No poses drawn yet.",
+      "comment": "Package card pose summary."
+    },
+    "characters.notInstalled": {
+      "value": "{id} is not installed · using {name}",
+      "comment": "Character row subtitle when the chosen package is gone.",
+      "placeholders": {
+        "id": "string",
+        "name": "string"
+      }
+    },
+    "characters.openFolder": {
+      "value": "Open characters folder",
+      "comment": "Settings → Characters button."
+    },
+    "characters.previewLabel": {
+      "value": "{name}, {pose}",
+      "comment": "VoiceOver label of a character preview. {pose} is a pose identifier or characters.noArt.",
+      "placeholders": {
+        "name": "string",
+        "pose": "string"
+      }
+    },
+    "characters.reload": {
+      "value": "Reload",
+      "comment": "Settings → Characters button."
+    },
+    "characters.saveError": {
+      "value": "Your choice is in effect but could not be saved: {error}",
+      "comment": "Settings → Characters error.",
+      "placeholders": {
+        "error": "string"
+      }
+    },
+    "characters.somePoses": {
+      "value": "{drawn} of 8 poses drawn. Built-in for: {missing}.",
+      "comment": "Package card pose summary. {missing} lists pose identifiers.",
+      "placeholders": {
+        "drawn": "int",
+        "missing": "string"
+      }
+    },
+    "characters.source.builtIn": {
+      "value": "Built-in",
+      "comment": "Character package chip: shipped inside Auspex."
+    },
+    "characters.source.user": {
+      "value": "User",
+      "comment": "Character package chip: from ~/.auspex/characters. distinct-from: flight.role.user"
+    },
+    "characters.whereTheyLive": {
+      "value": "Where they live",
+      "comment": "Settings → Characters label over the folder path."
+    },
+    "colour.amber": {
+      "value": "Amber",
+      "comment": "A project colour."
+    },
+    "colour.blue": {
+      "value": "Blue",
+      "comment": "A project colour."
+    },
+    "colour.coral": {
+      "value": "Coral",
+      "comment": "A project colour."
+    },
+    "colour.green": {
+      "value": "Green",
+      "comment": "A project colour."
+    },
+    "colour.lime": {
+      "value": "Lime",
+      "comment": "A project colour."
+    },
+    "colour.magenta": {
+      "value": "Magenta",
+      "comment": "A project colour."
+    },
+    "colour.none": {
+      "value": "None",
+      "comment": "Project colour menu: no colour. distinct-from: board.group.none"
+    },
+    "colour.sky": {
+      "value": "Sky",
+      "comment": "A project colour."
+    },
+    "colour.teal": {
+      "value": "Teal",
+      "comment": "A project colour."
+    },
+    "colour.violet": {
+      "value": "Violet",
+      "comment": "A project colour."
+    },
+    "common.add": {
+      "value": "Add",
+      "comment": "Button that adds the selection."
+    },
+    "common.all": {
+      "value": "All",
+      "comment": "Option meaning no limit: every session, every item."
+    },
     "common.cancel": {
       "value": "Cancel",
       "comment": "Button that abandons an action in progress."
+    },
+    "common.clear": {
+      "value": "Clear",
+      "comment": "Button that empties a search field or resets filters."
+    },
+    "common.close": {
+      "value": "Close",
+      "comment": "Button or menu item that closes something — here, a task in review."
+    },
+    "common.context": {
+      "value": "Context",
+      "comment": "The noun \"context\", as in an agent's context window. Column header (shown upper-cased) and section label."
+    },
+    "common.copy": {
+      "value": "Copy",
+      "comment": "Button that copies the adjacent text."
+    },
+    "common.create": {
+      "value": "Create",
+      "comment": "Button that creates the thing a sheet describes."
+    },
+    "common.delete": {
+      "value": "Delete",
+      "comment": "Button that performs a deletion the person has confirmed."
+    },
+    "common.done": {
+      "value": "Done",
+      "comment": "Button that closes a sheet or panel. distinct-from: catchUp.phase.done"
+    },
+    "common.harness": {
+      "value": "Harness",
+      "comment": "The noun \"harness\": an AI coding agent CLI or app Auspex observes (Claude Code, Codex…). Kept in English in Chinese, as in AstroQore's other apps."
+    },
+    "common.open": {
+      "value": "Open",
+      "comment": "Button or label that opens the item it sits on."
+    },
+    "common.project": {
+      "value": "Project",
+      "comment": "The noun \"project\": a grouping axis, a column header (shown upper-cased), a field label."
+    },
+    "common.remove": {
+      "value": "Remove",
+      "comment": "Button that removes an item from a list or board (not a deletion)."
+    },
+    "common.scratch": {
+      "value": "Scratch",
+      "comment": "The pseudo-project for work in a scratch folder, or filed before Auspex knew its project."
+    },
+    "common.status": {
+      "value": "Status",
+      "comment": "The noun \"status\": a column header, a property label, a picker label."
+    },
+    "context.chip": {
+      "value": "context",
+      "comment": "Trace header: small label on the context chip that opens the popover. Lower-case. distinct-from: common.context"
+    },
+    "context.estimate.derived": {
+      "value": "Estimate, from the {count} messages Auspex indexed — Claude Code's own /context is exact.",
+      "comment": "Context popover caption under the composition bar.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "context.estimate.join": {
+      "value": "{first} {second}",
+      "comment": "Joins two sentences of the context popover caption (Chinese takes no space).",
+      "placeholders": {
+        "first": "string",
+        "second": "string"
+      }
+    },
+    "context.estimate.overEstimated": {
+      "value": "Four characters to the token over-counted here; the bands were scaled to fit.",
+      "comment": "Context popover caption, added sentence."
+    },
+    "context.estimate.recorded": {
+      "value": "Estimate, from the {count} messages Auspex indexed. The harness records the fill but does not itemise it.",
+      "comment": "Context popover caption under the composition bar.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "context.estimate.sinceCompaction": {
+      "value": "Counted from the last compaction.",
+      "comment": "Context popover caption, added sentence."
+    },
+    "context.estimate.truncated": {
+      "value": "Older messages were not read, so the measured bands are a floor.",
+      "comment": "Context popover caption, added sentence."
+    },
+    "context.estimate.unattributed": {
+      "value": "Little of this session's text is indexed here, so most of the window falls into “everything else” rather than being attributed.",
+      "comment": "Context popover caption, added sentence. Quote context.slice.everythingElse."
+    },
+    "context.fill.derived": {
+      "value": "Fill read from the transcript. Window size looked up from the model — the harness does not record it.",
+      "comment": "Context popover caption."
+    },
+    "context.fill.recorded": {
+      "value": "Fill and window size both recorded by the harness.",
+      "comment": "Context popover caption. distinct-from: context.help.recorded"
+    },
+    "context.fill.unknownSuffix": {
+      "value": "{reason} The fill below is what the transcript recorded.",
+      "comment": "Context popover caption when the window size is not believable. {reason} is a full sentence (context.help.notOnRecord or .overflow).",
+      "placeholders": {
+        "reason": "string"
+      }
+    },
+    "context.help.cached": {
+      "value": "{tokens} of it served from cache",
+      "comment": "Context gauge tooltip line. {tokens} is a token count such as 120k.",
+      "placeholders": {
+        "tokens": "string"
+      }
+    },
+    "context.help.compacted": {
+      "value": "{count, plural, one {Compacted once already.} other {Compacted # times already.}}",
+      "comment": "Context gauge tooltip: how many times the session's context was compacted.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "context.help.derived": {
+      "value": "Fill read from the transcript; window size looked up from the model.",
+      "comment": "Context gauge tooltip: where the numbers came from."
+    },
+    "context.help.notOnRecord": {
+      "value": "The model's window is not on record; the fill is derived.",
+      "comment": "Context gauge tooltip: why no percentage is shown."
+    },
+    "context.help.overflow": {
+      "value": "The harness reported a fill larger than the window it also reported.",
+      "comment": "Context gauge tooltip: why no percentage is shown."
+    },
+    "context.help.recorded": {
+      "value": "Fill and window both recorded by the harness.",
+      "comment": "Context gauge tooltip: where the numbers came from."
+    },
+    "context.ledger.cached": {
+      "value": "cached",
+      "comment": "Context popover ledger key."
+    },
+    "context.ledger.compactions": {
+      "value": "compactions",
+      "comment": "Context popover ledger key."
+    },
+    "context.ledger.notBelievable": {
+      "value": "{value} · not believable",
+      "comment": "Context popover ledger value when the reported window is smaller than the fill.",
+      "placeholders": {
+        "value": "string"
+      }
+    },
+    "context.ledger.notRecorded": {
+      "value": "not recorded",
+      "comment": "Context popover ledger value."
+    },
+    "context.ledger.notReported": {
+      "value": "not reported",
+      "comment": "Context popover ledger value."
+    },
+    "context.ledger.output": {
+      "value": "output, all turns",
+      "comment": "Context popover ledger key."
+    },
+    "context.ledger.used": {
+      "value": "used",
+      "comment": "Context popover ledger key."
+    },
+    "context.ledger.window": {
+      "value": "window",
+      "comment": "Context popover ledger key."
+    },
+    "context.slice.everythingElse": {
+      "value": "Everything else",
+      "comment": "Context composition band: system prompt, tool schemas, skills, memory."
+    },
+    "context.slice.free": {
+      "value": "Free",
+      "comment": "Context composition band: unused window. distinct-from: board.bucket.idle distinct-from: aviary.room.free"
+    },
+    "context.slice.messages": {
+      "value": "Messages",
+      "comment": "Context composition band."
+    },
+    "context.slice.toolResults": {
+      "value": "Tool results",
+      "comment": "Context composition band."
+    },
+    "context.unknownWindow": {
+      "value": "{used} · window ?",
+      "comment": "Context gauge when the window size reported was not believable. {used} is a token count such as 850.1k.",
+      "placeholders": {
+        "used": "string"
+      }
+    },
+    "context.whatsInIt": {
+      "value": "What is in it",
+      "comment": "Context popover heading over the composition bar."
+    },
+    "context.window": {
+      "value": "Context window",
+      "comment": "Context popover heading (upper-cased style)."
+    },
+    "copy.clickToCopy": {
+      "value": "Click to copy {what} — {value}",
+      "comment": "Tooltip on a copyable chip. {what} is one of copy.what.*; {value} is what will be copied.",
+      "placeholders": {
+        "what": "string",
+        "value": "string"
+      }
+    },
+    "copy.copied": {
+      "value": "Copied {what}",
+      "comment": "Toast after copying something. {what} is one of copy.what.*, a noun phrase.",
+      "placeholders": {
+        "what": "string"
+      }
+    },
+    "copy.copyWhat": {
+      "value": "Copy {what}",
+      "comment": "VoiceOver label of a copyable chip. {what} is one of copy.what.*.",
+      "placeholders": {
+        "what": "string"
+      }
+    },
+    "copy.what.assignment": {
+      "value": "the assignment",
+      "comment": "Noun phrase for copy.* — the prompt a session was given."
+    },
+    "copy.what.branch": {
+      "value": "the branch",
+      "comment": "Noun phrase for copy.*."
+    },
+    "copy.what.handoffPacket": {
+      "value": "the handoff packet",
+      "comment": "Noun phrase for copy.* — a text summary of a task an agent can pick up."
+    },
+    "copy.what.model": {
+      "value": "the model",
+      "comment": "Noun phrase for copy.* — the model id a session runs on."
+    },
+    "copy.what.pid": {
+      "value": "the pid",
+      "comment": "Noun phrase for copy.*."
+    },
+    "copy.what.resumeCommand": {
+      "value": "the resume command",
+      "comment": "Noun phrase for copy.* — the shell command that resumes a session."
+    },
+    "copy.what.sessionID": {
+      "value": "the session ID",
+      "comment": "Noun phrase for copy.*."
+    },
+    "copy.what.taskHandle": {
+      "value": "the task's handle",
+      "comment": "Noun phrase for copy.* — a task's short id such as AUS-12."
+    },
+    "copy.what.title": {
+      "value": "the title",
+      "comment": "Noun phrase for copy.*."
+    },
+    "copy.what.workingDirectory": {
+      "value": "the working directory",
+      "comment": "Noun phrase for copy.*."
+    },
+    "copy.what.worktreeTask": {
+      "value": "the worktree task",
+      "comment": "Noun phrase for copy.* — a prompt asking an agent to set up a worktree."
+    },
+    "crew.asleep": {
+      "value": "{count} asleep",
+      "comment": "Flock: label over the row of finished sessions, drawn small.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "crew.badge.finished": {
+      "value": "finished",
+      "comment": "Flock: VoiceOver label of the tick corner badge. distinct-from: task.card.finished"
+    },
+    "crew.badge.waitingForYou": {
+      "value": "waiting for you",
+      "comment": "Flock: VoiceOver label of the \"!\" corner badge."
+    },
+    "crew.end.exited": {
+      "value": "exited",
+      "comment": "Flock: how a session finished, one word under its face."
+    },
+    "crew.end.killed": {
+      "value": "killed",
+      "comment": "Flock: how a session finished."
+    },
+    "crew.end.processGone": {
+      "value": "process gone",
+      "comment": "Flock: how a session finished — the process vanished without an exit record."
+    },
+    "crew.end.wentQuiet": {
+      "value": "went quiet",
+      "comment": "Flock: how a session finished — Auspex does not know why."
+    },
+    "crew.finishedAccessibility": {
+      "value": "{harness}, finished",
+      "comment": "Flock: VoiceOver label of a finished session's small face.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "crew.finishedHelp": {
+      "value": "{harness} — finished",
+      "comment": "Flock: tooltip on a finished session's small face. {harness} is a harness name.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "crew.sessionsBelow": {
+      "value": "{count} sessions below this one",
+      "comment": "Flock: VoiceOver label of the badge counting a session's descendants.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "crew.sessionsOnTask": {
+      "value": "{count} sessions on this task",
+      "comment": "Flock: VoiceOver label of a task's brood of small faces.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "delivery.aheadBehind": {
+      "value": "ahead {ahead} · behind {behind} · local refs only",
+      "comment": "Delivery: commits ahead of and behind the upstream, from local refs.",
+      "placeholders": {
+        "ahead": "int",
+        "behind": "int"
+      }
+    },
+    "delivery.branch": {
+      "value": "Branch",
+      "comment": "Delivery property label. distinct-from: perch.merge.branch"
+    },
+    "delivery.changed": {
+      "value": "Changed",
+      "comment": "Delivery property label. distinct-from: catchUp.change.changed"
+    },
+    "delivery.changedFiles": {
+      "value": "{count, plural, one {# file} other {# files}}",
+      "comment": "Delivery: how many files changed.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "delivery.changedFilesCapped": {
+      "value": "{count, plural, one {# file + shown with a cap} other {# files + shown with a cap}}",
+      "comment": "Delivery: how many files changed, when the list was capped.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "delivery.checked": {
+      "value": "checked {time} · no fetch",
+      "comment": "Delivery footer. {time} is a relative time such as \"3m ago\".",
+      "placeholders": {
+        "time": "string"
+      }
+    },
+    "delivery.checkout": {
+      "value": "Checkout",
+      "comment": "Delivery property label."
+    },
+    "delivery.copyPacket": {
+      "value": "Copy packet",
+      "comment": "Handoff button."
+    },
+    "delivery.copyPacketHelp": {
+      "value": "Copy the packet. Nothing is sent.",
+      "comment": "Tooltip on Copy packet."
+    },
+    "delivery.decisions": {
+      "value": "Decisions",
+      "comment": "Review record bucket."
+    },
+    "delivery.diffstat": {
+      "value": "Diffstat",
+      "comment": "Delivery property label."
+    },
+    "delivery.evidence": {
+      "value": "Verification evidence",
+      "comment": "Review record bucket."
+    },
+    "delivery.handoff": {
+      "value": "Handoff",
+      "comment": "Task page section title."
+    },
+    "delivery.handoffNote": {
+      "value": "Goal, phase, current state, team, delivery, record, and resume hints. Nothing is sent.",
+      "comment": "Handoff section note."
+    },
+    "delivery.handoffTitle": {
+      "value": "Copy a bounded context packet",
+      "comment": "Handoff section line."
+    },
+    "delivery.lastCommit": {
+      "value": "Last commit",
+      "comment": "Delivery property label."
+    },
+    "delivery.noCheckout": {
+      "value": "No local checkout was recorded for any session on this task.",
+      "comment": "Delivery panel when no checkout is known."
+    },
+    "delivery.noEvidence": {
+      "value": "No verification evidence has been recorded.",
+      "comment": "Review record bucket when empty."
+    },
+    "delivery.noRisks": {
+      "value": "No risk note has been recorded; that is not proof of no risk.",
+      "comment": "Review record bucket when empty."
+    },
+    "delivery.observation": {
+      "value": "Observation",
+      "comment": "Delivery property label over a diagnostic sentence."
+    },
+    "delivery.observedLocalGit": {
+      "value": "observed local Git",
+      "comment": "Delivery panel tag: the facts come from reading the local repository."
+    },
+    "delivery.reading": {
+      "value": "Reading the recorded checkout…",
+      "comment": "Delivery panel while loading."
+    },
+    "delivery.refresh": {
+      "value": "Refresh",
+      "comment": "Delivery panel button."
+    },
+    "delivery.refreshHelp": {
+      "value": "Read this checkout again. No fetch or network request is made.",
+      "comment": "Tooltip on Refresh."
+    },
+    "delivery.reviewRecord": {
+      "value": "Review record",
+      "comment": "Task page section title."
+    },
+    "delivery.risks": {
+      "value": "Risks",
+      "comment": "Review record bucket."
+    },
+    "delivery.title": {
+      "value": "Delivery",
+      "comment": "Task page section title: what the task's checkout looks like now."
+    },
+    "delivery.tree.clean": {
+      "value": "clean",
+      "comment": "Working tree state."
+    },
+    "delivery.tree.dirty": {
+      "value": "dirty",
+      "comment": "Working tree state."
+    },
+    "delivery.tree.unknown": {
+      "value": "unknown",
+      "comment": "Working tree state."
+    },
+    "delivery.upstream": {
+      "value": "Upstream",
+      "comment": "Delivery property label."
+    },
+    "delivery.waitForCheck": {
+      "value": "Wait for the local delivery check to finish",
+      "comment": "Tooltip on Copy packet while disabled."
+    },
+    "delivery.workingTree": {
+      "value": "Working tree",
+      "comment": "Delivery property label."
+    },
+    "flight.agents": {
+      "value": "Agents",
+      "comment": "Flight detail fact (upper-cased)."
+    },
+    "flight.agentsAtMoment": {
+      "value": "Agents at this moment",
+      "comment": "Flight detail section (upper-cased)."
+    },
+    "flight.asked": {
+      "value": "Asked",
+      "comment": "Flight inspector block title over the session's first prompt. distinct-from: ledger.asked"
+    },
+    "flight.atPlayhead": {
+      "value": "At playhead",
+      "comment": "Flight detail heading (upper-cased)."
+    },
+    "flight.backHelp": {
+      "value": "Back to the board (⌘T)",
+      "comment": "Tooltip on the back button."
+    },
+    "flight.beforeTurn1": {
+      "value": "before turn 1",
+      "comment": "Flight inspector: a step before the first turn."
+    },
+    "flight.board": {
+      "value": "Board",
+      "comment": "Flight toolbar: button back to the board."
+    },
+    "flight.buildingGraph": {
+      "value": "Building the execution graph…",
+      "comment": "Flight graph while loading."
+    },
+    "flight.buildingGraphDetail": {
+      "value": "Flight is folding this session's observed agent and tool events.",
+      "comment": "Flight graph while loading. \"Flight\" is viewMode.trajectory."
+    },
+    "flight.cached": {
+      "value": "Cached",
+      "comment": "Flight inspector fact: cached tokens. distinct-from: context.ledger.cached"
+    },
+    "flight.callID": {
+      "value": "Call id",
+      "comment": "Flight inspector fact."
+    },
+    "flight.camera.follow": {
+      "value": "Follow",
+      "comment": "Flight graph camera: follow the active node."
+    },
+    "flight.camera.manual": {
+      "value": "Manual",
+      "comment": "Flight graph camera: stay where the person put it."
+    },
+    "flight.camera.overview": {
+      "value": "Overview",
+      "comment": "Flight graph camera: frame the whole graph."
+    },
+    "flight.cameraHelp": {
+      "value": "Overview fits the graph; Follow glides to activity; pan or zoom enters Manual",
+      "comment": "Tooltip on the camera picker. Quote flight.camera.*."
+    },
+    "flight.closeInspector": {
+      "value": "Close the inspector (Esc)",
+      "comment": "Tooltip on the inspector's close button."
+    },
+    "flight.failed": {
+      "value": "failed",
+      "comment": "Flight: a step that failed."
+    },
+    "flight.filesTouched": {
+      "value": "Files touched",
+      "comment": "Flight detail fact (upper-cased)."
+    },
+    "flight.filterHelp": {
+      "value": "Show only the steps whose text matches",
+      "comment": "Tooltip on the filter field."
+    },
+    "flight.filterSteps": {
+      "value": "Filter steps",
+      "comment": "Flight search field placeholder."
+    },
+    "flight.firstEvents": {
+      "value": "first {count} events",
+      "comment": "Flight header warning when the log was cut.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "flight.follow": {
+      "value": "Follow",
+      "comment": "Flight toolbar toggle label. distinct-from: flight.camera.follow"
+    },
+    "flight.followAccessibility": {
+      "value": "Follow the newest step",
+      "comment": "VoiceOver label of the Follow toggle."
+    },
+    "flight.generation": {
+      "value": "Generation",
+      "comment": "Flight inspector fact."
+    },
+    "flight.in": {
+      "value": "In",
+      "comment": "Flight inspector fact: input tokens."
+    },
+    "flight.inFlight": {
+      "value": "In flight",
+      "comment": "Flight detail section (upper-cased): tool calls open at this moment."
+    },
+    "flight.inspector": {
+      "value": "Inspector",
+      "comment": "Flight inspector header when nothing is selected."
+    },
+    "flight.keyHint": {
+      "value": "o overview · f follow · pan/zoom = manual",
+      "comment": "Flight graph: keyboard hint. The letters o and f are the keys and stay as they are."
+    },
+    "flight.lane.input": {
+      "value": "Input",
+      "comment": "Flight timeline lane: what went into the model. distinct-from: flight.in"
+    },
+    "flight.lane.model": {
+      "value": "Model",
+      "comment": "Flight timeline lane: what the model produced."
+    },
+    "flight.live": {
+      "value": "Live",
+      "comment": "Flight detail empty state title and (upper-cased) tag while following live. distinct-from: perch.live"
+    },
+    "flight.liveAhead": {
+      "value": "Live is {count} events ahead",
+      "comment": "Flight detail in history mode.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "flight.liveDetail": {
+      "value": "Pause or scrub the event ruler to inspect a historical moment.",
+      "comment": "Flight detail empty state detail."
+    },
+    "flight.moment": {
+      "value": "Moment",
+      "comment": "Flight detail heading (upper-cased). distinct-from: flight.tab.moment"
+    },
+    "flight.noEnd": {
+      "value": "no end recorded",
+      "comment": "Flight inspector: a step with no recorded end."
+    },
+    "flight.noSource": {
+      "value": "Auspex recorded no source location for this event.",
+      "comment": "Flight inspector raw tab when the step has no source."
+    },
+    "flight.noToolOpen": {
+      "value": "No tool was open at this event.",
+      "comment": "Flight detail when nothing was open."
+    },
+    "flight.nodeA11y": {
+      "value": "{title}, {state}, {count} tools",
+      "comment": "VoiceOver label of a graph node.",
+      "placeholders": {
+        "title": "string",
+        "state": "string",
+        "count": "int"
+      }
+    },
+    "flight.nothingInFlight": {
+      "value": "Nothing is in flight at this moment.",
+      "comment": "Flight detail when nothing is open."
+    },
+    "flight.nothingInRange": {
+      "value": "Nothing in this range.",
+      "comment": "Flight list when the brush or filter hides everything."
+    },
+    "flight.nothingRead": {
+      "value": "Nothing has been read yet.",
+      "comment": "Flight inspector raw tab placeholder."
+    },
+    "flight.nothingSelected": {
+      "value": "Nothing selected",
+      "comment": "Flight inspector empty state title."
+    },
+    "flight.nothingSelectedDetail": {
+      "value": "Click a row, or a bar on the timeline, to take a step apart.",
+      "comment": "Flight inspector empty state detail."
+    },
+    "flight.ok": {
+      "value": "ok",
+      "comment": "Flight inspector: a step that finished."
+    },
+    "flight.out": {
+      "value": "Out",
+      "comment": "Flight inspector fact: output tokens."
+    },
+    "flight.outTokens": {
+      "value": "{tokens} out",
+      "comment": "Flight row: output tokens of a step. {tokens} is compact, e.g. 3.2k.",
+      "placeholders": {
+        "tokens": "string"
+      }
+    },
+    "flight.outcome": {
+      "value": "Outcome",
+      "comment": "Flight inspector fact."
+    },
+    "flight.outsideRequest": {
+      "value": "This step happened outside a model request.",
+      "comment": "Flight inspector request timing when there is no request."
+    },
+    "flight.pauseGraph": {
+      "value": "Pause graph playback",
+      "comment": "VoiceOver label of the graph's play button while playing."
+    },
+    "flight.paused": {
+      "value": "Paused",
+      "comment": "Flight graph playback state."
+    },
+    "flight.playGraph": {
+      "value": "Play graph history",
+      "comment": "VoiceOver label of the graph's play button."
+    },
+    "flight.playhead": {
+      "value": "Playhead",
+      "comment": "Flight row tag (upper-cased) on the row under the playhead."
+    },
+    "flight.playheadA11y": {
+      "value": "Flight event playhead",
+      "comment": "VoiceOver label of the event scrubber."
+    },
+    "flight.pre": {
+      "value": "Pre",
+      "comment": "Flight row marker for steps before the first turn."
+    },
+    "flight.presentation.graph": {
+      "value": "Graph",
+      "comment": "Flight: presentation picker — the agent graph."
+    },
+    "flight.presentation.trace": {
+      "value": "Trace",
+      "comment": "Flight: presentation picker — the waterfall of steps."
+    },
+    "flight.preview": {
+      "value": "Preview",
+      "comment": "Flight inspector block title and tab."
+    },
+    "flight.previewOnly": {
+      "value": "This harness recorded only a preview of this step; there is no full text in the log to show.",
+      "comment": "Flight inspector note."
+    },
+    "flight.readingLog": {
+      "value": "Reading the event log…",
+      "comment": "Flight list while loading. distinct-from: trace.loading"
+    },
+    "flight.readingRecord": {
+      "value": "Reading the record…",
+      "comment": "Flight inspector raw tab while loading."
+    },
+    "flight.rebuilding": {
+      "value": "Rebuilding this event…",
+      "comment": "Flight detail while history loads."
+    },
+    "flight.record": {
+      "value": "Record",
+      "comment": "Flight inspector fact: the file the step was read from."
+    },
+    "flight.request": {
+      "value": "Request",
+      "comment": "Flight inspector fact: which model request a step belongs to."
+    },
+    "flight.requestTiming": {
+      "value": "Request timing",
+      "comment": "Flight inspector block title."
+    },
+    "flight.role.system": {
+      "value": "System",
+      "comment": "Flight: chip on a step the system wrote."
+    },
+    "flight.role.user": {
+      "value": "User",
+      "comment": "Flight: chip on a step the person wrote."
+    },
+    "flight.scale.calls": {
+      "value": "Calls",
+      "comment": "Flight timeline scale: every step the same width."
+    },
+    "flight.scale.duration": {
+      "value": "Duration",
+      "comment": "Flight timeline scale: proportional to wall time."
+    },
+    "flight.scale.events": {
+      "value": "Events",
+      "comment": "Flight timeline scale: one slot per stored event."
+    },
+    "flight.scale.turns": {
+      "value": "Turns",
+      "comment": "Flight timeline scale: every turn the same width. distinct-from: meta.turns"
+    },
+    "flight.scaleHelp": {
+      "value": "What the timeline's width measures",
+      "comment": "Tooltip on the scale picker."
+    },
+    "flight.scope.session": {
+      "value": "Session",
+      "comment": "Flight scope picker: one session. distinct-from: taskDetail.sessions"
+    },
+    "flight.scope.task": {
+      "value": "Task",
+      "comment": "Flight scope picker: every session on the task. distinct-from: catchUp.source.task"
+    },
+    "flight.scopeHelp": {
+      "value": "One session's flight, or the whole task's — every session on it in one waterfall, in the order things happened",
+      "comment": "Tooltip on the session / task scope picker."
+    },
+    "flight.selectNodeHint": {
+      "value": "Click a graph node to pin its details here. Follow glides to current activity; pan or zoom enters Manual.",
+      "comment": "Flight detail hint when no agent is selected."
+    },
+    "flight.selectSessionDetail": {
+      "value": "A flight is one session opened out. Pick a card to see its turns.",
+      "comment": "Flight placeholder detail; the title is trace.selectSession."
+    },
+    "flight.selectedAgent": {
+      "value": "Selected agent",
+      "comment": "Flight detail section (upper-cased)."
+    },
+    "flight.showWholeSession": {
+      "value": "Show the whole session",
+      "comment": "Flight list button that clears the brush and filter."
+    },
+    "flight.showing": {
+      "value": "showing {shown} of {total}",
+      "comment": "Flight header when a filter is on.",
+      "placeholders": {
+        "shown": "int",
+        "total": "int"
+      }
+    },
+    "flight.source": {
+      "value": "Source",
+      "comment": "Flight inspector block title."
+    },
+    "flight.startFollowing": {
+      "value": "Scroll to the newest step as it arrives",
+      "comment": "Tooltip on Follow while off."
+    },
+    "flight.started": {
+      "value": "Started",
+      "comment": "Flight inspector fact. distinct-from: catchUp.change.started"
+    },
+    "flight.step": {
+      "value": "Step {number}",
+      "comment": "Flight inspector header.",
+      "placeholders": {
+        "number": "int"
+      }
+    },
+    "flight.stopFollowing": {
+      "value": "Stop scrolling to the newest step",
+      "comment": "Tooltip on Follow while on."
+    },
+    "flight.tab.moment": {
+      "value": "Moment",
+      "comment": "Flight detail tab: the reconstructed event."
+    },
+    "flight.tab.raw": {
+      "value": "Raw",
+      "comment": "Flight inspector tab: the record as stored."
+    },
+    "flight.tab.step": {
+      "value": "Step",
+      "comment": "Flight detail tab: the selected step's inspector."
+    },
+    "flight.tab.summary": {
+      "value": "Summary",
+      "comment": "Flight inspector tab."
+    },
+    "flight.throughput": {
+      "value": "Throughput",
+      "comment": "Flight inspector fact."
+    },
+    "flight.tokens": {
+      "value": "Tokens",
+      "comment": "Flight inspector block title."
+    },
+    "flight.tokensPerSecond": {
+      "value": "{rate} tok/s",
+      "comment": "Flight inspector: tokens per second. {rate} is a number with one decimal.",
+      "placeholders": {
+        "rate": "string"
+      }
+    },
+    "flight.totalDuration": {
+      "value": "Total duration",
+      "comment": "Flight inspector fact."
+    },
+    "flight.ttft": {
+      "value": "TTFT",
+      "comment": "Flight inspector fact: time to first token."
+    },
+    "flight.turn": {
+      "value": "Turn",
+      "comment": "Flight inspector fact label. distinct-from: flight.scale.turns"
+    },
+    "flight.turnCount": {
+      "value": "turn {count}",
+      "comment": "Flight graph node: the agent's turn count. Lower-case.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "harnesses.config.alsoConfigured": {
+      "value": "Also configured: {names}",
+      "comment": "Tooltip on the +N chip of MCP servers. {names} is a comma-separated list.",
+      "placeholders": {
+        "names": "string"
+      }
+    },
+    "harnesses.config.canReach": {
+      "value": "This harness can reach the Auspex task board.",
+      "comment": "Tooltip on the Auspex server chip."
+    },
+    "harnesses.config.cannotReach": {
+      "value": "This harness cannot reach the Auspex task board. Register it from “Set up agents…” above.",
+      "comment": "Tooltip on the Auspex server chip when not registered. Quote harnesses.mcp.setUpAgents."
+    },
+    "harnesses.config.global": {
+      "value": "Configured for every session",
+      "comment": "Tooltip on an MCP server chip."
+    },
+    "harnesses.config.noFile": {
+      "value": "no config file",
+      "comment": "Harnesses page: what a harness's MCP config amounts to."
+    },
+    "harnesses.config.notRegistered": {
+      "value": "{name} — not registered",
+      "comment": "Harnesses page: Auspex's MCP server is not registered with this harness. {name} is the server's name, \"auspex\".",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "harnesses.config.scoped": {
+      "value": "Configured for one project directory",
+      "comment": "Tooltip on an MCP server chip scoped to a project."
+    },
+    "harnesses.config.servers": {
+      "value": "{count, plural, =0 {no servers} one {# server} other {# servers}}",
+      "comment": "Harnesses page: how many MCP servers a harness's config registers.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "harnesses.config.unreadable": {
+      "value": "could not be read",
+      "comment": "Harnesses page: the MCP config exists but did not parse."
+    },
+    "harnesses.count.claimed": {
+      "value": "claimed",
+      "comment": "Harnesses page: label under how many tasks this harness's sessions claimed."
+    },
+    "harnesses.count.finished": {
+      "value": "finished",
+      "comment": "Harnesses page: label under how many claimed tasks were closed. distinct-from: crew.badge.finished"
+    },
+    "harnesses.count.idle": {
+      "value": "idle",
+      "comment": "Harnesses page: label under a count. Lower-case. distinct-from: board.bucket.idle"
+    },
+    "harnesses.count.live": {
+      "value": "live",
+      "comment": "Harnesses page: label under a count of live sessions. Lower-case. distinct-from: menuBar.live distinct-from: flight.live"
+    },
+    "harnesses.count.total": {
+      "value": "total",
+      "comment": "Harnesses page: label under a count."
+    },
+    "harnesses.detected": {
+      "value": "detected",
+      "comment": "Harnesses page: the harness is installed on this Mac."
+    },
+    "harnesses.empty.detail": {
+      "value": "Auspex names a harness here as soon as an adapter watches a store for it.",
+      "comment": "Harnesses page empty state detail."
+    },
+    "harnesses.empty.title": {
+      "value": "No harness to report on.",
+      "comment": "Harnesses page empty state title."
+    },
+    "harnesses.footnote": {
+      "value": "The rack is read-only: Auspex tails each store's own files and never writes into a harness directory on its own. The one exception is the setup above — registering MCP, installing the short note or versioned skill, and hooks. It happens only when you click. Config edits stay fenced; the skill has one hashed, Auspex-owned directory and modified content is never overwritten or removed.",
+      "comment": "Harnesses page footnote under the rack."
+    },
+    "harnesses.hooksHelp": {
+      "value": "Harness hooks push a lifecycle event the moment it happens instead of on the next file poll. They are opt-in and land in a later milestone; file tailing stays the baseline either way.",
+      "comment": "Tooltip on hooks off."
+    },
+    "harnesses.hooksOff": {
+      "value": "hooks off",
+      "comment": "Harnesses page: this harness's lifecycle hooks are not installed."
+    },
+    "harnesses.mcp.notRunning": {
+      "value": "Not running in this process.",
+      "comment": "Harnesses page MCP card when there is no server in this process (an offscreen render)."
+    },
+    "harnesses.mcp.setUpAgents": {
+      "value": "Set up agents…",
+      "comment": "Harnesses page: button that opens the setup sheet."
+    },
+    "harnesses.mcp.setUpAgentsHelp": {
+      "value": "Register Auspex with each harness, install the short protocol note, and add the optional coordination skill",
+      "comment": "Tooltip on Set up agents…."
+    },
+    "harnesses.mcp.title": {
+      "value": "MCP server",
+      "comment": "Harnesses page: heading of the card about Auspex's own MCP server."
+    },
+    "harnesses.mcp.unattributedClient": {
+      "value": "an unattributed client",
+      "comment": "Harnesses page: a connected MCP client whose process id is not known."
+    },
+    "harnesses.median": {
+      "value": "median",
+      "comment": "Harnesses page: label beside a median duration."
+    },
+    "harnesses.medianHelp": {
+      "value": "Median time from claim to finish, over the tasks this harness closed",
+      "comment": "Tooltip on the median duration."
+    },
+    "harnesses.noAdapter": {
+      "value": "No adapter watches a store for this harness.",
+      "comment": "Harnesses page: tooltip on a harness row with no store."
+    },
+    "harnesses.notInstalled": {
+      "value": "not installed",
+      "comment": "Harnesses page: the harness is not installed."
+    },
+    "harnesses.store.chatgptShared": {
+      "value": "shares ~/.codex/sessions; originator ChatGPT Work",
+      "comment": "Harnesses page: note on the ChatGPT Work row."
+    },
+    "harnesses.store.codexShared": {
+      "value": "shares ~/.codex/sessions; every originator except ChatGPT Work",
+      "comment": "Harnesses page: note on the Codex row, whose store ChatGPT Work also writes to."
+    },
+    "ignore.explain.folder": {
+      "value": "Hides every session working in that folder or under it.",
+      "comment": "Ignore rule explanation."
+    },
+    "ignore.explain.harness": {
+      "value": "Hides every session of one harness.",
+      "comment": "Ignore rule explanation."
+    },
+    "ignore.explain.project": {
+      "value": "Hides a whole project, however its sessions were placed.",
+      "comment": "Ignore rule explanation."
+    },
+    "ignore.explain.promptPrefix": {
+      "value": "Hides sessions whose first prompt starts with this.",
+      "comment": "Ignore rule explanation."
+    },
+    "ignore.explain.scratchFolder": {
+      "value": "Keeps sessions in that folder on the board, under their harness's scratch, instead of making the folder a project.",
+      "comment": "Ignore rule explanation."
+    },
+    "ignore.explain.titleContains": {
+      "value": "Hides sessions whose title contains this, ignoring case.",
+      "comment": "Ignore rule explanation."
+    },
+    "ignore.eyebrow": {
+      "value": "Ignore",
+      "comment": "Ignore sheet eyebrow and its confirm button."
+    },
+    "ignore.matchOn": {
+      "value": "Match on",
+      "comment": "Ignore sheet picker label."
+    },
+    "ignore.menu.folder": {
+      "value": "Ignore this folder…",
+      "comment": "Session or project context menu."
+    },
+    "ignore.menu.harness": {
+      "value": "Ignore every {harness} session…",
+      "comment": "Session context menu. {harness} is a harness name.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "ignore.menu.project": {
+      "value": "Ignore project…",
+      "comment": "Session or project context menu."
+    },
+    "ignore.menu.prompt": {
+      "value": "Ignore prompts starting with…",
+      "comment": "Session context menu."
+    },
+    "ignore.placeholder.harness": {
+      "value": "A harness's name",
+      "comment": "Ignore rule field placeholder."
+    },
+    "ignore.placeholder.project": {
+      "value": "A project's name",
+      "comment": "Ignore rule field placeholder."
+    },
+    "ignore.stillRecorded": {
+      "value": "Ignored sessions are still recorded and still searchable — they are only hidden from the board, the scene and the counts.",
+      "comment": "Note under every ignore control."
+    },
+    "ignore.tag.folder": {
+      "value": "Folder",
+      "comment": "Ignore rule kind: a folder and everything under it."
+    },
+    "ignore.tag.promptPrefix": {
+      "value": "Prompt starts with",
+      "comment": "Ignore rule kind."
+    },
+    "ignore.tag.scratchFolder": {
+      "value": "Scratch folder",
+      "comment": "Ignore rule kind that keeps a folder's sessions under their harness's scratch instead of making it a project."
+    },
+    "ignore.tag.titleContains": {
+      "value": "Title contains",
+      "comment": "Ignore rule kind."
+    },
+    "ignore.title": {
+      "value": "Hide these sessions from the board",
+      "comment": "Ignore sheet title."
+    },
+    "ledger.asked": {
+      "value": "asked",
+      "comment": "Card ledger: short key before what the person asked the agent. Lower-case, one word."
+    },
+    "ledger.doing": {
+      "value": "doing",
+      "comment": "Card ledger: short key before the agent's own account of what it is doing. distinct-from: now.column.doing"
+    },
+    "ledger.said": {
+      "value": "said",
+      "comment": "Card ledger: short key before the agent's latest reply."
+    },
+    "loginItem.disabledExternally": {
+      "value": "macOS has Launch at Login turned off. Auspex left it off.",
+      "comment": "Settings → General: after reconciling with macOS's Login Items."
+    },
+    "loginItem.enabled": {
+      "value": "Auspex will start quietly when you log in.",
+      "comment": "Settings → General: login item status."
+    },
+    "loginItem.keptAfterUpdate": {
+      "value": "Auspex was updated and macOS kept Launch at Login enabled.",
+      "comment": "Settings → General: after reconciling with macOS's Login Items."
+    },
+    "loginItem.notFound": {
+      "value": "Unavailable in this copy. Move the packaged Auspex.app to Applications and open it once.",
+      "comment": "Settings → General: login item status."
+    },
+    "loginItem.notRegistered": {
+      "value": "Off in macOS. Auspex will not turn it back on unless you click this switch.",
+      "comment": "Settings → General: login item status."
+    },
+    "loginItem.requiresApproval": {
+      "value": "Waiting for approval in System Settings → General → Login Items.",
+      "comment": "Settings → General: login item status."
+    },
+    "loginItem.unknown": {
+      "value": "macOS returned an unknown Login Items state.",
+      "comment": "Settings → General: login item status."
+    },
+    "mcp.status.agentsAttached": {
+      "value": "{count, plural, one {# agent attached} other {# agents attached}}",
+      "comment": "Harnesses page MCP card: how many agents are connected.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "mcp.status.conflict": {
+      "value": "Another copy of Auspex is serving the MCP socket.",
+      "comment": "Harnesses page MCP card."
+    },
+    "mcp.status.demo": {
+      "value": "This is a demo replay, so no MCP socket was bound.",
+      "comment": "Harnesses page MCP card in the demo."
+    },
+    "mcp.status.serving": {
+      "value": "Serving {socket} · {clients}",
+      "comment": "Harnesses page MCP card. {socket} is a path; {clients} is mcp.status.agentsAttached.",
+      "placeholders": {
+        "socket": "string",
+        "clients": "string"
+      }
+    },
+    "mcp.status.stopped": {
+      "value": "Not serving.",
+      "comment": "Harnesses page MCP card."
+    },
+    "mcp.status.theSocket": {
+      "value": "the MCP socket",
+      "comment": "Stand-in for {socket} when the path is unknown."
+    },
+    "menuBar.andMore": {
+      "value": "and {count} more",
+      "comment": "Menu-bar panel, under the list, when it is cut short.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "menuBar.demoStarting": {
+      "value": "Demo starting…",
+      "comment": "Menu-bar panel, demo mode, before the first sessions arrive."
+    },
+    "menuBar.done": {
+      "value": "{count} done",
+      "comment": "Menu-bar panel header and VoiceOver label of the status item: agents that reported finishing.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "menuBar.idle": {
+      "value": "{count} idle",
+      "comment": "VoiceOver label of the status item.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "menuBar.live": {
+      "value": "Live",
+      "comment": "Menu-bar panel heading, followed by the count of live sessions. distinct-from: flight.live"
+    },
+    "menuBar.needsYou": {
+      "value": "{count} needs you",
+      "comment": "Menu-bar panel header and VoiceOver label of the status item.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "menuBar.noLiveSessions": {
+      "value": "No live sessions",
+      "comment": "Menu-bar panel when nothing is live."
+    },
+    "menuBar.nothingRunning": {
+      "value": "nothing running",
+      "comment": "VoiceOver label of the status item when no session is live."
+    },
+    "menuBar.openAuspex": {
+      "value": "Open Auspex",
+      "comment": "Menu-bar panel command that brings up the main window."
+    },
+    "menuBar.quit": {
+      "value": "Quit",
+      "comment": "Menu-bar panel command that quits Auspex."
+    },
+    "menuBar.settings": {
+      "value": "Settings…",
+      "comment": "Menu-bar panel command that opens the Settings window. distinct-from: section.settings — a command, with the ellipsis macOS gives commands that open a window."
+    },
+    "menuBar.working": {
+      "value": "{count} working",
+      "comment": "VoiceOver label of the status item.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "meta.elapsed": {
+      "value": "elapsed",
+      "comment": "Flight header: key before the elapsed time. distinct-from: session.elapsed.elapsed"
+    },
+    "meta.failed": {
+      "value": "failed",
+      "comment": "Flight header: key before a count of failed steps. distinct-from: flight.failed"
+    },
+    "meta.live": {
+      "value": "live",
+      "comment": "Task card: key before live/total sessions. distinct-from: harnesses.count.live distinct-from: flight.live"
+    },
+    "meta.requests": {
+      "value": "requests",
+      "comment": "Flight header: key before a count of model requests."
+    },
+    "meta.session": {
+      "value": "session",
+      "comment": "Flight detail: key before a session id. distinct-from: palette.kind.session distinct-from: flight.scope.session"
+    },
+    "meta.steps": {
+      "value": "steps",
+      "comment": "Flight header: key before a count of steps."
+    },
+    "meta.tokens": {
+      "value": "tokens",
+      "comment": "Short key before input / output token counts. distinct-from: flight.tokens"
+    },
+    "meta.tools": {
+      "value": "tools",
+      "comment": "Short key before a count of tool calls."
+    },
+    "meta.turns": {
+      "value": "turns",
+      "comment": "Short key before a count of turns, in a card's or a trace header's metadata row."
+    },
+    "notice.agentSays": {
+      "value": "the agent says: {kind}",
+      "comment": "VoiceOver label of a notice pill. {kind} is one of notice.*.",
+      "placeholders": {
+        "kind": "string"
+      }
+    },
+    "notice.blocked": {
+      "value": "blocked",
+      "comment": "Pill: an agent said it cannot go on. Lower-case. distinct-from: catchUp.phase.blocked"
+    },
+    "notice.dismissHelp": {
+      "value": "Dismiss — the agent stops asking and the card goes quiet",
+      "comment": "Tooltip on a notice's dismiss button."
+    },
+    "notice.done": {
+      "value": "done",
+      "comment": "Pill: an agent said it finished. Lower-case. distinct-from: catchUp.phase.done distinct-from: attention.done"
+    },
+    "notice.needsInput": {
+      "value": "needs input",
+      "comment": "Pill: an agent said it needs an answer from the person. Lower-case."
+    },
+    "notice.needsReview": {
+      "value": "needs review",
+      "comment": "Pill: an agent said it needs the person to check something. Lower-case."
+    },
+    "notification.blocked": {
+      "value": "{harness} is blocked",
+      "comment": "macOS notification title.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "notification.finished": {
+      "value": "{harness} finished",
+      "comment": "macOS notification title.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "notification.show": {
+      "value": "Show",
+      "comment": "macOS notification action that opens the board on the session."
+    },
+    "notification.waitingOnYou": {
+      "value": "{harness} is waiting on you",
+      "comment": "macOS notification title when an agent asks for input.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "notification.wantsReview": {
+      "value": "{harness} wants a review",
+      "comment": "macOS notification title.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "now.allClear": {
+      "value": "Nothing is running, and nothing is waiting on you.",
+      "comment": "Now: shown in place of the lists when every list is empty."
+    },
+    "now.blockedTask": {
+      "value": "Task marked blocked",
+      "comment": "Now and the office balloons: an agent marked its task blocked. Followed by the task's title."
+    },
+    "now.column.doing": {
+      "value": "Doing",
+      "comment": "Now: column header (shown upper-cased) over what each working session is doing."
+    },
+    "now.column.turn": {
+      "value": "Turn / sub-agents",
+      "comment": "Now: column header (shown upper-cased) over the turn's elapsed time and the folded sub-agent count."
+    },
+    "now.context.unrecorded": {
+      "value": "This harness does not record its context window.",
+      "comment": "Tooltip on the dash shown in place of a context bar."
+    },
+    "now.doneUnseen": {
+      "value": "Done, unseen",
+      "comment": "Now: pill and (upper-cased) list heading for work an agent reported done that the person has not looked at yet."
+    },
+    "now.fewer": {
+      "value": "Fewer",
+      "comment": "Now: button that folds the Working list back."
+    },
+    "now.idle": {
+      "value": "Idle",
+      "comment": "Now: legend entry for sessions that are open with nothing outstanding."
+    },
+    "now.idleFold.hide": {
+      "value": "IDLE {count} · hide",
+      "comment": "Now: the fold for idle sessions while it is open.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "now.idleFold.show": {
+      "value": "IDLE {count} · show →",
+      "comment": "Now: the fold for idle sessions while it is closed. \"IDLE\" is a heading and upper-case in English.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "now.idleFor": {
+      "value": "{duration} idle",
+      "comment": "Now: stopwatch on a stale session, e.g. \"12m idle\". {duration} is a compact stopwatch reading such as 12m or 1h04m. distinct-from: menuBar.idle — a duration, not a count; the word order differs in Chinese.",
+      "placeholders": {
+        "duration": "string"
+      }
+    },
+    "now.markSeen": {
+      "value": "Mark seen",
+      "comment": "Now: the action on a Done, unseen row that clears it."
+    },
+    "now.mayNeedYou": {
+      "value": "May need you",
+      "comment": "Now: pill, legend entry and (upper-cased) list heading for sessions Auspex infers might need the person."
+    },
+    "now.more": {
+      "value": "{count} more →",
+      "comment": "Now: button under the Working list that shows the rows folded away.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "now.needsYou": {
+      "value": "Needs you",
+      "comment": "Now: a header pill, a legend entry and (upper-cased) a list heading for sessions explicitly blocked on the person."
+    },
+    "now.note.mayNeedYou": {
+      "value": "inferred — watch signals",
+      "comment": "Now: note beside the May need you heading."
+    },
+    "now.note.needsYou": {
+      "value": "explicit signals only",
+      "comment": "Now: grey note beside the Needs you heading, after the count. Lower-case on purpose."
+    },
+    "now.note.working": {
+      "value": "one row per root session, sub-agents folded",
+      "comment": "Now: note beside the Working heading."
+    },
+    "now.openArrow": {
+      "value": "Open →",
+      "comment": "Now: the action at the end of a row that opens the session."
+    },
+    "now.search": {
+      "value": "Search sessions…",
+      "comment": "Placeholder in Now's search field. distinct-from: board.search — Now's design spells it with an ellipsis."
+    },
+    "now.stage.collapse": {
+      "value": "Hide the office",
+      "comment": "Tooltip and VoiceOver label of the chevron that closes Now's office stage."
+    },
+    "now.stage.hint": {
+      "value": "Click a person to open the session · hover for what they are doing",
+      "comment": "Hint chip over Now's office stage."
+    },
+    "now.stage.listsOnly": {
+      "value": "Lists only",
+      "comment": "Now's header: segment that hides the office stage."
+    },
+    "now.stage.officeAndLists": {
+      "value": "Office + lists",
+      "comment": "Now's header: segment that shows the office stage above the lists."
+    },
+    "now.status": {
+      "value": "{time} · {live} live · {working} working",
+      "comment": "Now's header line beside the title: the clock (HH:mm) and two counts of sessions.",
+      "placeholders": {
+        "time": "string",
+        "live": "int",
+        "working": "int"
+      }
+    },
+    "now.taskArrow": {
+      "value": "Task →",
+      "comment": "Now: the action at the end of a row whose blocked task has no session; opens the task."
+    },
+    "now.viewMenu.accessibility": {
+      "value": "View: {mode}",
+      "comment": "VoiceOver label of the view menu. {mode} is the current view's name.",
+      "placeholders": {
+        "mode": "string"
+      }
+    },
+    "now.viewMenu.help": {
+      "value": "View: Now, the Ledger of cards, the Aviary, the Flock, your Perch, or one session's Flight",
+      "comment": "Tooltip on the view menu. Names the six views; keep the view names consistent with the viewMode.* keys."
+    },
+    "now.viewMenu.title": {
+      "value": "View",
+      "comment": "Now's header: the menu that switches between the six views."
+    },
+    "now.waitingAnswer": {
+      "value": "Waiting for an answer",
+      "comment": "Now and the office balloons: a session stopped on a question to the person."
+    },
+    "now.waitingPermission": {
+      "value": "Waiting for permission",
+      "comment": "Now and the office balloons: a session stopped on a permission prompt. Followed by the tool call, e.g. Bash(gh pr merge)."
+    },
+    "now.watch.aTool": {
+      "value": "a tool",
+      "comment": "Stand-in for {tool} in now.watch.longTool when the tool's name is not known."
+    },
+    "now.watch.contextPressure": {
+      "value": "context over {percent}% used",
+      "comment": "Now: watch signal — the session's context window is nearly full.",
+      "placeholders": {
+        "percent": "int"
+      }
+    },
+    "now.watch.longTool": {
+      "value": "{tool} has run for over {minutes} min",
+      "comment": "Now: watch signal — one tool call has been running a long time. {tool} is a tool name such as Bash.",
+      "placeholders": {
+        "tool": "string",
+        "minutes": "int"
+      }
+    },
+    "now.watch.orphanedClaim": {
+      "value": "the session that claimed it has ended",
+      "comment": "Now: watch signal — a task is still claimed by a session that is gone."
+    },
+    "now.watch.sharedBranch": {
+      "value": "shares a branch",
+      "comment": "Now: watch signal — another live session is on the same git branch."
+    },
+    "now.watch.sharedDirectory": {
+      "value": "shares a working directory",
+      "comment": "Now: watch signal — another live session works in the same directory."
+    },
+    "now.watch.staleSession": {
+      "value": "alive, but nothing new",
+      "comment": "Now: watch signal — the process is alive but its transcript has not moved. Lower-case, a fragment."
+    },
+    "now.working": {
+      "value": "Working",
+      "comment": "Now: legend entry and (upper-cased) list heading for sessions that are busy."
+    },
+    "palette.closeTask": {
+      "value": "Close {title}",
+      "comment": "Command palette row that closes a task in review. {title} is the task's title.",
+      "placeholders": {
+        "title": "string"
+      }
+    },
+    "palette.closeTaskSubtitle": {
+      "value": "{id} · finished, waiting on you",
+      "comment": "Command palette: subtitle of the close row. {id} is the task's short handle.",
+      "placeholders": {
+        "id": "string"
+      }
+    },
+    "palette.hideSubagents": {
+      "value": "Hide subagents",
+      "comment": "Command palette command."
+    },
+    "palette.kind.close": {
+      "value": "close",
+      "comment": "Command palette: tag before a close-task row. distinct-from: common.close"
+    },
+    "palette.kind.filter": {
+      "value": "filter",
+      "comment": "Command palette: tag before a filter command."
+    },
+    "palette.kind.project": {
+      "value": "project",
+      "comment": "Command palette: tag before a project row. distinct-from: common.project"
+    },
+    "palette.kind.session": {
+      "value": "session",
+      "comment": "Command palette: tag before a session row. distinct-from: flight.scope.session"
+    },
+    "palette.kind.task": {
+      "value": "task",
+      "comment": "Command palette: small tag before a row. Lower-case, ≤ 7 characters. distinct-from: catchUp.source.task"
+    },
+    "palette.kind.view": {
+      "value": "view",
+      "comment": "Command palette: tag before a view command. distinct-from: now.viewMenu.title"
+    },
+    "palette.nothingMatched": {
+      "value": "Nothing matched.",
+      "comment": "Command palette when the query finds nothing."
+    },
+    "palette.placeholder": {
+      "value": "Go to a task, a project, a session — or do something",
+      "comment": "Command palette field placeholder."
+    },
+    "palette.readyOnly": {
+      "value": "Show only what is ready",
+      "comment": "Command palette command: filter to tasks whose dependencies are closed."
+    },
+    "palette.readyOnlySubtitle": {
+      "value": "Tasks whose dependencies are all closed",
+      "comment": "Command palette: subtitle of the ready filter."
+    },
+    "palette.subagentsSubtitle": {
+      "value": "List the sessions inside every task",
+      "comment": "Command palette: subtitle of the show/hide subagents command."
+    },
+    "palette.switchTo": {
+      "value": "Switch to {view}",
+      "comment": "Command palette command. {view} is a view name (viewMode.*).",
+      "placeholders": {
+        "view": "string"
+      }
+    },
+    "perch.ahead": {
+      "value": "{count} ahead",
+      "comment": "Perch playback strip: events after the shown one.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "perch.allBoards": {
+      "value": "All boards",
+      "comment": "Perch board menu label when no board is selected."
+    },
+    "perch.attention.review": {
+      "value": "Review",
+      "comment": "Rule condition value: the task is waiting for review. distinct-from: catchUp.phase.review"
+    },
+    "perch.boardName": {
+      "value": "Board name",
+      "comment": "Field placeholder for a board's name."
+    },
+    "perch.boardRules": {
+      "value": "Board rules",
+      "comment": "Perch toolbar button and sheet title: the rules that decide what a board shows."
+    },
+    "perch.card.auto": {
+      "value": "AUTO",
+      "comment": "Perch card tag on inferred work. distinct-from: task.card.auto — capitals on the canvas."
+    },
+    "perch.card.collapse": {
+      "value": "↳ collapse",
+      "comment": "Perch card: button that folds the sub-agents."
+    },
+    "perch.card.collapseSubagents": {
+      "value": "Collapse subagents",
+      "comment": "VoiceOver label of the fold button."
+    },
+    "perch.card.expandSubagents": {
+      "value": "Expand subagents",
+      "comment": "VoiceOver label of the fold button."
+    },
+    "perch.card.needsYou": {
+      "value": "needs you",
+      "comment": "VoiceOver: part of a Perch card's label. distinct-from: board.bucket.needsYou"
+    },
+    "perch.card.subagents": {
+      "value": "{count} subagents",
+      "comment": "VoiceOver: part of a Perch card's label.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "perch.card.tools": {
+      "value": "tools {count}",
+      "comment": "Perch card footer.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "perch.card.turns": {
+      "value": "turns {count}",
+      "comment": "Perch card footer.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "perch.cards": {
+      "value": "{count} cards",
+      "comment": "Perch toolbar: how many cards are on the board.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "perch.deleteBoard": {
+      "value": "Delete board",
+      "comment": "Board rules sheet button that asks for confirmation."
+    },
+    "perch.deleteConfirm": {
+      "value": "Delete this board?",
+      "comment": "Board rules sheet: inline confirmation."
+    },
+    "perch.dependencyHandle": {
+      "value": "Dependency handle",
+      "comment": "Perch card: VoiceOver label of the dependency handle."
+    },
+    "perch.dependencyHandleHelp": {
+      "value": "Drag to another task to add a dependency",
+      "comment": "Perch card: tooltip on the dependency handle."
+    },
+    "perch.depends": {
+      "value": "depends",
+      "comment": "Perch canvas: label drawn on a dependency arrow."
+    },
+    "perch.dependsOn": {
+      "value": "Depends on",
+      "comment": "Perch card context menu heading over the tasks it can depend on."
+    },
+    "perch.empty": {
+      "value": "This board is empty",
+      "comment": "Perch empty state title."
+    },
+    "perch.emptyProtected": {
+      "value": "A card appears for every piece of work Auspex can see.",
+      "comment": "Perch empty state detail on the built-in board."
+    },
+    "perch.emptyUser": {
+      "value": "Pin a task here, or add a rule that matches one.",
+      "comment": "Perch empty state detail on a board the person made."
+    },
+    "perch.eventPosition": {
+      "value": "event {index} / {count}",
+      "comment": "Perch playback strip: which event of the history is shown.",
+      "placeholders": {
+        "index": "int",
+        "count": "int"
+      }
+    },
+    "perch.fitAll": {
+      "value": "Fit all",
+      "comment": "Perch canvas control (⌘0)."
+    },
+    "perch.following": {
+      "value": "following",
+      "comment": "Perch playback strip: following the live board."
+    },
+    "perch.fork": {
+      "value": "Fork board here",
+      "comment": "Perch toolbar in history mode: makes a branch of the board at this point in time."
+    },
+    "perch.forkName": {
+      "value": "{name} · event {index}",
+      "comment": "Default name of a board forked from history.",
+      "placeholders": {
+        "name": "string",
+        "index": "int"
+      }
+    },
+    "perch.frameLabel": {
+      "value": "{title} · {count} LIVE",
+      "comment": "Perch canvas: label on a project's frame, drawn in capitals in English. {title} is the project's name (upper-cased).",
+      "placeholders": {
+        "title": "string",
+        "count": "int"
+      }
+    },
+    "perch.history": {
+      "value": "History",
+      "comment": "Perch playback strip: the board is showing a moment in the past."
+    },
+    "perch.history.board": {
+      "value": "board",
+      "comment": "History inspector: key before the board's name. distinct-from: flight.board"
+    },
+    "perch.history.building": {
+      "value": "Building this Perch moment…",
+      "comment": "History inspector while the moment loads."
+    },
+    "perch.history.buildingDetail": {
+      "value": "The board state at the playhead will appear here. History is read-only.",
+      "comment": "History inspector while the moment loads."
+    },
+    "perch.history.liveSessions": {
+      "value": "Live sessions",
+      "comment": "History inspector fact (shown upper-cased)."
+    },
+    "perch.history.momentBoard": {
+      "value": "Moment · board",
+      "comment": "History inspector eyebrow (shown upper-cased)."
+    },
+    "perch.history.note": {
+      "value": "Membership, state, tasks, and rules are historical. Card positions and camera stay current. History cannot Resume or edit dependencies.",
+      "comment": "History inspector footnote."
+    },
+    "perch.history.position": {
+      "value": "position",
+      "comment": "History inspector: key before a card's x, y."
+    },
+    "perch.history.selected": {
+      "value": "Selected · current spatial memory",
+      "comment": "History inspector heading (shown upper-cased)."
+    },
+    "perch.history.since": {
+      "value": "{index} / {count} · {behind} events behind Live",
+      "comment": "History inspector: which event is shown and how far behind the present it is.",
+      "placeholders": {
+        "index": "int",
+        "count": "int",
+        "behind": "int"
+      }
+    },
+    "perch.history.sinceMoment": {
+      "value": "Since this moment",
+      "comment": "History inspector heading (shown upper-cased)."
+    },
+    "perch.history.toolsOpen": {
+      "value": "Tools open",
+      "comment": "History inspector fact (shown upper-cased)."
+    },
+    "perch.indexing": {
+      "value": "indexing…",
+      "comment": "Perch playback strip while history loads."
+    },
+    "perch.jumpToLive": {
+      "value": "Jump to Live",
+      "comment": "Perch playback strip button."
+    },
+    "perch.live": {
+      "value": "Live",
+      "comment": "Perch playback strip: the board follows the present. distinct-from: menuBar.live distinct-from: harnesses.count.live"
+    },
+    "perch.liveOverview": {
+      "value": "Live activity overview",
+      "comment": "VoiceOver label of the playback strip."
+    },
+    "perch.merge": {
+      "value": "Merge to parent",
+      "comment": "Perch toolbar: merges a forked board back."
+    },
+    "perch.merge.action": {
+      "value": "Merge",
+      "comment": "Merge sheet confirm button."
+    },
+    "perch.merge.automaticMemberships": {
+      "value": "automatic memberships",
+      "comment": "Merge sheet: key before a count of membership changes that merge cleanly."
+    },
+    "perch.merge.automaticPositions": {
+      "value": "automatic positions",
+      "comment": "Merge sheet: key before a count of position changes that merge cleanly."
+    },
+    "perch.merge.branch": {
+      "value": "Branch",
+      "comment": "Merge sheet: label (upper-cased) over the branch's side of a conflict."
+    },
+    "perch.merge.choose": {
+      "value": "Choose…",
+      "comment": "Merge sheet: conflict picker's empty choice."
+    },
+    "perch.merge.conflicts": {
+      "value": "conflicts",
+      "comment": "Merge sheet: key before the number of conflicts."
+    },
+    "perch.merge.failed": {
+      "value": "The merge comparison could not be prepared.",
+      "comment": "Merge sheet error."
+    },
+    "perch.merge.field.membership": {
+      "value": "Membership",
+      "comment": "Merge sheet: what a conflict is about (upper-cased)."
+    },
+    "perch.merge.field.position": {
+      "value": "Position",
+      "comment": "Merge sheet: what a conflict is about (upper-cased). distinct-from: perch.history.position"
+    },
+    "perch.merge.field.rules": {
+      "value": "Rules",
+      "comment": "Merge sheet: what a conflict is about (upper-cased)."
+    },
+    "perch.merge.keepParent": {
+      "value": "Keep parent",
+      "comment": "Merge sheet: conflict choice."
+    },
+    "perch.merge.noConflicts": {
+      "value": "No conflicts",
+      "comment": "Merge sheet empty state."
+    },
+    "perch.merge.noConflictsDetail": {
+      "value": "The branch can be merged without replacing later parent edits.",
+      "comment": "Merge sheet empty state detail."
+    },
+    "perch.merge.parent": {
+      "value": "Parent",
+      "comment": "Merge sheet: label (upper-cased) over the parent's side of a conflict."
+    },
+    "perch.merge.resolution": {
+      "value": "Resolution",
+      "comment": "Merge sheet: picker label (hidden) for a conflict."
+    },
+    "perch.merge.takeBranch": {
+      "value": "Take branch",
+      "comment": "Merge sheet: conflict choice."
+    },
+    "perch.mergeComparing": {
+      "value": "Comparing the fork base, parent, and branch…",
+      "comment": "Merge sheet progress."
+    },
+    "perch.mergeNote": {
+      "value": "Only positions, membership overrides, and the rule tree are merged. Tasks, dependencies, agents, board names, and cameras are untouched.",
+      "comment": "Merge sheet explanation."
+    },
+    "perch.mergeTitle": {
+      "value": "Merge Perch branch",
+      "comment": "Merge sheet title. \"Perch\" is viewMode.perch."
+    },
+    "perch.minimapHelp": {
+      "value": "The whole board. Click or drag to move the camera.",
+      "comment": "Tooltip on the Perch minimap."
+    },
+    "perch.moveEarlier": {
+      "value": "Move earlier",
+      "comment": "Board rules sheet: moves the board earlier in the list."
+    },
+    "perch.moveLater": {
+      "value": "Move later",
+      "comment": "Board rules sheet: moves the board later in the list."
+    },
+    "perch.newBoard": {
+      "value": "New board…",
+      "comment": "Perch board menu."
+    },
+    "perch.newBoardNote": {
+      "value": "This board starts manual. Add nested rules from Board rules after it is created.",
+      "comment": "New board sheet note. Quote perch.boardRules."
+    },
+    "perch.newBoardTitle": {
+      "value": "New Perch board",
+      "comment": "New board sheet title."
+    },
+    "perch.noActivity": {
+      "value": "No observed activity",
+      "comment": "Perch card focus line when nothing is known."
+    },
+    "perch.pausePlayback": {
+      "value": "Pause playback",
+      "comment": "Perch history: VoiceOver label of the play button while playing."
+    },
+    "perch.pauseRules": {
+      "value": "Pause rules",
+      "comment": "Perch toolbar: stops the board's rules adding or removing cards."
+    },
+    "perch.pinSelected": {
+      "value": "Pin selected",
+      "comment": "Perch toolbar: pins the selected task to this board."
+    },
+    "perch.placing": {
+      "value": "Placing the map…",
+      "comment": "Perch empty state while the board is loading."
+    },
+    "perch.playHistory": {
+      "value": "Play history",
+      "comment": "Perch history: VoiceOver label of the play button."
+    },
+    "perch.playhead": {
+      "value": "Perch history playhead",
+      "comment": "VoiceOver label of the history slider."
+    },
+    "perch.playheadValue": {
+      "value": "Event {index} of {count}",
+      "comment": "VoiceOver value of the history slider.",
+      "placeholders": {
+        "index": "int",
+        "count": "int"
+      }
+    },
+    "perch.promoteFirst": {
+      "value": "Promote this task before adding dependencies",
+      "comment": "Perch card context menu for inferred work."
+    },
+    "perch.readOnly": {
+      "value": "History is read-only · Jump to Live to edit",
+      "comment": "Perch card context menu in history mode."
+    },
+    "perch.recentlyDeleted": {
+      "value": "Recently deleted",
+      "comment": "Perch board menu submenu."
+    },
+    "perch.restore": {
+      "value": "Restore {name}",
+      "comment": "Perch board menu: restores a deleted board.",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "perch.resumeRules": {
+      "value": "Resume rules",
+      "comment": "Perch toolbar: turns the board's rules back on."
+    },
+    "perch.rules.add": {
+      "value": "Add rules",
+      "comment": "Board rules sheet button."
+    },
+    "perch.rules.all": {
+      "value": "All (AND)",
+      "comment": "Rule node kind."
+    },
+    "perch.rules.any": {
+      "value": "Any (OR)",
+      "comment": "Rule node kind."
+    },
+    "perch.rules.apply": {
+      "value": "Apply rules",
+      "comment": "Board rules sheet button."
+    },
+    "perch.rules.attention": {
+      "value": "Attention",
+      "comment": "Rule condition field: whether a session is asking for the person."
+    },
+    "perch.rules.condition": {
+      "value": "Condition",
+      "comment": "Rule editor: adds a condition; also the name of a single-condition rule node."
+    },
+    "perch.rules.emptyAll": {
+      "value": "All with no conditions matches everything.",
+      "comment": "Rule editor: an empty AND group."
+    },
+    "perch.rules.emptyGroup": {
+      "value": "This group matches nothing.",
+      "comment": "Rule editor: an empty OR / NOT group."
+    },
+    "perch.rules.field": {
+      "value": "Field",
+      "comment": "Picker label (hidden) for what a condition tests."
+    },
+    "perch.rules.kind": {
+      "value": "Rule kind",
+      "comment": "Picker label (hidden) for a rule node."
+    },
+    "perch.rules.not": {
+      "value": "Not",
+      "comment": "Rule node kind."
+    },
+    "perch.rules.note": {
+      "value": "Nested AND / OR / NOT, then per-task include or exclude overrides.",
+      "comment": "Board rules sheet: note under the title. AND / OR / NOT stay in capitals."
+    },
+    "perch.rules.projectKey": {
+      "value": "Project key",
+      "comment": "Field placeholder: the project key a condition matches."
+    },
+    "perch.rules.remove": {
+      "value": "Remove rule",
+      "comment": "VoiceOver label of a rule's remove button."
+    },
+    "perch.rules.title": {
+      "value": "Automatic membership",
+      "comment": "Board rules sheet: section title for the rule tree."
+    },
+    "perch.zoomIn": {
+      "value": "Zoom in",
+      "comment": "Perch canvas control."
+    },
+    "perch.zoomOut": {
+      "value": "Zoom out",
+      "comment": "Perch canvas control."
+    },
+    "placeholder.arrivesIn": {
+      "value": "Arrives in {milestone}.",
+      "comment": "Placeholder page for a section not built yet. {milestone} is a milestone name such as M2.",
+      "placeholders": {
+        "milestone": "string"
+      }
+    },
+    "placeholder.harnesses": {
+      "value": "Which harnesses are installed, where their stores are, and how far each tailer has read.",
+      "comment": "Placeholder page explanation."
+    },
+    "placeholder.live": {
+      "value": "The live board.",
+      "comment": "Placeholder page explanation."
+    },
+    "placeholder.projects": {
+      "value": "Sessions grouped by git root and worktree, so three agents in three worktrees of one repository read as one project.",
+      "comment": "Placeholder page explanation."
+    },
+    "placeholder.tasks": {
+      "value": "The shared task board, exposed over MCP so an agent can see what its siblings are working on.",
+      "comment": "Placeholder page explanation."
+    },
+    "projects.aNewProject": {
+      "value": "A new project",
+      "comment": "Import sheet destination."
+    },
+    "projects.addFolder": {
+      "value": "Add folder…",
+      "comment": "Project card button."
+    },
+    "projects.allDone": {
+      "value": "all done",
+      "comment": "A project's task pill when nothing is open."
+    },
+    "projects.allTasksDone": {
+      "value": "Every task in this project is done",
+      "comment": "Tooltip on a project's task pill."
+    },
+    "projects.automatic": {
+      "value": "Automatic",
+      "comment": "Projects page section rule."
+    },
+    "projects.automaticDetail": {
+      "value": "Worked out from where sessions are running. Nothing is stored.",
+      "comment": "Projects page section note."
+    },
+    "projects.automaticEmpty": {
+      "value": "Every project on the board is one of yours.",
+      "comment": "Projects page when nothing is automatic."
+    },
+    "projects.badge.finished": {
+      "value": "{count} finished",
+      "comment": "VoiceOver label of a sidebar attention badge. distinct-from: projects.fold.finished distinct-from: notification.finished",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.badge.needYou": {
+      "value": "{count} need you",
+      "comment": "VoiceOver label of a sidebar attention badge.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.chooseFolder": {
+      "value": "Choose a folder for this project",
+      "comment": "Open panel message."
+    },
+    "projects.chooseFolderButton": {
+      "value": "Choose folder…",
+      "comment": "New project sheet button."
+    },
+    "projects.claim": {
+      "value": "Claim",
+      "comment": "Open panel confirm button."
+    },
+    "projects.claimsNothing": {
+      "value": "Claims nothing yet, so no session is placed in it.",
+      "comment": "Project card warning."
+    },
+    "projects.colourHelp": {
+      "value": "The project's colour on the board",
+      "comment": "Tooltip on the colour menu."
+    },
+    "projects.deleteHelp": {
+      "value": "Delete the project. Its sessions go back to where git puts them.",
+      "comment": "Tooltip on a project's delete button."
+    },
+    "projects.eyebrow": {
+      "value": "Projects",
+      "comment": "Projects page eyebrow. distinct-from: section.projects"
+    },
+    "projects.filterByPath": {
+      "value": "Filter by path",
+      "comment": "Import sheet field placeholder."
+    },
+    "projects.fold.finished": {
+      "value": "{count} finished",
+      "comment": "Sidebar fold. distinct-from: notification.finished",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.fold.finishedElsewhere": {
+      "value": "{count, plural, one {# finished session is in the board's Ended section} other {# finished sessions are in the board's Ended section}}",
+      "comment": "Sidebar fold tooltip, second half.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.fold.listEvery": {
+      "value": "List every running session here",
+      "comment": "Sidebar fold tooltip, first half."
+    },
+    "projects.fold.listFirst": {
+      "value": "List only the first {count} again",
+      "comment": "Sidebar fold tooltip.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.fold.more": {
+      "value": "+{count} more",
+      "comment": "Sidebar fold.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.fold.moreAndFinished": {
+      "value": "+{more} more · {finished} finished",
+      "comment": "Sidebar fold: sessions cut from the list and finished ones elsewhere.",
+      "placeholders": {
+        "more": "int",
+        "finished": "int"
+      }
+    },
+    "projects.fold.separator": {
+      "value": "{first}. {second}",
+      "comment": "Joins the two halves of the sidebar fold tooltip.",
+      "placeholders": {
+        "first": "string",
+        "second": "string"
+      }
+    },
+    "projects.fold.showFewer": {
+      "value": "Show fewer",
+      "comment": "Sidebar fold under a long project."
+    },
+    "projects.foldSessions": {
+      "value": "Fold these sessions away",
+      "comment": "Sidebar: tooltip on a task's chevron."
+    },
+    "projects.folders": {
+      "value": "Folders",
+      "comment": "New project sheet label."
+    },
+    "projects.harnessScratch": {
+      "value": "{harness} · scratch",
+      "comment": "A harness's throwaway directories grouped as one pseudo-project, e.g. \"Codex · scratch\".",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "projects.headline.autoOnly": {
+      "value": "{count} found on the board, none of them yours yet.",
+      "comment": "Projects page headline.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.headline.mixed": {
+      "value": "{mine} yours, {auto} more found on the board.",
+      "comment": "Projects page headline.",
+      "placeholders": {
+        "mine": "int",
+        "auto": "int"
+      }
+    },
+    "projects.headline.none": {
+      "value": "No projects yet.",
+      "comment": "Projects page headline."
+    },
+    "projects.hideCheckoutTasks": {
+      "value": "Hide this checkout's tasks",
+      "comment": "Sidebar: tooltip on a checkout's chevron."
+    },
+    "projects.ignoredRow": {
+      "value": "{title} — {state} · ignored by a rule",
+      "comment": "Sidebar: tooltip on an ignored session row.",
+      "placeholders": {
+        "title": "string",
+        "state": "string"
+      }
+    },
+    "projects.import": {
+      "value": "Import from harness…",
+      "comment": "Projects page button."
+    },
+    "projects.importEyebrow": {
+      "value": "Import",
+      "comment": "Import sheet eyebrow."
+    },
+    "projects.importNote": {
+      "value": "Read from each harness's own registry, and only the paths: Claude Code's projects folder and the project keys of ~/.claude.json, Codex's config.toml tables and its thread catalog. Nothing is written back.",
+      "comment": "Import sheet note."
+    },
+    "projects.importTitle": {
+      "value": "Projects your harnesses already know about",
+      "comment": "Import sheet title."
+    },
+    "projects.importedFrom": {
+      "value": "Imported from {harnesses}.",
+      "comment": "Project card note. {harnesses} is a comma-separated list of harness names.",
+      "placeholders": {
+        "harnesses": "string"
+      }
+    },
+    "projects.inProject": {
+      "value": "in {name}",
+      "comment": "Import sheet: the path already belongs to project {name}.",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "projects.into": {
+      "value": "Into",
+      "comment": "Import sheet picker label."
+    },
+    "projects.intro": {
+      "value": "Auspex groups sessions by git root on its own, so three worktrees of one repository are already one project. A project of your own claims folders instead: every session working under a claimed folder is placed in it, whatever git says, and the deepest claim wins when two overlap.",
+      "comment": "Projects page introduction."
+    },
+    "projects.listSessions": {
+      "value": "List the sessions on this task",
+      "comment": "Sidebar: tooltip on a task's chevron."
+    },
+    "projects.makeAProject": {
+      "value": "Make a project",
+      "comment": "Automatic project row button."
+    },
+    "projects.makeFolderProject": {
+      "value": "Make this folder an Auspex project",
+      "comment": "Session context menu."
+    },
+    "projects.makeProject": {
+      "value": "Make this an Auspex project",
+      "comment": "Sidebar project context menu."
+    },
+    "projects.name": {
+      "value": "Name",
+      "comment": "Project name field placeholder."
+    },
+    "projects.new": {
+      "value": "New project…",
+      "comment": "Projects page button."
+    },
+    "projects.newSubtitle": {
+      "value": "One project, any number of folders",
+      "comment": "New project sheet title."
+    },
+    "projects.newTitle": {
+      "value": "New project",
+      "comment": "New project sheet eyebrow; also the default name of an unnamed project. distinct-from: projects.new"
+    },
+    "projects.noDirectory": {
+      "value": "No working directory",
+      "comment": "Subtitle of a pseudo-project."
+    },
+    "projects.onBoard": {
+      "value": "{count} on the board",
+      "comment": "Project card: sessions on the board when none is live.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.pastePath": {
+      "value": "…or paste a path",
+      "comment": "New project sheet field placeholder."
+    },
+    "projects.pinHelp": {
+      "value": "Pin it to the top",
+      "comment": "Tooltip on a project's pin button. distinct-from: projects.pinToTop"
+    },
+    "projects.pinToTop": {
+      "value": "Pin to the top",
+      "comment": "Sidebar project context menu."
+    },
+    "projects.saveError": {
+      "value": "Your change is in effect but could not be saved: {error}",
+      "comment": "Projects page error. {error} is a system error description.",
+      "placeholders": {
+        "error": "string"
+      }
+    },
+    "projects.scratchSubtitle": {
+      "value": "Work filed before Auspex could tell where it belonged",
+      "comment": "Subtitle of the Scratch pseudo-project."
+    },
+    "projects.selected": {
+      "value": "{count} selected",
+      "comment": "Import sheet count.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.showAll": {
+      "value": "Show every project on the board again",
+      "comment": "Tooltip on the focused project in the sidebar. distinct-from: board.focus.allProjectsHelp"
+    },
+    "projects.showCheckoutTasks": {
+      "value": "Show this checkout's tasks",
+      "comment": "Sidebar: tooltip on a checkout's chevron."
+    },
+    "projects.showOnly": {
+      "value": "Show only {name} on the board",
+      "comment": "Tooltip on a project in the sidebar.",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "projects.sidebarEmpty": {
+      "value": "Projects appear here as sessions report where they are working.",
+      "comment": "Sidebar note when there are no projects yet."
+    },
+    "projects.tasksHelp": {
+      "value": "{open} of {total} tasks in this project are open",
+      "comment": "Tooltip on a project's task pill.",
+      "placeholders": {
+        "open": "int",
+        "total": "int"
+      }
+    },
+    "projects.tasksOnBoard": {
+      "value": "{description} on the task board · {total} filed in all",
+      "comment": "Sidebar: tooltip on a project's task pill. {description} is projects.tasksOpen.",
+      "placeholders": {
+        "description": "string",
+        "total": "int"
+      }
+    },
+    "projects.tasksOpen": {
+      "value": "{count, plural, one {# task open} other {# tasks open}}",
+      "comment": "A project's open-task pill.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "projects.unclaimFolder": {
+      "value": "Stop claiming this folder",
+      "comment": "Tooltip on a folder's remove button."
+    },
+    "projects.ungroupedHelp": {
+      "value": "These sessions reported no working directory, and no ancestor did either.",
+      "comment": "Sidebar: tooltip on the Ungrouped header."
+    },
+    "projects.unpin": {
+      "value": "Unpin",
+      "comment": "Sidebar project context menu."
+    },
+    "projects.unpinHelp": {
+      "value": "Stop pinning it to the top",
+      "comment": "Tooltip on a project's pin button. distinct-from: projects.unpin"
+    },
+    "projects.yours": {
+      "value": "Yours",
+      "comment": "Projects page section rule."
+    },
+    "projects.yoursDetail": {
+      "value": "Claim folders; the board follows.",
+      "comment": "Projects page section note."
+    },
+    "projects.yoursEmpty": {
+      "value": "Nothing yet. Make one from a folder, or import the projects Claude Code and Codex already know about.",
+      "comment": "Projects page when the person has no projects."
+    },
+    "search.matches": {
+      "value": "{count, plural, one {# match} other {# matches}}",
+      "comment": "Transcript search results header.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "search.scope": {
+      "value": "Full text · every harness",
+      "comment": "Transcript search results header."
+    },
+    "section.harnesses": {
+      "value": "Harnesses",
+      "comment": "Sidebar section: the rack of harnesses Auspex can observe."
+    },
+    "section.projects": {
+      "value": "Projects",
+      "comment": "Sidebar section: the person's projects."
+    },
+    "section.sessions": {
+      "value": "Sessions",
+      "comment": "Sidebar section: every session in the window as a wall."
+    },
+    "section.settings": {
+      "value": "Settings",
+      "comment": "Sidebar section and window: Auspex's settings."
+    },
+    "section.tasks": {
+      "value": "Tasks",
+      "comment": "Sidebar section: the task board."
+    },
+    "session.autoReview": {
+      "value": "auto review",
+      "comment": "Card metadata: the session is a harness's automatic code review. Lower-case."
+    },
+    "session.children": {
+      "value": "{count, plural, one {↳ # child} other {↳ # children}}",
+      "comment": "Chip on a card whose session spawned sub-agents.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "session.copyResumeCommand": {
+      "value": "Copy resume command",
+      "comment": "Session context menu."
+    },
+    "session.copySessionID": {
+      "value": "Copy session ID",
+      "comment": "Session context menu."
+    },
+    "session.copyWorkingDirectory": {
+      "value": "Copy working directory",
+      "comment": "Session context menu."
+    },
+    "session.didNotSignal": {
+      "value": "Auspex did not signal this session: {reason}",
+      "comment": "Notice when a signal was refused. {reason} is an explanation in English from Auspex's process checks.",
+      "placeholders": {
+        "reason": "string"
+      }
+    },
+    "session.didNotSignalPid": {
+      "value": "Auspex did not signal pid {pid}: {reason}",
+      "comment": "Notice when sending a signal failed. {reason} is an explanation in English.",
+      "placeholders": {
+        "pid": "int",
+        "reason": "string"
+      }
+    },
+    "session.elapsed.elapsed": {
+      "value": "elapsed",
+      "comment": "Card: label before how long the current turn has run."
+    },
+    "session.elapsed.quiet": {
+      "value": "quiet",
+      "comment": "Card: label before how long an idle session has been quiet."
+    },
+    "session.elapsed.ranFor": {
+      "value": "ran for",
+      "comment": "Card: label before an ended session's duration. Lower-case."
+    },
+    "session.elapsed.waiting": {
+      "value": "waiting",
+      "comment": "Card: label before how long a session has waited on a permission prompt."
+    },
+    "session.interruptHelp.claude": {
+      "value": "Sends SIGINT to pid {pid}. Claude Code takes that as a graceful quit — it saves the session and exits, rather than stopping only the current turn.",
+      "comment": "Tooltip on Interrupt for a Claude Code session.",
+      "placeholders": {
+        "pid": "int"
+      }
+    },
+    "session.interruptHelp.other": {
+      "value": "Sends SIGINT to pid {pid} — the signal a terminal sends on ⌃C. What the harness does with it is the harness's decision.",
+      "comment": "Tooltip on Interrupt for other harnesses.",
+      "placeholders": {
+        "pid": "int"
+      }
+    },
+    "session.kill.confirm": {
+      "value": "Kill",
+      "comment": "Destructive button in the kill confirmation dialog. distinct-from: session.signal.kill — no ellipsis, this is the question itself."
+    },
+    "session.kill.forceMessage": {
+      "value": "{process} (pid {pid}) is still running {seconds}s after SIGTERM. SIGKILL cannot be caught, so it will not get to finish writing anything.",
+      "comment": "Body of the force-kill dialog.",
+      "placeholders": {
+        "process": "string",
+        "pid": "int",
+        "seconds": "int"
+      }
+    },
+    "session.kill.forcePrompt": {
+      "value": "Force {title} to stop?",
+      "comment": "Second dialog, offered when SIGTERM did not stop the process.",
+      "placeholders": {
+        "title": "string"
+      }
+    },
+    "session.kill.message": {
+      "value": "Auspex will send SIGTERM to {process} (pid {pid}). Anything the agent was part-way through will not be finished.",
+      "comment": "Kill confirmation dialog body.",
+      "placeholders": {
+        "process": "string",
+        "pid": "int"
+      }
+    },
+    "session.kill.messageResumable": {
+      "value": "Auspex will send SIGTERM to {process} (pid {pid}). The transcript is already on disk, so the session can be resumed afterwards; anything the agent was part-way through will not be finished.",
+      "comment": "Kill confirmation dialog body for a resumable session. {process} is an executable name.",
+      "placeholders": {
+        "process": "string",
+        "pid": "int"
+      }
+    },
+    "session.kill.prompt": {
+      "value": "Kill {title}?",
+      "comment": "Kill confirmation dialog title. {title} is the session's title, cut to one line.",
+      "placeholders": {
+        "title": "string"
+      }
+    },
+    "session.kill.thisSession": {
+      "value": "this session",
+      "comment": "Stand-in for {title} in session.kill.prompt when the session has no title."
+    },
+    "session.killHelp": {
+      "value": "Asks first, then sends SIGTERM to pid {pid}",
+      "comment": "Tooltip on the Kill… item. SIGTERM is a signal name, never translated.",
+      "placeholders": {
+        "pid": "int"
+      }
+    },
+    "session.noDirectory": {
+      "value": "This session's store records no directory",
+      "comment": "Tooltip on disabled directory items in the session context menu."
+    },
+    "session.notWatchingProcesses": {
+      "value": "Auspex is not watching processes yet.",
+      "comment": "Why the signal items are disabled right after launch."
+    },
+    "session.openIn": {
+      "value": "Open in {app}",
+      "comment": "Session context menu. {app} is a terminal or editor app's name.",
+      "placeholders": {
+        "app": "string"
+      }
+    },
+    "session.openInTerminalHelp": {
+      "value": "A window on that directory. Nothing is run in it.",
+      "comment": "Tooltip on Open in {terminal}."
+    },
+    "session.replied": {
+      "value": "replied",
+      "comment": "Card: label before when the agent last replied, e.g. \"replied · 12 min ago\"."
+    },
+    "session.resumeHelp": {
+      "value": "Copies the command and opens {app} running it",
+      "comment": "Tooltip on Resume in {app}.",
+      "placeholders": {
+        "app": "string"
+      }
+    },
+    "session.resumeIn": {
+      "value": "Resume in {app}",
+      "comment": "Session context menu. {app} is a terminal app's name such as Terminal or iTerm.",
+      "placeholders": {
+        "app": "string"
+      }
+    },
+    "session.revealDirectory": {
+      "value": "Reveal working directory in Finder",
+      "comment": "Session context menu."
+    },
+    "session.revealTranscript": {
+      "value": "Reveal transcript in Finder",
+      "comment": "Session context menu."
+    },
+    "session.signal.forceKill": {
+      "value": "Force kill",
+      "comment": "Menu item and dialog button that sends SIGKILL."
+    },
+    "session.signal.interrupt": {
+      "value": "Interrupt (SIGINT)",
+      "comment": "Session context menu item that sends SIGINT."
+    },
+    "session.signal.kill": {
+      "value": "Kill…",
+      "comment": "Session context menu item that asks, then sends SIGTERM."
+    },
+    "session.spawnedByHelp": {
+      "value": "Open the session that spawned this one",
+      "comment": "Tooltip on the parent chip of a sub-agent's card."
+    },
+    "session.tokensHelp": {
+      "value": "Tokens in / out",
+      "comment": "Tooltip on a card's token counts."
+    },
+    "session.unreadReply": {
+      "value": "Replied, and you have not looked at it",
+      "comment": "VoiceOver label of the dot on a card whose agent replied."
+    },
+    "settings.appearance.accent": {
+      "value": "Accent",
+      "comment": "Settings → Appearance swatch."
+    },
+    "settings.appearance.background": {
+      "value": "Background",
+      "comment": "Settings → Appearance swatch."
+    },
+    "settings.appearance.dark": {
+      "value": "Dark",
+      "comment": "Appearance option."
+    },
+    "settings.appearance.darkDetail": {
+      "value": "Always dark, whatever your Mac is set to.",
+      "comment": "Appearance option explanation."
+    },
+    "settings.appearance.drawingIn": {
+      "value": "Drawing in",
+      "comment": "Settings → Appearance: label before Light or Dark."
+    },
+    "settings.appearance.foreground": {
+      "value": "Foreground",
+      "comment": "Settings → Appearance swatch."
+    },
+    "settings.appearance.intro": {
+      "value": "Every colour Auspex draws with has a value for each appearance, so the board is the same board either way: the same four surface steps, the same three text steps, one colour per state and one per harness. Only their brightness moves.",
+      "comment": "Settings → Appearance introduction."
+    },
+    "settings.appearance.light": {
+      "value": "Light",
+      "comment": "Appearance option."
+    },
+    "settings.appearance.lightDetail": {
+      "value": "Always light, whatever your Mac is set to.",
+      "comment": "Appearance option explanation."
+    },
+    "settings.appearance.noRelaunch": {
+      "value": "Nothing has to be relaunched. The window, the menu bar panel, the office and the crew all repaint where they stand.",
+      "comment": "Settings → Appearance footnote."
+    },
+    "settings.appearance.systemDetail": {
+      "value": "Follows the appearance your Mac is set to, including a scheduled switch.",
+      "comment": "Appearance option explanation."
+    },
+    "settings.appearance.translucentNote": {
+      "value": "The system's sidebar material under the column, which picks up what is behind the window and drains when the window is not in front. Switch it off for a flat ground that matches the board exactly.",
+      "comment": "Settings → Appearance toggle explanation."
+    },
+    "settings.appearance.translucentSidebar": {
+      "value": "Translucent sidebar",
+      "comment": "Settings → Appearance toggle."
+    },
+    "settings.appearance.windowAppearance": {
+      "value": "Window appearance",
+      "comment": "Settings → Appearance label and picker label."
+    },
+    "settings.crew.calm": {
+      "value": "Calm",
+      "comment": "Crew liveliness option."
+    },
+    "settings.crew.calmDetail": {
+      "value": "Something happens to an avatar every fourteen to fifty seconds. For a board you work beside rather than watch.",
+      "comment": "Crew liveliness explanation."
+    },
+    "settings.crew.intro": {
+      "value": "Every avatar lives in a loop that belongs to what its session is doing — thinking, working, waiting on you — and now and then it breaks out of it: a glance away, a shrug, a yawn. This is how often that happens. It does not change how fast anything moves, and it does not switch anything off.",
+      "comment": "Settings → Crew introduction."
+    },
+    "settings.crew.liveliness": {
+      "value": "Liveliness",
+      "comment": "Settings → Crew picker label."
+    },
+    "settings.crew.lively": {
+      "value": "Lively",
+      "comment": "Crew liveliness option."
+    },
+    "settings.crew.livelyDetail": {
+      "value": "Something happens to an avatar every five to eighteen seconds. The wall is never quite still.",
+      "comment": "Crew liveliness explanation."
+    },
+    "settings.crew.normal": {
+      "value": "Normal",
+      "comment": "Crew liveliness option. distinct-from: task.importance.normal"
+    },
+    "settings.crew.normalDetail": {
+      "value": "Something happens to an avatar every eight to thirty seconds.",
+      "comment": "Crew liveliness explanation."
+    },
+    "settings.crew.waitingNote": {
+      "value": "A session that is waiting on you keeps its own rhythm whatever this says: it is the one state that will not resolve itself, so it goes on asking.",
+      "comment": "Settings → Crew note."
+    },
+    "settings.general.intro": {
+      "value": "The board can only catch work that happens while Auspex is running. macOS can start it at login with the menu bar and observation pipeline ready, without opening the board in front of whatever you were doing.",
+      "comment": "Settings → General introduction."
+    },
+    "settings.general.launchAtLogin": {
+      "value": "Launch at login",
+      "comment": "Settings → General toggle."
+    },
+    "settings.general.loginError": {
+      "value": "macOS did not change the login item: {error}",
+      "comment": "Settings → General error. {error} is a system error description.",
+      "placeholders": {
+        "error": "string"
+      }
+    },
+    "settings.general.note": {
+      "value": "This registers the signed main application through ServiceManagement. It does not install a helper, add a LaunchAgent, change the empty entitlements, or grant Auspex any new access to the disk.",
+      "comment": "Settings → General footnote."
+    },
+    "settings.general.openLoginItems": {
+      "value": "Open Login Items",
+      "comment": "Settings → General button that opens System Settings."
+    },
+    "settings.ignore.addRule": {
+      "value": "Add a rule",
+      "comment": "Settings → Ignore section rule."
+    },
+    "settings.ignore.chooseHarness": {
+      "value": "Choose a harness",
+      "comment": "Settings → Ignore harness picker's empty choice."
+    },
+    "settings.ignore.deleteRule": {
+      "value": "Delete this rule",
+      "comment": "Tooltip on a rule's delete button."
+    },
+    "settings.ignore.noRules": {
+      "value": "No rules yet.",
+      "comment": "Settings → Ignore empty state title."
+    },
+    "settings.ignore.noRulesDetail": {
+      "value": "Right-click a card, or a project in the sidebar, to hide the folder it is in.",
+      "comment": "Settings → Ignore empty state detail."
+    },
+    "settings.ignore.nothingHidden": {
+      "value": "Nothing is being hidden.",
+      "comment": "Settings → Ignore headline."
+    },
+    "settings.ignore.rules": {
+      "value": "{count, plural, one {# rule.} other {# rules.}}",
+      "comment": "Settings → Ignore headline when every rule is on.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "settings.ignore.rulesDetail": {
+      "value": "Switch one off to try the board without it.",
+      "comment": "Settings → Ignore section note."
+    },
+    "settings.ignore.rulesOn": {
+      "value": "{count, plural, one {# rule, {active} of them on.} other {# rules, {active} of them on.}}",
+      "comment": "Settings → Ignore headline when some rules are off.",
+      "placeholders": {
+        "count": "int",
+        "active": "int"
+      }
+    },
+    "settings.ignore.rulesTitle": {
+      "value": "Rules",
+      "comment": "Settings → Ignore section rule. distinct-from: perch.merge.field.rules"
+    },
+    "settings.language.caption": {
+      "value": "Auspex follows the macOS language unless you pick one here. Harness, company and product names stay as their owners spell them. The change takes effect at once.",
+      "comment": "Settings → General: the line under the Language picker."
     },
     "settings.language.system": {
       "value": "System",
@@ -13,6 +3666,1342 @@
     "settings.language.title": {
       "value": "Language",
       "comment": "Settings → General: heading of the interface-language picker."
+    },
+    "settings.pane.agents": {
+      "value": "Agents",
+      "comment": "Settings pane name. distinct-from: flight.agents"
+    },
+    "settings.pane.agentsSubtitle": {
+      "value": "What Auspex has written into each harness, and how to take it back.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.appearance": {
+      "value": "Appearance",
+      "comment": "Settings pane name."
+    },
+    "settings.pane.appearanceSubtitle": {
+      "value": "Light and dark, and one accent in both.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.characters": {
+      "value": "Characters",
+      "comment": "Settings pane name: which character figure each harness wears in the office."
+    },
+    "settings.pane.charactersSubtitle": {
+      "value": "Which character each harness wears, and where packages come from.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.crew": {
+      "value": "Crew",
+      "comment": "Settings pane name: the wall of faces (the Flock view). Keep consistent with viewMode.crew."
+    },
+    "settings.pane.crewSubtitle": {
+      "value": "How often the wall of faces moves.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.general": {
+      "value": "General",
+      "comment": "Settings pane name."
+    },
+    "settings.pane.generalSubtitle": {
+      "value": "Whether the observer is already there when you log in, and the language it speaks.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.ignoreSubtitle": {
+      "value": "Everything the board is not showing, and why.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.scene": {
+      "value": "Scene",
+      "comment": "Settings pane name: the office map."
+    },
+    "settings.pane.sceneSubtitle": {
+      "value": "How much map there is: the office, and the places people walk to.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.pane.updates": {
+      "value": "Updates",
+      "comment": "Settings pane name."
+    },
+    "settings.pane.updatesSubtitle": {
+      "value": "Which channel this copy follows, and when it last asked.",
+      "comment": "Settings pane subtitle."
+    },
+    "settings.paneMenu": {
+      "value": "Settings pane",
+      "comment": "Settings: picker label (hidden) of the narrow-window pane menu."
+    },
+    "settings.saveError": {
+      "value": "The setting is in effect, but could not be saved: {error}",
+      "comment": "Settings error. {error} is a system error description.",
+      "placeholders": {
+        "error": "string"
+      }
+    },
+    "settings.scene.bothOff": {
+      "value": "With both switched off, everybody stays at their desk and the map is the office on its own.",
+      "comment": "Settings → Scene footnote."
+    },
+    "settings.scene.breakAreas": {
+      "value": "Break areas",
+      "comment": "Settings → Scene toggle."
+    },
+    "settings.scene.breakAreasDetail": {
+      "value": "Idle sessions rest, stale ones doze, anything that finished while you were elsewhere waits by the door holding a note, and anything that is over walks out through it.",
+      "comment": "Settings → Scene toggle explanation."
+    },
+    "settings.scene.breakStyle": {
+      "value": "Break area style",
+      "comment": "Settings → Scene picker label."
+    },
+    "settings.scene.garden": {
+      "value": "Garden",
+      "comment": "Break area style and the name of that area in the office."
+    },
+    "settings.scene.howFarBack": {
+      "value": "How far back",
+      "comment": "Settings → Scene label over the window picker."
+    },
+    "settings.scene.intro": {
+      "value": "A project's sessions share a suite: desks for the ones that are working, a meeting room for each family that is delegating, and one break room where anything resting, asleep, finished, or waiting to be read goes — and where the door out is.",
+      "comment": "Settings → Scene introduction."
+    },
+    "settings.scene.lounge": {
+      "value": "Lounge",
+      "comment": "Break area style and the name of that area in the office."
+    },
+    "settings.scene.meetingRooms": {
+      "value": "Meeting rooms",
+      "comment": "Settings → Scene toggle."
+    },
+    "settings.scene.meetingRoomsDetail": {
+      "value": "A session that is delegating walks to a long table in its own project's suite and sits at the head of it, with the subagents it spawned down the sides. A project with three or more sessions has a meeting room whether or not anybody is in it.",
+      "comment": "Settings → Scene toggle explanation."
+    },
+    "settings.scene.perProject": {
+      "value": "Per project (random)",
+      "comment": "Break area style option."
+    },
+    "settings.scene.perProjectNote": {
+      "value": "Per project picks one of the three from the project's own path and keeps it, so a suite is recognisable before its nameplate is.",
+      "comment": "Settings → Scene note."
+    },
+    "settings.scene.teaRoom": {
+      "value": "Tea room",
+      "comment": "Break area style and the name of that area in the office."
+    },
+    "settings.scene.waitingNote": {
+      "value": "A session waiting on you never leaves its desk, whichever of these is on. It is the one thing here allowed to interrupt, and it has to do it from somewhere you are already looking.",
+      "comment": "Settings → Scene footnote."
+    },
+    "settings.scene.windowNote": {
+      "value": "Auspex keeps a week of sessions and draws the recent ones. Anything alive, working, or waiting on you is drawn whatever its age — the window only decides how much history stands behind it. Nothing is deleted: widen it and the rest come back.",
+      "comment": "Settings → Scene note."
+    },
+    "settings.updates.automatic": {
+      "value": "Check for updates automatically",
+      "comment": "Settings → Updates toggle."
+    },
+    "settings.updates.automaticNote": {
+      "value": "Once a day, in the background. Nothing is downloaded or installed without a person saying yes to it first — this is a board people leave open for days, and an app that replaced itself under a running session would take the session's window with it.",
+      "comment": "Settings → Updates toggle explanation."
+    },
+    "settings.updates.channel": {
+      "value": "Update channel",
+      "comment": "Settings → Updates label and picker label."
+    },
+    "settings.updates.channel.dev": {
+      "value": "Dev",
+      "comment": "Update channel."
+    },
+    "settings.updates.channel.devDetail": {
+      "value": "Preview builds cut between releases, plus every stable release. They are built from a tag but they have not been lived with.",
+      "comment": "Update channel explanation."
+    },
+    "settings.updates.channel.stable": {
+      "value": "Stable",
+      "comment": "Update channel."
+    },
+    "settings.updates.channel.stableDetail": {
+      "value": "Released versions only. This is the one to be on.",
+      "comment": "Update channel explanation."
+    },
+    "settings.updates.checkNow": {
+      "value": "Check now",
+      "comment": "Settings → Updates button."
+    },
+    "settings.updates.demo": {
+      "value": "This is a demo launch. It reads nothing and writes nothing, including Sparkle's own check timestamp, so the updater is not running.",
+      "comment": "Settings → Updates in demo mode."
+    },
+    "settings.updates.eyebrow": {
+      "value": "Updates",
+      "comment": "Settings → Updates eyebrow. distinct-from: settings.pane.updates"
+    },
+    "settings.updates.feed": {
+      "value": "Feed: {url}",
+      "comment": "Settings → Updates footnote.",
+      "placeholders": {
+        "url": "string"
+      }
+    },
+    "settings.updates.footnote": {
+      "value": "The channel is kept in ~/.auspex/settings.json. Whether to check on a schedule is Sparkle's own setting and lives in the app's defaults, because a second copy of it here would be a second answer to the same question.",
+      "comment": "Settings → Updates footnote."
+    },
+    "settings.updates.intro": {
+      "value": "Auspex reads one update feed and installs nothing without asking. Every build in it is signed with the project's EdDSA key and checked against the key compiled into this copy before a single byte is unpacked, so an update that was tampered with in transit is refused rather than run.",
+      "comment": "Settings → Updates introduction."
+    },
+    "settings.updates.lastChecked": {
+      "value": "Last checked {time}.",
+      "comment": "Settings → Updates. {time} is a relative time such as \"2 hours ago\".",
+      "placeholders": {
+        "time": "string"
+      }
+    },
+    "settings.updates.noCheckYet": {
+      "value": "No check yet. The first one runs shortly after launch.",
+      "comment": "Settings → Updates: when no check has run."
+    },
+    "settings.updates.notPackaged": {
+      "value": "This copy was not packaged as an app bundle, so it has no update feed and no key to verify one with. Build it with Scripts/build_app.sh and run Auspex.app.",
+      "comment": "Settings → Updates when there is no updater."
+    },
+    "settings.updates.saveError": {
+      "value": "The channel is in effect, but could not be saved: {error}",
+      "comment": "Settings → Updates error.",
+      "placeholders": {
+        "error": "string"
+      }
+    },
+    "settings.updates.title": {
+      "value": "Two streams, one signed feed",
+      "comment": "Settings → Updates title."
+    },
+    "settings.updates.version": {
+      "value": "Auspex {version}",
+      "comment": "Settings → Updates: this copy's version, e.g. \"Auspex 0.2.0 (31)\".",
+      "placeholders": {
+        "version": "string"
+      }
+    },
+    "setup.install": {
+      "value": "Install {count}",
+      "comment": "Setup sheet confirm button with how many items are ticked.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "setup.intro": {
+      "value": "Auspex already watches every agent session on this Mac by reading the files they write. These add explicit coordination: an MCP server for task truth and human attention, a versioned skill that teaches Supervisor/Worker/Reviewer handoffs, and hooks for states such as permission waits that transcripts do not record.",
+      "comment": "Setup sheet introduction."
+    },
+    "setup.keepWatching": {
+      "value": "Keep Auspex watching after restart",
+      "comment": "Setup sheet login toggle."
+    },
+    "setup.loginNote": {
+      "value": "Uses macOS Login Items to start the signed main app quietly. No helper, LaunchAgent, or additional disk access is installed.",
+      "comment": "Setup sheet login note."
+    },
+    "setup.notDetected": {
+      "value": "not detected",
+      "comment": "Setup and Agents: tag on a harness that is not installed."
+    },
+    "setup.notServing": {
+      "value": "The MCP socket is not being served, so nothing will answer yet.",
+      "comment": "Setup sheet when there is no socket."
+    },
+    "setup.piece.coordinationSkill": {
+      "value": "Install the Auspex coordination skill",
+      "comment": "Setup row title."
+    },
+    "setup.piece.coordinationSkillDetail": {
+      "value": "Adds a versioned, on-demand Supervisor/Worker/Reviewer playbook. It guides MCP use; the server remains the source of truth.",
+      "comment": "Setup row explanation. Supervisor/Worker/Reviewer are role names and stay in English."
+    },
+    "setup.piece.hooks": {
+      "value": "Install harness hooks",
+      "comment": "Setup row title."
+    },
+    "setup.piece.hooksDetail": {
+      "value": "Lets the harness tell Auspex the moment it needs permission, starts, delegates or stops — the states no transcript records.",
+      "comment": "Setup row explanation."
+    },
+    "setup.piece.mcpServer": {
+      "value": "Register the Auspex MCP server",
+      "comment": "Setup row title."
+    },
+    "setup.piece.mcpServerDetail": {
+      "value": "Adds one `auspex` server entry, so this harness's agents can call notify, plans and tasks.",
+      "comment": "Setup row explanation. `auspex`, notify, plans and tasks are identifiers."
+    },
+    "setup.piece.protocolNote": {
+      "value": "Install the task-protocol note",
+      "comment": "Setup row title."
+    },
+    "setup.piece.protocolNoteDetail": {
+      "value": "Appends the always-loaded invariants and routes coordinated work to the richer auspex-coordination skill.",
+      "comment": "Setup row explanation."
+    },
+    "setup.safety": {
+      "value": "Every box is off until you tick it. Each one names the file it writes to. Config edits stay inside an Auspex-owned fence; the skill gets one exclusive directory with an ownership marker and content hash. Existing or modified directories are left alone. Updates are backed up to ~/.auspex/backups/ and can be undone.",
+      "comment": "Setup sheet note."
+    },
+    "setup.selectAll": {
+      "value": "Select all",
+      "comment": "Setup sheet button."
+    },
+    "setup.serving": {
+      "value": "Serving {path}",
+      "comment": "Setup sheet: where the MCP socket is. {path} is a socket path.",
+      "placeholders": {
+        "path": "string"
+      }
+    },
+    "setup.skillMissing": {
+      "value": "The packaged auspex-coordination resource is missing.",
+      "comment": "Setup error. auspex-coordination is a skill's directory name."
+    },
+    "setup.skip": {
+      "value": "Skip for now",
+      "comment": "Setup sheet button."
+    },
+    "setup.state.elsewhere": {
+      "value": "Already there, pointing at {what}. Ticking this replaces it.",
+      "comment": "Setup row state. {what} is what the existing entry points at.",
+      "placeholders": {
+        "what": "string"
+      }
+    },
+    "setup.state.installed": {
+      "value": "Installed.",
+      "comment": "Setup row state. distinct-from: agents.installed"
+    },
+    "setup.state.ownedInstalled": {
+      "value": "An owned {what} is installed. Ticking this updates it after backup.",
+      "comment": "Setup row state. {what} names the installed thing, in English.",
+      "placeholders": {
+        "what": "string"
+      }
+    },
+    "setup.summary.failed": {
+      "value": "failed",
+      "comment": "Setup result: a harness whose install failed with no reason given. distinct-from: flight.failed"
+    },
+    "setup.summary.nothing": {
+      "value": "Nothing to change — everything ticked was already in place.",
+      "comment": "Setup result."
+    },
+    "setup.summary.wrote": {
+      "value": "{count, plural, one {Wrote # change. Backups are in ~/.auspex/backups/.} other {Wrote # changes. Backups are in ~/.auspex/backups/.}}",
+      "comment": "Setup result.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "setup.title": {
+      "value": "Let your agents talk back",
+      "comment": "Setup sheet title."
+    },
+    "sidebar.demoNote": {
+      "value": "Fabricated sessions, in-memory store. No harness store is read.",
+      "comment": "Sidebar footer in demo mode."
+    },
+    "sidebar.demoReplay": {
+      "value": "Demo replay",
+      "comment": "Sidebar footer in demo mode."
+    },
+    "sidebar.review": {
+      "value": "{count} review",
+      "comment": "Sidebar: beside Tasks, how many tasks wait for review.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "state.childSessions": {
+      "value": "{count, plural, one {# child session} other {# child sessions}}",
+      "comment": "Card activity line while a session delegates.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "state.delegating": {
+      "value": "Delegating",
+      "comment": "Session state pill: waiting on sub-agents. The count rides in a badge beside it."
+    },
+    "state.delegatingCount": {
+      "value": "Delegating ({count})",
+      "comment": "Session state phrase with the number of child sessions.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "state.explain.ended": {
+      "value": "Ended — the process is gone. Nothing more will happen in that terminal; only Resume brings the work back.",
+      "comment": "Tooltip on an Ended state pill."
+    },
+    "state.explain.idle": {
+      "value": "Idle — nothing outstanding, and the process is still there. You can keep talking in that terminal.",
+      "comment": "Tooltip on an Idle state pill."
+    },
+    "state.explain.needsYou": {
+      "value": "Needs you — it will make no further progress until somebody answers.",
+      "comment": "Tooltip on a Needs you state pill."
+    },
+    "state.explain.stale": {
+      "value": "Stale — it says it is working and has said nothing for a while. A long build looks exactly like this, and so does a wedged one.",
+      "comment": "Tooltip on the Stale tag."
+    },
+    "state.file": {
+      "value": "file",
+      "comment": "Card activity line when a session writes a file whose name is not known."
+    },
+    "state.stale": {
+      "value": "Stale",
+      "comment": "Tag beside a working session that has gone quiet."
+    },
+    "state.staleAccessibility": {
+      "value": "Stale: no events recently",
+      "comment": "VoiceOver label of the Stale tag."
+    },
+    "state.thinking": {
+      "value": "Thinking",
+      "comment": "Session state pill and phrase."
+    },
+    "state.tool": {
+      "value": "Tool",
+      "comment": "Session state pill: running a tool call."
+    },
+    "state.toolNamed": {
+      "value": "Tool: {name}",
+      "comment": "Session state phrase; {name} is the tool, e.g. Bash.",
+      "placeholders": {
+        "name": "string"
+      }
+    },
+    "state.writing": {
+      "value": "Writing",
+      "comment": "Session state pill: writing a file."
+    },
+    "state.writingFile": {
+      "value": "Writing file",
+      "comment": "Session state phrase."
+    },
+    "task.blockedBy": {
+      "value": "Blocked by {tasks}",
+      "comment": "Tooltip on the waits-on chip. {tasks} lists \"AUS-3 Title · AUS-7 Title\".",
+      "placeholders": {
+        "tasks": "string"
+      }
+    },
+    "task.card.accessibility": {
+      "value": "{title}, {status}, {count} sessions",
+      "comment": "VoiceOver label of a task card.",
+      "placeholders": {
+        "title": "string",
+        "status": "string",
+        "count": "int"
+      }
+    },
+    "task.card.auto": {
+      "value": "auto",
+      "comment": "Task card tag on a piece of work Auspex inferred from a delegation."
+    },
+    "task.card.autoHelp": {
+      "value": "Auspex worked this out from a delegation. Nobody filed a task for it.",
+      "comment": "Tooltip on the auto tag."
+    },
+    "task.card.filed": {
+      "value": "filed",
+      "comment": "Task card: beside \"unclaimed\", saying the task was filed but nobody picked it up."
+    },
+    "task.card.finished": {
+      "value": "finished",
+      "comment": "Task card: label before how long ago the task finished and went to review."
+    },
+    "task.card.foldSessions": {
+      "value": "Fold the sessions back into the card",
+      "comment": "Tooltip on a task card's chevron while its session list is open."
+    },
+    "task.card.lead": {
+      "value": "lead",
+      "comment": "Task card: tag on the session that leads the task."
+    },
+    "task.card.openSessions": {
+      "value": "{count} sessions are working on this — open the list",
+      "comment": "Tooltip on a task card's chevron while its session list is folded.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "task.card.openTranscript": {
+      "value": "Open this session's transcript",
+      "comment": "Tooltip on a session row inside a task card."
+    },
+    "task.card.tokensHelp": {
+      "value": "Tokens in / out, across every session on this task",
+      "comment": "Tooltip on a task card's token counts."
+    },
+    "task.filter.claimOrphaned": {
+      "value": "claim orphaned",
+      "comment": "Active filter chip: only tasks claimed by a session that ended."
+    },
+    "task.filter.claimed": {
+      "value": "claimed",
+      "comment": "Filter chip and task card word: a session holds the task. Lower-case. distinct-from: task.link.claimed distinct-from: harnesses.count.claimed"
+    },
+    "task.filter.clearFilters": {
+      "value": "Clear filters",
+      "comment": "Filter menu item."
+    },
+    "task.filter.clearHelp": {
+      "value": "Show every task again",
+      "comment": "Tooltip on Clear in the filter bar."
+    },
+    "task.filter.help": {
+      "value": "Narrow the wall: importance, label, harness, what is ready, what is claimed",
+      "comment": "Tooltip on the filter menu."
+    },
+    "task.filter.importance": {
+      "value": "Importance",
+      "comment": "Filter menu section."
+    },
+    "task.filter.label": {
+      "value": "Label",
+      "comment": "Filter menu section."
+    },
+    "task.filter.only": {
+      "value": "Only",
+      "comment": "Filter menu section holding the yes/no filters."
+    },
+    "task.filter.orphanedClaims": {
+      "value": "Orphaned claims",
+      "comment": "Filter menu item."
+    },
+    "task.filter.readyOnly": {
+      "value": "ready only",
+      "comment": "Active filter chip: only tasks whose dependencies are closed."
+    },
+    "task.filter.readyToStart": {
+      "value": "Ready to start",
+      "comment": "Filter menu item."
+    },
+    "task.filter.stopFiltering": {
+      "value": "Stop filtering by {filter}",
+      "comment": "Tooltip on an active filter chip.",
+      "placeholders": {
+        "filter": "string"
+      }
+    },
+    "task.filter.unclaimed": {
+      "value": "unclaimed",
+      "comment": "Filter chip, and a task card's word for a task nobody has claimed. Lower-case."
+    },
+    "task.importance.important": {
+      "value": "important",
+      "comment": "Task importance, lower-case."
+    },
+    "task.importance.low": {
+      "value": "low",
+      "comment": "Task importance, lower-case."
+    },
+    "task.importance.normal": {
+      "value": "normal",
+      "comment": "Task importance, lower-case."
+    },
+    "task.importance.urgent": {
+      "value": "urgent",
+      "comment": "Task importance, lower-case."
+    },
+    "task.importanceHelp": {
+      "value": "Importance: {importance}",
+      "comment": "Tooltip on a task's importance mark.",
+      "placeholders": {
+        "importance": "string"
+      }
+    },
+    "task.kind.chore": {
+      "value": "chore",
+      "comment": "Task kind tag, lower-case."
+    },
+    "task.kind.feature": {
+      "value": "feature",
+      "comment": "Task kind tag, lower-case."
+    },
+    "task.kind.fix": {
+      "value": "fix",
+      "comment": "Task kind tag, lower-case."
+    },
+    "task.kind.research": {
+      "value": "research",
+      "comment": "Task kind tag, lower-case."
+    },
+    "task.link.claimed": {
+      "value": "claimed",
+      "comment": "How a session is attached to a task: it claimed it over MCP. distinct-from: harnesses.count.claimed"
+    },
+    "task.link.inherited": {
+      "value": "under claimer",
+      "comment": "How a session is attached to a task: it is a sub-agent of the session that claimed it."
+    },
+    "task.link.linked": {
+      "value": "linked",
+      "comment": "How a session is attached to a task: a person linked it."
+    },
+    "task.log.closed": {
+      "value": "closed",
+      "comment": "Task history: a person closed the task."
+    },
+    "task.log.created": {
+      "value": "created",
+      "comment": "Task history: entry kind. Lower-case tag."
+    },
+    "task.log.finished": {
+      "value": "finished",
+      "comment": "Task history: an agent reported finishing. distinct-from: crew.badge.finished"
+    },
+    "task.log.project": {
+      "value": "project",
+      "comment": "Task history: the task moved project. distinct-from: common.project"
+    },
+    "task.log.released": {
+      "value": "released",
+      "comment": "Task history: a claim was released."
+    },
+    "task.log.status": {
+      "value": "status",
+      "comment": "Task history: the task's status changed. distinct-from: board.empty.status distinct-from: common.status"
+    },
+    "task.log.takeoverExpired": {
+      "value": "takeover expired",
+      "comment": "Task history entry kind."
+    },
+    "task.log.takeoverRequested": {
+      "value": "takeover requested",
+      "comment": "Task history entry kind."
+    },
+    "task.log.unlinked": {
+      "value": "unlinked",
+      "comment": "Task history entry kind."
+    },
+    "task.menu.open": {
+      "value": "Open task…",
+      "comment": "Task card context menu. distinct-from: app.menu.openTask"
+    },
+    "task.menu.promote": {
+      "value": "Promote to task…",
+      "comment": "Task card context menu: turns inferred work into a real task."
+    },
+    "task.menu.releaseClaim": {
+      "value": "Release claim",
+      "comment": "Task card context menu: drops a claim held by a session that ended."
+    },
+    "task.menu.reopen": {
+      "value": "Reopen",
+      "comment": "Task card context menu: reopens a done task."
+    },
+    "task.note.decision": {
+      "value": "decision",
+      "comment": "Kind of note an agent recorded on a task, lower-case."
+    },
+    "task.note.evidence": {
+      "value": "evidence",
+      "comment": "Kind of note an agent recorded on a task, lower-case."
+    },
+    "task.note.note": {
+      "value": "note",
+      "comment": "Kind of note an agent recorded on a task, lower-case."
+    },
+    "task.note.risk": {
+      "value": "risk",
+      "comment": "Kind of note an agent recorded on a task, lower-case. distinct-from: catchUp.line.risk"
+    },
+    "task.orphanHelp": {
+      "value": "The session holding this claim ended without finishing. Release it so somebody else can take it.",
+      "comment": "Tooltip on the claim orphaned chip."
+    },
+    "task.status.blocked": {
+      "value": "Blocked",
+      "comment": "Task status. distinct-from: catchUp.phase.blocked"
+    },
+    "task.status.doing": {
+      "value": "Doing",
+      "comment": "Task status. distinct-from: now.column.doing — a status, not a column header about activity. distinct-from: ledger.doing"
+    },
+    "task.status.done": {
+      "value": "Done",
+      "comment": "Task status. distinct-from: common.done — a status, not a button. distinct-from: catchUp.phase.done distinct-from: attention.done"
+    },
+    "task.status.review": {
+      "value": "Review",
+      "comment": "Task status: an agent finished and the person has to judge it. distinct-from: catchUp.reason.review distinct-from: catchUp.phase.review"
+    },
+    "task.status.todo": {
+      "value": "To do",
+      "comment": "Task status: a column on the task board and a status word."
+    },
+    "task.waitsOn": {
+      "value": "waits on {ids}",
+      "comment": "Task chip: the tasks this one depends on. {ids} is a comma-separated list of short ids.",
+      "placeholders": {
+        "ids": "string"
+      }
+    },
+    "taskDetail.agentReport": {
+      "value": "Agent report · self-reported",
+      "comment": "Task page: label over the agent's own completion report."
+    },
+    "taskDetail.approve": {
+      "value": "Approve",
+      "comment": "Task page takeover action."
+    },
+    "taskDetail.backHelp": {
+      "value": "Back to the ledger — or press Escape",
+      "comment": "Task page: tooltip on the back crumb. \"ledger\" is viewMode.board."
+    },
+    "taskDetail.claimedBy": {
+      "value": "Claimed by",
+      "comment": "Task page property label."
+    },
+    "taskDetail.defer": {
+      "value": "Defer",
+      "comment": "Task page action: puts this review at the back of the queue."
+    },
+    "taskDetail.filed": {
+      "value": "Filed",
+      "comment": "Task page property label, followed by a relative time. distinct-from: task.card.filed"
+    },
+    "taskDetail.graphStub": {
+      "value": "The whole dependency graph is a page of its own, and is not built yet.",
+      "comment": "Task page note under the dependency list."
+    },
+    "taskDetail.history": {
+      "value": "History",
+      "comment": "Task page section title over its log. distinct-from: perch.history"
+    },
+    "taskDetail.kind": {
+      "value": "Kind",
+      "comment": "Task page property label."
+    },
+    "taskDetail.labels": {
+      "value": "Labels",
+      "comment": "Task page property label."
+    },
+    "taskDetail.nextReview": {
+      "value": "Next review",
+      "comment": "Task page: tooltip on the next-review chevron."
+    },
+    "taskDetail.notFiled": {
+      "value": "Not filed",
+      "comment": "Task page section title for inferred work."
+    },
+    "taskDetail.nothingWritten": {
+      "value": "Nothing has been written down yet.",
+      "comment": "Task page history when empty."
+    },
+    "taskDetail.openDependency": {
+      "value": "Open {id}",
+      "comment": "Tooltip on a dependency. {id} is a task's short handle.",
+      "placeholders": {
+        "id": "string"
+      }
+    },
+    "taskDetail.openFlight": {
+      "value": "Open flight",
+      "comment": "Task page action. distinct-from: app.menu.openFlight"
+    },
+    "taskDetail.openSessionFlight": {
+      "value": "Open this session's flight",
+      "comment": "Tooltip on a session row on the task page."
+    },
+    "taskDetail.previousReview": {
+      "value": "Previous review",
+      "comment": "Task page: tooltip on the previous-review chevron."
+    },
+    "taskDetail.promote": {
+      "value": "Promote to task",
+      "comment": "Task page action. distinct-from: task.menu.promote"
+    },
+    "taskDetail.promoteNote": {
+      "value": "Auspex worked this out from a delegation: {harness} started it and nobody registered a task. Promoting it writes one, claimed by the session already doing the work — the card keeps its place and gains a history, a milestone, and something to close.",
+      "comment": "Task page explanation for inferred work.",
+      "placeholders": {
+        "harness": "string"
+      }
+    },
+    "taskDetail.ready": {
+      "value": "Everything it waits on is closed. Ready to start.",
+      "comment": "Task page dependencies when none is open."
+    },
+    "taskDetail.ref": {
+      "value": "ref",
+      "comment": "Task page note field placeholder for a reference (a URL, a commit…)."
+    },
+    "taskDetail.reject": {
+      "value": "Reject",
+      "comment": "Task page takeover action."
+    },
+    "taskDetail.requestedAt": {
+      "value": "requested at v{version}",
+      "comment": "Task page: the task version the takeover was asked against.",
+      "placeholders": {
+        "version": "int"
+      }
+    },
+    "taskDetail.sessions": {
+      "value": "{count, plural, one {Session} other {# sessions}}",
+      "comment": "Task page section title over its sessions.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "taskDetail.takeoverRequests": {
+      "value": "{count, plural, one {Takeover request} other {Takeover requests}}",
+      "comment": "Task page section title.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "taskDetail.version": {
+      "value": "Version",
+      "comment": "Task page property label."
+    },
+    "taskDetail.waitsOn": {
+      "value": "Waits on",
+      "comment": "Task page section title over dependencies."
+    },
+    "taskDetail.writeItDown": {
+      "value": "Write it down",
+      "comment": "Task page note field placeholder."
+    },
+    "tasks.archiveMilestoneHelp": {
+      "value": "File this milestone away. Its tasks stay in this project.",
+      "comment": "Tooltip on a milestone's archive button."
+    },
+    "tasks.archived": {
+      "value": "archived",
+      "comment": "Tag on an archived milestone."
+    },
+    "tasks.archivedHelp": {
+      "value": "Show milestones that have been filed away",
+      "comment": "Tooltip on the archived toggle."
+    },
+    "tasks.autoHelp": {
+      "value": "Auspex worked this out from a delegation. Nobody filed a task.",
+      "comment": "Tooltip on the auto tag on the Tasks page. distinct-from: task.card.autoHelp"
+    },
+    "tasks.dragHint": {
+      "value": "Drag one onto a task, or use “Link to task…” on its card.",
+      "comment": "Tasks page hint. Quote tasks.linkToTask."
+    },
+    "tasks.fileInProject": {
+      "value": "File a task in this project",
+      "comment": "Tooltip on the + button of a lane."
+    },
+    "tasks.fileUnder": {
+      "value": "File under…",
+      "comment": "Task context menu: moves the task to another milestone or project."
+    },
+    "tasks.fileUnderMilestone": {
+      "value": "File a task under this milestone",
+      "comment": "Tooltip on the + button of a milestone."
+    },
+    "tasks.hideArchived": {
+      "value": "Hide archived",
+      "comment": "Tasks page toggle."
+    },
+    "tasks.laneOpen": {
+      "value": "{count} open",
+      "comment": "Tasks page: open count beside a project lane.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "tasks.linkDisabledHelp": {
+      "value": "Nothing is filed yet. File a task on the Tasks page.",
+      "comment": "Tooltip on the disabled Link to task… item."
+    },
+    "tasks.linkToTask": {
+      "value": "Link to task…",
+      "comment": "Session context menu."
+    },
+    "tasks.milestone": {
+      "value": "Milestone",
+      "comment": "Tasks page button that registers a milestone."
+    },
+    "tasks.milestoneEmpty": {
+      "value": "This milestone has no tasks under it.",
+      "comment": "Empty milestone detail."
+    },
+    "tasks.milestoneHelp": {
+      "value": "Register a milestone inside this project",
+      "comment": "Tooltip on Milestone."
+    },
+    "tasks.milestonePlaceholder": {
+      "value": "What is the whole piece of work?",
+      "comment": "Milestone field placeholder."
+    },
+    "tasks.moveTo": {
+      "value": "Move to {status}",
+      "comment": "Task context menu. {status} is a task status.",
+      "placeholders": {
+        "status": "string"
+      }
+    },
+    "tasks.newTaskPlaceholder": {
+      "value": "What has to be done",
+      "comment": "New task field placeholder."
+    },
+    "tasks.notInMilestone": {
+      "value": "Not in a milestone",
+      "comment": "Heading over tasks with no milestone."
+    },
+    "tasks.notOnBoard": {
+      "value": "Not on the board",
+      "comment": "Tasks page: heading over sessions not linked to any task."
+    },
+    "tasks.nothingFiled": {
+      "value": "Nothing is filed yet.",
+      "comment": "Tasks page empty state title."
+    },
+    "tasks.nothingFiledDetail": {
+      "value": "An agent with Auspex's MCP server installed files a task in whatever project it is working in — install it from the Harnesses page.",
+      "comment": "Tasks page empty state detail."
+    },
+    "tasks.nothingFiledInProject": {
+      "value": "Nothing is filed in this project yet.",
+      "comment": "Empty lane detail."
+    },
+    "tasks.nothingToDo": {
+      "value": "Nothing to do",
+      "comment": "Empty milestone or project lane title."
+    },
+    "tasks.orphanHelp": {
+      "value": "The session holding this claim ended without finishing.",
+      "comment": "Tooltip on claim orphaned on the Tasks page."
+    },
+    "tasks.register": {
+      "value": "Register",
+      "comment": "Milestone field button."
+    },
+    "tasks.reviewNext": {
+      "value": "Review next · {count}",
+      "comment": "Tasks page button: opens the first task waiting for review.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "tasks.reviewNextHelp": {
+      "value": "Open the first task waiting for review",
+      "comment": "Tooltip on Review next."
+    },
+    "tasks.showArchived": {
+      "value": "Show archived",
+      "comment": "Tasks page toggle."
+    },
+    "tasks.summary": {
+      "value": "{projects} · {tasks}",
+      "comment": "Tasks page summary: tasks.summary.projects · projects.tasksOpen.",
+      "placeholders": {
+        "projects": "string",
+        "tasks": "string"
+      }
+    },
+    "tasks.summary.projects": {
+      "value": "{count, plural, one {# project} other {# projects}}",
+      "comment": "Tasks page summary, first half.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "tasks.takeoverExpired": {
+      "value": "That takeover request expired because the task or its holder changed. Review the current claim before deciding again.",
+      "comment": "Notice after deciding a takeover that is no longer valid."
+    },
+    "tasks.unlink": {
+      "value": "Unlink {title}",
+      "comment": "Task context menu: detaches a session from the task.",
+      "placeholders": {
+        "title": "string"
+      }
+    },
+    "time.daysAgo": {
+      "value": "{count}d ago",
+      "comment": "Compact relative time.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "time.hoursAgo": {
+      "value": "{count}h ago",
+      "comment": "Compact relative time.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "time.justNow": {
+      "value": "just now",
+      "comment": "Relative time under ten seconds."
+    },
+    "time.minutesAgo": {
+      "value": "{count}m ago",
+      "comment": "Compact relative time.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "time.never": {
+      "value": "never",
+      "comment": "Relative time when something never happened."
+    },
+    "time.secondsAgo": {
+      "value": "{count}s ago",
+      "comment": "Compact relative time.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "trace.askedFor": {
+      "value": "asked for",
+      "comment": "Trace header: small label over what the session was asked to do."
+    },
+    "trace.copyAssignment": {
+      "value": "Copy the assignment",
+      "comment": "Assignment context menu."
+    },
+    "trace.copyAssignmentHelp": {
+      "value": "Copy everything this session was asked for",
+      "comment": "Tooltip on the copy button beside the assignment."
+    },
+    "trace.copyPath": {
+      "value": "Copy path",
+      "comment": "Working directory chip menu."
+    },
+    "trace.cwdHelp": {
+      "value": "Click to copy the working directory · ⌥-click to reveal it in Finder",
+      "comment": "Tooltip on the working directory chip; the path follows on the next line."
+    },
+    "trace.earlierRows": {
+      "value": "{count, plural, one {# earlier row} other {# earlier rows}}",
+      "comment": "Trace: button that draws rows cut from the top of a long trace.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "trace.earlierRowsHelp": {
+      "value": "Draw the whole of this session's trace, however long it is",
+      "comment": "Tooltip on the earlier rows button."
+    },
+    "trace.elapsed": {
+      "value": "elapsed",
+      "comment": "Trace header: label before the session's elapsed time. distinct-from: session.elapsed.elapsed distinct-from: meta.elapsed"
+    },
+    "trace.event.assistant": {
+      "value": "Assistant",
+      "comment": "Trace row title: model prose."
+    },
+    "trace.event.contextCompacted": {
+      "value": "Context compacted",
+      "comment": "Trace row title."
+    },
+    "trace.event.identityUpdated": {
+      "value": "Identity updated",
+      "comment": "Trace row title."
+    },
+    "trace.event.note": {
+      "value": "Note",
+      "comment": "Trace row title: a note Auspex wrote into the trace. distinct-from: task.note.note"
+    },
+    "trace.event.permissionAllowed": {
+      "value": "Permission allowed",
+      "comment": "Trace row title."
+    },
+    "trace.event.permissionDenied": {
+      "value": "Permission denied",
+      "comment": "Trace row title."
+    },
+    "trace.event.permissionRequested": {
+      "value": "Permission requested",
+      "comment": "Trace row title."
+    },
+    "trace.event.planLimit": {
+      "value": "Plan limit",
+      "comment": "Trace row title: a usage quota reading."
+    },
+    "trace.event.processAlive": {
+      "value": "Process alive",
+      "comment": "Trace row title."
+    },
+    "trace.event.prompt": {
+      "value": "Prompt",
+      "comment": "Trace row title. distinct-from: trace.tab.prompts"
+    },
+    "trace.event.sessionEnded": {
+      "value": "Session ended",
+      "comment": "Trace row title."
+    },
+    "trace.event.sessionStarted": {
+      "value": "Session started",
+      "comment": "Trace row title."
+    },
+    "trace.event.subagentFinished": {
+      "value": "Subagent finished",
+      "comment": "Trace row title."
+    },
+    "trace.event.subagentStarted": {
+      "value": "Subagent started",
+      "comment": "Trace row title."
+    },
+    "trace.event.subagentType": {
+      "value": "Subagent · {type}",
+      "comment": "Trace row title with the sub-agent's type.",
+      "placeholders": {
+        "type": "string"
+      }
+    },
+    "trace.event.toolFailed": {
+      "value": "Tool failed",
+      "comment": "Trace row title."
+    },
+    "trace.event.toolFinished": {
+      "value": "Tool finished",
+      "comment": "Trace row title."
+    },
+    "trace.event.toolResult": {
+      "value": "Tool result",
+      "comment": "Trace row title. distinct-from: context.slice.toolResults"
+    },
+    "trace.event.toolResultFor": {
+      "value": "Tool result · {id}",
+      "comment": "Trace row title with the tool call's id.",
+      "placeholders": {
+        "id": "string"
+      }
+    },
+    "trace.event.turnEnded": {
+      "value": "Turn ended",
+      "comment": "Trace row title."
+    },
+    "trace.event.turnStarted": {
+      "value": "Turn started",
+      "comment": "Trace row title."
+    },
+    "trace.eventPayload": {
+      "value": "Event payload",
+      "comment": "Expanded trace row: label over the raw JSON."
+    },
+    "trace.family.childHelp": {
+      "value": "What this session delegated to",
+      "comment": "Tooltip on the family chip of a session."
+    },
+    "trace.family.children": {
+      "value": "{count, plural, one {# child} other {# children}}",
+      "comment": "Trace: the family chip on a session that delegated.",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "trace.family.expandHelp": {
+      "value": "Divide the board along the delegation tree, so this family reads as one",
+      "comment": "Tooltip on Expand all in board."
+    },
+    "trace.family.expandInBoard": {
+      "value": "Expand all in board",
+      "comment": "Family popover button."
+    },
+    "trace.family.moreSessions": {
+      "value": "{count, plural, one {# more session} other {# sessions}}",
+      "comment": "Trace: the family chip on a task, e.g. \"↳ 3 sessions\".",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "trace.family.onTask": {
+      "value": "{noun} on this task",
+      "comment": "Family popover heading. {noun} is trace.family.moreSessions.",
+      "placeholders": {
+        "noun": "string"
+      }
+    },
+    "trace.family.taskHelp": {
+      "value": "Everybody else working on this task",
+      "comment": "Tooltip on the family chip of a task."
+    },
+    "trace.focusProject": {
+      "value": "Show only this project on the board",
+      "comment": "Tooltip on the project chip in the trace header."
+    },
+    "trace.following": {
+      "value": "Following",
+      "comment": "Trace toggle: keeps the view scrolled to the newest row. distinct-from: perch.following"
+    },
+    "trace.fullText": {
+      "value": "Full text",
+      "comment": "Expanded trace row: label over the full text."
+    },
+    "trace.less": {
+      "value": "less",
+      "comment": "Button that folds a long assignment."
+    },
+    "trace.lineage": {
+      "value": "Lineage",
+      "comment": "Perch inspector heading (shown upper-cased): the session's family."
+    },
+    "trace.loading": {
+      "value": "Loading the event log…",
+      "comment": "Trace empty state while loading."
+    },
+    "trace.mirroredOn": {
+      "value": "Mirrored on {boards}",
+      "comment": "Perch inspector: other boards the card is on. {boards} is a list joined with \" · \".",
+      "placeholders": {
+        "boards": "string"
+      }
+    },
+    "trace.more": {
+      "value": "more",
+      "comment": "Button that unfolds a long assignment."
+    },
+    "trace.moreHelp": {
+      "value": "Copy the resume command, open the folder, interrupt or kill this session",
+      "comment": "Tooltip on the trace header's … menu."
+    },
+    "trace.nothingInView": {
+      "value": "Nothing in this view.",
+      "comment": "Trace empty state when the filter hides everything."
+    },
+    "trace.onThePerch": {
+      "value": "On the Perch",
+      "comment": "Perch inspector heading (shown upper-cased). \"Perch\" is viewMode.perch."
+    },
+    "trace.openTrajectory": {
+      "value": "Open trajectory",
+      "comment": "Trace header button. distinct-from: app.menu.openFlight"
+    },
+    "trace.openTrajectoryHelp": {
+      "value": "Open this session's whole history as a waterfall (⌘T)",
+      "comment": "Tooltip on Open trajectory."
+    },
+    "trace.perchNote": {
+      "value": "Double-click the card to open its Flight. Resume stays an explicit action above.",
+      "comment": "Perch inspector note. \"Flight\" is viewMode.trajectory."
+    },
+    "trace.pinnedIn": {
+      "value": "Pinned in {board}",
+      "comment": "Perch inspector: which board the card is on.",
+      "placeholders": {
+        "board": "string"
+      }
+    },
+    "trace.resume": {
+      "value": "Resume",
+      "comment": "Trace header button that resumes the session in a terminal."
+    },
+    "trace.resumeHelp": {
+      "value": "Opens {app} on this session's own CLI command",
+      "comment": "Tooltip on Resume. {app} is a terminal app's name.",
+      "placeholders": {
+        "app": "string"
+      }
+    },
+    "trace.revealInFinder": {
+      "value": "Reveal in Finder",
+      "comment": "Working directory chip menu."
+    },
+    "trace.selectSession": {
+      "value": "Select a session",
+      "comment": "Trace placeholder when nothing is selected."
+    },
+    "trace.selectSessionDetail": {
+      "value": "Its prompts, tool calls, and turns appear here as they happen.",
+      "comment": "Trace placeholder detail."
+    },
+    "trace.showEverything": {
+      "value": "Show everything",
+      "comment": "Trace empty state button that clears the filter."
+    },
+    "trace.showTab": {
+      "value": "Show {tab}",
+      "comment": "Trace filter tab tooltip. {tab} is one of trace.tab.*, lower-cased in English.",
+      "placeholders": {
+        "tab": "string"
+      }
+    },
+    "trace.spawnedBy": {
+      "value": "Spawned by {parent} — {evidence}",
+      "comment": "Tooltip on the parent chip. {evidence} is how Auspex knows, in English.",
+      "placeholders": {
+        "parent": "string",
+        "evidence": "string"
+      }
+    },
+    "trace.startFollowing": {
+      "value": "Scroll to the newest row as it arrives",
+      "comment": "Tooltip on the Following toggle while off."
+    },
+    "trace.stopFollowing": {
+      "value": "Stop scrolling to the newest row",
+      "comment": "Tooltip on the Following toggle while on."
+    },
+    "trace.subagents": {
+      "value": "{count} subagents",
+      "comment": "Perch inspector: sub-agent count. distinct-from: perch.card.subagents",
+      "placeholders": {
+        "count": "int"
+      }
+    },
+    "trace.tab.all": {
+      "value": "All",
+      "comment": "Trace filter tab. distinct-from: common.all"
+    },
+    "trace.tab.prompts": {
+      "value": "Prompts",
+      "comment": "Trace filter tab."
+    },
+    "trace.tab.text": {
+      "value": "Text",
+      "comment": "Trace filter tab."
+    },
+    "trace.tab.tools": {
+      "value": "Tools",
+      "comment": "Trace filter tab. distinct-from: meta.tools"
+    },
+    "trace.tab.usage": {
+      "value": "Usage",
+      "comment": "Trace filter tab."
+    },
+    "trace.turn": {
+      "value": "Turn {number}",
+      "comment": "Trace divider between turns. distinct-from: flight.turnCount",
+      "placeholders": {
+        "number": "int"
+      }
+    },
+    "viewMode.board": {
+      "value": "Ledger",
+      "comment": "Name of the view that shows every task as a card on a wall. One of six bird-and-augury themed view names (Now, Ledger, Aviary, Flock, Perch, Flight)."
+    },
+    "viewMode.crew": {
+      "value": "Flock",
+      "comment": "Name of the view that shows a wall of animated faces, one per piece of work."
+    },
+    "viewMode.now": {
+      "value": "Now",
+      "comment": "Name of the default view (and of its sidebar row): the office stage over the lists of what needs the person now. distinct-from: catchUp.line.now"
+    },
+    "viewMode.perch": {
+      "value": "Perch",
+      "comment": "Name of the view that is a user-arranged canvas of tasks, where a card stays where the person put it."
+    },
+    "viewMode.scene": {
+      "value": "Aviary",
+      "comment": "Name of the view that draws the office with an animated person per agent session. Also shown upper-cased as the tag on Now's stage."
+    },
+    "viewMode.trajectory": {
+      "value": "Flight",
+      "comment": "Name of the view that opens one session out into a graph of every step it took."
     }
   }
 }

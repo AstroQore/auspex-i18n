@@ -3,11 +3,3218 @@
    Locale: zh-Hans
    Plural keys live in Localizable.stringsdict, not here. */
 
+/* Settings → Agents row button. */
+"agents.install" = "安装";
+
+/* Settings → Agents row state. */
+"agents.installed" = "已安装";
+
+/* Settings → Agents. */
+"agents.notServing" = "Auspex 没有在此进程中提供 MCP 服务。";
+
+/* Settings → Agents footnote. Backtick spans are literal text. */
+"agents.note" = "Auspex 只会在这里、且只在它自己拥有的区域内写入 harness 的文件——一个标有 `>>> auspex >>>` 的区块、JSON 配置中的一个 `auspex` 条目、运行 Auspex 程序的 hook 条目，或专属的 auspex-coordination skill 目录。该 skill 带有归属标记、版本和内容哈希；一旦被外部修改，Auspex 拒绝替换或删除它。更新前会备份到 ~/.auspex/backups/。";
+
+/* Settings → Agents toggle. */
+"agents.notifyDone" = "agent 报告完成时通知我";
+
+/* Settings → Agents toggle note. */
+"agents.notifyDoneNote" = "卡在等你的会话总是会发通知，因为它不会自己解开。";
+
+/* Settings → Agents button. */
+"agents.openSetup" = "打开配置…";
+
+/* Settings → Agents row button. */
+"agents.replace" = "替换";
+
+/* Settings → Agents. */
+"agents.serving" = "Auspex 正在 %@ 上提供 MCP 服务。";
+
+/* Settings → Agents row button. distinct-from: settings.pane.updates */
+"agents.update" = "更新";
+
+/* View menu: opens the Catch-up panel. */
+"app.menu.catchUp" = "回顾…";
+
+/* App menu and menu-bar panel command. */
+"app.menu.checkForUpdates" = "检查更新…";
+
+/* View menu: leaves the Flight view. */
+"app.menu.closeFlight" = "关闭航迹";
+
+/* View menu: closes the selected task that is in review. */
+"app.menu.closeTask" = "关闭任务";
+
+/* View menu: opens the command palette (⌘K). */
+"app.menu.goToTask" = "前往任务…";
+
+/* View menu command (⇧⌘K) and the VoiceOver label of the header's clear-everything button. */
+"app.menu.markAllSeen" = "全部标为已查看";
+
+/* View menu: opens the Flight view on the selected session. "Flight" is viewMode.trajectory. */
+"app.menu.openFlight" = "打开航迹";
+
+/* View menu: opens the selected task. */
+"app.menu.openTask" = "打开任务";
+
+/* View menu: opens the next task waiting for review. */
+"app.menu.reviewNext" = "审阅下一个";
+
+/* VoiceOver: a card's banner when an agent reported finishing. */
+"attention.a11y.finished" = "已完成 — %@";
+
+/* VoiceOver: a card's banner when somebody is needed. {reason} is the sentence on the banner. */
+"attention.a11y.needsYou" = "需要你 — %@";
+
+/* VoiceOver: as attention.a11y.needsYou, when the agent itself raised it. */
+"attention.a11y.needsYouAgent" = "需要你 — %@，agent 如是说";
+
+/* Tooltip on the banner's dismiss button when somebody is needed. */
+"attention.dismissNeedsYou" = "忽略 — 卡片会安静下来，不再计数";
+
+/* Tooltip on the banner's dismiss button on a report. */
+"attention.dismissRead" = "忽略 — 你已读过";
+
+/* The word in front of an agent's report on a card's banner — "Done: the tailer now handles partial lines". distinct-from: common.done */
+"attention.done" = "已完成";
+
+/* Punctuation after attention.done on a banner; keeps the trailing space in English. */
+"attention.headline" = "%@：";
+
+/* Banner on a card when the harness is stopped on a permission prompt for {tool}. */
+"attention.waitingPermission" = "等待授权：%@";
+
+/* Aviary empty state title. */
+"aviary.empty" = "办公室里空无一人";
+
+/* Aviary empty state detail. */
+"aviary.emptyDetail" = "Auspex 能看到的每个会话都会出现一张工位。";
+
+/* Aviary: a project floor's tally of sessions waiting on a person. */
+"aviary.floor.blocked" = "%lld 个受阻";
+
+/* Aviary: a project floor's tally of delegating sessions. */
+"aviary.floor.delegating" = "%lld 个委派中";
+
+/* Aviary legend tooltip. */
+"aviary.legend.delegatingHelp" = "围坐在桌边，等待它派生的子 agent。";
+
+/* Aviary legend tooltip. */
+"aviary.legend.thinkingHelp" = "正在推理，没有打开的工具调用。";
+
+/* Aviary legend tooltip. */
+"aviary.legend.toolHelp" = "有工具调用正在运行。";
+
+/* Aviary legend tooltip. */
+"aviary.legend.writingHelp" = "工作区正在被修改。";
+
+/* Tooltip on the Aviary minimap. */
+"aviary.minimapHelp" = "整个办公室。点按即可前往。";
+
+/* Aviary: nameplate of the floor for sessions that belong to no project. */
+"aviary.noProject" = "无项目";
+
+/* Aviary: tooltip on the older-sessions nameplate. distinct-from: board.ended.olderHelp */
+"aviary.olderHelp" = "更早的会话保存在存储中，不在地图上。放宽范围即可显示。";
+
+/* Aviary: nameplate of an empty meeting room. Lower-case. distinct-from: board.bucket.idle */
+"aviary.room.free" = "空闲";
+
+/* Aviary: nameplate of a project's office. distinct-from: board.section.live */
+"aviary.room.live" = "%lld 个活跃";
+
+/* Aviary: nameplate of a meeting room in use. */
+"aviary.room.meeting" = "%lld 人在开会";
+
+/* Aviary: nameplate of a suite's meeting room. distinct-from: settings.scene.meetingRooms */
+"aviary.room.meetingRoom" = "会议室";
+
+/* Aviary: nameplate of a break room. */
+"aviary.room.resting" = "%lld 人在休息";
+
+/* Aviary: nameplate of a full break room. */
+"aviary.room.restingMore" = "%1$lld 人在休息 · 另有 %2$lld 人";
+
+/* Tooltip on the zoom readout. */
+"aviary.zoom" = "缩放";
+
+/* Summary chip after the number, and the menu-bar row's state when a session is over. Lower-case. */
+"board.bucket.ended" = "已结束";
+
+/* Summary chip, after the number. Lower-case. distinct-from: now.idle */
+"board.bucket.idle" = "空闲";
+
+/* Summary chip, after the number: "1 in review" — work an agent finished and asked to be checked. */
+"board.bucket.inReview" = "待审阅";
+
+/* Summary chip, after the number: "2 needs you". Lower-case. distinct-from: now.needsYou */
+"board.bucket.needsYou" = "需要你";
+
+/* Summary chip, after the number. Lower-case. distinct-from: now.working */
+"board.bucket.working" = "工作中";
+
+/* Tooltip on a selected summary chip: clicking clears the filter. */
+"board.chip.showAll" = "重新显示全部会话";
+
+/* Tooltip on a summary chip. {bucket} is one of board.bucket.*. */
+"board.chip.showOnly" = "只显示「%@」会话";
+
+/* Empty board: status of a harness whose adapter has not shipped. */
+"board.empty.adapterPending" = "适配器待定";
+
+/* Empty board headline when sessions existed but are all over. */
+"board.empty.allEnded" = "所有会话都已结束。";
+
+/* Empty board: label over the command that starts the demo. */
+"board.empty.demoHint" = "用虚构的会话查看看板";
+
+/* Empty board: under the demo command. */
+"board.empty.demoNote" = "演示完全在内存中运行，不读取任何 harness 存储，也不向磁盘写入任何内容。";
+
+/* Empty board: label over notices the ingest pipeline raised. */
+"board.empty.fromPipeline" = "来自采集管线";
+
+/* Empty board explanation when no adapter is installed. */
+"board.empty.noAdapter" = "Auspex 读取各个 harness 自己的会话存储，重建每个 agent 正在做的事。目前还没有可用的适配器，所以没有任何存储在被跟踪 — 看板宁可留空也不猜测。";
+
+/* Empty board headline when no session has been seen. */
+"board.empty.noAgent" = "没有正在运行的 agent。";
+
+/* Empty board: column header — where each harness keeps its sessions. */
+"board.empty.sessionStore" = "会话存储";
+
+/* Empty board explanation. */
+"board.empty.tailing" = "Auspex 正在跟踪下列存储。在其中任意一个启动 agent，它的卡片会在一秒内出现在这里。";
+
+/* Empty board: status of a harness store that is being read. */
+"board.empty.tailingStatus" = "跟踪中";
+
+/* Empty board: small label over the list of harness stores being watched. */
+"board.empty.watching" = "正在观察";
+
+/* Ledger: tooltip on the Ended section's expand button. */
+"board.ended.collapsedHelp" = "已完成的工作会折叠，让看板的开销只随正在运行的工作增长";
+
+/* Ledger: tooltip on the hint under the Ended section. */
+"board.ended.olderHelp" = "更早的会话保存在存储中，不在看板上。放宽范围即可显示。";
+
+/* Ledger: button that expands the Ended section. */
+"board.ended.showAll" = "显示全部 %lld 个";
+
+/* Ledger: button that collapses the Ended section back. */
+"board.ended.showRecent" = "只显示最近 %lld 个";
+
+/* Ledger: heading of the collapsed section of finished work. distinct-from: board.bucket.ended — a heading, capitalised. */
+"board.ended.title" = "已结束";
+
+/* Breadcrumb at the top of the board when it is bound to one project; clicking it shows every project. */
+"board.focus.allProjects" = "全部项目";
+
+/* Tooltip on the All projects breadcrumb. */
+"board.focus.allProjectsHelp" = "重新在看板上显示全部项目 — 也可按 Esc 键";
+
+/* Tooltip on the Esc key cap at the right of the project breadcrumb. */
+"board.focus.escapeHelp" = "按 Esc 键重新显示全部项目";
+
+/* Ledger: the one section when the board is not grouped. */
+"board.group.allSessions" = "全部会话";
+
+/* Ledger: the one section of task cards when the board is not grouped. */
+"board.group.allTasks" = "全部任务";
+
+/* Ledger tree grouping: a section's subtitle, how many sessions sit under its root. */
+"board.group.below" = "下有 %lld 个";
+
+/* Header grouping menu's label, followed by the axis — "By Project". */
+"board.group.by" = "按";
+
+/* Tooltip on the header's grouping menu. */
+"board.group.help" = "将看板分成若干区，并选择每张卡片是否列出其中的会话";
+
+/* Grouping menu: no sections. */
+"board.group.none" = "不分组";
+
+/* Ledger tree grouping: the section of sessions with no delegation tree. */
+"board.group.standalone" = "未委派";
+
+/* Picker inside the header's grouping menu. */
+"board.group.title" = "分组方式";
+
+/* Grouping menu: one section per delegation tree. */
+"board.group.tree" = "树状";
+
+/* Sidebar: a checkout that recorded no branch, task or directory. */
+"board.group.unknownCheckout" = "未知检出";
+
+/* Header button that opens the Catch-up panel; {count} is how many items are waiting in it. */
+"board.header.catchUp" = "回顾 %lld";
+
+/* Tooltip on the header's Catch up button. */
+"board.header.catchUpHelp" = "查看重要变更、人工完成的工作和琥珀色观察信号";
+
+/* Line beside the Harnesses page's heading. */
+"board.header.harnessesSubtitle" = "%lld 个 harness · Auspex 能在这台 Mac 上看到什么，以及如何看到";
+
+/* Header button that opens the next task waiting for review; {count} is how many are waiting. */
+"board.header.review" = "审阅 %lld";
+
+/* Tooltip on the header's Review button. */
+"board.header.reviewHelp" = "审阅下一个 — 打开第一个等你裁决的任务";
+
+/* Header toggle that reveals sessions hidden by ignore rules. */
+"board.ignored.count" = "已忽略 %lld 个";
+
+/* Tooltip on the ignored toggle while it is on. {note} is ignore.stillRecorded, a full sentence. */
+"board.ignored.hideHelp" = "再次隐藏已忽略的会话。%@";
+
+/* Tooltip on the ignored toggle while it is off. {note} is ignore.stillRecorded, a full sentence. */
+"board.ignored.showHelp" = "以淡色显示被规则隐藏的 %1$lld 个会话。%2$@";
+
+/* Tooltip on the header's clear-everything button. */
+"board.markAllSeenHelp" = "全部标为已查看 — 清除所有正在提问或汇报的卡片。仍受阻的会话会再次提示。";
+
+/* Placeholder in the search field outside Now. distinct-from: now.search */
+"board.search" = "搜索会话";
+
+/* Tooltip on the header's search field. */
+"board.searchHelp" = "搜索全部对话记录";
+
+/* Ledger: badge on a section header counting live sessions in it. */
+"board.section.live" = "%lld 个活跃";
+
+/* Grouping menu toggle: every task card lists the sessions inside it. */
+"board.showSubagents" = "显示子 agent";
+
+/* The window menu's compact label, e.g. "7 d". */
+"board.window.daysShort" = "%lld 天";
+
+/* Tooltip on the window menu. */
+"board.window.help" = "看板和地图回溯的时间范围。更早的会话仍保存在存储中。";
+
+/* Tooltip on the window menu when sessions are hidden. {hint} is board.window.olderHidden. */
+"board.window.hiddenHelp" = "%@。放宽范围即可看到。";
+
+/* The window menu's compact label, e.g. "12 h". */
+"board.window.hoursShort" = "%lld 小时";
+
+/* Note at the bottom of the window menu. */
+"board.window.menuNote" = "所有内容都保留在存储中 — 这里只决定显示多少。";
+
+/* Section title and picker label in the window menu; the options follow (1 hour, 6 hours…). */
+"board.window.menuTitle" = "显示最近活跃的会话";
+
+/* Hint shown when the time window leaves sessions out. {window} is a compact span such as "12 h". */
+"board.window.olderHidden" = "已隐藏 %1$lld 个早于 %2$@的会话";
+
+/* Catch-up panel empty state title. */
+"catchUp.caughtUp" = "已全部回顾";
+
+/* Catch-up panel empty state detail. */
+"catchUp.caughtUpDetail" = "没有待查看的重要变化或观察信号。";
+
+/* Catch-up row eyebrow (upper-cased). */
+"catchUp.change.changed" = "有变化";
+
+/* Catch-up row eyebrow (upper-cased). */
+"catchUp.change.completed" = "已完成";
+
+/* Catch-up row eyebrow (upper-cased). */
+"catchUp.change.started" = "已开始";
+
+/* A watch signal's confidence. */
+"catchUp.confidence.high" = "高";
+
+/* A watch signal's confidence. */
+"catchUp.confidence.medium" = "中";
+
+/* Catch-up row: short mono label before the task's goal line. Lower-case, ≤ 6 characters in English. */
+"catchUp.line.goal" = "目标";
+
+/* Catch-up row: label before the latest outcome. */
+"catchUp.line.latest" = "最近";
+
+/* Catch-up row: label before the next action. */
+"catchUp.line.next" = "下一步";
+
+/* Catch-up row: label before what is happening now. */
+"catchUp.line.now" = "当前";
+
+/* Catch-up row: label before the risk line. */
+"catchUp.line.risk" = "风险";
+
+/* Catch-up panel button that moves the "since" cursor to now. */
+"catchUp.markCaughtUp" = "标为已回顾";
+
+/* Catch-up panel section. */
+"catchUp.otherChanges" = "其他变化";
+
+/* Catch-up row: the task's phase. Lower-case. */
+"catchUp.phase.blocked" = "受阻";
+
+/* Catch-up row: the task's phase. Lower-case. distinct-from: attention.done */
+"catchUp.phase.done" = "已完成";
+
+/* Catch-up row: the task's phase. Lower-case. */
+"catchUp.phase.notStarted" = "未开始";
+
+/* Catch-up row: the task's phase. Lower-case. distinct-from: catchUp.reason.review */
+"catchUp.phase.review" = "审阅中";
+
+/* Catch-up row eyebrow and watch-signal title: a task is still claimed by a session that ended. */
+"catchUp.reason.orphanedClaim" = "孤立认领";
+
+/* Catch-up row eyebrow (upper-cased): a task is waiting for the person's review. */
+"catchUp.reason.review" = "审阅";
+
+/* Catch-up row eyebrow (upper-cased): another session asked to take over a claimed task. */
+"catchUp.reason.takeover" = "接管待批准";
+
+/* Catch-up row: how many sessions work on the task (shown only when more than one). */
+"catchUp.sessions" = "%lld 个会话";
+
+/* Watch-signal row footnote. {confidence} is catchUp.confidence.*. */
+"catchUp.signal.confidence" = "置信度：%@ · 不是请求关注";
+
+/* Watch-signal title. */
+"catchUp.signal.contextPressure" = "上下文吃紧";
+
+/* Watch-signal title. */
+"catchUp.signal.longTool" = "长时间运行的工具";
+
+/* Watch-signal title. */
+"catchUp.signal.sharedBranch" = "共用分支";
+
+/* Watch-signal title. */
+"catchUp.signal.sharedDirectory" = "共用工作目录";
+
+/* Watch-signal title. */
+"catchUp.signal.staleSession" = "停滞的会话";
+
+/* Catch-up panel subtitle. {time} is a relative time such as "2 hours ago" or "2小时前". */
+"catchUp.since" = "%@以来的变化";
+
+/* Catch-up row: where a line came from — Auspex worked it out. */
+"catchUp.source.derived" = "推断";
+
+/* Catch-up row: where a line came from — Auspex saw it happen. */
+"catchUp.source.observed" = "观察所得";
+
+/* Catch-up row: where a line came from — the agent said so itself. */
+"catchUp.source.reported" = "自行报告";
+
+/* Catch-up row: where a line came from — the task record. */
+"catchUp.source.task" = "任务";
+
+/* Title of the Catch-up panel, which lists what changed while the person was away. distinct-from: app.menu.catchUp */
+"catchUp.title" = "回顾";
+
+/* Catch-up panel section: risks Auspex observed or inferred. */
+"catchUp.watchSignals" = "观察信号";
+
+/* Catch-up panel: note under the Watch signals heading. */
+"catchUp.watchSignalsNote" = "值得留意的已观察或推断出的风险。它们不是 agent 发出的请求，本身也不会触发通知。";
+
+/* Catch-up panel section: work waiting on the person. */
+"catchUp.yourQueue" = "你的队列";
+
+/* Built-in figures card. */
+"characters.accentNote" = "按每个 harness 自己的强调色组合 — 上面的形象只代表形状，不代表颜色。";
+
+/* Package card pose summary. */
+"characters.allPoses" = "8 个姿势都已绘制。";
+
+/* Built-in figures card. */
+"characters.allPosesAlways" = "8 个姿势全部具备。";
+
+/* Character row subtitle. {name} is what Automatic resolves to. */
+"characters.automatic" = "自动 · %@";
+
+/* Character picker option. */
+"characters.automaticRecommended" = "自动（推荐）";
+
+/* The procedural character figures, as a choice and a card title. */
+"characters.builtIn" = "Auspex 内置";
+
+/* Built-in figures card: in place of a package id. */
+"characters.builtInCode" = "内置 · 代码绘制";
+
+/* Character row subtitle when a package is chosen. */
+"characters.chosen" = "已选择";
+
+/* Settings → Characters section note. */
+"characters.defaultDetail" = "「自动」会使用指定了该 harness 的角色包，没有时使用内置形象。";
+
+/* Settings → Characters section title. */
+"characters.defaultPerHarness" = "各 harness 的默认角色";
+
+/* Character row subtitle for the built-in figures. */
+"characters.drawnInCode" = "%@ · 代码绘制";
+
+/* Settings → Characters note. */
+"characters.folderNote" = "Auspex 只会读取这个文件夹。这里的角色包会替换同 id 的内置角色包。";
+
+/* Settings → Characters headline. */
+"characters.headline.none" = "只有内置形象，还没有角色包。";
+
+/* VoiceOver: the pose the built-in preview shows. distinct-from: board.bucket.idle */
+"characters.idle" = "空闲";
+
+/* Settings → Characters section title. distinct-from: agents.installed */
+"characters.installed" = "已安装";
+
+/* Settings → Characters introduction. character.json is a file name. */
+"characters.intro" = "办公室里的每个 agent 要么来自一个角色包——一个包含 character.json、每个姿势一条帧带的文件夹——要么来自 Auspex 自带的形象，后者在代码中按 harness 的强调色组合而成。把角色包放进 characters 文件夹，它就会出现在这里，无需重新启动。内置形象始终可用、从不缺姿势，也能像角色包一样为某个 harness 选用。";
+
+/* Character package chip: the figure is a person. */
+"characters.kind.person" = "人物";
+
+/* Character package chip: the figure is a pet. */
+"characters.kind.pet" = "宠物";
+
+/* Character preview placeholder. */
+"characters.noArt" = "无图";
+
+/* Settings → Characters empty state title. */
+"characters.noPackages" = "还没有角色包。";
+
+/* Settings → Characters empty state detail. */
+"characters.noPackagesDetail" = "角色包是一个包含 character.json 和每个姿势一条帧带的文件夹。没有绘制的姿势会退回使用上面的形象。";
+
+/* Package card pose summary. */
+"characters.noPoses" = "还没有绘制任何姿势。";
+
+/* Character row subtitle when the chosen package is gone. */
+"characters.notInstalled" = "%1$@ 未安装 · 正在使用 %2$@";
+
+/* Settings → Characters button. */
+"characters.openFolder" = "打开 characters 文件夹";
+
+/* VoiceOver label of a character preview. {pose} is a pose identifier or characters.noArt. */
+"characters.previewLabel" = "%1$@，%2$@";
+
+/* Settings → Characters button. */
+"characters.reload" = "重新载入";
+
+/* Settings → Characters error. */
+"characters.saveError" = "选择已生效，但未能保存：%@";
+
+/* Package card pose summary. {missing} lists pose identifiers. */
+"characters.somePoses" = "已绘制 8 个姿势中的 %1$lld 个。以下使用内置：%2$@。";
+
+/* Character package chip: shipped inside Auspex. */
+"characters.source.builtIn" = "内置";
+
+/* Character package chip: from ~/.auspex/characters. distinct-from: flight.role.user */
+"characters.source.user" = "用户";
+
+/* Settings → Characters label over the folder path. */
+"characters.whereTheyLive" = "存放位置";
+
+/* A project colour. */
+"colour.amber" = "琥珀色";
+
+/* A project colour. */
+"colour.blue" = "蓝色";
+
+/* A project colour. */
+"colour.coral" = "珊瑚色";
+
+/* A project colour. */
+"colour.green" = "绿色";
+
+/* A project colour. */
+"colour.lime" = "青柠色";
+
+/* A project colour. */
+"colour.magenta" = "品红色";
+
+/* Project colour menu: no colour. distinct-from: board.group.none */
+"colour.none" = "无颜色";
+
+/* A project colour. */
+"colour.sky" = "天蓝色";
+
+/* A project colour. */
+"colour.teal" = "青色";
+
+/* A project colour. */
+"colour.violet" = "紫罗兰色";
+
+/* Button that adds the selection. */
+"common.add" = "添加";
+
+/* Option meaning no limit: every session, every item. */
+"common.all" = "全部";
+
 /* Button that abandons an action in progress. */
 "common.cancel" = "取消";
+
+/* Button that empties a search field or resets filters. */
+"common.clear" = "清除";
+
+/* Button or menu item that closes something — here, a task in review. */
+"common.close" = "关闭";
+
+/* The noun "context", as in an agent's context window. Column header (shown upper-cased) and section label. */
+"common.context" = "上下文";
+
+/* Button that copies the adjacent text. */
+"common.copy" = "复制";
+
+/* Button that creates the thing a sheet describes. */
+"common.create" = "创建";
+
+/* Button that performs a deletion the person has confirmed. */
+"common.delete" = "删除";
+
+/* Button that closes a sheet or panel. distinct-from: catchUp.phase.done */
+"common.done" = "完成";
+
+/* The noun "harness": an AI coding agent CLI or app Auspex observes (Claude Code, Codex…). Kept in English in Chinese, as in AstroQore's other apps. */
+"common.harness" = "Harness";
+
+/* Button or label that opens the item it sits on. */
+"common.open" = "打开";
+
+/* The noun "project": a grouping axis, a column header (shown upper-cased), a field label. */
+"common.project" = "项目";
+
+/* Button that removes an item from a list or board (not a deletion). */
+"common.remove" = "移除";
+
+/* The pseudo-project for work in a scratch folder, or filed before Auspex knew its project. */
+"common.scratch" = "临时目录";
+
+/* The noun "status": a column header, a property label, a picker label. */
+"common.status" = "状态";
+
+/* Trace header: small label on the context chip that opens the popover. Lower-case. distinct-from: common.context */
+"context.chip" = "上下文";
+
+/* Context popover caption under the composition bar. */
+"context.estimate.derived" = "估算值，来自 Auspex 已索引的 %lld 条消息 — Claude Code 自带的 /context 才是精确值。";
+
+/* Joins two sentences of the context popover caption (Chinese takes no space). */
+"context.estimate.join" = "%1$@%2$@";
+
+/* Context popover caption, added sentence. */
+"context.estimate.overEstimated" = "按每 token 四个字符估算在此偏多，各部分已按比例缩放。";
+
+/* Context popover caption under the composition bar. */
+"context.estimate.recorded" = "估算值，来自 Auspex 已索引的 %lld 条消息。该 harness 记录了用量，但没有分项。";
+
+/* Context popover caption, added sentence. */
+"context.estimate.sinceCompaction" = "从上一次压缩开始计算。";
+
+/* Context popover caption, added sentence. */
+"context.estimate.truncated" = "更早的消息未被读取，因此已测量的部分只是下限。";
+
+/* Context popover caption, added sentence. Quote context.slice.everythingElse. */
+"context.estimate.unattributed" = "此会话只有少量文本被索引，因此窗口的大部分归入「其他全部」，而没有被归类。";
+
+/* Context popover caption. */
+"context.fill.derived" = "用量读自对话记录。窗口大小按模型查得 — 该 harness 不记录它。";
+
+/* Context popover caption. distinct-from: context.help.recorded */
+"context.fill.recorded" = "用量和窗口大小均由 harness 记录。";
+
+/* Context popover caption when the window size is not believable. {reason} is a full sentence (context.help.notOnRecord or .overflow). */
+"context.fill.unknownSuffix" = "%@下方的用量为对话记录中的数值。";
+
+/* Context gauge tooltip line. {tokens} is a token count such as 120k. */
+"context.help.cached" = "其中 %@ 来自缓存";
+
+/* Context gauge tooltip: where the numbers came from. */
+"context.help.derived" = "用量读自对话记录；窗口大小按模型查得。";
+
+/* Context gauge tooltip: why no percentage is shown. */
+"context.help.notOnRecord" = "该模型的窗口大小没有记录；用量为推算值。";
+
+/* Context gauge tooltip: why no percentage is shown. */
+"context.help.overflow" = "该 harness 报告的用量超过了它同时报告的窗口大小。";
+
+/* Context gauge tooltip: where the numbers came from. */
+"context.help.recorded" = "用量和窗口大小均由 harness 记录。";
+
+/* Context popover ledger key. */
+"context.ledger.cached" = "缓存";
+
+/* Context popover ledger key. */
+"context.ledger.compactions" = "压缩次数";
+
+/* Context popover ledger value when the reported window is smaller than the fill. */
+"context.ledger.notBelievable" = "%@ · 不可信";
+
+/* Context popover ledger value. */
+"context.ledger.notRecorded" = "未记录";
+
+/* Context popover ledger value. */
+"context.ledger.notReported" = "未报告";
+
+/* Context popover ledger key. */
+"context.ledger.output" = "输出（全部轮次）";
+
+/* Context popover ledger key. */
+"context.ledger.used" = "已用";
+
+/* Context popover ledger key. */
+"context.ledger.window" = "窗口";
+
+/* Context composition band: system prompt, tool schemas, skills, memory. */
+"context.slice.everythingElse" = "其他全部";
+
+/* Context composition band: unused window. distinct-from: board.bucket.idle distinct-from: aviary.room.free */
+"context.slice.free" = "空闲";
+
+/* Context composition band. */
+"context.slice.messages" = "消息";
+
+/* Context composition band. */
+"context.slice.toolResults" = "工具结果";
+
+/* Context gauge when the window size reported was not believable. {used} is a token count such as 850.1k. */
+"context.unknownWindow" = "%@ · 窗口 ?";
+
+/* Context popover heading over the composition bar. */
+"context.whatsInIt" = "其中包含什么";
+
+/* Context popover heading (upper-cased style). */
+"context.window" = "上下文窗口";
+
+/* Tooltip on a copyable chip. {what} is one of copy.what.*; {value} is what will be copied. */
+"copy.clickToCopy" = "点按复制%1$@ — %2$@";
+
+/* Toast after copying something. {what} is one of copy.what.*, a noun phrase. */
+"copy.copied" = "已复制%@";
+
+/* VoiceOver label of a copyable chip. {what} is one of copy.what.*. */
+"copy.copyWhat" = "复制%@";
+
+/* Noun phrase for copy.* — the prompt a session was given. */
+"copy.what.assignment" = "任务说明";
+
+/* Noun phrase for copy.*. */
+"copy.what.branch" = "分支名";
+
+/* Noun phrase for copy.* — a text summary of a task an agent can pick up. */
+"copy.what.handoffPacket" = "交接包";
+
+/* Noun phrase for copy.* — the model id a session runs on. */
+"copy.what.model" = "模型名";
+
+/* Noun phrase for copy.*. */
+"copy.what.pid" = "进程 ID";
+
+/* Noun phrase for copy.* — the shell command that resumes a session. */
+"copy.what.resumeCommand" = "恢复命令";
+
+/* Noun phrase for copy.*. */
+"copy.what.sessionID" = "会话 ID";
+
+/* Noun phrase for copy.* — a task's short id such as AUS-12. */
+"copy.what.taskHandle" = "任务编号";
+
+/* Noun phrase for copy.*. */
+"copy.what.title" = "标题";
+
+/* Noun phrase for copy.*. */
+"copy.what.workingDirectory" = "工作目录";
+
+/* Noun phrase for copy.* — a prompt asking an agent to set up a worktree. */
+"copy.what.worktreeTask" = "worktree 任务";
+
+/* Flock: label over the row of finished sessions, drawn small. */
+"crew.asleep" = "%lld 个已休眠";
+
+/* Flock: VoiceOver label of the tick corner badge. distinct-from: task.card.finished */
+"crew.badge.finished" = "已完成";
+
+/* Flock: VoiceOver label of the "!" corner badge. */
+"crew.badge.waitingForYou" = "在等你";
+
+/* Flock: how a session finished, one word under its face. */
+"crew.end.exited" = "已退出";
+
+/* Flock: how a session finished. */
+"crew.end.killed" = "被终止";
+
+/* Flock: how a session finished — the process vanished without an exit record. */
+"crew.end.processGone" = "进程消失";
+
+/* Flock: how a session finished — Auspex does not know why. */
+"crew.end.wentQuiet" = "没了动静";
+
+/* Flock: VoiceOver label of a finished session's small face. */
+"crew.finishedAccessibility" = "%@，已完成";
+
+/* Flock: tooltip on a finished session's small face. {harness} is a harness name. */
+"crew.finishedHelp" = "%@ — 已完成";
+
+/* Flock: VoiceOver label of the badge counting a session's descendants. */
+"crew.sessionsBelow" = "此会话下还有 %lld 个会话";
+
+/* Flock: VoiceOver label of a task's brood of small faces. */
+"crew.sessionsOnTask" = "此任务上有 %lld 个会话";
+
+/* Delivery: commits ahead of and behind the upstream, from local refs. */
+"delivery.aheadBehind" = "领先 %1$lld · 落后 %2$lld · 仅本地引用";
+
+/* Delivery property label. distinct-from: perch.merge.branch */
+"delivery.branch" = "分支";
+
+/* Delivery property label. distinct-from: catchUp.change.changed */
+"delivery.changed" = "已更改";
+
+/* Delivery footer. {time} is a relative time such as "3m ago". */
+"delivery.checked" = "检查于 %@ · 未 fetch";
+
+/* Delivery property label. */
+"delivery.checkout" = "检出目录";
+
+/* Handoff button. */
+"delivery.copyPacket" = "复制交接包";
+
+/* Tooltip on Copy packet. */
+"delivery.copyPacketHelp" = "复制交接包。不会发送任何内容。";
+
+/* Review record bucket. */
+"delivery.decisions" = "决定";
+
+/* Delivery property label. */
+"delivery.diffstat" = "差异统计";
+
+/* Review record bucket. */
+"delivery.evidence" = "验证证据";
+
+/* Task page section title. */
+"delivery.handoff" = "交接";
+
+/* Handoff section note. */
+"delivery.handoffNote" = "包含目标、阶段、当前状态、参与者、交付、记录和恢复提示。不会发送任何内容。";
+
+/* Handoff section line. */
+"delivery.handoffTitle" = "复制一份有限长度的上下文包";
+
+/* Delivery property label. */
+"delivery.lastCommit" = "最近提交";
+
+/* Delivery panel when no checkout is known. */
+"delivery.noCheckout" = "此任务的会话都没有记录本地检出目录。";
+
+/* Review record bucket when empty. */
+"delivery.noEvidence" = "尚未记录任何验证证据。";
+
+/* Review record bucket when empty. */
+"delivery.noRisks" = "尚未记录风险说明；这并不代表没有风险。";
+
+/* Delivery property label over a diagnostic sentence. */
+"delivery.observation" = "观察说明";
+
+/* Delivery panel tag: the facts come from reading the local repository. */
+"delivery.observedLocalGit" = "本地 Git 观察结果";
+
+/* Delivery panel while loading. */
+"delivery.reading" = "正在读取记录的检出目录…";
+
+/* Delivery panel button. */
+"delivery.refresh" = "刷新";
+
+/* Tooltip on Refresh. */
+"delivery.refreshHelp" = "重新读取此检出目录。不会执行 fetch，也不会发出网络请求。";
+
+/* Task page section title. */
+"delivery.reviewRecord" = "审阅记录";
+
+/* Review record bucket. */
+"delivery.risks" = "风险";
+
+/* Task page section title: what the task's checkout looks like now. */
+"delivery.title" = "交付";
+
+/* Working tree state. */
+"delivery.tree.clean" = "干净";
+
+/* Working tree state. */
+"delivery.tree.dirty" = "有改动";
+
+/* Working tree state. */
+"delivery.tree.unknown" = "未知";
+
+/* Delivery property label. */
+"delivery.upstream" = "上游";
+
+/* Tooltip on Copy packet while disabled. */
+"delivery.waitForCheck" = "请等待本地交付检查完成";
+
+/* Delivery property label. */
+"delivery.workingTree" = "工作区";
+
+/* Flight detail fact (upper-cased). */
+"flight.agents" = "Agent";
+
+/* Flight detail section (upper-cased). */
+"flight.agentsAtMoment" = "此刻的 agent";
+
+/* Flight inspector block title over the session's first prompt. distinct-from: ledger.asked */
+"flight.asked" = "任务要求";
+
+/* Flight detail heading (upper-cased). */
+"flight.atPlayhead" = "播放头处";
+
+/* Tooltip on the back button. */
+"flight.backHelp" = "返回看板（⌘T）";
+
+/* Flight inspector: a step before the first turn. */
+"flight.beforeTurn1" = "第 1 轮之前";
+
+/* Flight toolbar: button back to the board. */
+"flight.board" = "看板";
+
+/* Flight graph while loading. */
+"flight.buildingGraph" = "正在构建执行图…";
+
+/* Flight graph while loading. "Flight" is viewMode.trajectory. */
+"flight.buildingGraphDetail" = "航迹正在整理此会话中观察到的 agent 和工具事件。";
+
+/* Flight inspector fact: cached tokens. distinct-from: context.ledger.cached */
+"flight.cached" = "缓存";
+
+/* Flight inspector fact. */
+"flight.callID" = "调用 ID";
+
+/* Flight graph camera: follow the active node. */
+"flight.camera.follow" = "跟随";
+
+/* Flight graph camera: stay where the person put it. */
+"flight.camera.manual" = "手动";
+
+/* Flight graph camera: frame the whole graph. */
+"flight.camera.overview" = "总览";
+
+/* Tooltip on the camera picker. Quote flight.camera.*. */
+"flight.cameraHelp" = "「总览」适配整张图；「跟随」平滑移动到活动处；平移或缩放即进入「手动」";
+
+/* Tooltip on the inspector's close button. */
+"flight.closeInspector" = "关闭检查器（Esc）";
+
+/* Flight: a step that failed. */
+"flight.failed" = "失败";
+
+/* Flight detail fact (upper-cased). */
+"flight.filesTouched" = "涉及的文件";
+
+/* Tooltip on the filter field. */
+"flight.filterHelp" = "只显示文本匹配的步骤";
+
+/* Flight search field placeholder. */
+"flight.filterSteps" = "筛选步骤";
+
+/* Flight header warning when the log was cut. */
+"flight.firstEvents" = "仅前 %lld 个事件";
+
+/* Flight toolbar toggle label. distinct-from: flight.camera.follow */
+"flight.follow" = "跟随";
+
+/* VoiceOver label of the Follow toggle. */
+"flight.followAccessibility" = "跟随最新的步骤";
+
+/* Flight inspector fact. */
+"flight.generation" = "生成时长";
+
+/* Flight inspector fact: input tokens. */
+"flight.in" = "输入";
+
+/* Flight detail section (upper-cased): tool calls open at this moment. */
+"flight.inFlight" = "进行中";
+
+/* Flight inspector header when nothing is selected. */
+"flight.inspector" = "检查器";
+
+/* Flight graph: keyboard hint. The letters o and f are the keys and stay as they are. */
+"flight.keyHint" = "o 总览 · f 跟随 · 平移/缩放 = 手动";
+
+/* Flight timeline lane: what went into the model. distinct-from: flight.in */
+"flight.lane.input" = "输入";
+
+/* Flight timeline lane: what the model produced. */
+"flight.lane.model" = "模型";
+
+/* Flight detail empty state title and (upper-cased) tag while following live. distinct-from: perch.live */
+"flight.live" = "实时";
+
+/* Flight detail in history mode. */
+"flight.liveAhead" = "实时状态领先 %lld 个事件";
+
+/* Flight detail empty state detail. */
+"flight.liveDetail" = "暂停或拖动事件标尺，即可查看某个历史时刻。";
+
+/* Flight detail heading (upper-cased). distinct-from: flight.tab.moment */
+"flight.moment" = "时刻";
+
+/* Flight inspector: a step with no recorded end. */
+"flight.noEnd" = "未记录结束";
+
+/* Flight inspector raw tab when the step has no source. */
+"flight.noSource" = "Auspex 没有记录此事件的来源位置。";
+
+/* Flight detail when nothing was open. */
+"flight.noToolOpen" = "此事件发生时没有打开的工具调用。";
+
+/* VoiceOver label of a graph node. */
+"flight.nodeA11y" = "%1$@，%2$@，%3$lld 次工具调用";
+
+/* Flight detail when nothing is open. */
+"flight.nothingInFlight" = "此刻没有进行中的调用。";
+
+/* Flight list when the brush or filter hides everything. */
+"flight.nothingInRange" = "此范围内没有内容。";
+
+/* Flight inspector raw tab placeholder. */
+"flight.nothingRead" = "尚未读取任何内容。";
+
+/* Flight inspector empty state title. */
+"flight.nothingSelected" = "未选择任何内容";
+
+/* Flight inspector empty state detail. */
+"flight.nothingSelectedDetail" = "点按一行或时间线上的一个条块，即可拆解这一步。";
+
+/* Flight inspector: a step that finished. */
+"flight.ok" = "成功";
+
+/* Flight inspector fact: output tokens. */
+"flight.out" = "输出";
+
+/* Flight row: output tokens of a step. {tokens} is compact, e.g. 3.2k. */
+"flight.outTokens" = "输出 %@";
+
+/* Flight inspector fact. */
+"flight.outcome" = "结果";
+
+/* Flight inspector request timing when there is no request. */
+"flight.outsideRequest" = "这一步发生在模型请求之外。";
+
+/* VoiceOver label of the graph's play button while playing. */
+"flight.pauseGraph" = "暂停图回放";
+
+/* Flight graph playback state. */
+"flight.paused" = "已暂停";
+
+/* VoiceOver label of the graph's play button. */
+"flight.playGraph" = "播放图的历史";
+
+/* Flight row tag (upper-cased) on the row under the playhead. */
+"flight.playhead" = "播放头";
+
+/* VoiceOver label of the event scrubber. */
+"flight.playheadA11y" = "航迹事件播放头";
+
+/* Flight row marker for steps before the first turn. */
+"flight.pre" = "前置";
+
+/* Flight: presentation picker — the agent graph. */
+"flight.presentation.graph" = "图";
+
+/* Flight: presentation picker — the waterfall of steps. */
+"flight.presentation.trace" = "记录";
+
+/* Flight inspector block title and tab. */
+"flight.preview" = "预览";
+
+/* Flight inspector note. */
+"flight.previewOnly" = "该 harness 只记录了这一步的预览，日志中没有完整文本可显示。";
+
+/* Flight list while loading. distinct-from: trace.loading */
+"flight.readingLog" = "正在读取事件日志…";
+
+/* Flight inspector raw tab while loading. */
+"flight.readingRecord" = "正在读取记录…";
+
+/* Flight detail while history loads. */
+"flight.rebuilding" = "正在重建此事件…";
+
+/* Flight inspector fact: the file the step was read from. */
+"flight.record" = "记录";
+
+/* Flight inspector fact: which model request a step belongs to. */
+"flight.request" = "请求";
+
+/* Flight inspector block title. */
+"flight.requestTiming" = "请求耗时";
+
+/* Flight: chip on a step the system wrote. */
+"flight.role.system" = "系统";
+
+/* Flight: chip on a step the person wrote. */
+"flight.role.user" = "用户";
+
+/* Flight timeline scale: every step the same width. */
+"flight.scale.calls" = "调用";
+
+/* Flight timeline scale: proportional to wall time. */
+"flight.scale.duration" = "时长";
+
+/* Flight timeline scale: one slot per stored event. */
+"flight.scale.events" = "事件";
+
+/* Flight timeline scale: every turn the same width. distinct-from: meta.turns */
+"flight.scale.turns" = "轮次";
+
+/* Tooltip on the scale picker. */
+"flight.scaleHelp" = "时间线的宽度代表什么";
+
+/* Flight scope picker: one session. distinct-from: taskDetail.sessions */
+"flight.scope.session" = "会话";
+
+/* Flight scope picker: every session on the task. distinct-from: catchUp.source.task */
+"flight.scope.task" = "任务";
+
+/* Tooltip on the session / task scope picker. */
+"flight.scopeHelp" = "单个会话的航迹，或整个任务的航迹 — 任务上的所有会话按发生顺序汇成一张瀑布图";
+
+/* Flight detail hint when no agent is selected. */
+"flight.selectNodeHint" = "点按图中的节点即可在这里固定其详情。「跟随」会平滑移动到当前活动；平移或缩放即进入「手动」。";
+
+/* Flight placeholder detail; the title is trace.selectSession. */
+"flight.selectSessionDetail" = "航迹就是把一个会话完全展开。选择一张卡片即可查看它的各轮。";
+
+/* Flight detail section (upper-cased). */
+"flight.selectedAgent" = "所选 agent";
+
+/* Flight list button that clears the brush and filter. */
+"flight.showWholeSession" = "显示整个会话";
+
+/* Flight header when a filter is on. */
+"flight.showing" = "显示 %1$lld / %2$lld";
+
+/* Flight inspector block title. */
+"flight.source" = "来源";
+
+/* Tooltip on Follow while off. */
+"flight.startFollowing" = "有新步骤时滚动到最新的步骤";
+
+/* Flight inspector fact. distinct-from: catchUp.change.started */
+"flight.started" = "开始时间";
+
+/* Flight inspector header. */
+"flight.step" = "第 %lld 步";
+
+/* Tooltip on Follow while on. */
+"flight.stopFollowing" = "停止滚动到最新的步骤";
+
+/* Flight detail tab: the reconstructed event. */
+"flight.tab.moment" = "时刻";
+
+/* Flight inspector tab: the record as stored. */
+"flight.tab.raw" = "原始";
+
+/* Flight detail tab: the selected step's inspector. */
+"flight.tab.step" = "步骤";
+
+/* Flight inspector tab. */
+"flight.tab.summary" = "摘要";
+
+/* Flight inspector fact. */
+"flight.throughput" = "吞吐量";
+
+/* Flight inspector block title. */
+"flight.tokens" = "Token";
+
+/* Flight inspector: tokens per second. {rate} is a number with one decimal. */
+"flight.tokensPerSecond" = "%@ tok/s";
+
+/* Flight inspector fact. */
+"flight.totalDuration" = "总时长";
+
+/* Flight inspector fact: time to first token. */
+"flight.ttft" = "首 token 时间";
+
+/* Flight inspector fact label. distinct-from: flight.scale.turns */
+"flight.turn" = "轮次";
+
+/* Flight graph node: the agent's turn count. Lower-case. */
+"flight.turnCount" = "第 %lld 轮";
+
+/* Tooltip on the +N chip of MCP servers. {names} is a comma-separated list. */
+"harnesses.config.alsoConfigured" = "另外还配置了：%@";
+
+/* Tooltip on the Auspex server chip. */
+"harnesses.config.canReach" = "这个 harness 可以访问 Auspex 任务板。";
+
+/* Tooltip on the Auspex server chip when not registered. Quote harnesses.mcp.setUpAgents. */
+"harnesses.config.cannotReach" = "这个 harness 无法访问 Auspex 任务板。请通过上方的「配置 agent…」注册。";
+
+/* Tooltip on an MCP server chip. */
+"harnesses.config.global" = "为所有会话配置";
+
+/* Harnesses page: what a harness's MCP config amounts to. */
+"harnesses.config.noFile" = "没有配置文件";
+
+/* Harnesses page: Auspex's MCP server is not registered with this harness. {name} is the server's name, "auspex". */
+"harnesses.config.notRegistered" = "%@ — 未注册";
+
+/* Tooltip on an MCP server chip scoped to a project. */
+"harnesses.config.scoped" = "仅为一个项目目录配置";
+
+/* Harnesses page: the MCP config exists but did not parse. */
+"harnesses.config.unreadable" = "无法读取";
+
+/* Harnesses page: label under how many tasks this harness's sessions claimed. */
+"harnesses.count.claimed" = "已认领";
+
+/* Harnesses page: label under how many claimed tasks were closed. distinct-from: crew.badge.finished */
+"harnesses.count.finished" = "已完成";
+
+/* Harnesses page: label under a count. Lower-case. distinct-from: board.bucket.idle */
+"harnesses.count.idle" = "空闲";
+
+/* Harnesses page: label under a count of live sessions. Lower-case. distinct-from: menuBar.live distinct-from: flight.live */
+"harnesses.count.live" = "活跃";
+
+/* Harnesses page: label under a count. */
+"harnesses.count.total" = "总计";
+
+/* Harnesses page: the harness is installed on this Mac. */
+"harnesses.detected" = "已检测到";
+
+/* Harnesses page empty state detail. */
+"harnesses.empty.detail" = "一旦有适配器开始监视某个 harness 的存储，Auspex 就会在这里列出它。";
+
+/* Harnesses page empty state title. */
+"harnesses.empty.title" = "没有可报告的 harness。";
+
+/* Harnesses page footnote under the rack. */
+"harnesses.footnote" = "这里只读：Auspex 跟踪每个存储自己的文件，从不擅自写入任何 harness 目录。唯一的例外是上方的配置 — 注册 MCP、安装简短说明或带版本的 skill，以及 hook，而且只在你点按时才会发生。配置改动都限定在围栏内；skill 只有一个带哈希、归 Auspex 所有的目录，被修改过的内容绝不会被覆盖或删除。";
+
+/* Tooltip on hooks off. */
+"harnesses.hooksHelp" = "harness 的 hook 会在生命周期事件发生的瞬间推送，而不是等下一次轮询文件。它是可选功能，会在后续里程碑中提供；无论如何，跟踪文件始终是基础方式。";
+
+/* Harnesses page: this harness's lifecycle hooks are not installed. */
+"harnesses.hooksOff" = "hook 未开启";
+
+/* Harnesses page MCP card when there is no server in this process (an offscreen render). */
+"harnesses.mcp.notRunning" = "未在此进程中运行。";
+
+/* Harnesses page: button that opens the setup sheet. */
+"harnesses.mcp.setUpAgents" = "配置 agent…";
+
+/* Tooltip on Set up agents…. */
+"harnesses.mcp.setUpAgentsHelp" = "在每个 harness 中注册 Auspex，安装简短的协议说明，并添加可选的协作 skill";
+
+/* Harnesses page: heading of the card about Auspex's own MCP server. */
+"harnesses.mcp.title" = "MCP 服务";
+
+/* Harnesses page: a connected MCP client whose process id is not known. */
+"harnesses.mcp.unattributedClient" = "未识别的客户端";
+
+/* Harnesses page: label beside a median duration. */
+"harnesses.median" = "中位数";
+
+/* Tooltip on the median duration. */
+"harnesses.medianHelp" = "该 harness 已关闭任务从认领到完成的中位用时";
+
+/* Harnesses page: tooltip on a harness row with no store. */
+"harnesses.noAdapter" = "没有适配器在监视这个 harness 的存储。";
+
+/* Harnesses page: the harness is not installed. */
+"harnesses.notInstalled" = "未安装";
+
+/* Harnesses page: note on the ChatGPT Work row. */
+"harnesses.store.chatgptShared" = "与他人共用 ~/.codex/sessions；来源为 ChatGPT Work";
+
+/* Harnesses page: note on the Codex row, whose store ChatGPT Work also writes to. */
+"harnesses.store.codexShared" = "与他人共用 ~/.codex/sessions；除 ChatGPT Work 之外的所有来源";
+
+/* Ignore rule explanation. */
+"ignore.explain.folder" = "隐藏在该文件夹及其子目录中工作的所有会话。";
+
+/* Ignore rule explanation. */
+"ignore.explain.harness" = "隐藏某个 harness 的所有会话。";
+
+/* Ignore rule explanation. */
+"ignore.explain.project" = "隐藏整个项目，不论其会话是如何归类的。";
+
+/* Ignore rule explanation. */
+"ignore.explain.promptPrefix" = "隐藏首条提示词以此开头的会话。";
+
+/* Ignore rule explanation. */
+"ignore.explain.scratchFolder" = "让该文件夹中的会话留在看板上、归入其 harness 的临时区，而不是把这个文件夹当成项目。";
+
+/* Ignore rule explanation. */
+"ignore.explain.titleContains" = "隐藏标题包含此内容的会话（不区分大小写）。";
+
+/* Ignore sheet eyebrow and its confirm button. */
+"ignore.eyebrow" = "忽略";
+
+/* Ignore sheet picker label. */
+"ignore.matchOn" = "匹配方式";
+
+/* Session or project context menu. */
+"ignore.menu.folder" = "忽略此文件夹…";
+
+/* Session context menu. {harness} is a harness name. */
+"ignore.menu.harness" = "忽略所有 %@ 会话…";
+
+/* Session or project context menu. */
+"ignore.menu.project" = "忽略项目…";
+
+/* Session context menu. */
+"ignore.menu.prompt" = "忽略以此开头的提示词…";
+
+/* Ignore rule field placeholder. */
+"ignore.placeholder.harness" = "harness 名称";
+
+/* Ignore rule field placeholder. */
+"ignore.placeholder.project" = "项目名称";
+
+/* Note under every ignore control. */
+"ignore.stillRecorded" = "被忽略的会话仍会被记录、仍可搜索 — 只是不在看板、场景和计数中显示。";
+
+/* Ignore rule kind: a folder and everything under it. */
+"ignore.tag.folder" = "文件夹";
+
+/* Ignore rule kind. */
+"ignore.tag.promptPrefix" = "提示词开头为";
+
+/* Ignore rule kind that keeps a folder's sessions under their harness's scratch instead of making it a project. */
+"ignore.tag.scratchFolder" = "临时文件夹";
+
+/* Ignore rule kind. */
+"ignore.tag.titleContains" = "标题包含";
+
+/* Ignore sheet title. */
+"ignore.title" = "在看板上隐藏这些会话";
+
+/* Card ledger: short key before what the person asked the agent. Lower-case, one word. */
+"ledger.asked" = "要求";
+
+/* Card ledger: short key before the agent's own account of what it is doing. distinct-from: now.column.doing */
+"ledger.doing" = "正在做";
+
+/* Card ledger: short key before the agent's latest reply. */
+"ledger.said" = "回复";
+
+/* Settings → General: after reconciling with macOS's Login Items. */
+"loginItem.disabledExternally" = "macOS 已关闭登录时启动，Auspex 也保持关闭。";
+
+/* Settings → General: login item status. */
+"loginItem.enabled" = "登录时 Auspex 会在后台安静启动。";
+
+/* Settings → General: after reconciling with macOS's Login Items. */
+"loginItem.keptAfterUpdate" = "Auspex 已更新，macOS 仍保持登录时启动。";
+
+/* Settings → General: login item status. */
+"loginItem.notFound" = "此副本无法使用。请把打包好的 Auspex.app 移到「应用程序」中并打开一次。";
+
+/* Settings → General: login item status. */
+"loginItem.notRegistered" = "macOS 中已关闭。除非你点按此开关，Auspex 不会重新开启它。";
+
+/* Settings → General: login item status. */
+"loginItem.requiresApproval" = "正在等待在「系统设置 → 通用 → 登录项」中批准。";
+
+/* Settings → General: login item status. */
+"loginItem.unknown" = "macOS 返回了未知的登录项状态。";
+
+/* Harnesses page MCP card. */
+"mcp.status.conflict" = "另一个 Auspex 副本正在提供 MCP 套接字服务。";
+
+/* Harnesses page MCP card in the demo. */
+"mcp.status.demo" = "这是演示回放，因此未绑定 MCP 套接字。";
+
+/* Harnesses page MCP card. {socket} is a path; {clients} is mcp.status.agentsAttached. */
+"mcp.status.serving" = "正在服务 %1$@ · %2$@";
+
+/* Harnesses page MCP card. */
+"mcp.status.stopped" = "未在服务。";
+
+/* Stand-in for {socket} when the path is unknown. */
+"mcp.status.theSocket" = "MCP 套接字";
+
+/* Menu-bar panel, under the list, when it is cut short. */
+"menuBar.andMore" = "还有 %lld 个";
+
+/* Menu-bar panel, demo mode, before the first sessions arrive. */
+"menuBar.demoStarting" = "演示启动中…";
+
+/* Menu-bar panel header and VoiceOver label of the status item: agents that reported finishing. */
+"menuBar.done" = "%lld 个已完成";
+
+/* VoiceOver label of the status item. */
+"menuBar.idle" = "%lld 个空闲";
+
+/* Menu-bar panel heading, followed by the count of live sessions. distinct-from: flight.live */
+"menuBar.live" = "活跃";
+
+/* Menu-bar panel header and VoiceOver label of the status item. */
+"menuBar.needsYou" = "%lld 个需要你";
+
+/* Menu-bar panel when nothing is live. */
+"menuBar.noLiveSessions" = "没有活跃会话";
+
+/* VoiceOver label of the status item when no session is live. */
+"menuBar.nothingRunning" = "没有正在运行的会话";
+
+/* Menu-bar panel command that brings up the main window. */
+"menuBar.openAuspex" = "打开 Auspex";
+
+/* Menu-bar panel command that quits Auspex. */
+"menuBar.quit" = "退出";
+
+/* Menu-bar panel command that opens the Settings window. distinct-from: section.settings — a command, with the ellipsis macOS gives commands that open a window. */
+"menuBar.settings" = "设置…";
+
+/* VoiceOver label of the status item. */
+"menuBar.working" = "%lld 个工作中";
+
+/* Flight header: key before the elapsed time. distinct-from: session.elapsed.elapsed */
+"meta.elapsed" = "已用时";
+
+/* Flight header: key before a count of failed steps. distinct-from: flight.failed */
+"meta.failed" = "失败";
+
+/* Task card: key before live/total sessions. distinct-from: harnesses.count.live distinct-from: flight.live */
+"meta.live" = "活跃";
+
+/* Flight header: key before a count of model requests. */
+"meta.requests" = "请求";
+
+/* Flight detail: key before a session id. distinct-from: palette.kind.session distinct-from: flight.scope.session */
+"meta.session" = "会话";
+
+/* Flight header: key before a count of steps. */
+"meta.steps" = "步骤";
+
+/* Short key before input / output token counts. distinct-from: flight.tokens */
+"meta.tokens" = "token";
+
+/* Short key before a count of tool calls. */
+"meta.tools" = "工具";
+
+/* Short key before a count of turns, in a card's or a trace header's metadata row. */
+"meta.turns" = "轮次";
+
+/* VoiceOver label of a notice pill. {kind} is one of notice.*. */
+"notice.agentSays" = "agent 表示：%@";
+
+/* Pill: an agent said it cannot go on. Lower-case. distinct-from: catchUp.phase.blocked */
+"notice.blocked" = "受阻";
+
+/* Tooltip on a notice's dismiss button. */
+"notice.dismissHelp" = "忽略 — agent 不再询问，卡片会安静下来";
+
+/* Pill: an agent said it finished. Lower-case. distinct-from: catchUp.phase.done distinct-from: attention.done */
+"notice.done" = "已完成";
+
+/* Pill: an agent said it needs an answer from the person. Lower-case. */
+"notice.needsInput" = "需要输入";
+
+/* Pill: an agent said it needs the person to check something. Lower-case. */
+"notice.needsReview" = "需要审阅";
+
+/* macOS notification title. */
+"notification.blocked" = "%@ 受阻了";
+
+/* macOS notification title. */
+"notification.finished" = "%@ 已完成";
+
+/* macOS notification action that opens the board on the session. */
+"notification.show" = "显示";
+
+/* macOS notification title when an agent asks for input. */
+"notification.waitingOnYou" = "%@ 正在等你";
+
+/* macOS notification title. */
+"notification.wantsReview" = "%@ 请你审阅";
+
+/* Now: shown in place of the lists when every list is empty. */
+"now.allClear" = "没有正在运行的会话，也没有在等你处理的事。";
+
+/* Now and the office balloons: an agent marked its task blocked. Followed by the task's title. */
+"now.blockedTask" = "任务已标记为受阻";
+
+/* Now: column header (shown upper-cased) over what each working session is doing. */
+"now.column.doing" = "正在做";
+
+/* Now: column header (shown upper-cased) over the turn's elapsed time and the folded sub-agent count. */
+"now.column.turn" = "轮次 / 子 agent";
+
+/* Tooltip on the dash shown in place of a context bar. */
+"now.context.unrecorded" = "该 harness 不记录上下文窗口。";
+
+/* Now: pill and (upper-cased) list heading for work an agent reported done that the person has not looked at yet. */
+"now.doneUnseen" = "已完成未查看";
+
+/* Now: button that folds the Working list back. */
+"now.fewer" = "收起";
+
+/* Now: legend entry for sessions that are open with nothing outstanding. */
+"now.idle" = "空闲";
+
+/* Now: the fold for idle sessions while it is open. */
+"now.idleFold.hide" = "空闲 %lld · 收起";
+
+/* Now: the fold for idle sessions while it is closed. "IDLE" is a heading and upper-case in English. */
+"now.idleFold.show" = "空闲 %lld · 展开 →";
+
+/* Now: stopwatch on a stale session, e.g. "12m idle". {duration} is a compact stopwatch reading such as 12m or 1h04m. distinct-from: menuBar.idle — a duration, not a count; the word order differs in Chinese. */
+"now.idleFor" = "空闲 %@";
+
+/* Now: the action on a Done, unseen row that clears it. */
+"now.markSeen" = "标为已查看";
+
+/* Now: pill, legend entry and (upper-cased) list heading for sessions Auspex infers might need the person. */
+"now.mayNeedYou" = "可能需要你";
+
+/* Now: button under the Working list that shows the rows folded away. */
+"now.more" = "另外 %lld 个 →";
+
+/* Now: a header pill, a legend entry and (upper-cased) a list heading for sessions explicitly blocked on the person. */
+"now.needsYou" = "需要你";
+
+/* Now: note beside the May need you heading. */
+"now.note.mayNeedYou" = "推断所得 — 观察信号";
+
+/* Now: grey note beside the Needs you heading, after the count. Lower-case on purpose. */
+"now.note.needsYou" = "仅限明确信号";
+
+/* Now: note beside the Working heading. */
+"now.note.working" = "每个根会话一行，子 agent 已折叠";
+
+/* Now: the action at the end of a row that opens the session. */
+"now.openArrow" = "打开 →";
+
+/* Placeholder in Now's search field. distinct-from: board.search — Now's design spells it with an ellipsis. */
+"now.search" = "搜索会话…";
+
+/* Tooltip and VoiceOver label of the chevron that closes Now's office stage. */
+"now.stage.collapse" = "收起办公室";
+
+/* Hint chip over Now's office stage. */
+"now.stage.hint" = "点按人物即可打开会话 · 悬停可查看其正在做什么";
+
+/* Now's header: segment that hides the office stage. */
+"now.stage.listsOnly" = "仅列表";
+
+/* Now's header: segment that shows the office stage above the lists. */
+"now.stage.officeAndLists" = "办公室 + 列表";
+
+/* Now's header line beside the title: the clock (HH:mm) and two counts of sessions. */
+"now.status" = "%1$@ · %2$lld 个活跃 · %3$lld 个工作中";
+
+/* Now: the action at the end of a row whose blocked task has no session; opens the task. */
+"now.taskArrow" = "任务 →";
+
+/* VoiceOver label of the view menu. {mode} is the current view's name. */
+"now.viewMenu.accessibility" = "视图：%@";
+
+/* Tooltip on the view menu. Names the six views; keep the view names consistent with the viewMode.* keys. */
+"now.viewMenu.help" = "视图：此刻、卡片账本、鸟舍、鸟群、你的栖枝，或单个会话的航迹";
+
+/* Now's header: the menu that switches between the six views. */
+"now.viewMenu.title" = "视图";
+
+/* Now and the office balloons: a session stopped on a question to the person. */
+"now.waitingAnswer" = "等待答复";
+
+/* Now and the office balloons: a session stopped on a permission prompt. Followed by the tool call, e.g. Bash(gh pr merge). */
+"now.waitingPermission" = "等待授权";
+
+/* Stand-in for {tool} in now.watch.longTool when the tool's name is not known. */
+"now.watch.aTool" = "某个工具";
+
+/* Now: watch signal — the session's context window is nearly full. */
+"now.watch.contextPressure" = "上下文已用超过 %lld%%";
+
+/* Now: watch signal — one tool call has been running a long time. {tool} is a tool name such as Bash. */
+"now.watch.longTool" = "%1$@ 已运行超过 %2$lld 分钟";
+
+/* Now: watch signal — a task is still claimed by a session that is gone. */
+"now.watch.orphanedClaim" = "认领它的会话已结束";
+
+/* Now: watch signal — another live session is on the same git branch. */
+"now.watch.sharedBranch" = "与其他会话共用分支";
+
+/* Now: watch signal — another live session works in the same directory. */
+"now.watch.sharedDirectory" = "与其他会话共用工作目录";
+
+/* Now: watch signal — the process is alive but its transcript has not moved. Lower-case, a fragment. */
+"now.watch.staleSession" = "仍在运行，但没有新动静";
+
+/* Now: legend entry and (upper-cased) list heading for sessions that are busy. */
+"now.working" = "工作中";
+
+/* Command palette row that closes a task in review. {title} is the task's title. */
+"palette.closeTask" = "关闭「%@」";
+
+/* Command palette: subtitle of the close row. {id} is the task's short handle. */
+"palette.closeTaskSubtitle" = "%@ · 已完成，等你处理";
+
+/* Command palette command. */
+"palette.hideSubagents" = "隐藏子 agent";
+
+/* Command palette: tag before a close-task row. distinct-from: common.close */
+"palette.kind.close" = "关闭";
+
+/* Command palette: tag before a filter command. */
+"palette.kind.filter" = "筛选";
+
+/* Command palette: tag before a project row. distinct-from: common.project */
+"palette.kind.project" = "项目";
+
+/* Command palette: tag before a session row. distinct-from: flight.scope.session */
+"palette.kind.session" = "会话";
+
+/* Command palette: small tag before a row. Lower-case, ≤ 7 characters. distinct-from: catchUp.source.task */
+"palette.kind.task" = "任务";
+
+/* Command palette: tag before a view command. distinct-from: now.viewMenu.title */
+"palette.kind.view" = "视图";
+
+/* Command palette when the query finds nothing. */
+"palette.nothingMatched" = "没有匹配项。";
+
+/* Command palette field placeholder. */
+"palette.placeholder" = "前往任务、项目、会话 — 或执行操作";
+
+/* Command palette command: filter to tasks whose dependencies are closed. */
+"palette.readyOnly" = "只显示可开始的任务";
+
+/* Command palette: subtitle of the ready filter. */
+"palette.readyOnlySubtitle" = "依赖已全部关闭的任务";
+
+/* Command palette: subtitle of the show/hide subagents command. */
+"palette.subagentsSubtitle" = "列出每个任务中的会话";
+
+/* Command palette command. {view} is a view name (viewMode.*). */
+"palette.switchTo" = "切换到%@";
+
+/* Perch playback strip: events after the shown one. */
+"perch.ahead" = "之后还有 %lld 个";
+
+/* Perch board menu label when no board is selected. */
+"perch.allBoards" = "全部画板";
+
+/* Rule condition value: the task is waiting for review. distinct-from: catchUp.phase.review */
+"perch.attention.review" = "审阅";
+
+/* Field placeholder for a board's name. */
+"perch.boardName" = "画板名称";
+
+/* Perch toolbar button and sheet title: the rules that decide what a board shows. */
+"perch.boardRules" = "画板规则";
+
+/* Perch card tag on inferred work. distinct-from: task.card.auto — capitals on the canvas. */
+"perch.card.auto" = "自动";
+
+/* Perch card: button that folds the sub-agents. */
+"perch.card.collapse" = "↳ 收起";
+
+/* VoiceOver label of the fold button. */
+"perch.card.collapseSubagents" = "收起子 agent";
+
+/* VoiceOver label of the fold button. */
+"perch.card.expandSubagents" = "展开子 agent";
+
+/* VoiceOver: part of a Perch card's label. distinct-from: board.bucket.needsYou */
+"perch.card.needsYou" = "需要你";
+
+/* VoiceOver: part of a Perch card's label. */
+"perch.card.subagents" = "%lld 个子 agent";
+
+/* Perch card footer. */
+"perch.card.tools" = "工具 %lld";
+
+/* Perch card footer. */
+"perch.card.turns" = "轮次 %lld";
+
+/* Perch toolbar: how many cards are on the board. */
+"perch.cards" = "%lld 张卡片";
+
+/* Board rules sheet button that asks for confirmation. */
+"perch.deleteBoard" = "删除画板";
+
+/* Board rules sheet: inline confirmation. */
+"perch.deleteConfirm" = "删除这块画板？";
+
+/* Perch card: VoiceOver label of the dependency handle. */
+"perch.dependencyHandle" = "依赖手柄";
+
+/* Perch card: tooltip on the dependency handle. */
+"perch.dependencyHandleHelp" = "拖到另一个任务上以添加依赖";
+
+/* Perch canvas: label drawn on a dependency arrow. */
+"perch.depends" = "依赖";
+
+/* Perch card context menu heading over the tasks it can depend on. */
+"perch.dependsOn" = "依赖于";
+
+/* Perch empty state title. */
+"perch.empty" = "这块画板是空的";
+
+/* Perch empty state detail on the built-in board. */
+"perch.emptyProtected" = "Auspex 能看到的每项工作都会出现一张卡片。";
+
+/* Perch empty state detail on a board the person made. */
+"perch.emptyUser" = "在这里固定一个任务，或添加一条能匹配任务的规则。";
+
+/* Perch playback strip: which event of the history is shown. */
+"perch.eventPosition" = "事件 %1$lld / %2$lld";
+
+/* Perch canvas control (⌘0). */
+"perch.fitAll" = "全部显示";
+
+/* Perch playback strip: following the live board. */
+"perch.following" = "跟随中";
+
+/* Perch toolbar in history mode: makes a branch of the board at this point in time. */
+"perch.fork" = "从此处派生画板";
+
+/* Default name of a board forked from history. */
+"perch.forkName" = "%1$@ · 事件 %2$lld";
+
+/* Perch canvas: label on a project's frame, drawn in capitals in English. {title} is the project's name (upper-cased). */
+"perch.frameLabel" = "%1$@ · %2$lld 个活跃";
+
+/* Perch playback strip: the board is showing a moment in the past. */
+"perch.history" = "历史";
+
+/* History inspector: key before the board's name. distinct-from: flight.board */
+"perch.history.board" = "画板";
+
+/* History inspector while the moment loads. */
+"perch.history.building" = "正在构建这个栖枝时刻…";
+
+/* History inspector while the moment loads. */
+"perch.history.buildingDetail" = "播放头所在时刻的画板状态会显示在这里。历史只读。";
+
+/* History inspector fact (shown upper-cased). */
+"perch.history.liveSessions" = "活跃会话";
+
+/* History inspector eyebrow (shown upper-cased). */
+"perch.history.momentBoard" = "时刻 · 画板";
+
+/* History inspector footnote. */
+"perch.history.note" = "成员、状态、任务和规则都是历史状态；卡片位置和视角保持当前状态。历史中无法恢复会话或编辑依赖。";
+
+/* History inspector: key before a card's x, y. */
+"perch.history.position" = "位置";
+
+/* History inspector heading (shown upper-cased). */
+"perch.history.selected" = "所选 · 当前空间记忆";
+
+/* History inspector: which event is shown and how far behind the present it is. */
+"perch.history.since" = "事件 %1$lld / %2$lld · 比实时落后 %3$lld 个事件";
+
+/* History inspector heading (shown upper-cased). */
+"perch.history.sinceMoment" = "此刻之后";
+
+/* History inspector fact (shown upper-cased). */
+"perch.history.toolsOpen" = "进行中的工具";
+
+/* Perch playback strip while history loads. */
+"perch.indexing" = "正在索引…";
+
+/* Perch playback strip button. */
+"perch.jumpToLive" = "跳到实时";
+
+/* Perch playback strip: the board follows the present. distinct-from: menuBar.live distinct-from: harnesses.count.live */
+"perch.live" = "实时";
+
+/* VoiceOver label of the playback strip. */
+"perch.liveOverview" = "实时活动概览";
+
+/* Perch toolbar: merges a forked board back. */
+"perch.merge" = "合并回上级";
+
+/* Merge sheet confirm button. */
+"perch.merge.action" = "合并";
+
+/* Merge sheet: key before a count of membership changes that merge cleanly. */
+"perch.merge.automaticMemberships" = "自动成员";
+
+/* Merge sheet: key before a count of position changes that merge cleanly. */
+"perch.merge.automaticPositions" = "自动位置";
+
+/* Merge sheet: label (upper-cased) over the branch's side of a conflict. */
+"perch.merge.branch" = "分支";
+
+/* Merge sheet: conflict picker's empty choice. */
+"perch.merge.choose" = "请选择…";
+
+/* Merge sheet: key before the number of conflicts. */
+"perch.merge.conflicts" = "冲突";
+
+/* Merge sheet error. */
+"perch.merge.failed" = "无法准备合并比较。";
+
+/* Merge sheet: what a conflict is about (upper-cased). */
+"perch.merge.field.membership" = "成员";
+
+/* Merge sheet: what a conflict is about (upper-cased). distinct-from: perch.history.position */
+"perch.merge.field.position" = "位置";
+
+/* Merge sheet: what a conflict is about (upper-cased). */
+"perch.merge.field.rules" = "规则";
+
+/* Merge sheet: conflict choice. */
+"perch.merge.keepParent" = "保留上级";
+
+/* Merge sheet empty state. */
+"perch.merge.noConflicts" = "没有冲突";
+
+/* Merge sheet empty state detail. */
+"perch.merge.noConflictsDetail" = "该分支可以直接合并，不会覆盖上级之后的修改。";
+
+/* Merge sheet: label (upper-cased) over the parent's side of a conflict. */
+"perch.merge.parent" = "上级";
+
+/* Merge sheet: picker label (hidden) for a conflict. */
+"perch.merge.resolution" = "解决方式";
+
+/* Merge sheet: conflict choice. */
+"perch.merge.takeBranch" = "采用分支";
+
+/* Merge sheet progress. */
+"perch.mergeComparing" = "正在比较派生基点、上级和分支…";
+
+/* Merge sheet explanation. */
+"perch.mergeNote" = "只合并位置、成员覆盖和规则树。任务、依赖、agent、画板名称和视角都不会变。";
+
+/* Merge sheet title. "Perch" is viewMode.perch. */
+"perch.mergeTitle" = "合并栖枝分支";
+
+/* Tooltip on the Perch minimap. */
+"perch.minimapHelp" = "整块画板。点按或拖移以移动视角。";
+
+/* Board rules sheet: moves the board earlier in the list. */
+"perch.moveEarlier" = "前移";
+
+/* Board rules sheet: moves the board later in the list. */
+"perch.moveLater" = "后移";
+
+/* Perch board menu. */
+"perch.newBoard" = "新建画板…";
+
+/* New board sheet note. Quote perch.boardRules. */
+"perch.newBoardNote" = "这块画板从手动模式开始。创建后可在「画板规则」中添加嵌套规则。";
+
+/* New board sheet title. */
+"perch.newBoardTitle" = "新建栖枝画板";
+
+/* Perch card focus line when nothing is known. */
+"perch.noActivity" = "没有观察到活动";
+
+/* Perch history: VoiceOver label of the play button while playing. */
+"perch.pausePlayback" = "暂停回放";
+
+/* Perch toolbar: stops the board's rules adding or removing cards. */
+"perch.pauseRules" = "暂停规则";
+
+/* Perch toolbar: pins the selected task to this board. */
+"perch.pinSelected" = "固定所选";
+
+/* Perch empty state while the board is loading. */
+"perch.placing" = "正在摆放画布…";
+
+/* Perch history: VoiceOver label of the play button. */
+"perch.playHistory" = "播放历史";
+
+/* VoiceOver label of the history slider. */
+"perch.playhead" = "栖枝历史播放头";
+
+/* VoiceOver value of the history slider. */
+"perch.playheadValue" = "第 %1$lld 个事件，共 %2$lld 个";
+
+/* Perch card context menu for inferred work. */
+"perch.promoteFirst" = "先提升为任务，再添加依赖";
+
+/* Perch card context menu in history mode. */
+"perch.readOnly" = "历史只读 · 跳到实时以编辑";
+
+/* Perch board menu submenu. */
+"perch.recentlyDeleted" = "最近删除";
+
+/* Perch board menu: restores a deleted board. */
+"perch.restore" = "恢复「%@」";
+
+/* Perch toolbar: turns the board's rules back on. */
+"perch.resumeRules" = "恢复规则";
+
+/* Board rules sheet button. */
+"perch.rules.add" = "添加规则";
+
+/* Rule node kind. */
+"perch.rules.all" = "全部 (AND)";
+
+/* Rule node kind. */
+"perch.rules.any" = "任一 (OR)";
+
+/* Board rules sheet button. */
+"perch.rules.apply" = "应用规则";
+
+/* Rule condition field: whether a session is asking for the person. */
+"perch.rules.attention" = "关注状态";
+
+/* Rule editor: adds a condition; also the name of a single-condition rule node. */
+"perch.rules.condition" = "条件";
+
+/* Rule editor: an empty AND group. */
+"perch.rules.emptyAll" = "没有条件的「全部」会匹配所有内容。";
+
+/* Rule editor: an empty OR / NOT group. */
+"perch.rules.emptyGroup" = "此分组不匹配任何内容。";
+
+/* Picker label (hidden) for what a condition tests. */
+"perch.rules.field" = "字段";
+
+/* Picker label (hidden) for a rule node. */
+"perch.rules.kind" = "规则类型";
+
+/* Rule node kind. */
+"perch.rules.not" = "非 (NOT)";
+
+/* Board rules sheet: note under the title. AND / OR / NOT stay in capitals. */
+"perch.rules.note" = "可嵌套的 AND / OR / NOT 条件，之后可逐个任务设置包含或排除。";
+
+/* Field placeholder: the project key a condition matches. */
+"perch.rules.projectKey" = "项目键";
+
+/* VoiceOver label of a rule's remove button. */
+"perch.rules.remove" = "移除规则";
+
+/* Board rules sheet: section title for the rule tree. */
+"perch.rules.title" = "自动成员";
+
+/* Perch canvas control. */
+"perch.zoomIn" = "放大";
+
+/* Perch canvas control. */
+"perch.zoomOut" = "缩小";
+
+/* Placeholder page for a section not built yet. {milestone} is a milestone name such as M2. */
+"placeholder.arrivesIn" = "将在 %@ 中推出。";
+
+/* Placeholder page explanation. */
+"placeholder.harnesses" = "安装了哪些 harness、它们的存储在哪里，以及每个跟踪器读到了哪里。";
+
+/* Placeholder page explanation. */
+"placeholder.live" = "实时看板。";
+
+/* Placeholder page explanation. */
+"placeholder.projects" = "会话按 git 根目录和 worktree 归组，同一仓库三个 worktree 里的三个 agent 会显示为一个项目。";
+
+/* Placeholder page explanation. */
+"placeholder.tasks" = "通过 MCP 暴露的共享任务板，让 agent 能看到同伴们在做什么。";
+
+/* Import sheet destination. */
+"projects.aNewProject" = "新项目";
+
+/* Project card button. */
+"projects.addFolder" = "添加文件夹…";
+
+/* A project's task pill when nothing is open. */
+"projects.allDone" = "全部完成";
+
+/* Tooltip on a project's task pill. */
+"projects.allTasksDone" = "此项目的所有任务都已完成";
+
+/* Projects page section rule. */
+"projects.automatic" = "自动";
+
+/* Projects page section note. */
+"projects.automaticDetail" = "根据会话的运行位置推断，不做任何存储。";
+
+/* Projects page when nothing is automatic. */
+"projects.automaticEmpty" = "看板上的每个项目都是你自己的。";
+
+/* VoiceOver label of a sidebar attention badge. distinct-from: projects.fold.finished distinct-from: notification.finished */
+"projects.badge.finished" = "%lld 个已完成";
+
+/* VoiceOver label of a sidebar attention badge. */
+"projects.badge.needYou" = "%lld 个需要你";
+
+/* Open panel message. */
+"projects.chooseFolder" = "为此项目选择一个文件夹";
+
+/* New project sheet button. */
+"projects.chooseFolderButton" = "选择文件夹…";
+
+/* Open panel confirm button. */
+"projects.claim" = "认领";
+
+/* Project card warning. */
+"projects.claimsNothing" = "尚未认领任何文件夹，因此没有会话归入其中。";
+
+/* Tooltip on the colour menu. */
+"projects.colourHelp" = "项目在看板上的颜色";
+
+/* Tooltip on a project's delete button. */
+"projects.deleteHelp" = "删除此项目。它的会话会回到 git 所归的位置。";
+
+/* Projects page eyebrow. distinct-from: section.projects */
+"projects.eyebrow" = "项目";
+
+/* Import sheet field placeholder. */
+"projects.filterByPath" = "按路径筛选";
+
+/* Sidebar fold. distinct-from: notification.finished */
+"projects.fold.finished" = "%lld 个已结束";
+
+/* Sidebar fold tooltip, first half. */
+"projects.fold.listEvery" = "在这里列出所有运行中的会话";
+
+/* Sidebar fold tooltip. */
+"projects.fold.listFirst" = "只列出前 %lld 个";
+
+/* Sidebar fold. */
+"projects.fold.more" = "另有 %lld 个";
+
+/* Sidebar fold: sessions cut from the list and finished ones elsewhere. */
+"projects.fold.moreAndFinished" = "另有 %1$lld 个 · %2$lld 个已结束";
+
+/* Joins the two halves of the sidebar fold tooltip. */
+"projects.fold.separator" = "%1$@。%2$@";
+
+/* Sidebar fold under a long project. */
+"projects.fold.showFewer" = "收起";
+
+/* Sidebar: tooltip on a task's chevron. */
+"projects.foldSessions" = "收起这些会话";
+
+/* New project sheet label. */
+"projects.folders" = "文件夹";
+
+/* A harness's throwaway directories grouped as one pseudo-project, e.g. "Codex · scratch". */
+"projects.harnessScratch" = "%@ · 临时目录";
+
+/* Projects page headline. */
+"projects.headline.autoOnly" = "看板上发现 %lld 个，还没有一个是你自己的。";
+
+/* Projects page headline. */
+"projects.headline.mixed" = "你的 %1$lld 个，看板上另外发现 %2$lld 个。";
+
+/* Projects page headline. */
+"projects.headline.none" = "还没有项目。";
+
+/* Sidebar: tooltip on a checkout's chevron. */
+"projects.hideCheckoutTasks" = "隐藏此检出的任务";
+
+/* Sidebar: tooltip on an ignored session row. */
+"projects.ignoredRow" = "%1$@ — %2$@ · 已被规则忽略";
+
+/* Projects page button. */
+"projects.import" = "从 harness 导入…";
+
+/* Import sheet eyebrow. */
+"projects.importEyebrow" = "导入";
+
+/* Import sheet note. */
+"projects.importNote" = "只从各个 harness 自己的登记处读取路径：Claude Code 的 projects 文件夹和 ~/.claude.json 中的项目键，Codex 的 config.toml 表及其线程目录。不会回写任何内容。";
+
+/* Import sheet title. */
+"projects.importTitle" = "你的 harness 已经知道的项目";
+
+/* Project card note. {harnesses} is a comma-separated list of harness names. */
+"projects.importedFrom" = "导入自 %@。";
+
+/* Import sheet: the path already belongs to project {name}. */
+"projects.inProject" = "已在「%@」中";
+
+/* Import sheet picker label. */
+"projects.into" = "导入到";
+
+/* Projects page introduction. */
+"projects.intro" = "Auspex 会自动按 git 根目录归组会话，所以同一仓库的三个 worktree 本来就是一个项目。你自己的项目则改为认领文件夹：在被认领文件夹下工作的所有会话都会归入其中，不论 git 怎么说；两个认领重叠时，最深的那个生效。";
+
+/* Sidebar: tooltip on a task's chevron. */
+"projects.listSessions" = "列出此任务上的会话";
+
+/* Automatic project row button. */
+"projects.makeAProject" = "设为项目";
+
+/* Session context menu. */
+"projects.makeFolderProject" = "将此文件夹设为 Auspex 项目";
+
+/* Sidebar project context menu. */
+"projects.makeProject" = "设为 Auspex 项目";
+
+/* Project name field placeholder. */
+"projects.name" = "名称";
+
+/* Projects page button. */
+"projects.new" = "新建项目…";
+
+/* New project sheet title. */
+"projects.newSubtitle" = "一个项目，任意多个文件夹";
+
+/* New project sheet eyebrow; also the default name of an unnamed project. distinct-from: projects.new */
+"projects.newTitle" = "新建项目";
+
+/* Subtitle of a pseudo-project. */
+"projects.noDirectory" = "没有工作目录";
+
+/* Project card: sessions on the board when none is live. */
+"projects.onBoard" = "看板上 %lld 个";
+
+/* New project sheet field placeholder. */
+"projects.pastePath" = "…或粘贴路径";
+
+/* Tooltip on a project's pin button. distinct-from: projects.pinToTop */
+"projects.pinHelp" = "置顶";
+
+/* Sidebar project context menu. */
+"projects.pinToTop" = "置顶";
+
+/* Projects page error. {error} is a system error description. */
+"projects.saveError" = "更改已生效，但未能保存：%@";
+
+/* Subtitle of the Scratch pseudo-project. */
+"projects.scratchSubtitle" = "Auspex 判断出归属之前就登记的工作";
+
+/* Import sheet count. */
+"projects.selected" = "已选择 %lld 个";
+
+/* Tooltip on the focused project in the sidebar. distinct-from: board.focus.allProjectsHelp */
+"projects.showAll" = "重新在看板上显示全部项目";
+
+/* Sidebar: tooltip on a checkout's chevron. */
+"projects.showCheckoutTasks" = "显示此检出的任务";
+
+/* Tooltip on a project in the sidebar. */
+"projects.showOnly" = "只在看板上显示「%@」";
+
+/* Sidebar note when there are no projects yet. */
+"projects.sidebarEmpty" = "会话报告工作位置后，项目会出现在这里。";
+
+/* Tooltip on a project's task pill. */
+"projects.tasksHelp" = "此项目 %2$lld 个任务中有 %1$lld 个未完成";
+
+/* Sidebar: tooltip on a project's task pill. {description} is projects.tasksOpen. */
+"projects.tasksOnBoard" = "任务板上%1$@ · 共登记 %2$lld 个";
+
+/* Tooltip on a folder's remove button. */
+"projects.unclaimFolder" = "不再认领此文件夹";
+
+/* Sidebar: tooltip on the Ungrouped header. */
+"projects.ungroupedHelp" = "这些会话没有报告工作目录，它们的上级会话也没有。";
+
+/* Sidebar project context menu. */
+"projects.unpin" = "取消置顶";
+
+/* Tooltip on a project's pin button. distinct-from: projects.unpin */
+"projects.unpinHelp" = "取消置顶";
+
+/* Projects page section rule. */
+"projects.yours" = "你的";
+
+/* Projects page section note. */
+"projects.yoursDetail" = "认领文件夹，看板随之调整。";
+
+/* Projects page when the person has no projects. */
+"projects.yoursEmpty" = "还没有。可以从文件夹新建，或导入 Claude Code 和 Codex 已经知道的项目。";
+
+/* Transcript search results header. */
+"search.scope" = "全文 · 所有 harness";
+
+/* Sidebar section: the rack of harnesses Auspex can observe. */
+"section.harnesses" = "Harness";
+
+/* Sidebar section: the person's projects. */
+"section.projects" = "项目";
+
+/* Sidebar section: every session in the window as a wall. */
+"section.sessions" = "会话";
+
+/* Sidebar section and window: Auspex's settings. */
+"section.settings" = "设置";
+
+/* Sidebar section: the task board. */
+"section.tasks" = "任务";
+
+/* Card metadata: the session is a harness's automatic code review. Lower-case. */
+"session.autoReview" = "自动审阅";
+
+/* Session context menu. */
+"session.copyResumeCommand" = "复制恢复命令";
+
+/* Session context menu. */
+"session.copySessionID" = "复制会话 ID";
+
+/* Session context menu. */
+"session.copyWorkingDirectory" = "复制工作目录";
+
+/* Notice when a signal was refused. {reason} is an explanation in English from Auspex's process checks. */
+"session.didNotSignal" = "Auspex 未向此会话发送信号：%@";
+
+/* Notice when sending a signal failed. {reason} is an explanation in English. */
+"session.didNotSignalPid" = "Auspex 未向进程 %1$lld 发送信号：%2$@";
+
+/* Card: label before how long the current turn has run. */
+"session.elapsed.elapsed" = "已用时";
+
+/* Card: label before how long an idle session has been quiet. */
+"session.elapsed.quiet" = "静默";
+
+/* Card: label before an ended session's duration. Lower-case. */
+"session.elapsed.ranFor" = "运行了";
+
+/* Card: label before how long a session has waited on a permission prompt. */
+"session.elapsed.waiting" = "等待中";
+
+/* Tooltip on Interrupt for a Claude Code session. */
+"session.interruptHelp.claude" = "向进程 %lld 发送 SIGINT。Claude Code 会把它当作正常退出 — 保存会话后退出，而不只是停止当前轮次。";
+
+/* Tooltip on Interrupt for other harnesses. */
+"session.interruptHelp.other" = "向进程 %lld 发送 SIGINT — 即终端在按下 ⌃C 时发送的信号。harness 如何处理由它自己决定。";
+
+/* Destructive button in the kill confirmation dialog. distinct-from: session.signal.kill — no ellipsis, this is the question itself. */
+"session.kill.confirm" = "终止";
+
+/* Body of the force-kill dialog. */
+"session.kill.forceMessage" = "发送 SIGTERM %3$lld 秒后，%1$@（进程 %2$lld）仍在运行。SIGKILL 无法被拦截，因此它将来不及写完任何内容。";
+
+/* Second dialog, offered when SIGTERM did not stop the process. */
+"session.kill.forcePrompt" = "强制停止「%@」？";
+
+/* Kill confirmation dialog body. */
+"session.kill.message" = "Auspex 将向 %1$@（进程 %2$lld）发送 SIGTERM。agent 正在进行中的工作不会完成。";
+
+/* Kill confirmation dialog body for a resumable session. {process} is an executable name. */
+"session.kill.messageResumable" = "Auspex 将向 %1$@（进程 %2$lld）发送 SIGTERM。对话记录已在磁盘上，之后仍可恢复该会话；agent 正在进行中的工作不会完成。";
+
+/* Kill confirmation dialog title. {title} is the session's title, cut to one line. */
+"session.kill.prompt" = "终止「%@」？";
+
+/* Stand-in for {title} in session.kill.prompt when the session has no title. */
+"session.kill.thisSession" = "此会话";
+
+/* Tooltip on the Kill… item. SIGTERM is a signal name, never translated. */
+"session.killHelp" = "先确认，再向进程 %lld 发送 SIGTERM";
+
+/* Tooltip on disabled directory items in the session context menu. */
+"session.noDirectory" = "该会话的存储没有记录目录";
+
+/* Why the signal items are disabled right after launch. */
+"session.notWatchingProcesses" = "Auspex 尚未开始监视进程。";
+
+/* Session context menu. {app} is a terminal or editor app's name. */
+"session.openIn" = "在 %@ 中打开";
+
+/* Tooltip on Open in {terminal}. */
+"session.openInTerminalHelp" = "在该目录打开一个窗口，不会在其中运行任何命令。";
+
+/* Card: label before when the agent last replied, e.g. "replied · 12 min ago". */
+"session.replied" = "已回复";
+
+/* Tooltip on Resume in {app}. */
+"session.resumeHelp" = "复制命令并打开 %@ 运行它";
+
+/* Session context menu. {app} is a terminal app's name such as Terminal or iTerm. */
+"session.resumeIn" = "在 %@ 中恢复";
+
+/* Session context menu. */
+"session.revealDirectory" = "在访达中显示工作目录";
+
+/* Session context menu. */
+"session.revealTranscript" = "在访达中显示对话记录";
+
+/* Menu item and dialog button that sends SIGKILL. */
+"session.signal.forceKill" = "强制终止";
+
+/* Session context menu item that sends SIGINT. */
+"session.signal.interrupt" = "中断 (SIGINT)";
+
+/* Session context menu item that asks, then sends SIGTERM. */
+"session.signal.kill" = "终止…";
+
+/* Tooltip on the parent chip of a sub-agent's card. */
+"session.spawnedByHelp" = "打开派生出此会话的会话";
+
+/* Tooltip on a card's token counts. */
+"session.tokensHelp" = "输入 / 输出 token";
+
+/* VoiceOver label of the dot on a card whose agent replied. */
+"session.unreadReply" = "已回复，但你还没看";
+
+/* Settings → Appearance swatch. */
+"settings.appearance.accent" = "强调色";
+
+/* Settings → Appearance swatch. */
+"settings.appearance.background" = "背景";
+
+/* Appearance option. */
+"settings.appearance.dark" = "深色";
+
+/* Appearance option explanation. */
+"settings.appearance.darkDetail" = "始终使用深色，不论 Mac 如何设置。";
+
+/* Settings → Appearance: label before Light or Dark. */
+"settings.appearance.drawingIn" = "当前显示为";
+
+/* Settings → Appearance swatch. */
+"settings.appearance.foreground" = "前景";
+
+/* Settings → Appearance introduction. */
+"settings.appearance.intro" = "Auspex 使用的每种颜色在两种外观下各有取值，所以看板在哪种外观下都是同一块看板：同样的四级表面、同样的三级文字、每种状态一种颜色、每个 harness 一种颜色。变的只是亮度。";
+
+/* Appearance option. */
+"settings.appearance.light" = "浅色";
+
+/* Appearance option explanation. */
+"settings.appearance.lightDetail" = "始终使用浅色，不论 Mac 如何设置。";
+
+/* Settings → Appearance footnote. */
+"settings.appearance.noRelaunch" = "无需重新启动。窗口、菜单栏面板、办公室和鸟群都会就地重绘。";
+
+/* Appearance option explanation. */
+"settings.appearance.systemDetail" = "跟随 Mac 的外观设置，包括定时切换。";
+
+/* Settings → Appearance toggle explanation. */
+"settings.appearance.translucentNote" = "在侧栏下使用系统的侧边栏材质，它会透出窗口后面的内容，窗口不在最前面时颜色会变淡。关闭后使用与看板完全一致的纯色底。";
+
+/* Settings → Appearance toggle. */
+"settings.appearance.translucentSidebar" = "半透明侧边栏";
+
+/* Settings → Appearance label and picker label. */
+"settings.appearance.windowAppearance" = "窗口外观";
+
+/* Crew liveliness option. */
+"settings.crew.calm" = "平静";
+
+/* Crew liveliness explanation. */
+"settings.crew.calmDetail" = "每个头像每 14 到 50 秒有一次小动作。适合放在旁边而不是盯着看的看板。";
+
+/* Settings → Crew introduction. */
+"settings.crew.intro" = "每个头像都在一个与其会话状态对应的循环里——思考、工作、等你——并时不时跳出来：瞥一眼、耸耸肩、打个哈欠。这里设置的是这种情况发生的频率。它不会改变任何动作的速度，也不会关闭任何东西。";
+
+/* Settings → Crew picker label. */
+"settings.crew.liveliness" = "活跃程度";
+
+/* Crew liveliness option. */
+"settings.crew.lively" = "活泼";
+
+/* Crew liveliness explanation. */
+"settings.crew.livelyDetail" = "每个头像每 5 到 18 秒有一次小动作。头像墙几乎从不静止。";
+
+/* Crew liveliness option. distinct-from: task.importance.normal */
+"settings.crew.normal" = "正常";
+
+/* Crew liveliness explanation. */
+"settings.crew.normalDetail" = "每个头像每 8 到 30 秒有一次小动作。";
+
+/* Settings → Crew note. */
+"settings.crew.waitingNote" = "正在等你的会话不受此设置影响，保持自己的节奏：这是唯一不会自行解决的状态，所以它会一直提醒。";
+
+/* Settings → General introduction. */
+"settings.general.intro" = "看板只能捕捉 Auspex 运行期间发生的工作。macOS 可以在登录时启动它，菜单栏和观察管线随即就绪，而不会把看板弹到你正在做的事情前面。";
+
+/* Settings → General toggle. */
+"settings.general.launchAtLogin" = "登录时启动";
+
+/* Settings → General error. {error} is a system error description. */
+"settings.general.loginError" = "macOS 未更改登录项：%@";
+
+/* Settings → General footnote. */
+"settings.general.note" = "这会通过 ServiceManagement 注册已签名的主程序。它不会安装辅助程序、添加 LaunchAgent、改动为空的权限声明，也不会给 Auspex 任何新的磁盘访问权限。";
+
+/* Settings → General button that opens System Settings. */
+"settings.general.openLoginItems" = "打开登录项";
+
+/* Settings → Ignore section rule. */
+"settings.ignore.addRule" = "添加规则";
+
+/* Settings → Ignore harness picker's empty choice. */
+"settings.ignore.chooseHarness" = "选择 harness";
+
+/* Tooltip on a rule's delete button. */
+"settings.ignore.deleteRule" = "删除此规则";
+
+/* Settings → Ignore empty state title. */
+"settings.ignore.noRules" = "还没有规则。";
+
+/* Settings → Ignore empty state detail. */
+"settings.ignore.noRulesDetail" = "右键点按卡片或侧栏中的项目，即可隐藏它所在的文件夹。";
+
+/* Settings → Ignore headline. */
+"settings.ignore.nothingHidden" = "没有隐藏任何内容。";
+
+/* Settings → Ignore section note. */
+"settings.ignore.rulesDetail" = "关闭某条规则即可看看没有它时看板的样子。";
+
+/* Settings → Ignore section rule. distinct-from: perch.merge.field.rules */
+"settings.ignore.rulesTitle" = "规则";
+
+/* Settings → General: the line under the Language picker. */
+"settings.language.caption" = "Auspex 默认跟随 macOS 语言，也可以在此单独指定。Harness、公司和产品名称保持其原始拼写。更改立即生效。";
 
 /* Settings → General → Language: follow the macOS language. The other two options are each language's own name and are not translated. distinct-from: flight.role.system */
 "settings.language.system" = "跟随系统";
 
 /* Settings → General: heading of the interface-language picker. */
 "settings.language.title" = "语言";
+
+/* Settings pane name. distinct-from: flight.agents */
+"settings.pane.agents" = "Agent";
+
+/* Settings pane subtitle. */
+"settings.pane.agentsSubtitle" = "Auspex 在每个 harness 中写入了什么，以及如何撤销。";
+
+/* Settings pane name. */
+"settings.pane.appearance" = "外观";
+
+/* Settings pane subtitle. */
+"settings.pane.appearanceSubtitle" = "浅色与深色，以及两者共用的一种强调色。";
+
+/* Settings pane name: which character figure each harness wears in the office. */
+"settings.pane.characters" = "角色";
+
+/* Settings pane subtitle. */
+"settings.pane.charactersSubtitle" = "每个 harness 穿哪个角色形象，以及角色包从哪里来。";
+
+/* Settings pane name: the wall of faces (the Flock view). Keep consistent with viewMode.crew. */
+"settings.pane.crew" = "鸟群";
+
+/* Settings pane subtitle. */
+"settings.pane.crewSubtitle" = "头像墙多久动一次。";
+
+/* Settings pane name. */
+"settings.pane.general" = "通用";
+
+/* Settings pane subtitle. */
+"settings.pane.generalSubtitle" = "登录时观察者是否已经在运行，以及界面使用的语言。";
+
+/* Settings pane subtitle. */
+"settings.pane.ignoreSubtitle" = "看板没有显示的一切，以及原因。";
+
+/* Settings pane name: the office map. */
+"settings.pane.scene" = "场景";
+
+/* Settings pane subtitle. */
+"settings.pane.sceneSubtitle" = "地图有多大：办公室，以及人们会走去的地方。";
+
+/* Settings pane name. */
+"settings.pane.updates" = "更新";
+
+/* Settings pane subtitle. */
+"settings.pane.updatesSubtitle" = "这个副本跟随哪个渠道，以及上次检查的时间。";
+
+/* Settings: picker label (hidden) of the narrow-window pane menu. */
+"settings.paneMenu" = "设置面板";
+
+/* Settings error. {error} is a system error description. */
+"settings.saveError" = "设置已生效，但未能保存：%@";
+
+/* Settings → Scene footnote. */
+"settings.scene.bothOff" = "两者都关闭时，所有人都留在工位上，地图就只是办公室本身。";
+
+/* Settings → Scene toggle. */
+"settings.scene.breakAreas" = "休息区";
+
+/* Settings → Scene toggle explanation. */
+"settings.scene.breakAreasDetail" = "空闲的会话会休息，停滞的会打盹，你不在时完成的会拿着便条在门边等候，已经结束的则从门口走出去。";
+
+/* Settings → Scene picker label. */
+"settings.scene.breakStyle" = "休息区样式";
+
+/* Break area style and the name of that area in the office. */
+"settings.scene.garden" = "花园";
+
+/* Settings → Scene label over the window picker. */
+"settings.scene.howFarBack" = "回溯范围";
+
+/* Settings → Scene introduction. */
+"settings.scene.intro" = "同一项目的会话共用一个套间：工作中的会话坐在工位，正在委派的每组会话各有一间会议室，还有一个休息室，休息、睡着、已完成或等着被查看的会话都去那里——出口也在那里。";
+
+/* Break area style and the name of that area in the office. */
+"settings.scene.lounge" = "休息室";
+
+/* Settings → Scene toggle. */
+"settings.scene.meetingRooms" = "会议室";
+
+/* Settings → Scene toggle explanation. */
+"settings.scene.meetingRoomsDetail" = "正在委派的会话会走到自己项目套间里的长桌旁，坐在主位，它派生的子 agent 坐在两侧。有三个及以上会话的项目无论有没有人都会有一间会议室。";
+
+/* Break area style option. */
+"settings.scene.perProject" = "按项目（随机）";
+
+/* Settings → Scene note. */
+"settings.scene.perProjectNote" = "「按项目」会根据项目自身的路径从三种中选定一种并保持不变，这样不用看门牌也能认出是哪个套间。";
+
+/* Break area style and the name of that area in the office. */
+"settings.scene.teaRoom" = "茶水间";
+
+/* Settings → Scene footnote. */
+"settings.scene.waitingNote" = "在等你的会话无论开启哪一项都不会离开工位。它是这里唯一可以打断你的东西，所以必须待在你本来就在看的地方。";
+
+/* Settings → Scene note. */
+"settings.scene.windowNote" = "Auspex 保留一周的会话并绘制最近的那些。存活、工作中或在等你的会话不论多久都会被绘制——这个范围只决定背后有多少历史。不会删除任何内容：放宽范围，其余的就会回来。";
+
+/* Settings → Updates toggle. */
+"settings.updates.automatic" = "自动检查更新";
+
+/* Settings → Updates toggle explanation. */
+"settings.updates.automaticNote" = "每天一次，在后台进行。未经同意不会下载或安装任何东西 — 人们会让这块看板连开好几天，一个在会话运行时替换掉自己的应用会把会话的窗口一起带走。";
+
+/* Settings → Updates label and picker label. */
+"settings.updates.channel" = "更新渠道";
+
+/* Update channel. */
+"settings.updates.channel.dev" = "开发版";
+
+/* Update channel explanation. */
+"settings.updates.channel.devDetail" = "两次发布之间的预览构建，以及所有稳定版。它们从 tag 构建，但还没有经过日常使用的检验。";
+
+/* Update channel. */
+"settings.updates.channel.stable" = "稳定版";
+
+/* Update channel explanation. */
+"settings.updates.channel.stableDetail" = "仅正式发布的版本。推荐使用这个。";
+
+/* Settings → Updates button. */
+"settings.updates.checkNow" = "立即检查";
+
+/* Settings → Updates in demo mode. */
+"settings.updates.demo" = "这是演示启动。它不读取也不写入任何内容（包括 Sparkle 自己的检查时间戳），因此更新程序没有运行。";
+
+/* Settings → Updates eyebrow. distinct-from: settings.pane.updates */
+"settings.updates.eyebrow" = "更新";
+
+/* Settings → Updates footnote. */
+"settings.updates.feed" = "更新源：%@";
+
+/* Settings → Updates footnote. */
+"settings.updates.footnote" = "渠道保存在 ~/.auspex/settings.json 中。是否定期检查是 Sparkle 自己的设置，保存在应用的 defaults 里，因为在这里再存一份就会对同一个问题给出第二个答案。";
+
+/* Settings → Updates introduction. */
+"settings.updates.intro" = "Auspex 只读取一个更新源，未经询问不会安装任何东西。其中的每个构建都用项目的 EdDSA 密钥签名，并在解包第一个字节之前用编译进本副本的密钥校验，因此传输中被篡改的更新会被拒绝，而不会被运行。";
+
+/* Settings → Updates. {time} is a relative time such as "2 hours ago". */
+"settings.updates.lastChecked" = "上次检查：%@。";
+
+/* Settings → Updates: when no check has run. */
+"settings.updates.noCheckYet" = "尚未检查。首次检查会在启动后不久进行。";
+
+/* Settings → Updates when there is no updater. */
+"settings.updates.notPackaged" = "此副本未打包为应用程序包，因此没有更新源，也没有用于校验的密钥。请用 Scripts/build_app.sh 构建并运行 Auspex.app。";
+
+/* Settings → Updates error. */
+"settings.updates.saveError" = "渠道已生效，但未能保存：%@";
+
+/* Settings → Updates title. */
+"settings.updates.title" = "两个渠道，一个签名的更新源";
+
+/* Settings → Updates: this copy's version, e.g. "Auspex 0.2.0 (31)". */
+"settings.updates.version" = "Auspex %@";
+
+/* Setup sheet confirm button with how many items are ticked. */
+"setup.install" = "安装 %lld 项";
+
+/* Setup sheet introduction. */
+"setup.intro" = "Auspex 已经通过读取各 agent 写下的文件来观察这台 Mac 上的每个 agent 会话。下面这些会加上显式协作：一个用于任务事实和人工关注的 MCP 服务，一份讲授 Supervisor/Worker/Reviewer 交接的带版本 skill，以及用于捕捉授权等待等对话记录不会写下的状态的 hook。";
+
+/* Setup sheet login toggle. */
+"setup.keepWatching" = "重启后让 Auspex 继续观察";
+
+/* Setup sheet login note. */
+"setup.loginNote" = "使用 macOS 登录项在后台启动已签名的主程序。不会安装辅助程序、LaunchAgent，也不会增加磁盘访问权限。";
+
+/* Setup and Agents: tag on a harness that is not installed. */
+"setup.notDetected" = "未检测到";
+
+/* Setup sheet when there is no socket. */
+"setup.notServing" = "MCP 套接字未在服务，因此暂时不会有任何响应。";
+
+/* Setup row title. */
+"setup.piece.coordinationSkill" = "安装 Auspex 协作 skill";
+
+/* Setup row explanation. Supervisor/Worker/Reviewer are role names and stay in English. */
+"setup.piece.coordinationSkillDetail" = "添加一份带版本、按需加载的 Supervisor/Worker/Reviewer 协作手册。它指导 MCP 的使用；以服务端为准。";
+
+/* Setup row title. */
+"setup.piece.hooks" = "安装 harness hook";
+
+/* Setup row explanation. */
+"setup.piece.hooksDetail" = "让 harness 在需要授权、开始、委派或停止的那一刻通知 Auspex——这些状态没有任何对话记录会写下来。";
+
+/* Setup row title. */
+"setup.piece.mcpServer" = "注册 Auspex MCP 服务";
+
+/* Setup row explanation. `auspex`, notify, plans and tasks are identifiers. */
+"setup.piece.mcpServerDetail" = "添加一个 `auspex` 服务条目，让这个 harness 的 agent 可以调用 notify、plans 和 tasks。";
+
+/* Setup row title. */
+"setup.piece.protocolNote" = "安装任务协议说明";
+
+/* Setup row explanation. */
+"setup.piece.protocolNoteDetail" = "追加始终加载的基本约定，并把协作工作交给更完整的 auspex-coordination skill。";
+
+/* Setup sheet note. */
+"setup.safety" = "每一项在你勾选之前都是关闭的，并且都标明了会写入哪个文件。配置改动都限定在 Auspex 自己的围栏内；skill 拥有一个带归属标记和内容哈希的专属目录。已有或被修改过的目录不会被触碰。更新前会备份到 ~/.auspex/backups/，可以撤销。";
+
+/* Setup sheet button. */
+"setup.selectAll" = "全选";
+
+/* Setup sheet: where the MCP socket is. {path} is a socket path. */
+"setup.serving" = "正在服务 %@";
+
+/* Setup error. auspex-coordination is a skill's directory name. */
+"setup.skillMissing" = "应用内附带的 auspex-coordination 资源缺失。";
+
+/* Setup sheet button. */
+"setup.skip" = "暂时跳过";
+
+/* Setup row state. {what} is what the existing entry points at. */
+"setup.state.elsewhere" = "已存在，指向 %@。勾选后会替换它。";
+
+/* Setup row state. distinct-from: agents.installed */
+"setup.state.installed" = "已安装。";
+
+/* Setup row state. {what} names the installed thing, in English. */
+"setup.state.ownedInstalled" = "已安装一个归 Auspex 所有的%@。勾选后会先备份再更新。";
+
+/* Setup result: a harness whose install failed with no reason given. distinct-from: flight.failed */
+"setup.summary.failed" = "失败";
+
+/* Setup result. */
+"setup.summary.nothing" = "无需更改——勾选的各项都已就位。";
+
+/* Setup sheet title. */
+"setup.title" = "让你的 agent 开口说话";
+
+/* Sidebar footer in demo mode. */
+"sidebar.demoNote" = "虚构的会话，内存存储，不读取任何 harness 存储。";
+
+/* Sidebar footer in demo mode. */
+"sidebar.demoReplay" = "演示回放";
+
+/* Sidebar: beside Tasks, how many tasks wait for review. */
+"sidebar.review" = "%lld 个待审阅";
+
+/* Session state pill: waiting on sub-agents. The count rides in a badge beside it. */
+"state.delegating" = "委派中";
+
+/* Session state phrase with the number of child sessions. */
+"state.delegatingCount" = "委派中（%lld）";
+
+/* Tooltip on an Ended state pill. */
+"state.explain.ended" = "已结束 — 进程已退出。那个终端里不会再发生任何事；只有「恢复」能把工作接回来。";
+
+/* Tooltip on an Idle state pill. */
+"state.explain.idle" = "空闲 — 没有待处理的事，进程仍然在。你可以继续在那个终端里对话。";
+
+/* Tooltip on a Needs you state pill. */
+"state.explain.needsYou" = "需要你 — 在有人答复之前它不会再有任何进展。";
+
+/* Tooltip on the Stale tag. */
+"state.explain.stale" = "停滞 — 它声称在工作，却已经很久没有动静。长时间的构建就是这个样子，卡死的也是。";
+
+/* Card activity line when a session writes a file whose name is not known. */
+"state.file" = "文件";
+
+/* Tag beside a working session that has gone quiet. */
+"state.stale" = "停滞";
+
+/* VoiceOver label of the Stale tag. */
+"state.staleAccessibility" = "停滞：最近没有事件";
+
+/* Session state pill and phrase. */
+"state.thinking" = "思考中";
+
+/* Session state pill: running a tool call. */
+"state.tool" = "工具";
+
+/* Session state phrase; {name} is the tool, e.g. Bash. */
+"state.toolNamed" = "工具：%@";
+
+/* Session state pill: writing a file. */
+"state.writing" = "写入中";
+
+/* Session state phrase. */
+"state.writingFile" = "正在写文件";
+
+/* Tooltip on the waits-on chip. {tasks} lists "AUS-3 Title · AUS-7 Title". */
+"task.blockedBy" = "被以下任务阻塞：%@";
+
+/* VoiceOver label of a task card. */
+"task.card.accessibility" = "%1$@，%2$@，%3$lld 个会话";
+
+/* Task card tag on a piece of work Auspex inferred from a delegation. */
+"task.card.auto" = "自动";
+
+/* Tooltip on the auto tag. */
+"task.card.autoHelp" = "这是 Auspex 根据委派推断出来的，没有人为它登记任务。";
+
+/* Task card: beside "unclaimed", saying the task was filed but nobody picked it up. */
+"task.card.filed" = "已登记";
+
+/* Task card: label before how long ago the task finished and went to review. */
+"task.card.finished" = "已完成于";
+
+/* Tooltip on a task card's chevron while its session list is open. */
+"task.card.foldSessions" = "把会话折叠回卡片";
+
+/* Task card: tag on the session that leads the task. */
+"task.card.lead" = "主";
+
+/* Tooltip on a task card's chevron while its session list is folded. */
+"task.card.openSessions" = "有 %lld 个会话在处理此任务 — 展开列表";
+
+/* Tooltip on a session row inside a task card. */
+"task.card.openTranscript" = "打开此会话的对话记录";
+
+/* Tooltip on a task card's token counts. */
+"task.card.tokensHelp" = "此任务所有会话的输入 / 输出 token";
+
+/* Active filter chip: only tasks claimed by a session that ended. */
+"task.filter.claimOrphaned" = "认领已孤立";
+
+/* Filter chip and task card word: a session holds the task. Lower-case. distinct-from: task.link.claimed distinct-from: harnesses.count.claimed */
+"task.filter.claimed" = "已认领";
+
+/* Filter menu item. */
+"task.filter.clearFilters" = "清除筛选";
+
+/* Tooltip on Clear in the filter bar. */
+"task.filter.clearHelp" = "重新显示全部任务";
+
+/* Tooltip on the filter menu. */
+"task.filter.help" = "缩小范围：按重要性、标签、harness、是否可开始、是否已认领";
+
+/* Filter menu section. */
+"task.filter.importance" = "重要性";
+
+/* Filter menu section. */
+"task.filter.label" = "标签";
+
+/* Filter menu section holding the yes/no filters. */
+"task.filter.only" = "仅限";
+
+/* Filter menu item. */
+"task.filter.orphanedClaims" = "孤立的认领";
+
+/* Active filter chip: only tasks whose dependencies are closed. */
+"task.filter.readyOnly" = "仅可开始";
+
+/* Filter menu item. */
+"task.filter.readyToStart" = "可以开始";
+
+/* Tooltip on an active filter chip. */
+"task.filter.stopFiltering" = "不再按「%@」筛选";
+
+/* Filter chip, and a task card's word for a task nobody has claimed. Lower-case. */
+"task.filter.unclaimed" = "未认领";
+
+/* Task importance, lower-case. */
+"task.importance.important" = "重要";
+
+/* Task importance, lower-case. */
+"task.importance.low" = "低";
+
+/* Task importance, lower-case. */
+"task.importance.normal" = "普通";
+
+/* Task importance, lower-case. */
+"task.importance.urgent" = "紧急";
+
+/* Tooltip on a task's importance mark. */
+"task.importanceHelp" = "重要性：%@";
+
+/* Task kind tag, lower-case. */
+"task.kind.chore" = "杂务";
+
+/* Task kind tag, lower-case. */
+"task.kind.feature" = "功能";
+
+/* Task kind tag, lower-case. */
+"task.kind.fix" = "修复";
+
+/* Task kind tag, lower-case. */
+"task.kind.research" = "调研";
+
+/* How a session is attached to a task: it claimed it over MCP. distinct-from: harnesses.count.claimed */
+"task.link.claimed" = "已认领";
+
+/* How a session is attached to a task: it is a sub-agent of the session that claimed it. */
+"task.link.inherited" = "随认领者";
+
+/* How a session is attached to a task: a person linked it. */
+"task.link.linked" = "已关联";
+
+/* Task history: a person closed the task. */
+"task.log.closed" = "已关闭";
+
+/* Task history: entry kind. Lower-case tag. */
+"task.log.created" = "已创建";
+
+/* Task history: an agent reported finishing. distinct-from: crew.badge.finished */
+"task.log.finished" = "已完成";
+
+/* Task history: the task moved project. distinct-from: common.project */
+"task.log.project" = "项目变更";
+
+/* Task history: a claim was released. */
+"task.log.released" = "已释放";
+
+/* Task history: the task's status changed. distinct-from: board.empty.status distinct-from: common.status */
+"task.log.status" = "状态变更";
+
+/* Task history entry kind. */
+"task.log.takeoverExpired" = "接管已失效";
+
+/* Task history entry kind. */
+"task.log.takeoverRequested" = "请求接管";
+
+/* Task history entry kind. */
+"task.log.unlinked" = "已取消关联";
+
+/* Task card context menu. distinct-from: app.menu.openTask */
+"task.menu.open" = "打开任务…";
+
+/* Task card context menu: turns inferred work into a real task. */
+"task.menu.promote" = "提升为任务…";
+
+/* Task card context menu: drops a claim held by a session that ended. */
+"task.menu.releaseClaim" = "释放认领";
+
+/* Task card context menu: reopens a done task. */
+"task.menu.reopen" = "重新打开";
+
+/* Kind of note an agent recorded on a task, lower-case. */
+"task.note.decision" = "决定";
+
+/* Kind of note an agent recorded on a task, lower-case. */
+"task.note.evidence" = "证据";
+
+/* Kind of note an agent recorded on a task, lower-case. */
+"task.note.note" = "备注";
+
+/* Kind of note an agent recorded on a task, lower-case. distinct-from: catchUp.line.risk */
+"task.note.risk" = "风险";
+
+/* Tooltip on the claim orphaned chip. */
+"task.orphanHelp" = "持有此认领的会话未完成就结束了。释放它，好让别人接手。";
+
+/* Task status. distinct-from: catchUp.phase.blocked */
+"task.status.blocked" = "受阻";
+
+/* Task status. distinct-from: now.column.doing — a status, not a column header about activity. distinct-from: ledger.doing */
+"task.status.doing" = "进行中";
+
+/* Task status. distinct-from: common.done — a status, not a button. distinct-from: catchUp.phase.done distinct-from: attention.done */
+"task.status.done" = "已完成";
+
+/* Task status: an agent finished and the person has to judge it. distinct-from: catchUp.reason.review distinct-from: catchUp.phase.review */
+"task.status.review" = "待审阅";
+
+/* Task status: a column on the task board and a status word. */
+"task.status.todo" = "待办";
+
+/* Task chip: the tasks this one depends on. {ids} is a comma-separated list of short ids. */
+"task.waitsOn" = "等待 %@";
+
+/* Task page: label over the agent's own completion report. */
+"taskDetail.agentReport" = "Agent 报告 · 自行报告";
+
+/* Task page takeover action. */
+"taskDetail.approve" = "批准";
+
+/* Task page: tooltip on the back crumb. "ledger" is viewMode.board. */
+"taskDetail.backHelp" = "返回账本 — 也可按 Esc 键";
+
+/* Task page property label. */
+"taskDetail.claimedBy" = "认领者";
+
+/* Task page action: puts this review at the back of the queue. */
+"taskDetail.defer" = "推迟";
+
+/* Task page property label, followed by a relative time. distinct-from: task.card.filed */
+"taskDetail.filed" = "登记于";
+
+/* Task page note under the dependency list. */
+"taskDetail.graphStub" = "完整的依赖图会是一个单独的页面，目前尚未完成。";
+
+/* Task page section title over its log. distinct-from: perch.history */
+"taskDetail.history" = "历史记录";
+
+/* Task page property label. */
+"taskDetail.kind" = "类型";
+
+/* Task page property label. */
+"taskDetail.labels" = "标签";
+
+/* Task page: tooltip on the next-review chevron. */
+"taskDetail.nextReview" = "下一个审阅";
+
+/* Task page section title for inferred work. */
+"taskDetail.notFiled" = "未登记";
+
+/* Task page history when empty. */
+"taskDetail.nothingWritten" = "还没有任何记录。";
+
+/* Tooltip on a dependency. {id} is a task's short handle. */
+"taskDetail.openDependency" = "打开 %@";
+
+/* Task page action. distinct-from: app.menu.openFlight */
+"taskDetail.openFlight" = "打开航迹";
+
+/* Tooltip on a session row on the task page. */
+"taskDetail.openSessionFlight" = "打开此会话的航迹";
+
+/* Task page: tooltip on the previous-review chevron. */
+"taskDetail.previousReview" = "上一个审阅";
+
+/* Task page action. distinct-from: task.menu.promote */
+"taskDetail.promote" = "提升为任务";
+
+/* Task page explanation for inferred work. */
+"taskDetail.promoteNote" = "这是 Auspex 根据委派推断出来的：%@ 开始了它，但没有人登记任务。提升后会写入一个任务，由已经在做这项工作的会话认领 — 卡片保持原位，并获得历史记录、里程碑和可关闭的状态。";
+
+/* Task page dependencies when none is open. */
+"taskDetail.ready" = "它依赖的任务都已关闭，可以开始了。";
+
+/* Task page note field placeholder for a reference (a URL, a commit…). */
+"taskDetail.ref" = "引用";
+
+/* Task page takeover action. */
+"taskDetail.reject" = "拒绝";
+
+/* Task page: the task version the takeover was asked against. */
+"taskDetail.requestedAt" = "请求时为 v%lld";
+
+/* Task page property label. */
+"taskDetail.version" = "版本";
+
+/* Task page section title over dependencies. */
+"taskDetail.waitsOn" = "依赖于";
+
+/* Task page note field placeholder. */
+"taskDetail.writeItDown" = "记下来";
+
+/* Tooltip on a milestone's archive button. */
+"tasks.archiveMilestoneHelp" = "归档此里程碑。其中的任务仍保留在此项目中。";
+
+/* Tag on an archived milestone. */
+"tasks.archived" = "已归档";
+
+/* Tooltip on the archived toggle. */
+"tasks.archivedHelp" = "显示已归档的里程碑";
+
+/* Tooltip on the auto tag on the Tasks page. distinct-from: task.card.autoHelp */
+"tasks.autoHelp" = "这是 Auspex 根据委派推断出来的，没有人登记任务。";
+
+/* Tasks page hint. Quote tasks.linkToTask. */
+"tasks.dragHint" = "把会话拖到任务上，或在其卡片上使用「关联到任务…」。";
+
+/* Tooltip on the + button of a lane. */
+"tasks.fileInProject" = "在此项目中登记任务";
+
+/* Task context menu: moves the task to another milestone or project. */
+"tasks.fileUnder" = "归入…";
+
+/* Tooltip on the + button of a milestone. */
+"tasks.fileUnderMilestone" = "在此里程碑下登记任务";
+
+/* Tasks page toggle. */
+"tasks.hideArchived" = "隐藏已归档";
+
+/* Tasks page: open count beside a project lane. */
+"tasks.laneOpen" = "%lld 个未完成";
+
+/* Tooltip on the disabled Link to task… item. */
+"tasks.linkDisabledHelp" = "还没有登记任何任务。请在任务页面登记。";
+
+/* Session context menu. */
+"tasks.linkToTask" = "关联到任务…";
+
+/* Tasks page button that registers a milestone. */
+"tasks.milestone" = "里程碑";
+
+/* Empty milestone detail. */
+"tasks.milestoneEmpty" = "此里程碑下没有任务。";
+
+/* Tooltip on Milestone. */
+"tasks.milestoneHelp" = "在此项目中登记一个里程碑";
+
+/* Milestone field placeholder. */
+"tasks.milestonePlaceholder" = "这整项工作是什么？";
+
+/* Task context menu. {status} is a task status. */
+"tasks.moveTo" = "移到「%@」";
+
+/* New task field placeholder. */
+"tasks.newTaskPlaceholder" = "需要做什么";
+
+/* Heading over tasks with no milestone. */
+"tasks.notInMilestone" = "不属于任何里程碑";
+
+/* Tasks page: heading over sessions not linked to any task. */
+"tasks.notOnBoard" = "不在看板上";
+
+/* Tasks page empty state title. */
+"tasks.nothingFiled" = "还没有登记任何任务。";
+
+/* Tasks page empty state detail. */
+"tasks.nothingFiledDetail" = "安装了 Auspex MCP 服务的 agent 会在它所工作的项目中登记任务 — 可在 Harness 页面安装。";
+
+/* Empty lane detail. */
+"tasks.nothingFiledInProject" = "此项目中还没有登记任何任务。";
+
+/* Empty milestone or project lane title. */
+"tasks.nothingToDo" = "无事可做";
+
+/* Tooltip on claim orphaned on the Tasks page. */
+"tasks.orphanHelp" = "持有此认领的会话未完成就结束了。";
+
+/* Milestone field button. */
+"tasks.register" = "登记";
+
+/* Tasks page button: opens the first task waiting for review. */
+"tasks.reviewNext" = "审阅下一个 · %lld";
+
+/* Tooltip on Review next. */
+"tasks.reviewNextHelp" = "打开第一个等待审阅的任务";
+
+/* Tasks page toggle. */
+"tasks.showArchived" = "显示已归档";
+
+/* Tasks page summary: tasks.summary.projects · projects.tasksOpen. */
+"tasks.summary" = "%1$@ · %2$@";
+
+/* Notice after deciding a takeover that is no longer valid. */
+"tasks.takeoverExpired" = "该接管请求已失效，因为任务或其持有者发生了变化。请先查看当前的认领，再重新决定。";
+
+/* Task context menu: detaches a session from the task. */
+"tasks.unlink" = "取消关联「%@」";
+
+/* Compact relative time. */
+"time.daysAgo" = "%lld 天前";
+
+/* Compact relative time. */
+"time.hoursAgo" = "%lld 小时前";
+
+/* Relative time under ten seconds. */
+"time.justNow" = "刚刚";
+
+/* Compact relative time. */
+"time.minutesAgo" = "%lld 分钟前";
+
+/* Relative time when something never happened. */
+"time.never" = "从未";
+
+/* Compact relative time. */
+"time.secondsAgo" = "%lld 秒前";
+
+/* Trace header: small label over what the session was asked to do. */
+"trace.askedFor" = "任务要求";
+
+/* Assignment context menu. */
+"trace.copyAssignment" = "复制任务说明";
+
+/* Tooltip on the copy button beside the assignment. */
+"trace.copyAssignmentHelp" = "复制此会话收到的全部要求";
+
+/* Working directory chip menu. */
+"trace.copyPath" = "复制路径";
+
+/* Tooltip on the working directory chip; the path follows on the next line. */
+"trace.cwdHelp" = "点按复制工作目录 · 按住 ⌥ 点按可在访达中显示";
+
+/* Tooltip on the earlier rows button. */
+"trace.earlierRowsHelp" = "绘制此会话的完整记录，不论它有多长";
+
+/* Trace header: label before the session's elapsed time. distinct-from: session.elapsed.elapsed distinct-from: meta.elapsed */
+"trace.elapsed" = "已用时";
+
+/* Trace row title: model prose. */
+"trace.event.assistant" = "助手";
+
+/* Trace row title. */
+"trace.event.contextCompacted" = "上下文已压缩";
+
+/* Trace row title. */
+"trace.event.identityUpdated" = "身份已更新";
+
+/* Trace row title: a note Auspex wrote into the trace. distinct-from: task.note.note */
+"trace.event.note" = "备注";
+
+/* Trace row title. */
+"trace.event.permissionAllowed" = "已授权";
+
+/* Trace row title. */
+"trace.event.permissionDenied" = "授权被拒";
+
+/* Trace row title. */
+"trace.event.permissionRequested" = "请求授权";
+
+/* Trace row title: a usage quota reading. */
+"trace.event.planLimit" = "套餐额度";
+
+/* Trace row title. */
+"trace.event.processAlive" = "进程存活";
+
+/* Trace row title. distinct-from: trace.tab.prompts */
+"trace.event.prompt" = "提示词";
+
+/* Trace row title. */
+"trace.event.sessionEnded" = "会话结束";
+
+/* Trace row title. */
+"trace.event.sessionStarted" = "会话开始";
+
+/* Trace row title. */
+"trace.event.subagentFinished" = "子 agent 结束";
+
+/* Trace row title. */
+"trace.event.subagentStarted" = "子 agent 开始";
+
+/* Trace row title with the sub-agent's type. */
+"trace.event.subagentType" = "子 agent · %@";
+
+/* Trace row title. */
+"trace.event.toolFailed" = "工具失败";
+
+/* Trace row title. */
+"trace.event.toolFinished" = "工具完成";
+
+/* Trace row title. distinct-from: context.slice.toolResults */
+"trace.event.toolResult" = "工具结果";
+
+/* Trace row title with the tool call's id. */
+"trace.event.toolResultFor" = "工具结果 · %@";
+
+/* Trace row title. */
+"trace.event.turnEnded" = "轮次结束";
+
+/* Trace row title. */
+"trace.event.turnStarted" = "轮次开始";
+
+/* Expanded trace row: label over the raw JSON. */
+"trace.eventPayload" = "事件载荷";
+
+/* Tooltip on the family chip of a session. */
+"trace.family.childHelp" = "此会话委派出去的会话";
+
+/* Tooltip on Expand all in board. */
+"trace.family.expandHelp" = "按委派树划分看板，让这一组会话作为一个整体显示";
+
+/* Family popover button. */
+"trace.family.expandInBoard" = "在看板中全部展开";
+
+/* Family popover heading. {noun} is trace.family.moreSessions. */
+"trace.family.onTask" = "此任务上的%@";
+
+/* Tooltip on the family chip of a task. */
+"trace.family.taskHelp" = "正在处理此任务的其他所有会话";
+
+/* Tooltip on the project chip in the trace header. */
+"trace.focusProject" = "只在看板上显示此项目";
+
+/* Trace toggle: keeps the view scrolled to the newest row. distinct-from: perch.following */
+"trace.following" = "跟随中";
+
+/* Expanded trace row: label over the full text. */
+"trace.fullText" = "全文";
+
+/* Button that folds a long assignment. */
+"trace.less" = "收起";
+
+/* Perch inspector heading (shown upper-cased): the session's family. */
+"trace.lineage" = "谱系";
+
+/* Trace empty state while loading. */
+"trace.loading" = "正在加载事件日志…";
+
+/* Perch inspector: other boards the card is on. {boards} is a list joined with " · ". */
+"trace.mirroredOn" = "同时出现在 %@";
+
+/* Button that unfolds a long assignment. */
+"trace.more" = "展开";
+
+/* Tooltip on the trace header's … menu. */
+"trace.moreHelp" = "复制恢复命令、打开文件夹、中断或终止此会话";
+
+/* Trace empty state when the filter hides everything. */
+"trace.nothingInView" = "此视图中没有内容。";
+
+/* Perch inspector heading (shown upper-cased). "Perch" is viewMode.perch. */
+"trace.onThePerch" = "在栖枝上";
+
+/* Trace header button. distinct-from: app.menu.openFlight */
+"trace.openTrajectory" = "打开航迹";
+
+/* Tooltip on Open trajectory. */
+"trace.openTrajectoryHelp" = "以瀑布图打开此会话的完整历史（⌘T）";
+
+/* Perch inspector note. "Flight" is viewMode.trajectory. */
+"trace.perchNote" = "双击卡片即可打开它的航迹。恢复会话仍需通过上方的显式操作。";
+
+/* Perch inspector: which board the card is on. */
+"trace.pinnedIn" = "固定在「%@」";
+
+/* Trace header button that resumes the session in a terminal. */
+"trace.resume" = "恢复";
+
+/* Tooltip on Resume. {app} is a terminal app's name. */
+"trace.resumeHelp" = "用此会话自己的 CLI 命令打开 %@";
+
+/* Working directory chip menu. */
+"trace.revealInFinder" = "在访达中显示";
+
+/* Trace placeholder when nothing is selected. */
+"trace.selectSession" = "选择一个会话";
+
+/* Trace placeholder detail. */
+"trace.selectSessionDetail" = "它的提示词、工具调用和轮次会在发生时显示在这里。";
+
+/* Trace empty state button that clears the filter. */
+"trace.showEverything" = "显示全部";
+
+/* Trace filter tab tooltip. {tab} is one of trace.tab.*, lower-cased in English. */
+"trace.showTab" = "显示%@";
+
+/* Tooltip on the parent chip. {evidence} is how Auspex knows, in English. */
+"trace.spawnedBy" = "由 %1$@ 派生 — %2$@";
+
+/* Tooltip on the Following toggle while off. */
+"trace.startFollowing" = "有新行时滚动到最新一行";
+
+/* Tooltip on the Following toggle while on. */
+"trace.stopFollowing" = "停止滚动到最新一行";
+
+/* Perch inspector: sub-agent count. distinct-from: perch.card.subagents */
+"trace.subagents" = "%lld 个子 agent";
+
+/* Trace filter tab. distinct-from: common.all */
+"trace.tab.all" = "全部";
+
+/* Trace filter tab. */
+"trace.tab.prompts" = "提示词";
+
+/* Trace filter tab. */
+"trace.tab.text" = "文本";
+
+/* Trace filter tab. distinct-from: meta.tools */
+"trace.tab.tools" = "工具";
+
+/* Trace filter tab. */
+"trace.tab.usage" = "用量";
+
+/* Trace divider between turns. distinct-from: flight.turnCount */
+"trace.turn" = "第 %lld 轮";
+
+/* Name of the view that shows every task as a card on a wall. One of six bird-and-augury themed view names (Now, Ledger, Aviary, Flock, Perch, Flight). */
+"viewMode.board" = "账本";
+
+/* Name of the view that shows a wall of animated faces, one per piece of work. */
+"viewMode.crew" = "鸟群";
+
+/* Name of the default view (and of its sidebar row): the office stage over the lists of what needs the person now. distinct-from: catchUp.line.now */
+"viewMode.now" = "此刻";
+
+/* Name of the view that is a user-arranged canvas of tasks, where a card stays where the person put it. */
+"viewMode.perch" = "栖枝";
+
+/* Name of the view that draws the office with an animated person per agent session. Also shown upper-cased as the tag on Now's stage. */
+"viewMode.scene" = "鸟舍";
+
+/* Name of the view that opens one session out into a graph of every step it took. */
+"viewMode.trajectory" = "航迹";

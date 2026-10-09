@@ -3,11 +3,3218 @@
    Locale: en
    Plural keys live in Localizable.stringsdict, not here. */
 
+/* Settings → Agents row button. */
+"agents.install" = "Install";
+
+/* Settings → Agents row state. */
+"agents.installed" = "installed";
+
+/* Settings → Agents. */
+"agents.notServing" = "Auspex is not serving its MCP server in this process.";
+
+/* Settings → Agents footnote. Backtick spans are literal text. */
+"agents.note" = "Auspex writes into a harness's own files only from here, only in a region it owns — a block marked `>>> auspex >>>`, one `auspex` entry in a JSON config, hook entries that run the Auspex binary, or the exclusive auspex-coordination skill directory. The skill carries an ownership marker, version and content hash; Auspex refuses to replace or remove it after any outside edit. Updates are backed up to ~/.auspex/backups/.";
+
+/* Settings → Agents toggle. */
+"agents.notifyDone" = "Notify when an agent reports finishing";
+
+/* Settings → Agents toggle note. */
+"agents.notifyDoneNote" = "A session that is blocked on you always raises one. It will not get unstuck on its own.";
+
+/* Settings → Agents button. */
+"agents.openSetup" = "Open setup…";
+
+/* Settings → Agents row button. */
+"agents.replace" = "Replace";
+
+/* Settings → Agents. */
+"agents.serving" = "Auspex is serving its MCP server on %@.";
+
+/* Settings → Agents row button. distinct-from: settings.pane.updates */
+"agents.update" = "Update";
+
+/* View menu: opens the Catch-up panel. */
+"app.menu.catchUp" = "Catch Up…";
+
+/* App menu and menu-bar panel command. */
+"app.menu.checkForUpdates" = "Check for Updates…";
+
+/* View menu: leaves the Flight view. */
+"app.menu.closeFlight" = "Close Flight";
+
+/* View menu: closes the selected task that is in review. */
+"app.menu.closeTask" = "Close Task";
+
+/* View menu: opens the command palette (⌘K). */
+"app.menu.goToTask" = "Go to Task…";
+
+/* View menu command (⇧⌘K) and the VoiceOver label of the header's clear-everything button. */
+"app.menu.markAllSeen" = "Mark All as Seen";
+
+/* View menu: opens the Flight view on the selected session. "Flight" is viewMode.trajectory. */
+"app.menu.openFlight" = "Open Flight";
+
+/* View menu: opens the selected task. */
+"app.menu.openTask" = "Open Task";
+
+/* View menu: opens the next task waiting for review. */
+"app.menu.reviewNext" = "Review Next";
+
+/* VoiceOver: a card's banner when an agent reported finishing. */
+"attention.a11y.finished" = "finished — %@";
+
+/* VoiceOver: a card's banner when somebody is needed. {reason} is the sentence on the banner. */
+"attention.a11y.needsYou" = "needs you — %@";
+
+/* VoiceOver: as attention.a11y.needsYou, when the agent itself raised it. */
+"attention.a11y.needsYouAgent" = "needs you — %@, the agent says so";
+
+/* Tooltip on the banner's dismiss button when somebody is needed. */
+"attention.dismissNeedsYou" = "Dismiss — the card goes quiet and stops being counted";
+
+/* Tooltip on the banner's dismiss button on a report. */
+"attention.dismissRead" = "Dismiss — you have read it";
+
+/* The word in front of an agent's report on a card's banner — "Done: the tailer now handles partial lines". distinct-from: common.done */
+"attention.done" = "Done";
+
+/* Punctuation after attention.done on a banner; keeps the trailing space in English. */
+"attention.headline" = "%@: ";
+
+/* Banner on a card when the harness is stopped on a permission prompt for {tool}. */
+"attention.waitingPermission" = "Waiting for permission: %@";
+
+/* Aviary empty state title. */
+"aviary.empty" = "The office is empty";
+
+/* Aviary empty state detail. */
+"aviary.emptyDetail" = "A desk appears for every session Auspex can see.";
+
+/* Aviary: a project floor's tally of sessions waiting on a person. */
+"aviary.floor.blocked" = "%lld blocked";
+
+/* Aviary: a project floor's tally of delegating sessions. */
+"aviary.floor.delegating" = "%lld delegating";
+
+/* Aviary legend tooltip. */
+"aviary.legend.delegatingHelp" = "Waiting on the sub-agents it spawned, around a table.";
+
+/* Aviary legend tooltip. */
+"aviary.legend.thinkingHelp" = "Reasoning, with no tool open.";
+
+/* Aviary legend tooltip. */
+"aviary.legend.toolHelp" = "A tool call is running.";
+
+/* Aviary legend tooltip. */
+"aviary.legend.writingHelp" = "The working tree is being changed.";
+
+/* Tooltip on the Aviary minimap. */
+"aviary.minimapHelp" = "The whole office. Click to go there.";
+
+/* Aviary: nameplate of the floor for sessions that belong to no project. */
+"aviary.noProject" = "No project";
+
+/* Aviary: tooltip on the older-sessions nameplate. distinct-from: board.ended.olderHelp */
+"aviary.olderHelp" = "Older sessions are in the store, not on the map. Widen to draw them.";
+
+/* Aviary: nameplate of an empty meeting room. Lower-case. distinct-from: board.bucket.idle */
+"aviary.room.free" = "free";
+
+/* Aviary: nameplate of a project's office. distinct-from: board.section.live */
+"aviary.room.live" = "%lld live";
+
+/* Aviary: nameplate of a meeting room in use. */
+"aviary.room.meeting" = "%lld meeting";
+
+/* Aviary: nameplate of a suite's meeting room. distinct-from: settings.scene.meetingRooms */
+"aviary.room.meetingRoom" = "Meeting room";
+
+/* Aviary: nameplate of a break room. */
+"aviary.room.resting" = "%lld resting";
+
+/* Aviary: nameplate of a full break room. */
+"aviary.room.restingMore" = "%1$lld resting · +%2$lld more";
+
+/* Tooltip on the zoom readout. */
+"aviary.zoom" = "Zoom";
+
+/* Summary chip after the number, and the menu-bar row's state when a session is over. Lower-case. */
+"board.bucket.ended" = "ended";
+
+/* Summary chip, after the number. Lower-case. distinct-from: now.idle */
+"board.bucket.idle" = "idle";
+
+/* Summary chip, after the number: "1 in review" — work an agent finished and asked to be checked. */
+"board.bucket.inReview" = "in review";
+
+/* Summary chip, after the number: "2 needs you". Lower-case. distinct-from: now.needsYou */
+"board.bucket.needsYou" = "needs you";
+
+/* Summary chip, after the number. Lower-case. distinct-from: now.working */
+"board.bucket.working" = "working";
+
+/* Tooltip on a selected summary chip: clicking clears the filter. */
+"board.chip.showAll" = "Show every session again";
+
+/* Tooltip on a summary chip. {bucket} is one of board.bucket.*. */
+"board.chip.showOnly" = "Show only the %@ sessions";
+
+/* Empty board: status of a harness whose adapter has not shipped. */
+"board.empty.adapterPending" = "Adapter pending";
+
+/* Empty board headline when sessions existed but are all over. */
+"board.empty.allEnded" = "Every session has ended.";
+
+/* Empty board: label over the command that starts the demo. */
+"board.empty.demoHint" = "See the board with fabricated sessions";
+
+/* Empty board: under the demo command. */
+"board.empty.demoNote" = "The demo runs entirely in memory. It reads no harness store and writes nothing to disk.";
+
+/* Empty board: label over notices the ingest pipeline raised. */
+"board.empty.fromPipeline" = "From the ingest pipeline";
+
+/* Empty board explanation when no adapter is installed. */
+"board.empty.noAdapter" = "Auspex reads each harness's own session store and rebuilds what every agent is doing. No adapter has shipped yet, so nothing is being tailed — the board stays empty rather than guessing.";
+
+/* Empty board headline when no session has been seen. */
+"board.empty.noAgent" = "No agent is running.";
+
+/* Empty board: column header — where each harness keeps its sessions. */
+"board.empty.sessionStore" = "Session store";
+
+/* Empty board explanation. */
+"board.empty.tailing" = "Auspex is tailing the stores below. Start an agent in any of them and its card appears here within a second.";
+
+/* Empty board: status of a harness store that is being read. */
+"board.empty.tailingStatus" = "Tailing";
+
+/* Empty board: small label over the list of harness stores being watched. */
+"board.empty.watching" = "Watching";
+
+/* Ledger: tooltip on the Ended section's expand button. */
+"board.ended.collapsedHelp" = "Finished work is collapsed so the board's cost tracks what is running";
+
+/* Ledger: tooltip on the hint under the Ended section. */
+"board.ended.olderHelp" = "Older sessions are in the store, not on the board. Widen to draw them.";
+
+/* Ledger: button that expands the Ended section. */
+"board.ended.showAll" = "Show all %lld";
+
+/* Ledger: button that collapses the Ended section back. */
+"board.ended.showRecent" = "Show the most recent %lld";
+
+/* Ledger: heading of the collapsed section of finished work. distinct-from: board.bucket.ended — a heading, capitalised. */
+"board.ended.title" = "Ended";
+
+/* Breadcrumb at the top of the board when it is bound to one project; clicking it shows every project. */
+"board.focus.allProjects" = "All projects";
+
+/* Tooltip on the All projects breadcrumb. */
+"board.focus.allProjectsHelp" = "Show every project on the board again — or press Escape";
+
+/* Tooltip on the Esc key cap at the right of the project breadcrumb. */
+"board.focus.escapeHelp" = "Escape shows every project again";
+
+/* Ledger: the one section when the board is not grouped. */
+"board.group.allSessions" = "All sessions";
+
+/* Ledger: the one section of task cards when the board is not grouped. */
+"board.group.allTasks" = "All tasks";
+
+/* Ledger tree grouping: a section's subtitle, how many sessions sit under its root. */
+"board.group.below" = "%lld below";
+
+/* Header grouping menu's label, followed by the axis — "By Project". */
+"board.group.by" = "By";
+
+/* Tooltip on the header's grouping menu. */
+"board.group.help" = "Divide the board into sections, and choose whether every card lists the sessions inside it";
+
+/* Grouping menu: no sections. */
+"board.group.none" = "None";
+
+/* Ledger tree grouping: the section of sessions with no delegation tree. */
+"board.group.standalone" = "Not delegating";
+
+/* Picker inside the header's grouping menu. */
+"board.group.title" = "Group by";
+
+/* Grouping menu: one section per delegation tree. */
+"board.group.tree" = "Tree";
+
+/* Sidebar: a checkout that recorded no branch, task or directory. */
+"board.group.unknownCheckout" = "Unknown checkout";
+
+/* Header button that opens the Catch-up panel; {count} is how many items are waiting in it. */
+"board.header.catchUp" = "Catch up %lld";
+
+/* Tooltip on the header's Catch up button. */
+"board.header.catchUpHelp" = "Review material changes, human work, and amber watch signals";
+
+/* Line beside the Harnesses page's heading. */
+"board.header.harnessesSubtitle" = "%lld harnesses · what Auspex can see on this Mac, and how";
+
+/* Header button that opens the next task waiting for review; {count} is how many are waiting. */
+"board.header.review" = "Review %lld";
+
+/* Tooltip on the header's Review button. */
+"board.header.reviewHelp" = "Review next — open the first task waiting for your judgement";
+
+/* Header toggle that reveals sessions hidden by ignore rules. */
+"board.ignored.count" = "%lld ignored";
+
+/* Tooltip on the ignored toggle while it is on. {note} is ignore.stillRecorded, a full sentence. */
+"board.ignored.hideHelp" = "Hide the ignored sessions again. %@";
+
+/* Tooltip on the ignored toggle while it is off. {note} is ignore.stillRecorded, a full sentence. */
+"board.ignored.showHelp" = "Show the %1$lld sessions your rules hide, dimmed. %2$@";
+
+/* Tooltip on the header's clear-everything button. */
+"board.markAllSeenHelp" = "Mark all as seen — clear every card that is asking or reporting. A session that is still blocked will say so again.";
+
+/* Placeholder in the search field outside Now. distinct-from: now.search */
+"board.search" = "Search sessions";
+
+/* Tooltip on the header's search field. */
+"board.searchHelp" = "Search every transcript";
+
+/* Ledger: badge on a section header counting live sessions in it. */
+"board.section.live" = "%lld live";
+
+/* Grouping menu toggle: every task card lists the sessions inside it. */
+"board.showSubagents" = "Show subagents";
+
+/* The window menu's compact label, e.g. "7 d". */
+"board.window.daysShort" = "%lld d";
+
+/* Tooltip on the window menu. */
+"board.window.help" = "How far back the board and the map reach. Older sessions stay in the store.";
+
+/* Tooltip on the window menu when sessions are hidden. {hint} is board.window.olderHidden. */
+"board.window.hiddenHelp" = "%@. Widen to see them.";
+
+/* The window menu's compact label, e.g. "12 h". */
+"board.window.hoursShort" = "%lld h";
+
+/* Note at the bottom of the window menu. */
+"board.window.menuNote" = "Everything stays in the store — this is how much is drawn.";
+
+/* Section title and picker label in the window menu; the options follow (1 hour, 6 hours…). */
+"board.window.menuTitle" = "Show sessions active in the last";
+
+/* Hint shown when the time window leaves sessions out. {window} is a compact span such as "12 h". */
+"board.window.olderHidden" = "%1$lld older than %2$@, hidden";
+
+/* Catch-up panel empty state title. */
+"catchUp.caughtUp" = "Caught up";
+
+/* Catch-up panel empty state detail. */
+"catchUp.caughtUpDetail" = "No material changes or watch signals are waiting.";
+
+/* Catch-up row eyebrow (upper-cased). */
+"catchUp.change.changed" = "Changed";
+
+/* Catch-up row eyebrow (upper-cased). */
+"catchUp.change.completed" = "Completed";
+
+/* Catch-up row eyebrow (upper-cased). */
+"catchUp.change.started" = "Started";
+
+/* A watch signal's confidence. */
+"catchUp.confidence.high" = "high";
+
+/* A watch signal's confidence. */
+"catchUp.confidence.medium" = "medium";
+
+/* Catch-up row: short mono label before the task's goal line. Lower-case, ≤ 6 characters in English. */
+"catchUp.line.goal" = "goal";
+
+/* Catch-up row: label before the latest outcome. */
+"catchUp.line.latest" = "latest";
+
+/* Catch-up row: label before the next action. */
+"catchUp.line.next" = "next";
+
+/* Catch-up row: label before what is happening now. */
+"catchUp.line.now" = "now";
+
+/* Catch-up row: label before the risk line. */
+"catchUp.line.risk" = "risk";
+
+/* Catch-up panel button that moves the "since" cursor to now. */
+"catchUp.markCaughtUp" = "Mark caught up";
+
+/* Catch-up panel section. */
+"catchUp.otherChanges" = "Other changes";
+
+/* Catch-up row: the task's phase. Lower-case. */
+"catchUp.phase.blocked" = "blocked";
+
+/* Catch-up row: the task's phase. Lower-case. distinct-from: attention.done */
+"catchUp.phase.done" = "done";
+
+/* Catch-up row: the task's phase. Lower-case. */
+"catchUp.phase.notStarted" = "not started";
+
+/* Catch-up row: the task's phase. Lower-case. distinct-from: catchUp.reason.review */
+"catchUp.phase.review" = "review";
+
+/* Catch-up row eyebrow and watch-signal title: a task is still claimed by a session that ended. */
+"catchUp.reason.orphanedClaim" = "Orphaned claim";
+
+/* Catch-up row eyebrow (upper-cased): a task is waiting for the person's review. */
+"catchUp.reason.review" = "Review";
+
+/* Catch-up row eyebrow (upper-cased): another session asked to take over a claimed task. */
+"catchUp.reason.takeover" = "Takeover approval";
+
+/* Catch-up row: how many sessions work on the task (shown only when more than one). */
+"catchUp.sessions" = "%lld sessions";
+
+/* Watch-signal row footnote. {confidence} is catchUp.confidence.*. */
+"catchUp.signal.confidence" = "%@ confidence · not an attention request";
+
+/* Watch-signal title. */
+"catchUp.signal.contextPressure" = "Context pressure";
+
+/* Watch-signal title. */
+"catchUp.signal.longTool" = "Long-running tool";
+
+/* Watch-signal title. */
+"catchUp.signal.sharedBranch" = "Shared branch";
+
+/* Watch-signal title. */
+"catchUp.signal.sharedDirectory" = "Shared working directory";
+
+/* Watch-signal title. */
+"catchUp.signal.staleSession" = "Stale session";
+
+/* Catch-up panel subtitle. {time} is a relative time such as "2 hours ago" or "2小时前". */
+"catchUp.since" = "Changes since %@";
+
+/* Catch-up row: where a line came from — Auspex worked it out. */
+"catchUp.source.derived" = "derived";
+
+/* Catch-up row: where a line came from — Auspex saw it happen. */
+"catchUp.source.observed" = "observed";
+
+/* Catch-up row: where a line came from — the agent said so itself. */
+"catchUp.source.reported" = "reported";
+
+/* Catch-up row: where a line came from — the task record. */
+"catchUp.source.task" = "task";
+
+/* Title of the Catch-up panel, which lists what changed while the person was away. distinct-from: app.menu.catchUp */
+"catchUp.title" = "Catch up";
+
+/* Catch-up panel section: risks Auspex observed or inferred. */
+"catchUp.watchSignals" = "Watch signals";
+
+/* Catch-up panel: note under the Watch signals heading. */
+"catchUp.watchSignalsNote" = "Observed or inferred risks worth a glance. They are not requests from an agent and never raise a notification by themselves.";
+
+/* Catch-up panel section: work waiting on the person. */
+"catchUp.yourQueue" = "Your queue";
+
+/* Built-in figures card. */
+"characters.accentNote" = "Composed from each harness's own accent — the figure above is the shape, not the colour.";
+
+/* Package card pose summary. */
+"characters.allPoses" = "All 8 poses drawn.";
+
+/* Built-in figures card. */
+"characters.allPosesAlways" = "All 8 poses, always.";
+
+/* Character row subtitle. {name} is what Automatic resolves to. */
+"characters.automatic" = "Automatic · %@";
+
+/* Character picker option. */
+"characters.automaticRecommended" = "Automatic (recommended)";
+
+/* The procedural character figures, as a choice and a card title. */
+"characters.builtIn" = "Auspex built-in";
+
+/* Built-in figures card: in place of a package id. */
+"characters.builtInCode" = "Built-in · drawn in code";
+
+/* Character row subtitle when a package is chosen. */
+"characters.chosen" = "Chosen";
+
+/* Settings → Characters section note. */
+"characters.defaultDetail" = "Automatic uses whichever package names the harness, and the built-in figures while none does.";
+
+/* Settings → Characters section title. */
+"characters.defaultPerHarness" = "Default per harness";
+
+/* Character row subtitle for the built-in figures. */
+"characters.drawnInCode" = "%@ · drawn in code";
+
+/* Settings → Characters note. */
+"characters.folderNote" = "Auspex only ever reads this folder. A package here replaces a built-in one with the same id.";
+
+/* Settings → Characters headline. */
+"characters.headline.none" = "The built-in figures, and no packages yet.";
+
+/* VoiceOver: the pose the built-in preview shows. distinct-from: board.bucket.idle */
+"characters.idle" = "idle";
+
+/* Settings → Characters section title. distinct-from: agents.installed */
+"characters.installed" = "Installed";
+
+/* Settings → Characters introduction. character.json is a file name. */
+"characters.intro" = "Every agent in the office is drawn either from a character package — a folder with a character.json and one frame strip per pose — or from Auspex's own figures, which are composed in code from the harness's accent. Drop a package into the characters folder and it appears here without a relaunch. The built-in figures are always installed, never miss a pose, and can be chosen for a harness exactly the way a package can.";
+
+/* Character package chip: the figure is a person. */
+"characters.kind.person" = "Person";
+
+/* Character package chip: the figure is a pet. */
+"characters.kind.pet" = "Pet";
+
+/* Character preview placeholder. */
+"characters.noArt" = "No art";
+
+/* Settings → Characters empty state title. */
+"characters.noPackages" = "No packages yet.";
+
+/* Settings → Characters empty state detail. */
+"characters.noPackagesDetail" = "A package is a folder holding character.json and one frame strip per pose. Any pose you have not drawn falls back to the figures above.";
+
+/* Package card pose summary. */
+"characters.noPoses" = "No poses drawn yet.";
+
+/* Character row subtitle when the chosen package is gone. */
+"characters.notInstalled" = "%1$@ is not installed · using %2$@";
+
+/* Settings → Characters button. */
+"characters.openFolder" = "Open characters folder";
+
+/* VoiceOver label of a character preview. {pose} is a pose identifier or characters.noArt. */
+"characters.previewLabel" = "%1$@, %2$@";
+
+/* Settings → Characters button. */
+"characters.reload" = "Reload";
+
+/* Settings → Characters error. */
+"characters.saveError" = "Your choice is in effect but could not be saved: %@";
+
+/* Package card pose summary. {missing} lists pose identifiers. */
+"characters.somePoses" = "%1$lld of 8 poses drawn. Built-in for: %2$@.";
+
+/* Character package chip: shipped inside Auspex. */
+"characters.source.builtIn" = "Built-in";
+
+/* Character package chip: from ~/.auspex/characters. distinct-from: flight.role.user */
+"characters.source.user" = "User";
+
+/* Settings → Characters label over the folder path. */
+"characters.whereTheyLive" = "Where they live";
+
+/* A project colour. */
+"colour.amber" = "Amber";
+
+/* A project colour. */
+"colour.blue" = "Blue";
+
+/* A project colour. */
+"colour.coral" = "Coral";
+
+/* A project colour. */
+"colour.green" = "Green";
+
+/* A project colour. */
+"colour.lime" = "Lime";
+
+/* A project colour. */
+"colour.magenta" = "Magenta";
+
+/* Project colour menu: no colour. distinct-from: board.group.none */
+"colour.none" = "None";
+
+/* A project colour. */
+"colour.sky" = "Sky";
+
+/* A project colour. */
+"colour.teal" = "Teal";
+
+/* A project colour. */
+"colour.violet" = "Violet";
+
+/* Button that adds the selection. */
+"common.add" = "Add";
+
+/* Option meaning no limit: every session, every item. */
+"common.all" = "All";
+
 /* Button that abandons an action in progress. */
 "common.cancel" = "Cancel";
+
+/* Button that empties a search field or resets filters. */
+"common.clear" = "Clear";
+
+/* Button or menu item that closes something — here, a task in review. */
+"common.close" = "Close";
+
+/* The noun "context", as in an agent's context window. Column header (shown upper-cased) and section label. */
+"common.context" = "Context";
+
+/* Button that copies the adjacent text. */
+"common.copy" = "Copy";
+
+/* Button that creates the thing a sheet describes. */
+"common.create" = "Create";
+
+/* Button that performs a deletion the person has confirmed. */
+"common.delete" = "Delete";
+
+/* Button that closes a sheet or panel. distinct-from: catchUp.phase.done */
+"common.done" = "Done";
+
+/* The noun "harness": an AI coding agent CLI or app Auspex observes (Claude Code, Codex…). Kept in English in Chinese, as in AstroQore's other apps. */
+"common.harness" = "Harness";
+
+/* Button or label that opens the item it sits on. */
+"common.open" = "Open";
+
+/* The noun "project": a grouping axis, a column header (shown upper-cased), a field label. */
+"common.project" = "Project";
+
+/* Button that removes an item from a list or board (not a deletion). */
+"common.remove" = "Remove";
+
+/* The pseudo-project for work in a scratch folder, or filed before Auspex knew its project. */
+"common.scratch" = "Scratch";
+
+/* The noun "status": a column header, a property label, a picker label. */
+"common.status" = "Status";
+
+/* Trace header: small label on the context chip that opens the popover. Lower-case. distinct-from: common.context */
+"context.chip" = "context";
+
+/* Context popover caption under the composition bar. */
+"context.estimate.derived" = "Estimate, from the %lld messages Auspex indexed — Claude Code's own /context is exact.";
+
+/* Joins two sentences of the context popover caption (Chinese takes no space). */
+"context.estimate.join" = "%1$@ %2$@";
+
+/* Context popover caption, added sentence. */
+"context.estimate.overEstimated" = "Four characters to the token over-counted here; the bands were scaled to fit.";
+
+/* Context popover caption under the composition bar. */
+"context.estimate.recorded" = "Estimate, from the %lld messages Auspex indexed. The harness records the fill but does not itemise it.";
+
+/* Context popover caption, added sentence. */
+"context.estimate.sinceCompaction" = "Counted from the last compaction.";
+
+/* Context popover caption, added sentence. */
+"context.estimate.truncated" = "Older messages were not read, so the measured bands are a floor.";
+
+/* Context popover caption, added sentence. Quote context.slice.everythingElse. */
+"context.estimate.unattributed" = "Little of this session's text is indexed here, so most of the window falls into “everything else” rather than being attributed.";
+
+/* Context popover caption. */
+"context.fill.derived" = "Fill read from the transcript. Window size looked up from the model — the harness does not record it.";
+
+/* Context popover caption. distinct-from: context.help.recorded */
+"context.fill.recorded" = "Fill and window size both recorded by the harness.";
+
+/* Context popover caption when the window size is not believable. {reason} is a full sentence (context.help.notOnRecord or .overflow). */
+"context.fill.unknownSuffix" = "%@ The fill below is what the transcript recorded.";
+
+/* Context gauge tooltip line. {tokens} is a token count such as 120k. */
+"context.help.cached" = "%@ of it served from cache";
+
+/* Context gauge tooltip: where the numbers came from. */
+"context.help.derived" = "Fill read from the transcript; window size looked up from the model.";
+
+/* Context gauge tooltip: why no percentage is shown. */
+"context.help.notOnRecord" = "The model's window is not on record; the fill is derived.";
+
+/* Context gauge tooltip: why no percentage is shown. */
+"context.help.overflow" = "The harness reported a fill larger than the window it also reported.";
+
+/* Context gauge tooltip: where the numbers came from. */
+"context.help.recorded" = "Fill and window both recorded by the harness.";
+
+/* Context popover ledger key. */
+"context.ledger.cached" = "cached";
+
+/* Context popover ledger key. */
+"context.ledger.compactions" = "compactions";
+
+/* Context popover ledger value when the reported window is smaller than the fill. */
+"context.ledger.notBelievable" = "%@ · not believable";
+
+/* Context popover ledger value. */
+"context.ledger.notRecorded" = "not recorded";
+
+/* Context popover ledger value. */
+"context.ledger.notReported" = "not reported";
+
+/* Context popover ledger key. */
+"context.ledger.output" = "output, all turns";
+
+/* Context popover ledger key. */
+"context.ledger.used" = "used";
+
+/* Context popover ledger key. */
+"context.ledger.window" = "window";
+
+/* Context composition band: system prompt, tool schemas, skills, memory. */
+"context.slice.everythingElse" = "Everything else";
+
+/* Context composition band: unused window. distinct-from: board.bucket.idle distinct-from: aviary.room.free */
+"context.slice.free" = "Free";
+
+/* Context composition band. */
+"context.slice.messages" = "Messages";
+
+/* Context composition band. */
+"context.slice.toolResults" = "Tool results";
+
+/* Context gauge when the window size reported was not believable. {used} is a token count such as 850.1k. */
+"context.unknownWindow" = "%@ · window ?";
+
+/* Context popover heading over the composition bar. */
+"context.whatsInIt" = "What is in it";
+
+/* Context popover heading (upper-cased style). */
+"context.window" = "Context window";
+
+/* Tooltip on a copyable chip. {what} is one of copy.what.*; {value} is what will be copied. */
+"copy.clickToCopy" = "Click to copy %1$@ — %2$@";
+
+/* Toast after copying something. {what} is one of copy.what.*, a noun phrase. */
+"copy.copied" = "Copied %@";
+
+/* VoiceOver label of a copyable chip. {what} is one of copy.what.*. */
+"copy.copyWhat" = "Copy %@";
+
+/* Noun phrase for copy.* — the prompt a session was given. */
+"copy.what.assignment" = "the assignment";
+
+/* Noun phrase for copy.*. */
+"copy.what.branch" = "the branch";
+
+/* Noun phrase for copy.* — a text summary of a task an agent can pick up. */
+"copy.what.handoffPacket" = "the handoff packet";
+
+/* Noun phrase for copy.* — the model id a session runs on. */
+"copy.what.model" = "the model";
+
+/* Noun phrase for copy.*. */
+"copy.what.pid" = "the pid";
+
+/* Noun phrase for copy.* — the shell command that resumes a session. */
+"copy.what.resumeCommand" = "the resume command";
+
+/* Noun phrase for copy.*. */
+"copy.what.sessionID" = "the session ID";
+
+/* Noun phrase for copy.* — a task's short id such as AUS-12. */
+"copy.what.taskHandle" = "the task's handle";
+
+/* Noun phrase for copy.*. */
+"copy.what.title" = "the title";
+
+/* Noun phrase for copy.*. */
+"copy.what.workingDirectory" = "the working directory";
+
+/* Noun phrase for copy.* — a prompt asking an agent to set up a worktree. */
+"copy.what.worktreeTask" = "the worktree task";
+
+/* Flock: label over the row of finished sessions, drawn small. */
+"crew.asleep" = "%lld asleep";
+
+/* Flock: VoiceOver label of the tick corner badge. distinct-from: task.card.finished */
+"crew.badge.finished" = "finished";
+
+/* Flock: VoiceOver label of the "!" corner badge. */
+"crew.badge.waitingForYou" = "waiting for you";
+
+/* Flock: how a session finished, one word under its face. */
+"crew.end.exited" = "exited";
+
+/* Flock: how a session finished. */
+"crew.end.killed" = "killed";
+
+/* Flock: how a session finished — the process vanished without an exit record. */
+"crew.end.processGone" = "process gone";
+
+/* Flock: how a session finished — Auspex does not know why. */
+"crew.end.wentQuiet" = "went quiet";
+
+/* Flock: VoiceOver label of a finished session's small face. */
+"crew.finishedAccessibility" = "%@, finished";
+
+/* Flock: tooltip on a finished session's small face. {harness} is a harness name. */
+"crew.finishedHelp" = "%@ — finished";
+
+/* Flock: VoiceOver label of the badge counting a session's descendants. */
+"crew.sessionsBelow" = "%lld sessions below this one";
+
+/* Flock: VoiceOver label of a task's brood of small faces. */
+"crew.sessionsOnTask" = "%lld sessions on this task";
+
+/* Delivery: commits ahead of and behind the upstream, from local refs. */
+"delivery.aheadBehind" = "ahead %1$lld · behind %2$lld · local refs only";
+
+/* Delivery property label. distinct-from: perch.merge.branch */
+"delivery.branch" = "Branch";
+
+/* Delivery property label. distinct-from: catchUp.change.changed */
+"delivery.changed" = "Changed";
+
+/* Delivery footer. {time} is a relative time such as "3m ago". */
+"delivery.checked" = "checked %@ · no fetch";
+
+/* Delivery property label. */
+"delivery.checkout" = "Checkout";
+
+/* Handoff button. */
+"delivery.copyPacket" = "Copy packet";
+
+/* Tooltip on Copy packet. */
+"delivery.copyPacketHelp" = "Copy the packet. Nothing is sent.";
+
+/* Review record bucket. */
+"delivery.decisions" = "Decisions";
+
+/* Delivery property label. */
+"delivery.diffstat" = "Diffstat";
+
+/* Review record bucket. */
+"delivery.evidence" = "Verification evidence";
+
+/* Task page section title. */
+"delivery.handoff" = "Handoff";
+
+/* Handoff section note. */
+"delivery.handoffNote" = "Goal, phase, current state, team, delivery, record, and resume hints. Nothing is sent.";
+
+/* Handoff section line. */
+"delivery.handoffTitle" = "Copy a bounded context packet";
+
+/* Delivery property label. */
+"delivery.lastCommit" = "Last commit";
+
+/* Delivery panel when no checkout is known. */
+"delivery.noCheckout" = "No local checkout was recorded for any session on this task.";
+
+/* Review record bucket when empty. */
+"delivery.noEvidence" = "No verification evidence has been recorded.";
+
+/* Review record bucket when empty. */
+"delivery.noRisks" = "No risk note has been recorded; that is not proof of no risk.";
+
+/* Delivery property label over a diagnostic sentence. */
+"delivery.observation" = "Observation";
+
+/* Delivery panel tag: the facts come from reading the local repository. */
+"delivery.observedLocalGit" = "observed local Git";
+
+/* Delivery panel while loading. */
+"delivery.reading" = "Reading the recorded checkout…";
+
+/* Delivery panel button. */
+"delivery.refresh" = "Refresh";
+
+/* Tooltip on Refresh. */
+"delivery.refreshHelp" = "Read this checkout again. No fetch or network request is made.";
+
+/* Task page section title. */
+"delivery.reviewRecord" = "Review record";
+
+/* Review record bucket. */
+"delivery.risks" = "Risks";
+
+/* Task page section title: what the task's checkout looks like now. */
+"delivery.title" = "Delivery";
+
+/* Working tree state. */
+"delivery.tree.clean" = "clean";
+
+/* Working tree state. */
+"delivery.tree.dirty" = "dirty";
+
+/* Working tree state. */
+"delivery.tree.unknown" = "unknown";
+
+/* Delivery property label. */
+"delivery.upstream" = "Upstream";
+
+/* Tooltip on Copy packet while disabled. */
+"delivery.waitForCheck" = "Wait for the local delivery check to finish";
+
+/* Delivery property label. */
+"delivery.workingTree" = "Working tree";
+
+/* Flight detail fact (upper-cased). */
+"flight.agents" = "Agents";
+
+/* Flight detail section (upper-cased). */
+"flight.agentsAtMoment" = "Agents at this moment";
+
+/* Flight inspector block title over the session's first prompt. distinct-from: ledger.asked */
+"flight.asked" = "Asked";
+
+/* Flight detail heading (upper-cased). */
+"flight.atPlayhead" = "At playhead";
+
+/* Tooltip on the back button. */
+"flight.backHelp" = "Back to the board (⌘T)";
+
+/* Flight inspector: a step before the first turn. */
+"flight.beforeTurn1" = "before turn 1";
+
+/* Flight toolbar: button back to the board. */
+"flight.board" = "Board";
+
+/* Flight graph while loading. */
+"flight.buildingGraph" = "Building the execution graph…";
+
+/* Flight graph while loading. "Flight" is viewMode.trajectory. */
+"flight.buildingGraphDetail" = "Flight is folding this session's observed agent and tool events.";
+
+/* Flight inspector fact: cached tokens. distinct-from: context.ledger.cached */
+"flight.cached" = "Cached";
+
+/* Flight inspector fact. */
+"flight.callID" = "Call id";
+
+/* Flight graph camera: follow the active node. */
+"flight.camera.follow" = "Follow";
+
+/* Flight graph camera: stay where the person put it. */
+"flight.camera.manual" = "Manual";
+
+/* Flight graph camera: frame the whole graph. */
+"flight.camera.overview" = "Overview";
+
+/* Tooltip on the camera picker. Quote flight.camera.*. */
+"flight.cameraHelp" = "Overview fits the graph; Follow glides to activity; pan or zoom enters Manual";
+
+/* Tooltip on the inspector's close button. */
+"flight.closeInspector" = "Close the inspector (Esc)";
+
+/* Flight: a step that failed. */
+"flight.failed" = "failed";
+
+/* Flight detail fact (upper-cased). */
+"flight.filesTouched" = "Files touched";
+
+/* Tooltip on the filter field. */
+"flight.filterHelp" = "Show only the steps whose text matches";
+
+/* Flight search field placeholder. */
+"flight.filterSteps" = "Filter steps";
+
+/* Flight header warning when the log was cut. */
+"flight.firstEvents" = "first %lld events";
+
+/* Flight toolbar toggle label. distinct-from: flight.camera.follow */
+"flight.follow" = "Follow";
+
+/* VoiceOver label of the Follow toggle. */
+"flight.followAccessibility" = "Follow the newest step";
+
+/* Flight inspector fact. */
+"flight.generation" = "Generation";
+
+/* Flight inspector fact: input tokens. */
+"flight.in" = "In";
+
+/* Flight detail section (upper-cased): tool calls open at this moment. */
+"flight.inFlight" = "In flight";
+
+/* Flight inspector header when nothing is selected. */
+"flight.inspector" = "Inspector";
+
+/* Flight graph: keyboard hint. The letters o and f are the keys and stay as they are. */
+"flight.keyHint" = "o overview · f follow · pan/zoom = manual";
+
+/* Flight timeline lane: what went into the model. distinct-from: flight.in */
+"flight.lane.input" = "Input";
+
+/* Flight timeline lane: what the model produced. */
+"flight.lane.model" = "Model";
+
+/* Flight detail empty state title and (upper-cased) tag while following live. distinct-from: perch.live */
+"flight.live" = "Live";
+
+/* Flight detail in history mode. */
+"flight.liveAhead" = "Live is %lld events ahead";
+
+/* Flight detail empty state detail. */
+"flight.liveDetail" = "Pause or scrub the event ruler to inspect a historical moment.";
+
+/* Flight detail heading (upper-cased). distinct-from: flight.tab.moment */
+"flight.moment" = "Moment";
+
+/* Flight inspector: a step with no recorded end. */
+"flight.noEnd" = "no end recorded";
+
+/* Flight inspector raw tab when the step has no source. */
+"flight.noSource" = "Auspex recorded no source location for this event.";
+
+/* Flight detail when nothing was open. */
+"flight.noToolOpen" = "No tool was open at this event.";
+
+/* VoiceOver label of a graph node. */
+"flight.nodeA11y" = "%1$@, %2$@, %3$lld tools";
+
+/* Flight detail when nothing is open. */
+"flight.nothingInFlight" = "Nothing is in flight at this moment.";
+
+/* Flight list when the brush or filter hides everything. */
+"flight.nothingInRange" = "Nothing in this range.";
+
+/* Flight inspector raw tab placeholder. */
+"flight.nothingRead" = "Nothing has been read yet.";
+
+/* Flight inspector empty state title. */
+"flight.nothingSelected" = "Nothing selected";
+
+/* Flight inspector empty state detail. */
+"flight.nothingSelectedDetail" = "Click a row, or a bar on the timeline, to take a step apart.";
+
+/* Flight inspector: a step that finished. */
+"flight.ok" = "ok";
+
+/* Flight inspector fact: output tokens. */
+"flight.out" = "Out";
+
+/* Flight row: output tokens of a step. {tokens} is compact, e.g. 3.2k. */
+"flight.outTokens" = "%@ out";
+
+/* Flight inspector fact. */
+"flight.outcome" = "Outcome";
+
+/* Flight inspector request timing when there is no request. */
+"flight.outsideRequest" = "This step happened outside a model request.";
+
+/* VoiceOver label of the graph's play button while playing. */
+"flight.pauseGraph" = "Pause graph playback";
+
+/* Flight graph playback state. */
+"flight.paused" = "Paused";
+
+/* VoiceOver label of the graph's play button. */
+"flight.playGraph" = "Play graph history";
+
+/* Flight row tag (upper-cased) on the row under the playhead. */
+"flight.playhead" = "Playhead";
+
+/* VoiceOver label of the event scrubber. */
+"flight.playheadA11y" = "Flight event playhead";
+
+/* Flight row marker for steps before the first turn. */
+"flight.pre" = "Pre";
+
+/* Flight: presentation picker — the agent graph. */
+"flight.presentation.graph" = "Graph";
+
+/* Flight: presentation picker — the waterfall of steps. */
+"flight.presentation.trace" = "Trace";
+
+/* Flight inspector block title and tab. */
+"flight.preview" = "Preview";
+
+/* Flight inspector note. */
+"flight.previewOnly" = "This harness recorded only a preview of this step; there is no full text in the log to show.";
+
+/* Flight list while loading. distinct-from: trace.loading */
+"flight.readingLog" = "Reading the event log…";
+
+/* Flight inspector raw tab while loading. */
+"flight.readingRecord" = "Reading the record…";
+
+/* Flight detail while history loads. */
+"flight.rebuilding" = "Rebuilding this event…";
+
+/* Flight inspector fact: the file the step was read from. */
+"flight.record" = "Record";
+
+/* Flight inspector fact: which model request a step belongs to. */
+"flight.request" = "Request";
+
+/* Flight inspector block title. */
+"flight.requestTiming" = "Request timing";
+
+/* Flight: chip on a step the system wrote. */
+"flight.role.system" = "System";
+
+/* Flight: chip on a step the person wrote. */
+"flight.role.user" = "User";
+
+/* Flight timeline scale: every step the same width. */
+"flight.scale.calls" = "Calls";
+
+/* Flight timeline scale: proportional to wall time. */
+"flight.scale.duration" = "Duration";
+
+/* Flight timeline scale: one slot per stored event. */
+"flight.scale.events" = "Events";
+
+/* Flight timeline scale: every turn the same width. distinct-from: meta.turns */
+"flight.scale.turns" = "Turns";
+
+/* Tooltip on the scale picker. */
+"flight.scaleHelp" = "What the timeline's width measures";
+
+/* Flight scope picker: one session. distinct-from: taskDetail.sessions */
+"flight.scope.session" = "Session";
+
+/* Flight scope picker: every session on the task. distinct-from: catchUp.source.task */
+"flight.scope.task" = "Task";
+
+/* Tooltip on the session / task scope picker. */
+"flight.scopeHelp" = "One session's flight, or the whole task's — every session on it in one waterfall, in the order things happened";
+
+/* Flight detail hint when no agent is selected. */
+"flight.selectNodeHint" = "Click a graph node to pin its details here. Follow glides to current activity; pan or zoom enters Manual.";
+
+/* Flight placeholder detail; the title is trace.selectSession. */
+"flight.selectSessionDetail" = "A flight is one session opened out. Pick a card to see its turns.";
+
+/* Flight detail section (upper-cased). */
+"flight.selectedAgent" = "Selected agent";
+
+/* Flight list button that clears the brush and filter. */
+"flight.showWholeSession" = "Show the whole session";
+
+/* Flight header when a filter is on. */
+"flight.showing" = "showing %1$lld of %2$lld";
+
+/* Flight inspector block title. */
+"flight.source" = "Source";
+
+/* Tooltip on Follow while off. */
+"flight.startFollowing" = "Scroll to the newest step as it arrives";
+
+/* Flight inspector fact. distinct-from: catchUp.change.started */
+"flight.started" = "Started";
+
+/* Flight inspector header. */
+"flight.step" = "Step %lld";
+
+/* Tooltip on Follow while on. */
+"flight.stopFollowing" = "Stop scrolling to the newest step";
+
+/* Flight detail tab: the reconstructed event. */
+"flight.tab.moment" = "Moment";
+
+/* Flight inspector tab: the record as stored. */
+"flight.tab.raw" = "Raw";
+
+/* Flight detail tab: the selected step's inspector. */
+"flight.tab.step" = "Step";
+
+/* Flight inspector tab. */
+"flight.tab.summary" = "Summary";
+
+/* Flight inspector fact. */
+"flight.throughput" = "Throughput";
+
+/* Flight inspector block title. */
+"flight.tokens" = "Tokens";
+
+/* Flight inspector: tokens per second. {rate} is a number with one decimal. */
+"flight.tokensPerSecond" = "%@ tok/s";
+
+/* Flight inspector fact. */
+"flight.totalDuration" = "Total duration";
+
+/* Flight inspector fact: time to first token. */
+"flight.ttft" = "TTFT";
+
+/* Flight inspector fact label. distinct-from: flight.scale.turns */
+"flight.turn" = "Turn";
+
+/* Flight graph node: the agent's turn count. Lower-case. */
+"flight.turnCount" = "turn %lld";
+
+/* Tooltip on the +N chip of MCP servers. {names} is a comma-separated list. */
+"harnesses.config.alsoConfigured" = "Also configured: %@";
+
+/* Tooltip on the Auspex server chip. */
+"harnesses.config.canReach" = "This harness can reach the Auspex task board.";
+
+/* Tooltip on the Auspex server chip when not registered. Quote harnesses.mcp.setUpAgents. */
+"harnesses.config.cannotReach" = "This harness cannot reach the Auspex task board. Register it from “Set up agents…” above.";
+
+/* Tooltip on an MCP server chip. */
+"harnesses.config.global" = "Configured for every session";
+
+/* Harnesses page: what a harness's MCP config amounts to. */
+"harnesses.config.noFile" = "no config file";
+
+/* Harnesses page: Auspex's MCP server is not registered with this harness. {name} is the server's name, "auspex". */
+"harnesses.config.notRegistered" = "%@ — not registered";
+
+/* Tooltip on an MCP server chip scoped to a project. */
+"harnesses.config.scoped" = "Configured for one project directory";
+
+/* Harnesses page: the MCP config exists but did not parse. */
+"harnesses.config.unreadable" = "could not be read";
+
+/* Harnesses page: label under how many tasks this harness's sessions claimed. */
+"harnesses.count.claimed" = "claimed";
+
+/* Harnesses page: label under how many claimed tasks were closed. distinct-from: crew.badge.finished */
+"harnesses.count.finished" = "finished";
+
+/* Harnesses page: label under a count. Lower-case. distinct-from: board.bucket.idle */
+"harnesses.count.idle" = "idle";
+
+/* Harnesses page: label under a count of live sessions. Lower-case. distinct-from: menuBar.live distinct-from: flight.live */
+"harnesses.count.live" = "live";
+
+/* Harnesses page: label under a count. */
+"harnesses.count.total" = "total";
+
+/* Harnesses page: the harness is installed on this Mac. */
+"harnesses.detected" = "detected";
+
+/* Harnesses page empty state detail. */
+"harnesses.empty.detail" = "Auspex names a harness here as soon as an adapter watches a store for it.";
+
+/* Harnesses page empty state title. */
+"harnesses.empty.title" = "No harness to report on.";
+
+/* Harnesses page footnote under the rack. */
+"harnesses.footnote" = "The rack is read-only: Auspex tails each store's own files and never writes into a harness directory on its own. The one exception is the setup above — registering MCP, installing the short note or versioned skill, and hooks. It happens only when you click. Config edits stay fenced; the skill has one hashed, Auspex-owned directory and modified content is never overwritten or removed.";
+
+/* Tooltip on hooks off. */
+"harnesses.hooksHelp" = "Harness hooks push a lifecycle event the moment it happens instead of on the next file poll. They are opt-in and land in a later milestone; file tailing stays the baseline either way.";
+
+/* Harnesses page: this harness's lifecycle hooks are not installed. */
+"harnesses.hooksOff" = "hooks off";
+
+/* Harnesses page MCP card when there is no server in this process (an offscreen render). */
+"harnesses.mcp.notRunning" = "Not running in this process.";
+
+/* Harnesses page: button that opens the setup sheet. */
+"harnesses.mcp.setUpAgents" = "Set up agents…";
+
+/* Tooltip on Set up agents…. */
+"harnesses.mcp.setUpAgentsHelp" = "Register Auspex with each harness, install the short protocol note, and add the optional coordination skill";
+
+/* Harnesses page: heading of the card about Auspex's own MCP server. */
+"harnesses.mcp.title" = "MCP server";
+
+/* Harnesses page: a connected MCP client whose process id is not known. */
+"harnesses.mcp.unattributedClient" = "an unattributed client";
+
+/* Harnesses page: label beside a median duration. */
+"harnesses.median" = "median";
+
+/* Tooltip on the median duration. */
+"harnesses.medianHelp" = "Median time from claim to finish, over the tasks this harness closed";
+
+/* Harnesses page: tooltip on a harness row with no store. */
+"harnesses.noAdapter" = "No adapter watches a store for this harness.";
+
+/* Harnesses page: the harness is not installed. */
+"harnesses.notInstalled" = "not installed";
+
+/* Harnesses page: note on the ChatGPT Work row. */
+"harnesses.store.chatgptShared" = "shares ~/.codex/sessions; originator ChatGPT Work";
+
+/* Harnesses page: note on the Codex row, whose store ChatGPT Work also writes to. */
+"harnesses.store.codexShared" = "shares ~/.codex/sessions; every originator except ChatGPT Work";
+
+/* Ignore rule explanation. */
+"ignore.explain.folder" = "Hides every session working in that folder or under it.";
+
+/* Ignore rule explanation. */
+"ignore.explain.harness" = "Hides every session of one harness.";
+
+/* Ignore rule explanation. */
+"ignore.explain.project" = "Hides a whole project, however its sessions were placed.";
+
+/* Ignore rule explanation. */
+"ignore.explain.promptPrefix" = "Hides sessions whose first prompt starts with this.";
+
+/* Ignore rule explanation. */
+"ignore.explain.scratchFolder" = "Keeps sessions in that folder on the board, under their harness's scratch, instead of making the folder a project.";
+
+/* Ignore rule explanation. */
+"ignore.explain.titleContains" = "Hides sessions whose title contains this, ignoring case.";
+
+/* Ignore sheet eyebrow and its confirm button. */
+"ignore.eyebrow" = "Ignore";
+
+/* Ignore sheet picker label. */
+"ignore.matchOn" = "Match on";
+
+/* Session or project context menu. */
+"ignore.menu.folder" = "Ignore this folder…";
+
+/* Session context menu. {harness} is a harness name. */
+"ignore.menu.harness" = "Ignore every %@ session…";
+
+/* Session or project context menu. */
+"ignore.menu.project" = "Ignore project…";
+
+/* Session context menu. */
+"ignore.menu.prompt" = "Ignore prompts starting with…";
+
+/* Ignore rule field placeholder. */
+"ignore.placeholder.harness" = "A harness's name";
+
+/* Ignore rule field placeholder. */
+"ignore.placeholder.project" = "A project's name";
+
+/* Note under every ignore control. */
+"ignore.stillRecorded" = "Ignored sessions are still recorded and still searchable — they are only hidden from the board, the scene and the counts.";
+
+/* Ignore rule kind: a folder and everything under it. */
+"ignore.tag.folder" = "Folder";
+
+/* Ignore rule kind. */
+"ignore.tag.promptPrefix" = "Prompt starts with";
+
+/* Ignore rule kind that keeps a folder's sessions under their harness's scratch instead of making it a project. */
+"ignore.tag.scratchFolder" = "Scratch folder";
+
+/* Ignore rule kind. */
+"ignore.tag.titleContains" = "Title contains";
+
+/* Ignore sheet title. */
+"ignore.title" = "Hide these sessions from the board";
+
+/* Card ledger: short key before what the person asked the agent. Lower-case, one word. */
+"ledger.asked" = "asked";
+
+/* Card ledger: short key before the agent's own account of what it is doing. distinct-from: now.column.doing */
+"ledger.doing" = "doing";
+
+/* Card ledger: short key before the agent's latest reply. */
+"ledger.said" = "said";
+
+/* Settings → General: after reconciling with macOS's Login Items. */
+"loginItem.disabledExternally" = "macOS has Launch at Login turned off. Auspex left it off.";
+
+/* Settings → General: login item status. */
+"loginItem.enabled" = "Auspex will start quietly when you log in.";
+
+/* Settings → General: after reconciling with macOS's Login Items. */
+"loginItem.keptAfterUpdate" = "Auspex was updated and macOS kept Launch at Login enabled.";
+
+/* Settings → General: login item status. */
+"loginItem.notFound" = "Unavailable in this copy. Move the packaged Auspex.app to Applications and open it once.";
+
+/* Settings → General: login item status. */
+"loginItem.notRegistered" = "Off in macOS. Auspex will not turn it back on unless you click this switch.";
+
+/* Settings → General: login item status. */
+"loginItem.requiresApproval" = "Waiting for approval in System Settings → General → Login Items.";
+
+/* Settings → General: login item status. */
+"loginItem.unknown" = "macOS returned an unknown Login Items state.";
+
+/* Harnesses page MCP card. */
+"mcp.status.conflict" = "Another copy of Auspex is serving the MCP socket.";
+
+/* Harnesses page MCP card in the demo. */
+"mcp.status.demo" = "This is a demo replay, so no MCP socket was bound.";
+
+/* Harnesses page MCP card. {socket} is a path; {clients} is mcp.status.agentsAttached. */
+"mcp.status.serving" = "Serving %1$@ · %2$@";
+
+/* Harnesses page MCP card. */
+"mcp.status.stopped" = "Not serving.";
+
+/* Stand-in for {socket} when the path is unknown. */
+"mcp.status.theSocket" = "the MCP socket";
+
+/* Menu-bar panel, under the list, when it is cut short. */
+"menuBar.andMore" = "and %lld more";
+
+/* Menu-bar panel, demo mode, before the first sessions arrive. */
+"menuBar.demoStarting" = "Demo starting…";
+
+/* Menu-bar panel header and VoiceOver label of the status item: agents that reported finishing. */
+"menuBar.done" = "%lld done";
+
+/* VoiceOver label of the status item. */
+"menuBar.idle" = "%lld idle";
+
+/* Menu-bar panel heading, followed by the count of live sessions. distinct-from: flight.live */
+"menuBar.live" = "Live";
+
+/* Menu-bar panel header and VoiceOver label of the status item. */
+"menuBar.needsYou" = "%lld needs you";
+
+/* Menu-bar panel when nothing is live. */
+"menuBar.noLiveSessions" = "No live sessions";
+
+/* VoiceOver label of the status item when no session is live. */
+"menuBar.nothingRunning" = "nothing running";
+
+/* Menu-bar panel command that brings up the main window. */
+"menuBar.openAuspex" = "Open Auspex";
+
+/* Menu-bar panel command that quits Auspex. */
+"menuBar.quit" = "Quit";
+
+/* Menu-bar panel command that opens the Settings window. distinct-from: section.settings — a command, with the ellipsis macOS gives commands that open a window. */
+"menuBar.settings" = "Settings…";
+
+/* VoiceOver label of the status item. */
+"menuBar.working" = "%lld working";
+
+/* Flight header: key before the elapsed time. distinct-from: session.elapsed.elapsed */
+"meta.elapsed" = "elapsed";
+
+/* Flight header: key before a count of failed steps. distinct-from: flight.failed */
+"meta.failed" = "failed";
+
+/* Task card: key before live/total sessions. distinct-from: harnesses.count.live distinct-from: flight.live */
+"meta.live" = "live";
+
+/* Flight header: key before a count of model requests. */
+"meta.requests" = "requests";
+
+/* Flight detail: key before a session id. distinct-from: palette.kind.session distinct-from: flight.scope.session */
+"meta.session" = "session";
+
+/* Flight header: key before a count of steps. */
+"meta.steps" = "steps";
+
+/* Short key before input / output token counts. distinct-from: flight.tokens */
+"meta.tokens" = "tokens";
+
+/* Short key before a count of tool calls. */
+"meta.tools" = "tools";
+
+/* Short key before a count of turns, in a card's or a trace header's metadata row. */
+"meta.turns" = "turns";
+
+/* VoiceOver label of a notice pill. {kind} is one of notice.*. */
+"notice.agentSays" = "the agent says: %@";
+
+/* Pill: an agent said it cannot go on. Lower-case. distinct-from: catchUp.phase.blocked */
+"notice.blocked" = "blocked";
+
+/* Tooltip on a notice's dismiss button. */
+"notice.dismissHelp" = "Dismiss — the agent stops asking and the card goes quiet";
+
+/* Pill: an agent said it finished. Lower-case. distinct-from: catchUp.phase.done distinct-from: attention.done */
+"notice.done" = "done";
+
+/* Pill: an agent said it needs an answer from the person. Lower-case. */
+"notice.needsInput" = "needs input";
+
+/* Pill: an agent said it needs the person to check something. Lower-case. */
+"notice.needsReview" = "needs review";
+
+/* macOS notification title. */
+"notification.blocked" = "%@ is blocked";
+
+/* macOS notification title. */
+"notification.finished" = "%@ finished";
+
+/* macOS notification action that opens the board on the session. */
+"notification.show" = "Show";
+
+/* macOS notification title when an agent asks for input. */
+"notification.waitingOnYou" = "%@ is waiting on you";
+
+/* macOS notification title. */
+"notification.wantsReview" = "%@ wants a review";
+
+/* Now: shown in place of the lists when every list is empty. */
+"now.allClear" = "Nothing is running, and nothing is waiting on you.";
+
+/* Now and the office balloons: an agent marked its task blocked. Followed by the task's title. */
+"now.blockedTask" = "Task marked blocked";
+
+/* Now: column header (shown upper-cased) over what each working session is doing. */
+"now.column.doing" = "Doing";
+
+/* Now: column header (shown upper-cased) over the turn's elapsed time and the folded sub-agent count. */
+"now.column.turn" = "Turn / sub-agents";
+
+/* Tooltip on the dash shown in place of a context bar. */
+"now.context.unrecorded" = "This harness does not record its context window.";
+
+/* Now: pill and (upper-cased) list heading for work an agent reported done that the person has not looked at yet. */
+"now.doneUnseen" = "Done, unseen";
+
+/* Now: button that folds the Working list back. */
+"now.fewer" = "Fewer";
+
+/* Now: legend entry for sessions that are open with nothing outstanding. */
+"now.idle" = "Idle";
+
+/* Now: the fold for idle sessions while it is open. */
+"now.idleFold.hide" = "IDLE %lld · hide";
+
+/* Now: the fold for idle sessions while it is closed. "IDLE" is a heading and upper-case in English. */
+"now.idleFold.show" = "IDLE %lld · show →";
+
+/* Now: stopwatch on a stale session, e.g. "12m idle". {duration} is a compact stopwatch reading such as 12m or 1h04m. distinct-from: menuBar.idle — a duration, not a count; the word order differs in Chinese. */
+"now.idleFor" = "%@ idle";
+
+/* Now: the action on a Done, unseen row that clears it. */
+"now.markSeen" = "Mark seen";
+
+/* Now: pill, legend entry and (upper-cased) list heading for sessions Auspex infers might need the person. */
+"now.mayNeedYou" = "May need you";
+
+/* Now: button under the Working list that shows the rows folded away. */
+"now.more" = "%lld more →";
+
+/* Now: a header pill, a legend entry and (upper-cased) a list heading for sessions explicitly blocked on the person. */
+"now.needsYou" = "Needs you";
+
+/* Now: note beside the May need you heading. */
+"now.note.mayNeedYou" = "inferred — watch signals";
+
+/* Now: grey note beside the Needs you heading, after the count. Lower-case on purpose. */
+"now.note.needsYou" = "explicit signals only";
+
+/* Now: note beside the Working heading. */
+"now.note.working" = "one row per root session, sub-agents folded";
+
+/* Now: the action at the end of a row that opens the session. */
+"now.openArrow" = "Open →";
+
+/* Placeholder in Now's search field. distinct-from: board.search — Now's design spells it with an ellipsis. */
+"now.search" = "Search sessions…";
+
+/* Tooltip and VoiceOver label of the chevron that closes Now's office stage. */
+"now.stage.collapse" = "Hide the office";
+
+/* Hint chip over Now's office stage. */
+"now.stage.hint" = "Click a person to open the session · hover for what they are doing";
+
+/* Now's header: segment that hides the office stage. */
+"now.stage.listsOnly" = "Lists only";
+
+/* Now's header: segment that shows the office stage above the lists. */
+"now.stage.officeAndLists" = "Office + lists";
+
+/* Now's header line beside the title: the clock (HH:mm) and two counts of sessions. */
+"now.status" = "%1$@ · %2$lld live · %3$lld working";
+
+/* Now: the action at the end of a row whose blocked task has no session; opens the task. */
+"now.taskArrow" = "Task →";
+
+/* VoiceOver label of the view menu. {mode} is the current view's name. */
+"now.viewMenu.accessibility" = "View: %@";
+
+/* Tooltip on the view menu. Names the six views; keep the view names consistent with the viewMode.* keys. */
+"now.viewMenu.help" = "View: Now, the Ledger of cards, the Aviary, the Flock, your Perch, or one session's Flight";
+
+/* Now's header: the menu that switches between the six views. */
+"now.viewMenu.title" = "View";
+
+/* Now and the office balloons: a session stopped on a question to the person. */
+"now.waitingAnswer" = "Waiting for an answer";
+
+/* Now and the office balloons: a session stopped on a permission prompt. Followed by the tool call, e.g. Bash(gh pr merge). */
+"now.waitingPermission" = "Waiting for permission";
+
+/* Stand-in for {tool} in now.watch.longTool when the tool's name is not known. */
+"now.watch.aTool" = "a tool";
+
+/* Now: watch signal — the session's context window is nearly full. */
+"now.watch.contextPressure" = "context over %lld%% used";
+
+/* Now: watch signal — one tool call has been running a long time. {tool} is a tool name such as Bash. */
+"now.watch.longTool" = "%1$@ has run for over %2$lld min";
+
+/* Now: watch signal — a task is still claimed by a session that is gone. */
+"now.watch.orphanedClaim" = "the session that claimed it has ended";
+
+/* Now: watch signal — another live session is on the same git branch. */
+"now.watch.sharedBranch" = "shares a branch";
+
+/* Now: watch signal — another live session works in the same directory. */
+"now.watch.sharedDirectory" = "shares a working directory";
+
+/* Now: watch signal — the process is alive but its transcript has not moved. Lower-case, a fragment. */
+"now.watch.staleSession" = "alive, but nothing new";
+
+/* Now: legend entry and (upper-cased) list heading for sessions that are busy. */
+"now.working" = "Working";
+
+/* Command palette row that closes a task in review. {title} is the task's title. */
+"palette.closeTask" = "Close %@";
+
+/* Command palette: subtitle of the close row. {id} is the task's short handle. */
+"palette.closeTaskSubtitle" = "%@ · finished, waiting on you";
+
+/* Command palette command. */
+"palette.hideSubagents" = "Hide subagents";
+
+/* Command palette: tag before a close-task row. distinct-from: common.close */
+"palette.kind.close" = "close";
+
+/* Command palette: tag before a filter command. */
+"palette.kind.filter" = "filter";
+
+/* Command palette: tag before a project row. distinct-from: common.project */
+"palette.kind.project" = "project";
+
+/* Command palette: tag before a session row. distinct-from: flight.scope.session */
+"palette.kind.session" = "session";
+
+/* Command palette: small tag before a row. Lower-case, ≤ 7 characters. distinct-from: catchUp.source.task */
+"palette.kind.task" = "task";
+
+/* Command palette: tag before a view command. distinct-from: now.viewMenu.title */
+"palette.kind.view" = "view";
+
+/* Command palette when the query finds nothing. */
+"palette.nothingMatched" = "Nothing matched.";
+
+/* Command palette field placeholder. */
+"palette.placeholder" = "Go to a task, a project, a session — or do something";
+
+/* Command palette command: filter to tasks whose dependencies are closed. */
+"palette.readyOnly" = "Show only what is ready";
+
+/* Command palette: subtitle of the ready filter. */
+"palette.readyOnlySubtitle" = "Tasks whose dependencies are all closed";
+
+/* Command palette: subtitle of the show/hide subagents command. */
+"palette.subagentsSubtitle" = "List the sessions inside every task";
+
+/* Command palette command. {view} is a view name (viewMode.*). */
+"palette.switchTo" = "Switch to %@";
+
+/* Perch playback strip: events after the shown one. */
+"perch.ahead" = "%lld ahead";
+
+/* Perch board menu label when no board is selected. */
+"perch.allBoards" = "All boards";
+
+/* Rule condition value: the task is waiting for review. distinct-from: catchUp.phase.review */
+"perch.attention.review" = "Review";
+
+/* Field placeholder for a board's name. */
+"perch.boardName" = "Board name";
+
+/* Perch toolbar button and sheet title: the rules that decide what a board shows. */
+"perch.boardRules" = "Board rules";
+
+/* Perch card tag on inferred work. distinct-from: task.card.auto — capitals on the canvas. */
+"perch.card.auto" = "AUTO";
+
+/* Perch card: button that folds the sub-agents. */
+"perch.card.collapse" = "↳ collapse";
+
+/* VoiceOver label of the fold button. */
+"perch.card.collapseSubagents" = "Collapse subagents";
+
+/* VoiceOver label of the fold button. */
+"perch.card.expandSubagents" = "Expand subagents";
+
+/* VoiceOver: part of a Perch card's label. distinct-from: board.bucket.needsYou */
+"perch.card.needsYou" = "needs you";
+
+/* VoiceOver: part of a Perch card's label. */
+"perch.card.subagents" = "%lld subagents";
+
+/* Perch card footer. */
+"perch.card.tools" = "tools %lld";
+
+/* Perch card footer. */
+"perch.card.turns" = "turns %lld";
+
+/* Perch toolbar: how many cards are on the board. */
+"perch.cards" = "%lld cards";
+
+/* Board rules sheet button that asks for confirmation. */
+"perch.deleteBoard" = "Delete board";
+
+/* Board rules sheet: inline confirmation. */
+"perch.deleteConfirm" = "Delete this board?";
+
+/* Perch card: VoiceOver label of the dependency handle. */
+"perch.dependencyHandle" = "Dependency handle";
+
+/* Perch card: tooltip on the dependency handle. */
+"perch.dependencyHandleHelp" = "Drag to another task to add a dependency";
+
+/* Perch canvas: label drawn on a dependency arrow. */
+"perch.depends" = "depends";
+
+/* Perch card context menu heading over the tasks it can depend on. */
+"perch.dependsOn" = "Depends on";
+
+/* Perch empty state title. */
+"perch.empty" = "This board is empty";
+
+/* Perch empty state detail on the built-in board. */
+"perch.emptyProtected" = "A card appears for every piece of work Auspex can see.";
+
+/* Perch empty state detail on a board the person made. */
+"perch.emptyUser" = "Pin a task here, or add a rule that matches one.";
+
+/* Perch playback strip: which event of the history is shown. */
+"perch.eventPosition" = "event %1$lld / %2$lld";
+
+/* Perch canvas control (⌘0). */
+"perch.fitAll" = "Fit all";
+
+/* Perch playback strip: following the live board. */
+"perch.following" = "following";
+
+/* Perch toolbar in history mode: makes a branch of the board at this point in time. */
+"perch.fork" = "Fork board here";
+
+/* Default name of a board forked from history. */
+"perch.forkName" = "%1$@ · event %2$lld";
+
+/* Perch canvas: label on a project's frame, drawn in capitals in English. {title} is the project's name (upper-cased). */
+"perch.frameLabel" = "%1$@ · %2$lld LIVE";
+
+/* Perch playback strip: the board is showing a moment in the past. */
+"perch.history" = "History";
+
+/* History inspector: key before the board's name. distinct-from: flight.board */
+"perch.history.board" = "board";
+
+/* History inspector while the moment loads. */
+"perch.history.building" = "Building this Perch moment…";
+
+/* History inspector while the moment loads. */
+"perch.history.buildingDetail" = "The board state at the playhead will appear here. History is read-only.";
+
+/* History inspector fact (shown upper-cased). */
+"perch.history.liveSessions" = "Live sessions";
+
+/* History inspector eyebrow (shown upper-cased). */
+"perch.history.momentBoard" = "Moment · board";
+
+/* History inspector footnote. */
+"perch.history.note" = "Membership, state, tasks, and rules are historical. Card positions and camera stay current. History cannot Resume or edit dependencies.";
+
+/* History inspector: key before a card's x, y. */
+"perch.history.position" = "position";
+
+/* History inspector heading (shown upper-cased). */
+"perch.history.selected" = "Selected · current spatial memory";
+
+/* History inspector: which event is shown and how far behind the present it is. */
+"perch.history.since" = "%1$lld / %2$lld · %3$lld events behind Live";
+
+/* History inspector heading (shown upper-cased). */
+"perch.history.sinceMoment" = "Since this moment";
+
+/* History inspector fact (shown upper-cased). */
+"perch.history.toolsOpen" = "Tools open";
+
+/* Perch playback strip while history loads. */
+"perch.indexing" = "indexing…";
+
+/* Perch playback strip button. */
+"perch.jumpToLive" = "Jump to Live";
+
+/* Perch playback strip: the board follows the present. distinct-from: menuBar.live distinct-from: harnesses.count.live */
+"perch.live" = "Live";
+
+/* VoiceOver label of the playback strip. */
+"perch.liveOverview" = "Live activity overview";
+
+/* Perch toolbar: merges a forked board back. */
+"perch.merge" = "Merge to parent";
+
+/* Merge sheet confirm button. */
+"perch.merge.action" = "Merge";
+
+/* Merge sheet: key before a count of membership changes that merge cleanly. */
+"perch.merge.automaticMemberships" = "automatic memberships";
+
+/* Merge sheet: key before a count of position changes that merge cleanly. */
+"perch.merge.automaticPositions" = "automatic positions";
+
+/* Merge sheet: label (upper-cased) over the branch's side of a conflict. */
+"perch.merge.branch" = "Branch";
+
+/* Merge sheet: conflict picker's empty choice. */
+"perch.merge.choose" = "Choose…";
+
+/* Merge sheet: key before the number of conflicts. */
+"perch.merge.conflicts" = "conflicts";
+
+/* Merge sheet error. */
+"perch.merge.failed" = "The merge comparison could not be prepared.";
+
+/* Merge sheet: what a conflict is about (upper-cased). */
+"perch.merge.field.membership" = "Membership";
+
+/* Merge sheet: what a conflict is about (upper-cased). distinct-from: perch.history.position */
+"perch.merge.field.position" = "Position";
+
+/* Merge sheet: what a conflict is about (upper-cased). */
+"perch.merge.field.rules" = "Rules";
+
+/* Merge sheet: conflict choice. */
+"perch.merge.keepParent" = "Keep parent";
+
+/* Merge sheet empty state. */
+"perch.merge.noConflicts" = "No conflicts";
+
+/* Merge sheet empty state detail. */
+"perch.merge.noConflictsDetail" = "The branch can be merged without replacing later parent edits.";
+
+/* Merge sheet: label (upper-cased) over the parent's side of a conflict. */
+"perch.merge.parent" = "Parent";
+
+/* Merge sheet: picker label (hidden) for a conflict. */
+"perch.merge.resolution" = "Resolution";
+
+/* Merge sheet: conflict choice. */
+"perch.merge.takeBranch" = "Take branch";
+
+/* Merge sheet progress. */
+"perch.mergeComparing" = "Comparing the fork base, parent, and branch…";
+
+/* Merge sheet explanation. */
+"perch.mergeNote" = "Only positions, membership overrides, and the rule tree are merged. Tasks, dependencies, agents, board names, and cameras are untouched.";
+
+/* Merge sheet title. "Perch" is viewMode.perch. */
+"perch.mergeTitle" = "Merge Perch branch";
+
+/* Tooltip on the Perch minimap. */
+"perch.minimapHelp" = "The whole board. Click or drag to move the camera.";
+
+/* Board rules sheet: moves the board earlier in the list. */
+"perch.moveEarlier" = "Move earlier";
+
+/* Board rules sheet: moves the board later in the list. */
+"perch.moveLater" = "Move later";
+
+/* Perch board menu. */
+"perch.newBoard" = "New board…";
+
+/* New board sheet note. Quote perch.boardRules. */
+"perch.newBoardNote" = "This board starts manual. Add nested rules from Board rules after it is created.";
+
+/* New board sheet title. */
+"perch.newBoardTitle" = "New Perch board";
+
+/* Perch card focus line when nothing is known. */
+"perch.noActivity" = "No observed activity";
+
+/* Perch history: VoiceOver label of the play button while playing. */
+"perch.pausePlayback" = "Pause playback";
+
+/* Perch toolbar: stops the board's rules adding or removing cards. */
+"perch.pauseRules" = "Pause rules";
+
+/* Perch toolbar: pins the selected task to this board. */
+"perch.pinSelected" = "Pin selected";
+
+/* Perch empty state while the board is loading. */
+"perch.placing" = "Placing the map…";
+
+/* Perch history: VoiceOver label of the play button. */
+"perch.playHistory" = "Play history";
+
+/* VoiceOver label of the history slider. */
+"perch.playhead" = "Perch history playhead";
+
+/* VoiceOver value of the history slider. */
+"perch.playheadValue" = "Event %1$lld of %2$lld";
+
+/* Perch card context menu for inferred work. */
+"perch.promoteFirst" = "Promote this task before adding dependencies";
+
+/* Perch card context menu in history mode. */
+"perch.readOnly" = "History is read-only · Jump to Live to edit";
+
+/* Perch board menu submenu. */
+"perch.recentlyDeleted" = "Recently deleted";
+
+/* Perch board menu: restores a deleted board. */
+"perch.restore" = "Restore %@";
+
+/* Perch toolbar: turns the board's rules back on. */
+"perch.resumeRules" = "Resume rules";
+
+/* Board rules sheet button. */
+"perch.rules.add" = "Add rules";
+
+/* Rule node kind. */
+"perch.rules.all" = "All (AND)";
+
+/* Rule node kind. */
+"perch.rules.any" = "Any (OR)";
+
+/* Board rules sheet button. */
+"perch.rules.apply" = "Apply rules";
+
+/* Rule condition field: whether a session is asking for the person. */
+"perch.rules.attention" = "Attention";
+
+/* Rule editor: adds a condition; also the name of a single-condition rule node. */
+"perch.rules.condition" = "Condition";
+
+/* Rule editor: an empty AND group. */
+"perch.rules.emptyAll" = "All with no conditions matches everything.";
+
+/* Rule editor: an empty OR / NOT group. */
+"perch.rules.emptyGroup" = "This group matches nothing.";
+
+/* Picker label (hidden) for what a condition tests. */
+"perch.rules.field" = "Field";
+
+/* Picker label (hidden) for a rule node. */
+"perch.rules.kind" = "Rule kind";
+
+/* Rule node kind. */
+"perch.rules.not" = "Not";
+
+/* Board rules sheet: note under the title. AND / OR / NOT stay in capitals. */
+"perch.rules.note" = "Nested AND / OR / NOT, then per-task include or exclude overrides.";
+
+/* Field placeholder: the project key a condition matches. */
+"perch.rules.projectKey" = "Project key";
+
+/* VoiceOver label of a rule's remove button. */
+"perch.rules.remove" = "Remove rule";
+
+/* Board rules sheet: section title for the rule tree. */
+"perch.rules.title" = "Automatic membership";
+
+/* Perch canvas control. */
+"perch.zoomIn" = "Zoom in";
+
+/* Perch canvas control. */
+"perch.zoomOut" = "Zoom out";
+
+/* Placeholder page for a section not built yet. {milestone} is a milestone name such as M2. */
+"placeholder.arrivesIn" = "Arrives in %@.";
+
+/* Placeholder page explanation. */
+"placeholder.harnesses" = "Which harnesses are installed, where their stores are, and how far each tailer has read.";
+
+/* Placeholder page explanation. */
+"placeholder.live" = "The live board.";
+
+/* Placeholder page explanation. */
+"placeholder.projects" = "Sessions grouped by git root and worktree, so three agents in three worktrees of one repository read as one project.";
+
+/* Placeholder page explanation. */
+"placeholder.tasks" = "The shared task board, exposed over MCP so an agent can see what its siblings are working on.";
+
+/* Import sheet destination. */
+"projects.aNewProject" = "A new project";
+
+/* Project card button. */
+"projects.addFolder" = "Add folder…";
+
+/* A project's task pill when nothing is open. */
+"projects.allDone" = "all done";
+
+/* Tooltip on a project's task pill. */
+"projects.allTasksDone" = "Every task in this project is done";
+
+/* Projects page section rule. */
+"projects.automatic" = "Automatic";
+
+/* Projects page section note. */
+"projects.automaticDetail" = "Worked out from where sessions are running. Nothing is stored.";
+
+/* Projects page when nothing is automatic. */
+"projects.automaticEmpty" = "Every project on the board is one of yours.";
+
+/* VoiceOver label of a sidebar attention badge. distinct-from: projects.fold.finished distinct-from: notification.finished */
+"projects.badge.finished" = "%lld finished";
+
+/* VoiceOver label of a sidebar attention badge. */
+"projects.badge.needYou" = "%lld need you";
+
+/* Open panel message. */
+"projects.chooseFolder" = "Choose a folder for this project";
+
+/* New project sheet button. */
+"projects.chooseFolderButton" = "Choose folder…";
+
+/* Open panel confirm button. */
+"projects.claim" = "Claim";
+
+/* Project card warning. */
+"projects.claimsNothing" = "Claims nothing yet, so no session is placed in it.";
+
+/* Tooltip on the colour menu. */
+"projects.colourHelp" = "The project's colour on the board";
+
+/* Tooltip on a project's delete button. */
+"projects.deleteHelp" = "Delete the project. Its sessions go back to where git puts them.";
+
+/* Projects page eyebrow. distinct-from: section.projects */
+"projects.eyebrow" = "Projects";
+
+/* Import sheet field placeholder. */
+"projects.filterByPath" = "Filter by path";
+
+/* Sidebar fold. distinct-from: notification.finished */
+"projects.fold.finished" = "%lld finished";
+
+/* Sidebar fold tooltip, first half. */
+"projects.fold.listEvery" = "List every running session here";
+
+/* Sidebar fold tooltip. */
+"projects.fold.listFirst" = "List only the first %lld again";
+
+/* Sidebar fold. */
+"projects.fold.more" = "+%lld more";
+
+/* Sidebar fold: sessions cut from the list and finished ones elsewhere. */
+"projects.fold.moreAndFinished" = "+%1$lld more · %2$lld finished";
+
+/* Joins the two halves of the sidebar fold tooltip. */
+"projects.fold.separator" = "%1$@. %2$@";
+
+/* Sidebar fold under a long project. */
+"projects.fold.showFewer" = "Show fewer";
+
+/* Sidebar: tooltip on a task's chevron. */
+"projects.foldSessions" = "Fold these sessions away";
+
+/* New project sheet label. */
+"projects.folders" = "Folders";
+
+/* A harness's throwaway directories grouped as one pseudo-project, e.g. "Codex · scratch". */
+"projects.harnessScratch" = "%@ · scratch";
+
+/* Projects page headline. */
+"projects.headline.autoOnly" = "%lld found on the board, none of them yours yet.";
+
+/* Projects page headline. */
+"projects.headline.mixed" = "%1$lld yours, %2$lld more found on the board.";
+
+/* Projects page headline. */
+"projects.headline.none" = "No projects yet.";
+
+/* Sidebar: tooltip on a checkout's chevron. */
+"projects.hideCheckoutTasks" = "Hide this checkout's tasks";
+
+/* Sidebar: tooltip on an ignored session row. */
+"projects.ignoredRow" = "%1$@ — %2$@ · ignored by a rule";
+
+/* Projects page button. */
+"projects.import" = "Import from harness…";
+
+/* Import sheet eyebrow. */
+"projects.importEyebrow" = "Import";
+
+/* Import sheet note. */
+"projects.importNote" = "Read from each harness's own registry, and only the paths: Claude Code's projects folder and the project keys of ~/.claude.json, Codex's config.toml tables and its thread catalog. Nothing is written back.";
+
+/* Import sheet title. */
+"projects.importTitle" = "Projects your harnesses already know about";
+
+/* Project card note. {harnesses} is a comma-separated list of harness names. */
+"projects.importedFrom" = "Imported from %@.";
+
+/* Import sheet: the path already belongs to project {name}. */
+"projects.inProject" = "in %@";
+
+/* Import sheet picker label. */
+"projects.into" = "Into";
+
+/* Projects page introduction. */
+"projects.intro" = "Auspex groups sessions by git root on its own, so three worktrees of one repository are already one project. A project of your own claims folders instead: every session working under a claimed folder is placed in it, whatever git says, and the deepest claim wins when two overlap.";
+
+/* Sidebar: tooltip on a task's chevron. */
+"projects.listSessions" = "List the sessions on this task";
+
+/* Automatic project row button. */
+"projects.makeAProject" = "Make a project";
+
+/* Session context menu. */
+"projects.makeFolderProject" = "Make this folder an Auspex project";
+
+/* Sidebar project context menu. */
+"projects.makeProject" = "Make this an Auspex project";
+
+/* Project name field placeholder. */
+"projects.name" = "Name";
+
+/* Projects page button. */
+"projects.new" = "New project…";
+
+/* New project sheet title. */
+"projects.newSubtitle" = "One project, any number of folders";
+
+/* New project sheet eyebrow; also the default name of an unnamed project. distinct-from: projects.new */
+"projects.newTitle" = "New project";
+
+/* Subtitle of a pseudo-project. */
+"projects.noDirectory" = "No working directory";
+
+/* Project card: sessions on the board when none is live. */
+"projects.onBoard" = "%lld on the board";
+
+/* New project sheet field placeholder. */
+"projects.pastePath" = "…or paste a path";
+
+/* Tooltip on a project's pin button. distinct-from: projects.pinToTop */
+"projects.pinHelp" = "Pin it to the top";
+
+/* Sidebar project context menu. */
+"projects.pinToTop" = "Pin to the top";
+
+/* Projects page error. {error} is a system error description. */
+"projects.saveError" = "Your change is in effect but could not be saved: %@";
+
+/* Subtitle of the Scratch pseudo-project. */
+"projects.scratchSubtitle" = "Work filed before Auspex could tell where it belonged";
+
+/* Import sheet count. */
+"projects.selected" = "%lld selected";
+
+/* Tooltip on the focused project in the sidebar. distinct-from: board.focus.allProjectsHelp */
+"projects.showAll" = "Show every project on the board again";
+
+/* Sidebar: tooltip on a checkout's chevron. */
+"projects.showCheckoutTasks" = "Show this checkout's tasks";
+
+/* Tooltip on a project in the sidebar. */
+"projects.showOnly" = "Show only %@ on the board";
+
+/* Sidebar note when there are no projects yet. */
+"projects.sidebarEmpty" = "Projects appear here as sessions report where they are working.";
+
+/* Tooltip on a project's task pill. */
+"projects.tasksHelp" = "%1$lld of %2$lld tasks in this project are open";
+
+/* Sidebar: tooltip on a project's task pill. {description} is projects.tasksOpen. */
+"projects.tasksOnBoard" = "%1$@ on the task board · %2$lld filed in all";
+
+/* Tooltip on a folder's remove button. */
+"projects.unclaimFolder" = "Stop claiming this folder";
+
+/* Sidebar: tooltip on the Ungrouped header. */
+"projects.ungroupedHelp" = "These sessions reported no working directory, and no ancestor did either.";
+
+/* Sidebar project context menu. */
+"projects.unpin" = "Unpin";
+
+/* Tooltip on a project's pin button. distinct-from: projects.unpin */
+"projects.unpinHelp" = "Stop pinning it to the top";
+
+/* Projects page section rule. */
+"projects.yours" = "Yours";
+
+/* Projects page section note. */
+"projects.yoursDetail" = "Claim folders; the board follows.";
+
+/* Projects page when the person has no projects. */
+"projects.yoursEmpty" = "Nothing yet. Make one from a folder, or import the projects Claude Code and Codex already know about.";
+
+/* Transcript search results header. */
+"search.scope" = "Full text · every harness";
+
+/* Sidebar section: the rack of harnesses Auspex can observe. */
+"section.harnesses" = "Harnesses";
+
+/* Sidebar section: the person's projects. */
+"section.projects" = "Projects";
+
+/* Sidebar section: every session in the window as a wall. */
+"section.sessions" = "Sessions";
+
+/* Sidebar section and window: Auspex's settings. */
+"section.settings" = "Settings";
+
+/* Sidebar section: the task board. */
+"section.tasks" = "Tasks";
+
+/* Card metadata: the session is a harness's automatic code review. Lower-case. */
+"session.autoReview" = "auto review";
+
+/* Session context menu. */
+"session.copyResumeCommand" = "Copy resume command";
+
+/* Session context menu. */
+"session.copySessionID" = "Copy session ID";
+
+/* Session context menu. */
+"session.copyWorkingDirectory" = "Copy working directory";
+
+/* Notice when a signal was refused. {reason} is an explanation in English from Auspex's process checks. */
+"session.didNotSignal" = "Auspex did not signal this session: %@";
+
+/* Notice when sending a signal failed. {reason} is an explanation in English. */
+"session.didNotSignalPid" = "Auspex did not signal pid %1$lld: %2$@";
+
+/* Card: label before how long the current turn has run. */
+"session.elapsed.elapsed" = "elapsed";
+
+/* Card: label before how long an idle session has been quiet. */
+"session.elapsed.quiet" = "quiet";
+
+/* Card: label before an ended session's duration. Lower-case. */
+"session.elapsed.ranFor" = "ran for";
+
+/* Card: label before how long a session has waited on a permission prompt. */
+"session.elapsed.waiting" = "waiting";
+
+/* Tooltip on Interrupt for a Claude Code session. */
+"session.interruptHelp.claude" = "Sends SIGINT to pid %lld. Claude Code takes that as a graceful quit — it saves the session and exits, rather than stopping only the current turn.";
+
+/* Tooltip on Interrupt for other harnesses. */
+"session.interruptHelp.other" = "Sends SIGINT to pid %lld — the signal a terminal sends on ⌃C. What the harness does with it is the harness's decision.";
+
+/* Destructive button in the kill confirmation dialog. distinct-from: session.signal.kill — no ellipsis, this is the question itself. */
+"session.kill.confirm" = "Kill";
+
+/* Body of the force-kill dialog. */
+"session.kill.forceMessage" = "%1$@ (pid %2$lld) is still running %3$llds after SIGTERM. SIGKILL cannot be caught, so it will not get to finish writing anything.";
+
+/* Second dialog, offered when SIGTERM did not stop the process. */
+"session.kill.forcePrompt" = "Force %@ to stop?";
+
+/* Kill confirmation dialog body. */
+"session.kill.message" = "Auspex will send SIGTERM to %1$@ (pid %2$lld). Anything the agent was part-way through will not be finished.";
+
+/* Kill confirmation dialog body for a resumable session. {process} is an executable name. */
+"session.kill.messageResumable" = "Auspex will send SIGTERM to %1$@ (pid %2$lld). The transcript is already on disk, so the session can be resumed afterwards; anything the agent was part-way through will not be finished.";
+
+/* Kill confirmation dialog title. {title} is the session's title, cut to one line. */
+"session.kill.prompt" = "Kill %@?";
+
+/* Stand-in for {title} in session.kill.prompt when the session has no title. */
+"session.kill.thisSession" = "this session";
+
+/* Tooltip on the Kill… item. SIGTERM is a signal name, never translated. */
+"session.killHelp" = "Asks first, then sends SIGTERM to pid %lld";
+
+/* Tooltip on disabled directory items in the session context menu. */
+"session.noDirectory" = "This session's store records no directory";
+
+/* Why the signal items are disabled right after launch. */
+"session.notWatchingProcesses" = "Auspex is not watching processes yet.";
+
+/* Session context menu. {app} is a terminal or editor app's name. */
+"session.openIn" = "Open in %@";
+
+/* Tooltip on Open in {terminal}. */
+"session.openInTerminalHelp" = "A window on that directory. Nothing is run in it.";
+
+/* Card: label before when the agent last replied, e.g. "replied · 12 min ago". */
+"session.replied" = "replied";
+
+/* Tooltip on Resume in {app}. */
+"session.resumeHelp" = "Copies the command and opens %@ running it";
+
+/* Session context menu. {app} is a terminal app's name such as Terminal or iTerm. */
+"session.resumeIn" = "Resume in %@";
+
+/* Session context menu. */
+"session.revealDirectory" = "Reveal working directory in Finder";
+
+/* Session context menu. */
+"session.revealTranscript" = "Reveal transcript in Finder";
+
+/* Menu item and dialog button that sends SIGKILL. */
+"session.signal.forceKill" = "Force kill";
+
+/* Session context menu item that sends SIGINT. */
+"session.signal.interrupt" = "Interrupt (SIGINT)";
+
+/* Session context menu item that asks, then sends SIGTERM. */
+"session.signal.kill" = "Kill…";
+
+/* Tooltip on the parent chip of a sub-agent's card. */
+"session.spawnedByHelp" = "Open the session that spawned this one";
+
+/* Tooltip on a card's token counts. */
+"session.tokensHelp" = "Tokens in / out";
+
+/* VoiceOver label of the dot on a card whose agent replied. */
+"session.unreadReply" = "Replied, and you have not looked at it";
+
+/* Settings → Appearance swatch. */
+"settings.appearance.accent" = "Accent";
+
+/* Settings → Appearance swatch. */
+"settings.appearance.background" = "Background";
+
+/* Appearance option. */
+"settings.appearance.dark" = "Dark";
+
+/* Appearance option explanation. */
+"settings.appearance.darkDetail" = "Always dark, whatever your Mac is set to.";
+
+/* Settings → Appearance: label before Light or Dark. */
+"settings.appearance.drawingIn" = "Drawing in";
+
+/* Settings → Appearance swatch. */
+"settings.appearance.foreground" = "Foreground";
+
+/* Settings → Appearance introduction. */
+"settings.appearance.intro" = "Every colour Auspex draws with has a value for each appearance, so the board is the same board either way: the same four surface steps, the same three text steps, one colour per state and one per harness. Only their brightness moves.";
+
+/* Appearance option. */
+"settings.appearance.light" = "Light";
+
+/* Appearance option explanation. */
+"settings.appearance.lightDetail" = "Always light, whatever your Mac is set to.";
+
+/* Settings → Appearance footnote. */
+"settings.appearance.noRelaunch" = "Nothing has to be relaunched. The window, the menu bar panel, the office and the crew all repaint where they stand.";
+
+/* Appearance option explanation. */
+"settings.appearance.systemDetail" = "Follows the appearance your Mac is set to, including a scheduled switch.";
+
+/* Settings → Appearance toggle explanation. */
+"settings.appearance.translucentNote" = "The system's sidebar material under the column, which picks up what is behind the window and drains when the window is not in front. Switch it off for a flat ground that matches the board exactly.";
+
+/* Settings → Appearance toggle. */
+"settings.appearance.translucentSidebar" = "Translucent sidebar";
+
+/* Settings → Appearance label and picker label. */
+"settings.appearance.windowAppearance" = "Window appearance";
+
+/* Crew liveliness option. */
+"settings.crew.calm" = "Calm";
+
+/* Crew liveliness explanation. */
+"settings.crew.calmDetail" = "Something happens to an avatar every fourteen to fifty seconds. For a board you work beside rather than watch.";
+
+/* Settings → Crew introduction. */
+"settings.crew.intro" = "Every avatar lives in a loop that belongs to what its session is doing — thinking, working, waiting on you — and now and then it breaks out of it: a glance away, a shrug, a yawn. This is how often that happens. It does not change how fast anything moves, and it does not switch anything off.";
+
+/* Settings → Crew picker label. */
+"settings.crew.liveliness" = "Liveliness";
+
+/* Crew liveliness option. */
+"settings.crew.lively" = "Lively";
+
+/* Crew liveliness explanation. */
+"settings.crew.livelyDetail" = "Something happens to an avatar every five to eighteen seconds. The wall is never quite still.";
+
+/* Crew liveliness option. distinct-from: task.importance.normal */
+"settings.crew.normal" = "Normal";
+
+/* Crew liveliness explanation. */
+"settings.crew.normalDetail" = "Something happens to an avatar every eight to thirty seconds.";
+
+/* Settings → Crew note. */
+"settings.crew.waitingNote" = "A session that is waiting on you keeps its own rhythm whatever this says: it is the one state that will not resolve itself, so it goes on asking.";
+
+/* Settings → General introduction. */
+"settings.general.intro" = "The board can only catch work that happens while Auspex is running. macOS can start it at login with the menu bar and observation pipeline ready, without opening the board in front of whatever you were doing.";
+
+/* Settings → General toggle. */
+"settings.general.launchAtLogin" = "Launch at login";
+
+/* Settings → General error. {error} is a system error description. */
+"settings.general.loginError" = "macOS did not change the login item: %@";
+
+/* Settings → General footnote. */
+"settings.general.note" = "This registers the signed main application through ServiceManagement. It does not install a helper, add a LaunchAgent, change the empty entitlements, or grant Auspex any new access to the disk.";
+
+/* Settings → General button that opens System Settings. */
+"settings.general.openLoginItems" = "Open Login Items";
+
+/* Settings → Ignore section rule. */
+"settings.ignore.addRule" = "Add a rule";
+
+/* Settings → Ignore harness picker's empty choice. */
+"settings.ignore.chooseHarness" = "Choose a harness";
+
+/* Tooltip on a rule's delete button. */
+"settings.ignore.deleteRule" = "Delete this rule";
+
+/* Settings → Ignore empty state title. */
+"settings.ignore.noRules" = "No rules yet.";
+
+/* Settings → Ignore empty state detail. */
+"settings.ignore.noRulesDetail" = "Right-click a card, or a project in the sidebar, to hide the folder it is in.";
+
+/* Settings → Ignore headline. */
+"settings.ignore.nothingHidden" = "Nothing is being hidden.";
+
+/* Settings → Ignore section note. */
+"settings.ignore.rulesDetail" = "Switch one off to try the board without it.";
+
+/* Settings → Ignore section rule. distinct-from: perch.merge.field.rules */
+"settings.ignore.rulesTitle" = "Rules";
+
+/* Settings → General: the line under the Language picker. */
+"settings.language.caption" = "Auspex follows the macOS language unless you pick one here. Harness, company and product names stay as their owners spell them. The change takes effect at once.";
 
 /* Settings → General → Language: follow the macOS language. The other two options are each language's own name and are not translated. distinct-from: flight.role.system */
 "settings.language.system" = "System";
 
 /* Settings → General: heading of the interface-language picker. */
 "settings.language.title" = "Language";
+
+/* Settings pane name. distinct-from: flight.agents */
+"settings.pane.agents" = "Agents";
+
+/* Settings pane subtitle. */
+"settings.pane.agentsSubtitle" = "What Auspex has written into each harness, and how to take it back.";
+
+/* Settings pane name. */
+"settings.pane.appearance" = "Appearance";
+
+/* Settings pane subtitle. */
+"settings.pane.appearanceSubtitle" = "Light and dark, and one accent in both.";
+
+/* Settings pane name: which character figure each harness wears in the office. */
+"settings.pane.characters" = "Characters";
+
+/* Settings pane subtitle. */
+"settings.pane.charactersSubtitle" = "Which character each harness wears, and where packages come from.";
+
+/* Settings pane name: the wall of faces (the Flock view). Keep consistent with viewMode.crew. */
+"settings.pane.crew" = "Crew";
+
+/* Settings pane subtitle. */
+"settings.pane.crewSubtitle" = "How often the wall of faces moves.";
+
+/* Settings pane name. */
+"settings.pane.general" = "General";
+
+/* Settings pane subtitle. */
+"settings.pane.generalSubtitle" = "Whether the observer is already there when you log in, and the language it speaks.";
+
+/* Settings pane subtitle. */
+"settings.pane.ignoreSubtitle" = "Everything the board is not showing, and why.";
+
+/* Settings pane name: the office map. */
+"settings.pane.scene" = "Scene";
+
+/* Settings pane subtitle. */
+"settings.pane.sceneSubtitle" = "How much map there is: the office, and the places people walk to.";
+
+/* Settings pane name. */
+"settings.pane.updates" = "Updates";
+
+/* Settings pane subtitle. */
+"settings.pane.updatesSubtitle" = "Which channel this copy follows, and when it last asked.";
+
+/* Settings: picker label (hidden) of the narrow-window pane menu. */
+"settings.paneMenu" = "Settings pane";
+
+/* Settings error. {error} is a system error description. */
+"settings.saveError" = "The setting is in effect, but could not be saved: %@";
+
+/* Settings → Scene footnote. */
+"settings.scene.bothOff" = "With both switched off, everybody stays at their desk and the map is the office on its own.";
+
+/* Settings → Scene toggle. */
+"settings.scene.breakAreas" = "Break areas";
+
+/* Settings → Scene toggle explanation. */
+"settings.scene.breakAreasDetail" = "Idle sessions rest, stale ones doze, anything that finished while you were elsewhere waits by the door holding a note, and anything that is over walks out through it.";
+
+/* Settings → Scene picker label. */
+"settings.scene.breakStyle" = "Break area style";
+
+/* Break area style and the name of that area in the office. */
+"settings.scene.garden" = "Garden";
+
+/* Settings → Scene label over the window picker. */
+"settings.scene.howFarBack" = "How far back";
+
+/* Settings → Scene introduction. */
+"settings.scene.intro" = "A project's sessions share a suite: desks for the ones that are working, a meeting room for each family that is delegating, and one break room where anything resting, asleep, finished, or waiting to be read goes — and where the door out is.";
+
+/* Break area style and the name of that area in the office. */
+"settings.scene.lounge" = "Lounge";
+
+/* Settings → Scene toggle. */
+"settings.scene.meetingRooms" = "Meeting rooms";
+
+/* Settings → Scene toggle explanation. */
+"settings.scene.meetingRoomsDetail" = "A session that is delegating walks to a long table in its own project's suite and sits at the head of it, with the subagents it spawned down the sides. A project with three or more sessions has a meeting room whether or not anybody is in it.";
+
+/* Break area style option. */
+"settings.scene.perProject" = "Per project (random)";
+
+/* Settings → Scene note. */
+"settings.scene.perProjectNote" = "Per project picks one of the three from the project's own path and keeps it, so a suite is recognisable before its nameplate is.";
+
+/* Break area style and the name of that area in the office. */
+"settings.scene.teaRoom" = "Tea room";
+
+/* Settings → Scene footnote. */
+"settings.scene.waitingNote" = "A session waiting on you never leaves its desk, whichever of these is on. It is the one thing here allowed to interrupt, and it has to do it from somewhere you are already looking.";
+
+/* Settings → Scene note. */
+"settings.scene.windowNote" = "Auspex keeps a week of sessions and draws the recent ones. Anything alive, working, or waiting on you is drawn whatever its age — the window only decides how much history stands behind it. Nothing is deleted: widen it and the rest come back.";
+
+/* Settings → Updates toggle. */
+"settings.updates.automatic" = "Check for updates automatically";
+
+/* Settings → Updates toggle explanation. */
+"settings.updates.automaticNote" = "Once a day, in the background. Nothing is downloaded or installed without a person saying yes to it first — this is a board people leave open for days, and an app that replaced itself under a running session would take the session's window with it.";
+
+/* Settings → Updates label and picker label. */
+"settings.updates.channel" = "Update channel";
+
+/* Update channel. */
+"settings.updates.channel.dev" = "Dev";
+
+/* Update channel explanation. */
+"settings.updates.channel.devDetail" = "Preview builds cut between releases, plus every stable release. They are built from a tag but they have not been lived with.";
+
+/* Update channel. */
+"settings.updates.channel.stable" = "Stable";
+
+/* Update channel explanation. */
+"settings.updates.channel.stableDetail" = "Released versions only. This is the one to be on.";
+
+/* Settings → Updates button. */
+"settings.updates.checkNow" = "Check now";
+
+/* Settings → Updates in demo mode. */
+"settings.updates.demo" = "This is a demo launch. It reads nothing and writes nothing, including Sparkle's own check timestamp, so the updater is not running.";
+
+/* Settings → Updates eyebrow. distinct-from: settings.pane.updates */
+"settings.updates.eyebrow" = "Updates";
+
+/* Settings → Updates footnote. */
+"settings.updates.feed" = "Feed: %@";
+
+/* Settings → Updates footnote. */
+"settings.updates.footnote" = "The channel is kept in ~/.auspex/settings.json. Whether to check on a schedule is Sparkle's own setting and lives in the app's defaults, because a second copy of it here would be a second answer to the same question.";
+
+/* Settings → Updates introduction. */
+"settings.updates.intro" = "Auspex reads one update feed and installs nothing without asking. Every build in it is signed with the project's EdDSA key and checked against the key compiled into this copy before a single byte is unpacked, so an update that was tampered with in transit is refused rather than run.";
+
+/* Settings → Updates. {time} is a relative time such as "2 hours ago". */
+"settings.updates.lastChecked" = "Last checked %@.";
+
+/* Settings → Updates: when no check has run. */
+"settings.updates.noCheckYet" = "No check yet. The first one runs shortly after launch.";
+
+/* Settings → Updates when there is no updater. */
+"settings.updates.notPackaged" = "This copy was not packaged as an app bundle, so it has no update feed and no key to verify one with. Build it with Scripts/build_app.sh and run Auspex.app.";
+
+/* Settings → Updates error. */
+"settings.updates.saveError" = "The channel is in effect, but could not be saved: %@";
+
+/* Settings → Updates title. */
+"settings.updates.title" = "Two streams, one signed feed";
+
+/* Settings → Updates: this copy's version, e.g. "Auspex 0.2.0 (31)". */
+"settings.updates.version" = "Auspex %@";
+
+/* Setup sheet confirm button with how many items are ticked. */
+"setup.install" = "Install %lld";
+
+/* Setup sheet introduction. */
+"setup.intro" = "Auspex already watches every agent session on this Mac by reading the files they write. These add explicit coordination: an MCP server for task truth and human attention, a versioned skill that teaches Supervisor/Worker/Reviewer handoffs, and hooks for states such as permission waits that transcripts do not record.";
+
+/* Setup sheet login toggle. */
+"setup.keepWatching" = "Keep Auspex watching after restart";
+
+/* Setup sheet login note. */
+"setup.loginNote" = "Uses macOS Login Items to start the signed main app quietly. No helper, LaunchAgent, or additional disk access is installed.";
+
+/* Setup and Agents: tag on a harness that is not installed. */
+"setup.notDetected" = "not detected";
+
+/* Setup sheet when there is no socket. */
+"setup.notServing" = "The MCP socket is not being served, so nothing will answer yet.";
+
+/* Setup row title. */
+"setup.piece.coordinationSkill" = "Install the Auspex coordination skill";
+
+/* Setup row explanation. Supervisor/Worker/Reviewer are role names and stay in English. */
+"setup.piece.coordinationSkillDetail" = "Adds a versioned, on-demand Supervisor/Worker/Reviewer playbook. It guides MCP use; the server remains the source of truth.";
+
+/* Setup row title. */
+"setup.piece.hooks" = "Install harness hooks";
+
+/* Setup row explanation. */
+"setup.piece.hooksDetail" = "Lets the harness tell Auspex the moment it needs permission, starts, delegates or stops — the states no transcript records.";
+
+/* Setup row title. */
+"setup.piece.mcpServer" = "Register the Auspex MCP server";
+
+/* Setup row explanation. `auspex`, notify, plans and tasks are identifiers. */
+"setup.piece.mcpServerDetail" = "Adds one `auspex` server entry, so this harness's agents can call notify, plans and tasks.";
+
+/* Setup row title. */
+"setup.piece.protocolNote" = "Install the task-protocol note";
+
+/* Setup row explanation. */
+"setup.piece.protocolNoteDetail" = "Appends the always-loaded invariants and routes coordinated work to the richer auspex-coordination skill.";
+
+/* Setup sheet note. */
+"setup.safety" = "Every box is off until you tick it. Each one names the file it writes to. Config edits stay inside an Auspex-owned fence; the skill gets one exclusive directory with an ownership marker and content hash. Existing or modified directories are left alone. Updates are backed up to ~/.auspex/backups/ and can be undone.";
+
+/* Setup sheet button. */
+"setup.selectAll" = "Select all";
+
+/* Setup sheet: where the MCP socket is. {path} is a socket path. */
+"setup.serving" = "Serving %@";
+
+/* Setup error. auspex-coordination is a skill's directory name. */
+"setup.skillMissing" = "The packaged auspex-coordination resource is missing.";
+
+/* Setup sheet button. */
+"setup.skip" = "Skip for now";
+
+/* Setup row state. {what} is what the existing entry points at. */
+"setup.state.elsewhere" = "Already there, pointing at %@. Ticking this replaces it.";
+
+/* Setup row state. distinct-from: agents.installed */
+"setup.state.installed" = "Installed.";
+
+/* Setup row state. {what} names the installed thing, in English. */
+"setup.state.ownedInstalled" = "An owned %@ is installed. Ticking this updates it after backup.";
+
+/* Setup result: a harness whose install failed with no reason given. distinct-from: flight.failed */
+"setup.summary.failed" = "failed";
+
+/* Setup result. */
+"setup.summary.nothing" = "Nothing to change — everything ticked was already in place.";
+
+/* Setup sheet title. */
+"setup.title" = "Let your agents talk back";
+
+/* Sidebar footer in demo mode. */
+"sidebar.demoNote" = "Fabricated sessions, in-memory store. No harness store is read.";
+
+/* Sidebar footer in demo mode. */
+"sidebar.demoReplay" = "Demo replay";
+
+/* Sidebar: beside Tasks, how many tasks wait for review. */
+"sidebar.review" = "%lld review";
+
+/* Session state pill: waiting on sub-agents. The count rides in a badge beside it. */
+"state.delegating" = "Delegating";
+
+/* Session state phrase with the number of child sessions. */
+"state.delegatingCount" = "Delegating (%lld)";
+
+/* Tooltip on an Ended state pill. */
+"state.explain.ended" = "Ended — the process is gone. Nothing more will happen in that terminal; only Resume brings the work back.";
+
+/* Tooltip on an Idle state pill. */
+"state.explain.idle" = "Idle — nothing outstanding, and the process is still there. You can keep talking in that terminal.";
+
+/* Tooltip on a Needs you state pill. */
+"state.explain.needsYou" = "Needs you — it will make no further progress until somebody answers.";
+
+/* Tooltip on the Stale tag. */
+"state.explain.stale" = "Stale — it says it is working and has said nothing for a while. A long build looks exactly like this, and so does a wedged one.";
+
+/* Card activity line when a session writes a file whose name is not known. */
+"state.file" = "file";
+
+/* Tag beside a working session that has gone quiet. */
+"state.stale" = "Stale";
+
+/* VoiceOver label of the Stale tag. */
+"state.staleAccessibility" = "Stale: no events recently";
+
+/* Session state pill and phrase. */
+"state.thinking" = "Thinking";
+
+/* Session state pill: running a tool call. */
+"state.tool" = "Tool";
+
+/* Session state phrase; {name} is the tool, e.g. Bash. */
+"state.toolNamed" = "Tool: %@";
+
+/* Session state pill: writing a file. */
+"state.writing" = "Writing";
+
+/* Session state phrase. */
+"state.writingFile" = "Writing file";
+
+/* Tooltip on the waits-on chip. {tasks} lists "AUS-3 Title · AUS-7 Title". */
+"task.blockedBy" = "Blocked by %@";
+
+/* VoiceOver label of a task card. */
+"task.card.accessibility" = "%1$@, %2$@, %3$lld sessions";
+
+/* Task card tag on a piece of work Auspex inferred from a delegation. */
+"task.card.auto" = "auto";
+
+/* Tooltip on the auto tag. */
+"task.card.autoHelp" = "Auspex worked this out from a delegation. Nobody filed a task for it.";
+
+/* Task card: beside "unclaimed", saying the task was filed but nobody picked it up. */
+"task.card.filed" = "filed";
+
+/* Task card: label before how long ago the task finished and went to review. */
+"task.card.finished" = "finished";
+
+/* Tooltip on a task card's chevron while its session list is open. */
+"task.card.foldSessions" = "Fold the sessions back into the card";
+
+/* Task card: tag on the session that leads the task. */
+"task.card.lead" = "lead";
+
+/* Tooltip on a task card's chevron while its session list is folded. */
+"task.card.openSessions" = "%lld sessions are working on this — open the list";
+
+/* Tooltip on a session row inside a task card. */
+"task.card.openTranscript" = "Open this session's transcript";
+
+/* Tooltip on a task card's token counts. */
+"task.card.tokensHelp" = "Tokens in / out, across every session on this task";
+
+/* Active filter chip: only tasks claimed by a session that ended. */
+"task.filter.claimOrphaned" = "claim orphaned";
+
+/* Filter chip and task card word: a session holds the task. Lower-case. distinct-from: task.link.claimed distinct-from: harnesses.count.claimed */
+"task.filter.claimed" = "claimed";
+
+/* Filter menu item. */
+"task.filter.clearFilters" = "Clear filters";
+
+/* Tooltip on Clear in the filter bar. */
+"task.filter.clearHelp" = "Show every task again";
+
+/* Tooltip on the filter menu. */
+"task.filter.help" = "Narrow the wall: importance, label, harness, what is ready, what is claimed";
+
+/* Filter menu section. */
+"task.filter.importance" = "Importance";
+
+/* Filter menu section. */
+"task.filter.label" = "Label";
+
+/* Filter menu section holding the yes/no filters. */
+"task.filter.only" = "Only";
+
+/* Filter menu item. */
+"task.filter.orphanedClaims" = "Orphaned claims";
+
+/* Active filter chip: only tasks whose dependencies are closed. */
+"task.filter.readyOnly" = "ready only";
+
+/* Filter menu item. */
+"task.filter.readyToStart" = "Ready to start";
+
+/* Tooltip on an active filter chip. */
+"task.filter.stopFiltering" = "Stop filtering by %@";
+
+/* Filter chip, and a task card's word for a task nobody has claimed. Lower-case. */
+"task.filter.unclaimed" = "unclaimed";
+
+/* Task importance, lower-case. */
+"task.importance.important" = "important";
+
+/* Task importance, lower-case. */
+"task.importance.low" = "low";
+
+/* Task importance, lower-case. */
+"task.importance.normal" = "normal";
+
+/* Task importance, lower-case. */
+"task.importance.urgent" = "urgent";
+
+/* Tooltip on a task's importance mark. */
+"task.importanceHelp" = "Importance: %@";
+
+/* Task kind tag, lower-case. */
+"task.kind.chore" = "chore";
+
+/* Task kind tag, lower-case. */
+"task.kind.feature" = "feature";
+
+/* Task kind tag, lower-case. */
+"task.kind.fix" = "fix";
+
+/* Task kind tag, lower-case. */
+"task.kind.research" = "research";
+
+/* How a session is attached to a task: it claimed it over MCP. distinct-from: harnesses.count.claimed */
+"task.link.claimed" = "claimed";
+
+/* How a session is attached to a task: it is a sub-agent of the session that claimed it. */
+"task.link.inherited" = "under claimer";
+
+/* How a session is attached to a task: a person linked it. */
+"task.link.linked" = "linked";
+
+/* Task history: a person closed the task. */
+"task.log.closed" = "closed";
+
+/* Task history: entry kind. Lower-case tag. */
+"task.log.created" = "created";
+
+/* Task history: an agent reported finishing. distinct-from: crew.badge.finished */
+"task.log.finished" = "finished";
+
+/* Task history: the task moved project. distinct-from: common.project */
+"task.log.project" = "project";
+
+/* Task history: a claim was released. */
+"task.log.released" = "released";
+
+/* Task history: the task's status changed. distinct-from: board.empty.status distinct-from: common.status */
+"task.log.status" = "status";
+
+/* Task history entry kind. */
+"task.log.takeoverExpired" = "takeover expired";
+
+/* Task history entry kind. */
+"task.log.takeoverRequested" = "takeover requested";
+
+/* Task history entry kind. */
+"task.log.unlinked" = "unlinked";
+
+/* Task card context menu. distinct-from: app.menu.openTask */
+"task.menu.open" = "Open task…";
+
+/* Task card context menu: turns inferred work into a real task. */
+"task.menu.promote" = "Promote to task…";
+
+/* Task card context menu: drops a claim held by a session that ended. */
+"task.menu.releaseClaim" = "Release claim";
+
+/* Task card context menu: reopens a done task. */
+"task.menu.reopen" = "Reopen";
+
+/* Kind of note an agent recorded on a task, lower-case. */
+"task.note.decision" = "decision";
+
+/* Kind of note an agent recorded on a task, lower-case. */
+"task.note.evidence" = "evidence";
+
+/* Kind of note an agent recorded on a task, lower-case. */
+"task.note.note" = "note";
+
+/* Kind of note an agent recorded on a task, lower-case. distinct-from: catchUp.line.risk */
+"task.note.risk" = "risk";
+
+/* Tooltip on the claim orphaned chip. */
+"task.orphanHelp" = "The session holding this claim ended without finishing. Release it so somebody else can take it.";
+
+/* Task status. distinct-from: catchUp.phase.blocked */
+"task.status.blocked" = "Blocked";
+
+/* Task status. distinct-from: now.column.doing — a status, not a column header about activity. distinct-from: ledger.doing */
+"task.status.doing" = "Doing";
+
+/* Task status. distinct-from: common.done — a status, not a button. distinct-from: catchUp.phase.done distinct-from: attention.done */
+"task.status.done" = "Done";
+
+/* Task status: an agent finished and the person has to judge it. distinct-from: catchUp.reason.review distinct-from: catchUp.phase.review */
+"task.status.review" = "Review";
+
+/* Task status: a column on the task board and a status word. */
+"task.status.todo" = "To do";
+
+/* Task chip: the tasks this one depends on. {ids} is a comma-separated list of short ids. */
+"task.waitsOn" = "waits on %@";
+
+/* Task page: label over the agent's own completion report. */
+"taskDetail.agentReport" = "Agent report · self-reported";
+
+/* Task page takeover action. */
+"taskDetail.approve" = "Approve";
+
+/* Task page: tooltip on the back crumb. "ledger" is viewMode.board. */
+"taskDetail.backHelp" = "Back to the ledger — or press Escape";
+
+/* Task page property label. */
+"taskDetail.claimedBy" = "Claimed by";
+
+/* Task page action: puts this review at the back of the queue. */
+"taskDetail.defer" = "Defer";
+
+/* Task page property label, followed by a relative time. distinct-from: task.card.filed */
+"taskDetail.filed" = "Filed";
+
+/* Task page note under the dependency list. */
+"taskDetail.graphStub" = "The whole dependency graph is a page of its own, and is not built yet.";
+
+/* Task page section title over its log. distinct-from: perch.history */
+"taskDetail.history" = "History";
+
+/* Task page property label. */
+"taskDetail.kind" = "Kind";
+
+/* Task page property label. */
+"taskDetail.labels" = "Labels";
+
+/* Task page: tooltip on the next-review chevron. */
+"taskDetail.nextReview" = "Next review";
+
+/* Task page section title for inferred work. */
+"taskDetail.notFiled" = "Not filed";
+
+/* Task page history when empty. */
+"taskDetail.nothingWritten" = "Nothing has been written down yet.";
+
+/* Tooltip on a dependency. {id} is a task's short handle. */
+"taskDetail.openDependency" = "Open %@";
+
+/* Task page action. distinct-from: app.menu.openFlight */
+"taskDetail.openFlight" = "Open flight";
+
+/* Tooltip on a session row on the task page. */
+"taskDetail.openSessionFlight" = "Open this session's flight";
+
+/* Task page: tooltip on the previous-review chevron. */
+"taskDetail.previousReview" = "Previous review";
+
+/* Task page action. distinct-from: task.menu.promote */
+"taskDetail.promote" = "Promote to task";
+
+/* Task page explanation for inferred work. */
+"taskDetail.promoteNote" = "Auspex worked this out from a delegation: %@ started it and nobody registered a task. Promoting it writes one, claimed by the session already doing the work — the card keeps its place and gains a history, a milestone, and something to close.";
+
+/* Task page dependencies when none is open. */
+"taskDetail.ready" = "Everything it waits on is closed. Ready to start.";
+
+/* Task page note field placeholder for a reference (a URL, a commit…). */
+"taskDetail.ref" = "ref";
+
+/* Task page takeover action. */
+"taskDetail.reject" = "Reject";
+
+/* Task page: the task version the takeover was asked against. */
+"taskDetail.requestedAt" = "requested at v%lld";
+
+/* Task page property label. */
+"taskDetail.version" = "Version";
+
+/* Task page section title over dependencies. */
+"taskDetail.waitsOn" = "Waits on";
+
+/* Task page note field placeholder. */
+"taskDetail.writeItDown" = "Write it down";
+
+/* Tooltip on a milestone's archive button. */
+"tasks.archiveMilestoneHelp" = "File this milestone away. Its tasks stay in this project.";
+
+/* Tag on an archived milestone. */
+"tasks.archived" = "archived";
+
+/* Tooltip on the archived toggle. */
+"tasks.archivedHelp" = "Show milestones that have been filed away";
+
+/* Tooltip on the auto tag on the Tasks page. distinct-from: task.card.autoHelp */
+"tasks.autoHelp" = "Auspex worked this out from a delegation. Nobody filed a task.";
+
+/* Tasks page hint. Quote tasks.linkToTask. */
+"tasks.dragHint" = "Drag one onto a task, or use “Link to task…” on its card.";
+
+/* Tooltip on the + button of a lane. */
+"tasks.fileInProject" = "File a task in this project";
+
+/* Task context menu: moves the task to another milestone or project. */
+"tasks.fileUnder" = "File under…";
+
+/* Tooltip on the + button of a milestone. */
+"tasks.fileUnderMilestone" = "File a task under this milestone";
+
+/* Tasks page toggle. */
+"tasks.hideArchived" = "Hide archived";
+
+/* Tasks page: open count beside a project lane. */
+"tasks.laneOpen" = "%lld open";
+
+/* Tooltip on the disabled Link to task… item. */
+"tasks.linkDisabledHelp" = "Nothing is filed yet. File a task on the Tasks page.";
+
+/* Session context menu. */
+"tasks.linkToTask" = "Link to task…";
+
+/* Tasks page button that registers a milestone. */
+"tasks.milestone" = "Milestone";
+
+/* Empty milestone detail. */
+"tasks.milestoneEmpty" = "This milestone has no tasks under it.";
+
+/* Tooltip on Milestone. */
+"tasks.milestoneHelp" = "Register a milestone inside this project";
+
+/* Milestone field placeholder. */
+"tasks.milestonePlaceholder" = "What is the whole piece of work?";
+
+/* Task context menu. {status} is a task status. */
+"tasks.moveTo" = "Move to %@";
+
+/* New task field placeholder. */
+"tasks.newTaskPlaceholder" = "What has to be done";
+
+/* Heading over tasks with no milestone. */
+"tasks.notInMilestone" = "Not in a milestone";
+
+/* Tasks page: heading over sessions not linked to any task. */
+"tasks.notOnBoard" = "Not on the board";
+
+/* Tasks page empty state title. */
+"tasks.nothingFiled" = "Nothing is filed yet.";
+
+/* Tasks page empty state detail. */
+"tasks.nothingFiledDetail" = "An agent with Auspex's MCP server installed files a task in whatever project it is working in — install it from the Harnesses page.";
+
+/* Empty lane detail. */
+"tasks.nothingFiledInProject" = "Nothing is filed in this project yet.";
+
+/* Empty milestone or project lane title. */
+"tasks.nothingToDo" = "Nothing to do";
+
+/* Tooltip on claim orphaned on the Tasks page. */
+"tasks.orphanHelp" = "The session holding this claim ended without finishing.";
+
+/* Milestone field button. */
+"tasks.register" = "Register";
+
+/* Tasks page button: opens the first task waiting for review. */
+"tasks.reviewNext" = "Review next · %lld";
+
+/* Tooltip on Review next. */
+"tasks.reviewNextHelp" = "Open the first task waiting for review";
+
+/* Tasks page toggle. */
+"tasks.showArchived" = "Show archived";
+
+/* Tasks page summary: tasks.summary.projects · projects.tasksOpen. */
+"tasks.summary" = "%1$@ · %2$@";
+
+/* Notice after deciding a takeover that is no longer valid. */
+"tasks.takeoverExpired" = "That takeover request expired because the task or its holder changed. Review the current claim before deciding again.";
+
+/* Task context menu: detaches a session from the task. */
+"tasks.unlink" = "Unlink %@";
+
+/* Compact relative time. */
+"time.daysAgo" = "%lldd ago";
+
+/* Compact relative time. */
+"time.hoursAgo" = "%lldh ago";
+
+/* Relative time under ten seconds. */
+"time.justNow" = "just now";
+
+/* Compact relative time. */
+"time.minutesAgo" = "%lldm ago";
+
+/* Relative time when something never happened. */
+"time.never" = "never";
+
+/* Compact relative time. */
+"time.secondsAgo" = "%llds ago";
+
+/* Trace header: small label over what the session was asked to do. */
+"trace.askedFor" = "asked for";
+
+/* Assignment context menu. */
+"trace.copyAssignment" = "Copy the assignment";
+
+/* Tooltip on the copy button beside the assignment. */
+"trace.copyAssignmentHelp" = "Copy everything this session was asked for";
+
+/* Working directory chip menu. */
+"trace.copyPath" = "Copy path";
+
+/* Tooltip on the working directory chip; the path follows on the next line. */
+"trace.cwdHelp" = "Click to copy the working directory · ⌥-click to reveal it in Finder";
+
+/* Tooltip on the earlier rows button. */
+"trace.earlierRowsHelp" = "Draw the whole of this session's trace, however long it is";
+
+/* Trace header: label before the session's elapsed time. distinct-from: session.elapsed.elapsed distinct-from: meta.elapsed */
+"trace.elapsed" = "elapsed";
+
+/* Trace row title: model prose. */
+"trace.event.assistant" = "Assistant";
+
+/* Trace row title. */
+"trace.event.contextCompacted" = "Context compacted";
+
+/* Trace row title. */
+"trace.event.identityUpdated" = "Identity updated";
+
+/* Trace row title: a note Auspex wrote into the trace. distinct-from: task.note.note */
+"trace.event.note" = "Note";
+
+/* Trace row title. */
+"trace.event.permissionAllowed" = "Permission allowed";
+
+/* Trace row title. */
+"trace.event.permissionDenied" = "Permission denied";
+
+/* Trace row title. */
+"trace.event.permissionRequested" = "Permission requested";
+
+/* Trace row title: a usage quota reading. */
+"trace.event.planLimit" = "Plan limit";
+
+/* Trace row title. */
+"trace.event.processAlive" = "Process alive";
+
+/* Trace row title. distinct-from: trace.tab.prompts */
+"trace.event.prompt" = "Prompt";
+
+/* Trace row title. */
+"trace.event.sessionEnded" = "Session ended";
+
+/* Trace row title. */
+"trace.event.sessionStarted" = "Session started";
+
+/* Trace row title. */
+"trace.event.subagentFinished" = "Subagent finished";
+
+/* Trace row title. */
+"trace.event.subagentStarted" = "Subagent started";
+
+/* Trace row title with the sub-agent's type. */
+"trace.event.subagentType" = "Subagent · %@";
+
+/* Trace row title. */
+"trace.event.toolFailed" = "Tool failed";
+
+/* Trace row title. */
+"trace.event.toolFinished" = "Tool finished";
+
+/* Trace row title. distinct-from: context.slice.toolResults */
+"trace.event.toolResult" = "Tool result";
+
+/* Trace row title with the tool call's id. */
+"trace.event.toolResultFor" = "Tool result · %@";
+
+/* Trace row title. */
+"trace.event.turnEnded" = "Turn ended";
+
+/* Trace row title. */
+"trace.event.turnStarted" = "Turn started";
+
+/* Expanded trace row: label over the raw JSON. */
+"trace.eventPayload" = "Event payload";
+
+/* Tooltip on the family chip of a session. */
+"trace.family.childHelp" = "What this session delegated to";
+
+/* Tooltip on Expand all in board. */
+"trace.family.expandHelp" = "Divide the board along the delegation tree, so this family reads as one";
+
+/* Family popover button. */
+"trace.family.expandInBoard" = "Expand all in board";
+
+/* Family popover heading. {noun} is trace.family.moreSessions. */
+"trace.family.onTask" = "%@ on this task";
+
+/* Tooltip on the family chip of a task. */
+"trace.family.taskHelp" = "Everybody else working on this task";
+
+/* Tooltip on the project chip in the trace header. */
+"trace.focusProject" = "Show only this project on the board";
+
+/* Trace toggle: keeps the view scrolled to the newest row. distinct-from: perch.following */
+"trace.following" = "Following";
+
+/* Expanded trace row: label over the full text. */
+"trace.fullText" = "Full text";
+
+/* Button that folds a long assignment. */
+"trace.less" = "less";
+
+/* Perch inspector heading (shown upper-cased): the session's family. */
+"trace.lineage" = "Lineage";
+
+/* Trace empty state while loading. */
+"trace.loading" = "Loading the event log…";
+
+/* Perch inspector: other boards the card is on. {boards} is a list joined with " · ". */
+"trace.mirroredOn" = "Mirrored on %@";
+
+/* Button that unfolds a long assignment. */
+"trace.more" = "more";
+
+/* Tooltip on the trace header's … menu. */
+"trace.moreHelp" = "Copy the resume command, open the folder, interrupt or kill this session";
+
+/* Trace empty state when the filter hides everything. */
+"trace.nothingInView" = "Nothing in this view.";
+
+/* Perch inspector heading (shown upper-cased). "Perch" is viewMode.perch. */
+"trace.onThePerch" = "On the Perch";
+
+/* Trace header button. distinct-from: app.menu.openFlight */
+"trace.openTrajectory" = "Open trajectory";
+
+/* Tooltip on Open trajectory. */
+"trace.openTrajectoryHelp" = "Open this session's whole history as a waterfall (⌘T)";
+
+/* Perch inspector note. "Flight" is viewMode.trajectory. */
+"trace.perchNote" = "Double-click the card to open its Flight. Resume stays an explicit action above.";
+
+/* Perch inspector: which board the card is on. */
+"trace.pinnedIn" = "Pinned in %@";
+
+/* Trace header button that resumes the session in a terminal. */
+"trace.resume" = "Resume";
+
+/* Tooltip on Resume. {app} is a terminal app's name. */
+"trace.resumeHelp" = "Opens %@ on this session's own CLI command";
+
+/* Working directory chip menu. */
+"trace.revealInFinder" = "Reveal in Finder";
+
+/* Trace placeholder when nothing is selected. */
+"trace.selectSession" = "Select a session";
+
+/* Trace placeholder detail. */
+"trace.selectSessionDetail" = "Its prompts, tool calls, and turns appear here as they happen.";
+
+/* Trace empty state button that clears the filter. */
+"trace.showEverything" = "Show everything";
+
+/* Trace filter tab tooltip. {tab} is one of trace.tab.*, lower-cased in English. */
+"trace.showTab" = "Show %@";
+
+/* Tooltip on the parent chip. {evidence} is how Auspex knows, in English. */
+"trace.spawnedBy" = "Spawned by %1$@ — %2$@";
+
+/* Tooltip on the Following toggle while off. */
+"trace.startFollowing" = "Scroll to the newest row as it arrives";
+
+/* Tooltip on the Following toggle while on. */
+"trace.stopFollowing" = "Stop scrolling to the newest row";
+
+/* Perch inspector: sub-agent count. distinct-from: perch.card.subagents */
+"trace.subagents" = "%lld subagents";
+
+/* Trace filter tab. distinct-from: common.all */
+"trace.tab.all" = "All";
+
+/* Trace filter tab. */
+"trace.tab.prompts" = "Prompts";
+
+/* Trace filter tab. */
+"trace.tab.text" = "Text";
+
+/* Trace filter tab. distinct-from: meta.tools */
+"trace.tab.tools" = "Tools";
+
+/* Trace filter tab. */
+"trace.tab.usage" = "Usage";
+
+/* Trace divider between turns. distinct-from: flight.turnCount */
+"trace.turn" = "Turn %lld";
+
+/* Name of the view that shows every task as a card on a wall. One of six bird-and-augury themed view names (Now, Ledger, Aviary, Flock, Perch, Flight). */
+"viewMode.board" = "Ledger";
+
+/* Name of the view that shows a wall of animated faces, one per piece of work. */
+"viewMode.crew" = "Flock";
+
+/* Name of the default view (and of its sidebar row): the office stage over the lists of what needs the person now. distinct-from: catchUp.line.now */
+"viewMode.now" = "Now";
+
+/* Name of the view that is a user-arranged canvas of tasks, where a card stays where the person put it. */
+"viewMode.perch" = "Perch";
+
+/* Name of the view that draws the office with an animated person per agent session. Also shown upper-cased as the tag on Now's stage. */
+"viewMode.scene" = "Aviary";
+
+/* Name of the view that opens one session out into a graph of every step it took. */
+"viewMode.trajectory" = "Flight";
