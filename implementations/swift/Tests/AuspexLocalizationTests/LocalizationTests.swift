@@ -149,7 +149,10 @@ struct LocalizationTests {
         }
         withOverride("zh-Hans") {
             #expect(L10n.Common.cancel == "取消")
-            #expect(L10n.ViewMode.now == "此刻")
+            // View names are product names and stay English; a worded key
+            // is what proves the override reached the Chinese table.
+            #expect(L10n.ViewMode.now == "Now")
+            #expect(L10n.Now.needsYou == "需要你")
             #expect(L10n.Now.status(time: "17:31", live: 14, working: 7) == "17:31 · 14 个活跃 · 7 个工作中")
         }
     }

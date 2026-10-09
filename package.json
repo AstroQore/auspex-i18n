@@ -1,6 +1,6 @@
 {
   "name": "@astroqore/auspex-i18n",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Auspex's localization catalog: one source of user-facing strings for the macOS app.",
   "license": "MIT",
