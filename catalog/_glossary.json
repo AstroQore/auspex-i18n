@@ -95,32 +95,32 @@
     },
     {
       "term": "Now",
-      "kind": "view",
+      "kind": "product",
       "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     },
     {
       "term": "Ledger",
-      "kind": "view",
+      "kind": "product",
       "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     },
     {
       "term": "Aviary",
-      "kind": "view",
+      "kind": "product",
       "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     },
     {
       "term": "Flock",
-      "kind": "view",
+      "kind": "product",
       "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     },
     {
       "term": "Perch",
-      "kind": "view",
+      "kind": "product",
       "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     },
     {
       "term": "Flight",
-      "kind": "view",
+      "kind": "product",
       "note": "One of Auspex's six views. A product name the user chose; kept in English in every language."
     }
   ]
